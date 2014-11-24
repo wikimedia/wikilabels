@@ -114,71 +114,41 @@
 	function load() {
 		var $ui = $( '<div>' )
 				.addClass( 'qc-ui' ),
-			$bar = $( '<div>' )
-				.addClass( 'qc-progress' ),
-			$damaging = $( '<div>' )
-				.attr( 'title', mw.msg( 'qc-damaging-title' ) )
-				.append(
-					$( '<div>' )
-						.text( mw.msg( 'qc-damaging' ) ),
-					$( '<div>' )
-						.addClass( 'mw-ui-button-group')
-						.append(
-							$( '<div>' )
-								.addClass( 'mw-ui-button')
-								.attr( 'title', mw.msg( 'qc-damaging-yes-title' ) )
-								.text( mw.msg( 'qc-damaging-yes' ) )
-								.click( notImplemented ),
-							$( '<div>' )
-								.addClass( 'mw-ui-button')
-								.attr( 'title', mw.msg( 'qc-damaging-no-title' ) )
-								.text( mw.msg( 'qc-damaging-no' ) )
-								.click( notImplemented ),
-							$( '<div>' )
-								.addClass( 'mw-ui-button')
-								.attr( 'title', mw.msg( 'qc-damaging-unsure-title' ) )
-								.text( mw.msg( 'qc-damaging-unsure' ) )
-								.click( notImplemented )
-						)
-				),
-			$goodFaith = $( '<div>' )
-				.attr( 'title', mw.msg( 'qc-good-faith-title' ) )
-				.append(
-					$( '<div>' )
-						.text( mw.msg( 'qc-good-faith' ) ),
-					$( '<div>' )
-						.addClass( 'mw-ui-button-group')
-						.append(
-							$( '<div>' )
-								.addClass( 'mw-ui-button')
-								.attr( 'title', mw.msg( 'qc-good-faith-yes-title' ) )
-								.text( mw.msg( 'qc-good-faith-yes' ) )
-								.click( notImplemented ),
-							$( '<div>' )
-								.addClass( 'mw-ui-button')
-								.attr( 'title', mw.msg( 'qc-good-faith-no-title' ) )
-								.text( mw.msg( 'qc-good-faith-no' ) )
-								.click( notImplemented ),
-							$( '<div>' )
-								.addClass( 'mw-ui-button')
-								.attr( 'title', mw.msg( 'qc-good-faith-unsure-title' ) )
-								.text( mw.msg( 'qc-good-faith-unsure' ) )
-								.click( notImplemented )
-						)
-				),
 			$submit = $( '<input class="mw-ui-button mw-ui-constructive" type="submit">' )
 				.val( mw.msg( 'qc-submit' ) )
-				.click( notImplemented );
+				.click( notImplemented ),
+			featureNames = [ 'damaging', 'good-faith' ],
+			groupOptions = [ 'yes', 'no', 'unsure' ],
+			name, i, j, $feature, $group;
 		$ui.append(
 			$( '<div>' )
 				.text( mw.msg( 'qc-work-set' ) ),
-			$bar,
-			$damaging,
-			'<div style="clear:both"></div>',
-			$goodFaith,
-			'<div style="clear:both"></div>',
-			$submit
+			$( '<div>' )
+				.addClass( 'qc-progress' )
 		);
+		for ( i = 0; i < featureNames.length; i++ ) {
+			name = featureNames[i];
+			$group = $( '<div>' )
+				.addClass( 'mw-ui-button-group');
+			for ( j = 0; j < groupOptions.length; j++ ) {
+				$group.append(
+					$( '<div>' )
+						.addClass( 'mw-ui-button')
+						.attr( 'title', mw.msg( 'qc-' + name + '-' + groupOptions[j] + '-title' ) )
+						.text( mw.msg( 'qc-' + name + '-' + groupOptions[j] ) )
+						.click( notImplemented )
+				);
+			}
+			$feature = $( '<div>' )
+				.attr( 'title', mw.msg( 'qc-' + name + '-title' ) )
+				.append(
+					$( '<div>' )
+						.text( mw.msg( 'qc-' + name ) ),
+					$group
+				);
+			$ui.append( $feature, '<div style="clear:both"></div>' );
+		}
+		$ui.append( $submit );
 		$( 'table.diff' ).first().before( $ui );
 		addRandomExamples();
 	}

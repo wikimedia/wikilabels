@@ -184,14 +184,6 @@
 	}
 
 	if ( mw.util.getParamValue( 'diff' ) !== null ) {
-		mw.util.addCSS( [
-			'.qc-progress { border: 1px solid #333; padding: 0.5em; padding-bottom: 0; }',
-			'.qc-progress div { border: 1px solid #333; }',
-			'.qc-progress div { height: 2em; min-width: 0.5em; background: #999; display: inline-block; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }',
-			'.qc-progress div.qc-damaging { background: #C00; }',
-			'.qc-progress div.qc-damaging.qc-good-faith { background: -webkit-linear-gradient(#27AA65, #C00); background: -o-linear-gradient(#27AA65, #C00); background: -moz-linear-gradient(#27AA65, #C00); background: linear-gradient(#27AA65, #C00); }',
-			'.qc-progress div.qc-good-faith { background: #27AA65; }'
-		].join( ' ' ) );
 		mw.messages.set( i18n[ mw.config.get( 'wgUserLanguage' ) ] || i18n.en );
 		$( load );
 	}

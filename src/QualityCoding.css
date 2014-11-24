@@ -21,3 +21,14 @@
 .qc-progress div.qc-damaging {
 	background: #C00;
 }
+
+.qc-progress div.qc-damaging.qc-good-faith {
+	background: -webkit-linear-gradient(#27AA65, #C00);
+	background: -o-linear-gradient(#27AA65, #C00);
+	background: -moz-linear-gradient(#27AA65, #C00);
+	background: linear-gradient(#27AA65, #C00);
+}
+
+.qc-progress div.qc-good-faith {
+	background: #27AA65;
+}

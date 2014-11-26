@@ -54,9 +54,19 @@
 			'qc-not-implemented': 'Este recurso ainda não está implementado.'
 		}
 	};
-	function notImplemented() {
-		alert( 'Not implemented yet!' );
+
+	function notImplemented( e ) {
+		var $target = $( e.target );
+		$target
+			.parent()
+				.find( 'div' )
+					.removeClass( 'qc-selected' )
+					.end()
+				.end()
+			.addClass( 'qc-selected' );
+		alert( 'The value is ' + $target.data( 'qc-value' ) );
 	}
+
 	// FIXME: Remove this by something real
 	function getRandomSet( size, done ) {
 		var i, rev, list = [];
@@ -115,35 +125,80 @@
 		var $ui = $( '<div>' )
 				.addClass( 'qc-ui' ),
 			$submit = $( '<input class="mw-ui-button mw-ui-constructive" type="submit">' )
-				.val( mw.msg( 'qc-submit' ) )
-				.click( notImplemented ),
-			featureNames = [ 'damaging', 'good-faith' ],
-			groupOptions = [ 'yes', 'no', 'unsure' ],
-			name, i, j, $feature, $group;
+				.val( mw.msg( 'qc-submit' ) ),
+			fields = [
+				{
+					id: 'damaging',
+					label: mw.msg( 'qc-damaging' ),
+					help: mw.msg( 'qc-damaging-title' ),
+					options: [
+						{
+							label: mw.msg( 'qc-damaging-yes' ),
+							tooltip: mw.msg( 'qc-damaging-yes-title' ),
+							value: 'yes'
+						},
+						{
+							label: mw.msg( 'qc-damaging-unsure' ),
+							tooltip: mw.msg( 'qc-damaging-unsure-title' ),
+							value: 'unsure'
+						},
+						{
+							label: mw.msg( 'qc-damaging-no' ),
+							tooltip: mw.msg( 'qc-damaging-no-title' ),
+							value: 'no'
+						}
+					]
+				},
+				{
+					id: 'good-faith',
+					label: mw.msg( 'qc-good-faith' ),
+					help: mw.msg( 'qc-good-faith-title' ),
+					options: [
+						{
+							label: mw.msg( 'qc-good-faith-yes' ),
+							tooltip: mw.msg( 'qc-good-faith-yes-title' ),
+							value: 'yes'
+						},
+						{
+							label: mw.msg( 'qc-good-faith-unsure' ),
+							tooltip: mw.msg( 'qc-good-faith-unsure-title' ),
+							value: 'unsure'
+						},
+						{
+							label: mw.msg( 'qc-good-faith-no' ),
+							tooltip: mw.msg( 'qc-good-faith-no-title' ),
+							value: 'no'
+						}
+					]
+				}
+			],
+			field, i, j, id, $feature, $group;
 		$ui.append(
 			$( '<div>' )
 				.text( mw.msg( 'qc-work-set' ) ),
 			$( '<div>' )
 				.addClass( 'qc-progress' )
 		);
-		for ( i = 0; i < featureNames.length; i++ ) {
-			name = featureNames[i];
+		for ( i = 0; i < fields.length; i++ ) {
+			field = fields[i];
+			id = field.id;
 			$group = $( '<div>' )
 				.addClass( 'mw-ui-button-group');
-			for ( j = 0; j < groupOptions.length; j++ ) {
+			for ( j = 0; j < field.options.length; j++ ) {
 				$group.append(
 					$( '<div>' )
 						.addClass( 'mw-ui-button')
-						.attr( 'title', mw.msg( 'qc-' + name + '-' + groupOptions[j] + '-title' ) )
-						.text( mw.msg( 'qc-' + name + '-' + groupOptions[j] ) )
+						.attr( 'title', field.options[j].tooltip )
+						.text( field.options[j].label )
+						.data( 'qc-value', field.options[j].value )
 						.click( notImplemented )
 				);
 			}
 			$feature = $( '<div>' )
-				.attr( 'title', mw.msg( 'qc-' + name + '-title' ) )
+				.attr( 'title', field.help )
 				.append(
 					$( '<div>' )
-						.text( mw.msg( 'qc-' + name ) ),
+						.text( field.label ),
 					$group
 				);
 			$ui.append( $feature, '<div style="clear:both"></div>' );

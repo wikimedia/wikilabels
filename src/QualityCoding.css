@@ -32,3 +32,6 @@
 .qc-progress div.qc-good-faith {
 	background: #27AA65;
 }
+.qc-selected {
+	background: #CFC;
+}

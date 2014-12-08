@@ -9,6 +9,7 @@ Installation
 
   ```javascript
   // [[File:User:He7d3r/Tools/QualityCoding.js]] (workaround for [[bugzilla:33355]])
+  mw.loader.load( '//meta.wikimedia.org/w/index.php?title=User:He7d3r/Tools/QualityCoding.css&action=raw&ctype=text/css', 'text/css' );
   mw.loader.load( '//meta.wikimedia.org/w/index.php?title=User:He7d3r/Tools/QualityCoding.js&action=raw&ctype=text/javascript' );
   ```
 

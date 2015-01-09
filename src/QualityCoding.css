@@ -18,18 +18,18 @@
 	box-sizing: border-box;
 }
 
-.qc-progress div.qc-damaging {
+.qc-progress div.qc-damaging-yes {
 	background: #C00;
 }
 
-.qc-progress div.qc-damaging.qc-good-faith {
+.qc-progress div.qc-damaging-yes.qc-good-faith-yes {
 	background: -webkit-linear-gradient(#27AA65, #C00);
 	background: -o-linear-gradient(#27AA65, #C00);
 	background: -moz-linear-gradient(#27AA65, #C00);
 	background: linear-gradient(#27AA65, #C00);
 }
 
-.qc-progress div.qc-good-faith {
+.qc-progress div.qc-good-faith-yes {
 	background: #27AA65;
 }
 .qc-selected {

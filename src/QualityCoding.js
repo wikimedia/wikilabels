@@ -27,7 +27,7 @@
 			'qc-good-faith-no-title': 'No, this edit appears to have been made in bad-faith.',
 			'qc-good-faith-unsure': 'Unsure',
 			'qc-good-faith-unsure-title': 'It\'s not clear whether or not this edit was made in good-faith.',
-			'qc-icon-title': 'Revision: $1\nDamaging? $2\nGood-faith? $3',
+			'qc-revision-title': 'Revision: $1',
 			'qc-submit': 'Submit',
 			'qc-not-implemented': 'This feature is not implemented yet.'
 		},
@@ -49,7 +49,7 @@
 			'qc-good-faith-no-title': 'Não, esta edição parece ter sido feita de má fé.',
 			'qc-good-faith-unsure': 'Não tenho certeza',
 			'qc-good-faith-unsure-title': 'Não está claro se esta edição foi feita de boa fé.',
-			'qc-icon-title': 'Revisão: $1\nPrejudicial? $2\nDe boa fé? $3',
+			'qc-revision-title': 'Revisão: $1\nPrejudicial? $2\nDe boa fé? $3',
 			'qc-submit': 'Submeter',
 			'qc-not-implemented': 'Este recurso ainda não está implementado.'
 		}
@@ -59,7 +59,7 @@
 		var $target = $( e.target );
 		$target
 			.parent()
-				.find( 'div' )
+				.find( '.qc-selected' )
 					.removeClass( 'qc-selected' )
 					.end()
 				.end()
@@ -97,33 +97,28 @@
 	}
 
 	function showWorkSet() {
-		var i, j, field, idx, $icon, className,
+		var i, j, field, idx, $icon, className, tooltip, value,
 			$bar = $( '.qc-progress' ),
 			// FIXME: this will probably be assyncronous (obtained from some API)
 			workSet = getRandomSet();
 		for ( i = 0; i < workSet.length; i++ ) {
 			$icon = $( '<div>' );
+			tooltip = mw.msg( 'qc-revision-title', workSet[i].id );
 			for ( j = 0; j < fields.length; j++ ) {
 				field = fields[j].id;
 				idx = workSet[i].fields[ field ];
-				if( idx !== undefined ){
-					className = 'qc-' + field + '-' + fields[j].options[ idx ].value;
-					$icon.addClass( className );
-				}
+				value = fields[j].options[ idx ] && fields[j].options[ idx ].value;
+				tooltip += '\n' + fields[j].label + ' ' + value;
+				className = 'qc-' + field + '-' + value;
+				$icon.append( $( '<div>' ).addClass( className ) );
 			}
 			$icon.attr(
 				'title',
-				mw.msg(
-					'qc-icon-title',
-					workSet[i].id,
-					// FIXME: Each revision is scored according to more than one aspect
-					// so we need to pass a variable number of parameters to the messages
-					mw.msg( className )
-				)
+				tooltip
 			);
 			$bar.append( $icon );
 		}
-		$( '.qc-progress div' ).css( 'width', ( 100 / workSet.length ) + '%' );
+		$( '.qc-progress > div' ).css( 'width', ( 100 / workSet.length ) + '%' );
 	}
 
 	function loadConfig(){
@@ -182,7 +177,7 @@
 				.addClass( 'qc-ui' ),
 			$submit = $( '<input class="mw-ui-button mw-ui-constructive" type="submit">' )
 				.val( mw.msg( 'qc-submit' ) ),
-			field, i, j, id, $feature, $group;
+			field, i, j, id, val, $feature, $group;
 		// When moving this around, make sure that mw.messages.set is called before mw.msg
 		fields = loadConfig();
 		$ui.append(
@@ -195,15 +190,27 @@
 			field = fields[i];
 			id = field.id;
 			$group = $( '<div>' )
+				// .addClass( 'mw-ui-radio');
 				.addClass( 'mw-ui-button-group');
 			for ( j = 0; j < field.options.length; j++ ) {
+				val = field.options[j].value;
 				$group.append(
 					$( '<div>' )
 						.addClass( 'mw-ui-button')
+						.attr( 'id', 'qc-' + field.id + '-' + val )
 						.attr( 'title', field.options[j].tooltip )
 						.text( field.options[j].label )
-						.data( 'qc-value', field.options[j].value )
+						.data( 'qc-value', val )
 						.click( notImplemented )
+// 					$( '<input type="radio">' )
+// 						.attr( 'name', 'qc-' + field.id )
+// 						.attr( 'id', 'qc-' + field.id + '-' + val )
+// 						.attr( 'title', field.options[j].tooltip ),
+// 					$( '<label for="">' )
+// 						.text( field.options[j].label )
+// 						.attr( 'for', 'qc-' + field.id + '-' + val )
+// 						.data( 'qc-value', val )
+// 						.click( notImplemented )
 				);
 			}
 			$feature = $( '<div>' )

@@ -4,34 +4,35 @@
 	padding-bottom: 0;
 }
 
-.qc-progress div {
+.qc-progress > div {
 	border: 1px solid #333;
-}
-
-.qc-progress div {
-	height: 2em;
 	min-width: 0.5em;
-	background: #999;
+	background: #FFF;
 	display: inline-block;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
-.qc-progress div.qc-damaging-yes {
+.qc-progress div div {
+	height: 1em;
+}
+
+.qc-progress div.qc-damaging-yes,
+.qc-progress div.qc-good-faith-no {
 	background: #C00;
 }
 
-.qc-progress div.qc-damaging-yes.qc-good-faith-yes {
-	background: -webkit-linear-gradient(#27AA65, #C00);
-	background: -o-linear-gradient(#27AA65, #C00);
-	background: -moz-linear-gradient(#27AA65, #C00);
-	background: linear-gradient(#27AA65, #C00);
-}
-
+.qc-progress div.qc-damaging-no,
 .qc-progress div.qc-good-faith-yes {
 	background: #27AA65;
 }
+
+.qc-progress div.qc-damaging-unsure,
+.qc-progress div.qc-good-faith-unsure {
+	background: #C9C9C9;
+}
+
 .qc-selected {
 	background: #CFC;
 }

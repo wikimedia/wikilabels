@@ -55,16 +55,23 @@
 		}
 	}, fields, workSet;
 
-	function notImplemented( e ) {
-		var $target = $( e.target );
+	function toggleSelection( e ) {
+		var $target = $( e.target ),
+			wasSelected = $target.hasClass( 'qc-selected' );
 		$target
 			.parent()
 				.find( '.qc-selected' )
 					.removeClass( 'qc-selected' )
 					.end()
-				.end()
-			.addClass( 'qc-selected' );
-		alert( 'The value is ' + $target.data( 'qc-value' ) );
+				.end();
+		if ( !wasSelected ) {
+			$target.addClass( 'qc-selected' );
+		}
+		// The user must select one value for each field
+		$( '#qc-submit' ).prop(
+			'disabled',
+			 $( '.mw-ui-button.qc-selected' ).length !== fields.length
+		);
 	}
 /*
 	function getRandomSet( size, done ) {
@@ -205,7 +212,8 @@
 	function load() {
 		var $ui = $( '<div>' )
 				.addClass( 'qc-ui' ),
-			$submit = $( '<input class="mw-ui-button mw-ui-constructive" type="submit">' )
+			$submit = $( '<input id="qc-submit" class="mw-ui-button mw-ui-constructive" type="submit">' )
+				.prop( 'disabled', true )
 				.val( mw.msg( 'qc-submit' ) ),
 			field, i, j, id, val, $feature, $group;
 		// When moving this around, make sure that mw.messages.set is called before mw.msg
@@ -231,7 +239,7 @@
 						.attr( 'title', field.options[j].tooltip )
 						.text( field.options[j].label )
 						.data( 'qc-value', val )
-						.click( notImplemented )
+						.click( toggleSelection )
 // 					$( '<input type="radio">' )
 // 						.attr( 'name', 'qc-' + field.id )
 // 						.attr( 'id', 'qc-' + field.id + '-' + val )
@@ -240,7 +248,7 @@
 // 						.text( field.options[j].label )
 // 						.attr( 'for', 'qc-' + field.id + '-' + val )
 // 						.data( 'qc-value', val )
-// 						.click( notImplemented )
+// 						.click( toggleSelection )
 				);
 			}
 			$feature = $( '<div>' )

@@ -29,7 +29,7 @@
 			'qc-good-faith-unsure-title': 'It\'s not clear whether or not this edit was made in good-faith.',
 			'qc-revision-title': 'Revision: $1',
 			'qc-submit': 'Submit',
-			'qc-not-implemented': 'This feature is not implemented yet.'
+			'qc-dataset-completed': 'You completed this dataset!'
 		},
 		pt: {
 			'qc-work-set': 'Conjunto de trabalho:',
@@ -51,9 +51,9 @@
 			'qc-good-faith-unsure-title': 'Não está claro se esta edição foi feita de boa fé.',
 			'qc-revision-title': 'Revisão: $1\nPrejudicial? $2\nDe boa fé? $3',
 			'qc-submit': 'Submeter',
-			'qc-not-implemented': 'Este recurso ainda não está implementado.'
+			'qc-dataset-completed': 'Você completou este conjunto de dados!'
 		}
-	}, fields, workSet;
+	}, fields, workSet, curIdx;
 
 	function toggleSelection( e ) {
 		var $target = $( e.target ),
@@ -80,6 +80,7 @@
 			list = [];
 		size = size || 100;
 		done = done || 70;
+		curIdx = done + 1;
 		for ( i = 0; i < size; i++ ) {
 			rev = {
 				id: Math.floor( Math.random() * 1000000 ),
@@ -136,7 +137,7 @@
 
 	function showWorkSet( ws ){
 		var i, j, field, idx, $icon, className, tooltip, value,
-			$bar = $( '.qc-progress' );
+			$bar = $( '.qc-progress' ).empty();
 		workSet = ws || workSet;
 		for ( i = 0; i < workSet.length; i++ ) {
 			$icon = $( '<div>' );
@@ -155,6 +156,7 @@
 			);
 			$bar.append( $icon );
 		}
+		$bar.find( '> div' ).eq( curIdx ).addClass( 'qc-selected' );
 		$( '.qc-progress > div' ).css( 'width', ( 100 / workSet.length ) + '%' );
 	}
 
@@ -209,12 +211,34 @@
 		];
 	}
 
+	function submit(){
+		$( '.mw-ui-button.qc-selected' ).each( function(){
+			var $this = $( this ),
+				idxValue = $this.data( 'qc-value' ),
+				field = $this.parent().data( 'qc-field' );
+			if( field !== undefined && idxValue !== undefined ){
+				workSet[ curIdx ].fields[ field ] = idxValue;
+			}
+		} );
+		curIdx++;
+		showWorkSet();
+		if( curIdx >= workSet.length ){
+			alert( mw.msg( 'qc-dataset-completed' ) );
+			$( '#qc-submit' ).prop( 'disabled', true );
+		} else {
+			$( '.diff' ).replaceWith(
+				$( '<p class="diff">' ).text( 'TODO: Get/show the diff for revision ' + workSet[ curIdx ].id + '.' )
+			);
+		}
+	}
+
 	function load() {
 		var $ui = $( '<div>' )
 				.addClass( 'qc-ui' ),
 			$submit = $( '<input id="qc-submit" class="mw-ui-button mw-ui-constructive" type="submit">' )
 				.prop( 'disabled', true )
-				.val( mw.msg( 'qc-submit' ) ),
+				.val( mw.msg( 'qc-submit' ) )
+				.click( submit ),
 			field, i, j, id, val, $feature, $group;
 		// When moving this around, make sure that mw.messages.set is called before mw.msg
 		fields = loadConfig();
@@ -228,6 +252,7 @@
 			field = fields[i];
 			id = field.id;
 			$group = $( '<div>' )
+				.data( 'qc-field', id )
 				// .addClass( 'mw-ui-radio');
 				.addClass( 'mw-ui-button-group');
 			for ( j = 0; j < field.options.length; j++ ) {
@@ -238,7 +263,7 @@
 						.attr( 'id', 'qc-' + field.id + '-' + val )
 						.attr( 'title', field.options[j].tooltip )
 						.text( field.options[j].label )
-						.data( 'qc-value', val )
+						.data( 'qc-value', j )
 						.click( toggleSelection )
 // 					$( '<input type="radio">' )
 // 						.attr( 'name', 'qc-' + field.id )
@@ -247,7 +272,7 @@
 // 					$( '<label for="">' )
 // 						.text( field.options[j].label )
 // 						.attr( 'for', 'qc-' + field.id + '-' + val )
-// 						.data( 'qc-value', val )
+// 						.data( 'qc-value', j )
 // 						.click( toggleSelection )
 				);
 			}
@@ -262,6 +287,7 @@
 		}
 		$ui.append( $submit );
 		$( 'table.diff' ).first().before( $ui );
+		curIdx = 0;
 		// getRandomSet()
 		getRecentChanges()
 			.done( showWorkSet );

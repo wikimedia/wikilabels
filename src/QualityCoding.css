@@ -36,3 +36,7 @@
 .qc-selected {
 	background: #CFC;
 }
+
+.qc-progress .qc-selected {
+	background: #FF0;
+}

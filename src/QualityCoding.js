@@ -53,7 +53,7 @@
 			'qc-submit': 'Submeter',
 			'qc-not-implemented': 'Este recurso ainda não está implementado.'
 		}
-	}, fields;
+	}, fields, workSet;
 
 	function notImplemented( e ) {
 		var $target = $( e.target );
@@ -66,10 +66,11 @@
 			.addClass( 'qc-selected' );
 		alert( 'The value is ' + $target.data( 'qc-value' ) );
 	}
-
-	// FIXME: Replace this by an actual call to some API which returns revision ids
+/*
 	function getRandomSet( size, done ) {
-		var i, j, rev, list = [];
+		var i, j, rev,
+			apiDeferred = $.Deferred(),
+			list = [];
 		size = size || 100;
 		done = done || 70;
 		for ( i = 0; i < size; i++ ) {
@@ -93,14 +94,43 @@
 			}
 			list.push( rev );
 		}
-		return list;
+		apiDeferred.resolve( list );
+		return apiDeferred.promise();
+	}
+*/
+	function getRecentChanges( options ) {
+		var apiDeferred = $.Deferred(),
+			defaultOptions = {
+				action: 'query',
+				list: 'recentchanges',
+				rctype: 'edit|new',
+				rclimit: 50
+			},
+			params = $.extend( {}, defaultOptions, options );
+		new mw.Api().get( params ).done( function( data ){
+			var i,
+				list = [],
+				changes = data.query.recentchanges;
+			for( i = 0; i < changes.length; i++ ){
+				list.push( {
+					id: changes[i].revid,
+					// One key for each of the things we want to predict (vandalism, good-faith, quality, etc)
+					fields: {}
+				} );
+			}
+			apiDeferred.resolve( list );
+		} )
+		.fail( function(){
+			// TODO: Reject and pass some error info?
+			apiDeferred.resolve( [] );
+		} );
+		return apiDeferred.promise();
 	}
 
-	function showWorkSet() {
+	function showWorkSet( ws ){
 		var i, j, field, idx, $icon, className, tooltip, value,
-			$bar = $( '.qc-progress' ),
-			// FIXME: this will probably be assyncronous (obtained from some API)
-			workSet = getRandomSet();
+			$bar = $( '.qc-progress' );
+		workSet = ws || workSet;
 		for ( i = 0; i < workSet.length; i++ ) {
 			$icon = $( '<div>' );
 			tooltip = mw.msg( 'qc-revision-title', workSet[i].id );
@@ -224,7 +254,9 @@
 		}
 		$ui.append( $submit );
 		$( 'table.diff' ).first().before( $ui );
-		showWorkSet();
+		// getRandomSet()
+		getRecentChanges()
+			.done( showWorkSet );
 	}
 
 	if ( mw.util.getParamValue( 'diff' ) !== null ) {

@@ -49,7 +49,7 @@
 			'qc-good-faith-no-title': 'Não, esta edição parece ter sido feita de má fé.',
 			'qc-good-faith-unsure': 'Não tenho certeza',
 			'qc-good-faith-unsure-title': 'Não está claro se esta edição foi feita de boa fé.',
-			'qc-revision-title': 'Revisão: $1\nPrejudicial? $2\nDe boa fé? $3',
+			'qc-revision-title': 'Revisão: $1',
 			'qc-submit': 'Submeter',
 			'qc-dataset-completed': 'Você completou este conjunto de dados!'
 		}

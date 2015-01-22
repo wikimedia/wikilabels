@@ -265,6 +265,7 @@
 					1: 'talvez',
 					2: 'não'
 				}[ workSet[ curIdx ].fields['good-faith'] ],
+			wiki: mw.config.get( 'wgDBname' ),
 			comment: location.origin +
 				mw.util.getUrl( 'User:' + mw.config.get( 'wgUserName' ) )
 		};

@@ -1,5 +1,3 @@
-// FIXME: REMOVE THIS!!!
-mw.loader.load( '//meta.wikimedia.org/w/index.php?title=User:He7d3r/Tools/QualityCoding.css&action=raw&ctype=text/css', 'text/css' );
 /**
  * Interface for evaluating the quality of revisions
  *

@@ -1,3 +1,5 @@
+// FIXME: REMOVE THIS!!!
+mw.loader.load( '//meta.wikimedia.org/w/index.php?title=User:He7d3r/Tools/QualityCoding.css&action=raw&ctype=text/css', 'text/css' );
 /**
  * Interface for evaluating the quality of revisions
  *
@@ -209,9 +211,11 @@
 			);
 			$bar.append( $icon );
 		}
-		$bar.find( '> div' ).eq( curIdx ).addClass( 'qc-selected' );
 		$( '.qc-progress > div' ).css( 'width', ( 100 / workSet.length ) + '%' );
-		showDiff( workSet[ curIdx ].revid );
+		if( curIdx < workSet.length ){
+			$bar.find( '> div' ).eq( curIdx ).addClass( 'qc-selected' );
+			showDiff( workSet[ curIdx ].revid );
+		}
 	}
 
 	function showDiff( revid ){

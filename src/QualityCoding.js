@@ -134,7 +134,8 @@
 		curIdx = done + 1;
 		for ( i = 0; i < size; i++ ) {
 			rev = {
-				id: Math.floor( Math.random() * 1000000 ),
+				revid: Math.floor( Math.random() * 1000000 ),
+				pageid: Math.floor( Math.random() * 1000000 ),
 				// One key for each of the things we want to predict (vandalism, good-faith, quality, etc)
 				fields: {}
 			};
@@ -172,7 +173,8 @@
 				changes = data.query.recentchanges;
 			for( i = 0; i < changes.length; i++ ){
 				list.push( {
-					id: changes[i].revid,
+					revid: changes[i].revid,
+					pageid: changes[i].pageid,
 					// One key for each of the things we want to predict (vandalism, good-faith, quality, etc)
 					fields: {}
 				} );
@@ -192,7 +194,7 @@
 		workSet = ws || workSet;
 		for ( i = 0; i < workSet.length; i++ ) {
 			$icon = $( '<div>' );
-			tooltip = mw.msg( 'qc-revision-title', workSet[i].id );
+			tooltip = mw.msg( 'qc-revision-title', workSet[i].revid );
 			for ( j = 0; j < fields.length; j++ ) {
 				field = fields[j].id;
 				idx = workSet[i].fields[ field ];
@@ -209,7 +211,7 @@
 		}
 		$bar.find( '> div' ).eq( curIdx ).addClass( 'qc-selected' );
 		$( '.qc-progress > div' ).css( 'width', ( 100 / workSet.length ) + '%' );
-		showDiff( workSet[ curIdx ].id );
+		showDiff( workSet[ curIdx ].revid );
 	}
 
 	function showDiff( revid ){
@@ -221,7 +223,6 @@
 			indexpageids: true
 		} ).done( function( data ){
 			var page = data.query.pages[ data.query.pageids[0] ];
-			console.log( page );
 			$( '#firstHeading' ).text( page.title );
 			$( '.diff tbody' ).empty().append(
 				page.revisions[0].diff['*']
@@ -230,6 +231,7 @@
 	}
 
 	function submit(){
+		var revData;
 		$( '.mw-ui-button.qc-selected' ).each( function(){
 			var $this = $( this ),
 				idxValue = $this.data( 'qc-value' ),
@@ -237,6 +239,43 @@
 			if( field !== undefined && idxValue !== undefined ){
 				workSet[ curIdx ].fields[ field ] = idxValue;
 			}
+		} );
+		// FIXME: Generalize the API provided by the tool on Labs,
+		// to deal with arbitrary number of fields (columns?)
+		// FIXME: Add a spinner somewhere?
+		revData = {
+			action: 'save',
+			rev: workSet[ curIdx ].revid,
+			page: workSet[ curIdx ].pageid,
+			// FIXME: This number changes between wikis
+			// FIXME: Authenticate using OAuth
+			user: mw.config.get( 'wgUserId' ),
+			// FIXME: This is just a hack to map our values to
+			// the ones currently accepted by the tool
+			score: {
+					0: 'sim',
+					1: 'talvez',
+					2: 'não'
+				}[ workSet[ curIdx ].fields.damaging ],
+			gfaith: {
+					0: 'sim',
+					1: 'talvez',
+					2: 'não'
+				}[ workSet[ curIdx ].fields['good-faith'] ],
+			comment: location.origin +
+				mw.util.getUrl( 'User:' + mw.config.get( 'wgUserName' ) )
+		};
+		$( '#qc-submit' ).injectSpinner( 'qc-submit-spinner' );
+		$.ajax( {
+			// TODO: Migrate to "ores.wmflabs.org" or something similar
+			url: '//tools.wmflabs.org/ptwikis/dev/Pontua%C3%A7%C3%A3o',
+			data: revData,
+			dataType: 'jsonp'
+		} ).always( function(){
+			$.removeSpinner( 'qc-submit-spinner' );
+		} ).fail( function(){
+			console.log( arguments );
+			alert( 'An errror occurred! Check the console...' );
 		} );
 		curIdx++;
 		showWorkSet();
@@ -314,7 +353,13 @@
 
 	if ( mw.util.getParamValue( 'diff' ) !== null ) {
 		mw.messages.set( i18n[ mw.config.get( 'wgUserLanguage' ) ] || i18n.en );
-		$( load );
+		$.when(
+			$.ready,
+			mw.loader.using( [
+				'mediawiki.api',
+				'jquery.spinner'
+			] )
+		).then( load );
 	}
 
 }( mediaWiki, jQuery ) );

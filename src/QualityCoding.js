@@ -121,7 +121,8 @@
 		// The user must select one value for each field
 		$( '#qc-submit' ).prop(
 			'disabled',
-			 $( '.mw-ui-button.qc-selected' ).length !== fields.length
+			 $( '.mw-ui-button.qc-selected' ).length !== fields.length ||
+			 curIdx >= workSet.length
 		);
 	}
 /*

@@ -55,6 +55,57 @@
 		}
 	}, fields, workSet, curIdx;
 
+	function loadConfig(){
+		return [
+			{
+				id: 'damaging',
+				class: 'revcoding.ui.RadioButtons',
+				label: mw.msg( 'qc-damaging' ),
+				help: mw.msg( 'qc-damaging-title' ),
+				options: [
+					{
+						label: mw.msg( 'qc-damaging-yes' ),
+						tooltip: mw.msg( 'qc-damaging-yes-title' ),
+						value: 'yes'
+					},
+					{
+						label: mw.msg( 'qc-damaging-unsure' ),
+						tooltip: mw.msg( 'qc-damaging-unsure-title' ),
+						value: 'unsure'
+					},
+					{
+						label: mw.msg( 'qc-damaging-no' ),
+						tooltip: mw.msg( 'qc-damaging-no-title' ),
+						value: 'no'
+					}
+				]
+			},
+			{
+				id: 'good-faith',
+				class: 'revcoding.ui.RadioButtons',
+				label: mw.msg( 'qc-good-faith' ),
+				help: mw.msg( 'qc-good-faith-title' ),
+				options: [
+					{
+						label: mw.msg( 'qc-good-faith-yes' ),
+						tooltip: mw.msg( 'qc-good-faith-yes-title' ),
+						value: 'yes'
+					},
+					{
+						label: mw.msg( 'qc-good-faith-unsure' ),
+						tooltip: mw.msg( 'qc-good-faith-unsure-title' ),
+						value: 'unsure'
+					},
+					{
+						label: mw.msg( 'qc-good-faith-no' ),
+						tooltip: mw.msg( 'qc-good-faith-no-title' ),
+						value: 'no'
+					}
+				]
+			}
+		];
+	}
+
 	function toggleSelection( e ) {
 		var $target = $( e.target ),
 			wasSelected = $target.hasClass( 'qc-selected' );
@@ -159,57 +210,6 @@
 		$bar.find( '> div' ).eq( curIdx ).addClass( 'qc-selected' );
 		$( '.qc-progress > div' ).css( 'width', ( 100 / workSet.length ) + '%' );
 		showDiff( workSet[ curIdx ].id );
-	}
-
-	function loadConfig(){
-		return [
-			{
-				id: 'damaging',
-				class: 'revcoding.ui.RadioButtons',
-				label: mw.msg( 'qc-damaging' ),
-				help: mw.msg( 'qc-damaging-title' ),
-				options: [
-					{
-						label: mw.msg( 'qc-damaging-yes' ),
-						tooltip: mw.msg( 'qc-damaging-yes-title' ),
-						value: 'yes'
-					},
-					{
-						label: mw.msg( 'qc-damaging-unsure' ),
-						tooltip: mw.msg( 'qc-damaging-unsure-title' ),
-						value: 'unsure'
-					},
-					{
-						label: mw.msg( 'qc-damaging-no' ),
-						tooltip: mw.msg( 'qc-damaging-no-title' ),
-						value: 'no'
-					}
-				]
-			},
-			{
-				id: 'good-faith',
-				class: 'revcoding.ui.RadioButtons',
-				label: mw.msg( 'qc-good-faith' ),
-				help: mw.msg( 'qc-good-faith-title' ),
-				options: [
-					{
-						label: mw.msg( 'qc-good-faith-yes' ),
-						tooltip: mw.msg( 'qc-good-faith-yes-title' ),
-						value: 'yes'
-					},
-					{
-						label: mw.msg( 'qc-good-faith-unsure' ),
-						tooltip: mw.msg( 'qc-good-faith-unsure-title' ),
-						value: 'unsure'
-					},
-					{
-						label: mw.msg( 'qc-good-faith-no' ),
-						tooltip: mw.msg( 'qc-good-faith-no-title' ),
-						value: 'no'
-					}
-				]
-			}
-		];
 	}
 
 	function showDiff( revid ){

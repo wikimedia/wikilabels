@@ -158,6 +158,7 @@
 		}
 		$bar.find( '> div' ).eq( curIdx ).addClass( 'qc-selected' );
 		$( '.qc-progress > div' ).css( 'width', ( 100 / workSet.length ) + '%' );
+		showDiff( workSet[ curIdx ].id );
 	}
 
 	function loadConfig(){
@@ -211,6 +212,23 @@
 		];
 	}
 
+	function showDiff( revid ){
+		new mw.Api().get( {
+			action: 'query',
+			prop: 'revisions',
+			rvdiffto: 'prev',
+			revids: revid,
+			indexpageids: true
+		} ).done( function( data ){
+			var page = data.query.pages[ data.query.pageids[0] ];
+			console.log( page );
+			$( '#firstHeading' ).text( page.title );
+			$( '.diff tbody' ).empty().append(
+				page.revisions[0].diff['*']
+			);
+		} );
+	}
+
 	function submit(){
 		$( '.mw-ui-button.qc-selected' ).each( function(){
 			var $this = $( this ),
@@ -225,10 +243,6 @@
 		if( curIdx >= workSet.length ){
 			alert( mw.msg( 'qc-dataset-completed' ) );
 			$( '#qc-submit' ).prop( 'disabled', true );
-		} else {
-			$( '.diff' ).replaceWith(
-				$( '<p class="diff">' ).text( 'TODO: Get/show the diff for revision ' + workSet[ curIdx ].id + '.' )
-			);
 		}
 	}
 
@@ -286,7 +300,12 @@
 			$ui.append( $feature, '<div style="clear:both"></div>' );
 		}
 		$ui.append( $submit );
-		$( 'table.diff' ).first().before( $ui );
+		$( 'table.diff' )
+			.first()
+				.nextAll()
+					.remove()
+					.end()
+				.before( $ui );
 		curIdx = 0;
 		// getRandomSet()
 		getRecentChanges()

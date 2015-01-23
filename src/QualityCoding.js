@@ -211,6 +211,8 @@
 			$bar.append( $icon );
 		}
 		$( '.qc-progress > div' ).css( 'width', ( 100 / workSet.length ) + '%' );
+		$( '.mw-ui-button.qc-selected' ).removeClass( 'qc-selected' );
+		$( '#qc-submit' ).prop( 'disabled', true );
 		if( curIdx < workSet.length ){
 			$bar.find( '> div' ).eq( curIdx ).addClass( 'qc-selected' );
 			showDiff( workSet[ curIdx ].revid );

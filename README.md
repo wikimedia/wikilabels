@@ -5,6 +5,7 @@ This script is available as a gadget on test.wikipedia.org. You can enable it th
 https://test.wikipedia.org/wiki/Special:Preferences#mw-prefsection-gadgets
 
 Alternativelly, if you want to install it in other wikis:
+
 1. Go to one of the js subpages of your user page. You can choose a page such as these:
   * [meta:User:`<Name>`/global.js](https://meta.wikimedia.org/wiki/Special:MyPage/global.js), which will be loaded in all wikis, in all skins
   * [meta:User:`<Name>`/common.js](https://meta.wikimedia.org/wiki/Special:MyPage/common.js), which will be loaded only on Meta-wiki, in all skins

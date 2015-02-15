@@ -247,7 +247,6 @@
 		} );
 		// FIXME: Generalize the API provided by the tool on Labs,
 		// to deal with arbitrary number of fields (columns?)
-		// FIXME: Add a spinner somewhere?
 		revData = {
 			action: 'save',
 			rev: workSet[ curIdx ].revid,
@@ -258,14 +257,14 @@
 			// FIXME: This is just a hack to map our values to
 			// the ones currently accepted by the tool
 			score: {
-					0: 'sim',
-					1: 'talvez',
-					2: 'não'
+					0: 'yes',
+					1: 'maybe',
+					2: 'no'
 				}[ workSet[ curIdx ].fields.damaging ],
 			gfaith: {
-					0: 'sim',
-					1: 'talvez',
-					2: 'não'
+					0: 'yes',
+					1: 'maybe',
+					2: 'no'
 				}[ workSet[ curIdx ].fields['good-faith'] ],
 			wiki: mw.config.get( 'wgDBname' ),
 			comment: location.origin +
@@ -273,8 +272,7 @@
 		};
 		$( '#qc-submit' ).injectSpinner( 'qc-submit-spinner' );
 		$.ajax( {
-			// TODO: Migrate to "ores.wmflabs.org" or something similar
-			url: '//tools.wmflabs.org/ptwikis/dev/Pontua%C3%A7%C3%A3o',
+			url: '//ores-test.wmflabs.org/save',
 			data: revData,
 			dataType: 'jsonp'
 		} ).always( function(){

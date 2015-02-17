@@ -1,5 +1,5 @@
 /**
- * Interface for evaluating the quality of revisions
+ * Interface for evaluating revisions
  *
  * @author: Helder (https://github.com/he7d3r)
  * @license: CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0/>

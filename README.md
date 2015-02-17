@@ -1,7 +1,7 @@
 Installation
 ===========================
 
-This script is available as a gadget on test.wikipedia.org. You can enable it there by checking the box for "QualityCoding" at
+This script is available as a gadget on test.wikipedia.org. You can enable it there by checking the box for "RevisionCoding" at
 https://test.wikipedia.org/wiki/Special:Preferences#mw-prefsection-gadgets
 
 Alternativelly, if you want to install it in other wikis:
@@ -13,9 +13,9 @@ Alternativelly, if you want to install it in other wikis:
 2. Copy the following to the page you have chosen:
 
   ```javascript
-  // [[File:User:He7d3r/Tools/QualityCoding.js]] (workaround for [[phab:T35355]])
-  mw.loader.load( '//meta.wikimedia.org/w/index.php?title=User:He7d3r/Tools/QualityCoding.css&action=raw&ctype=text/css', 'text/css' );
-  mw.loader.load( '//meta.wikimedia.org/w/index.php?title=User:He7d3r/Tools/QualityCoding.js&action=raw&ctype=text/javascript' );
+  // [[File:User:He7d3r/Tools/RevisionCoding.js]] (workaround for [[phab:T35355]])
+  mw.loader.load( '//meta.wikimedia.org/w/index.php?title=User:He7d3r/Tools/RevisionCoding.css&action=raw&ctype=text/css', 'text/css' );
+  mw.loader.load( '//meta.wikimedia.org/w/index.php?title=User:He7d3r/Tools/RevisionCoding.js&action=raw&ctype=text/javascript' );
   ```
 
 3. Clear the cache of your browser.

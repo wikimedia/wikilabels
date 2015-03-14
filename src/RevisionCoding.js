@@ -228,8 +228,8 @@
 			indexpageids: true
 		} ).done( function( data ){
 			var page = data.query.pages[ data.query.pageids[0] ];
-			$( '#firstHeading' ).text( page.title );
-			$( '.diff tbody' ).empty().append(
+			// $( '#firstHeading' ).text( page.title );
+			$( '#rvc-diff' ).empty().append(
 				page.revisions[0].diff['*']
 			);
 		} );
@@ -272,6 +272,7 @@
 		};
 		$( '#rvc-submit' ).injectSpinner( 'rvc-submit-spinner' );
 		$.ajax( {
+			// See the saved data on http://ores-test.wmflabs.org/table
 			url: '//ores-test.wmflabs.org/save',
 			data: revData,
 			dataType: 'jsonp'
@@ -290,8 +291,7 @@
 	}
 
 	function load() {
-		var $ui = $( '<div>' )
-				.addClass( 'rvc-ui' ),
+		var $ui = $( '#rvc-ui' ).empty(),
 			$submit = $( '<input id="rvc-submit" class="mw-ui-button mw-ui-constructive" type="submit">' )
 				.prop( 'disabled', true )
 				.val( mw.msg( 'rvc-submit' ) )
@@ -342,28 +342,34 @@
 				);
 			$ui.append( $feature, '<div style="clear:both"></div>' );
 		}
-		$ui.append( $submit );
-		$( 'table.diff' )
-			.first()
-				.nextAll()
-					.remove()
-					.end()
-				.before( $ui );
+		$ui.append( $submit )
+			.append(
+				'<table class="diff diff-contentalign-left">' +
+				'<colgroup><col class="diff-marker">' +
+				'<col class="diff-content">' +
+				'<col class="diff-marker">' +
+				'<col class="diff-content">' +
+				'</colgroup><tbody id="rvc-diff"></tbody></table>'
+			);
 		curIdx = 0;
 		// getRandomSet()
 		getRecentChanges()
 			.done( showWorkSet );
 	}
 
-	if ( mw.util.getParamValue( 'diff' ) !== null ) {
-		mw.messages.set( i18n[ mw.config.get( 'wgUserLanguage' ) ] || i18n.en );
-		$.when(
-			$.ready,
-			mw.loader.using( [
-				'mediawiki.api',
-				'jquery.spinner'
-			] )
-		).then( load );
+	if ( $.inArray( mw.config.get( 'wgAction' ), [ 'view', 'purge' ] ) !== -1 ) {
+		$( function () {
+			if ( $( '#rvc-ui' ).length !== 0 ) {
+				mw.messages.set( i18n[ mw.config.get( 'wgUserLanguage' ) ] || i18n.en );
+				mw.loader.using( [
+					'mediawiki.api',
+					'jquery.spinner',
+					// TODO: Load this only when necessary
+					// (e.g. if the user will be required to click on some button before the first diff appears)
+					'mediawiki.action.history.diff'
+				] ).done( load );
+			}
+		} );
 	}
 
 }( mediaWiki, jQuery ) );

@@ -10,48 +10,48 @@
 	'use strict';
 	var i18n = {
 		en: {
-			'qc-work-set': 'Work set:',
-			'qc-damaging': 'Damaging?',
-			'qc-damaging-title': 'Did this edit cause damage to the article?',
-			'qc-damaging-yes': 'Yes',
-			'qc-damaging-yes-title': 'Yes, this edit is damaging and should be reverted.',
-			'qc-damaging-no': 'No',
-			'qc-damaging-no-title': 'No, this edit is not damaging and should not be reverted.',
-			'qc-damaging-unsure': 'Unsure',
-			'qc-damaging-unsure-title': 'It\'s not clear whether this edit damages the article or not.',
-			'qc-good-faith': 'Good faith?',
-			'qc-good-faith-title': 'Does it appear as though the author of this edit was trying to contribute productively?',
-			'qc-good-faith-yes': 'Yes',
-			'qc-good-faith-yes-title': 'Yes, this edit appears to have been made in good-faith.',
-			'qc-good-faith-no': 'No',
-			'qc-good-faith-no-title': 'No, this edit appears to have been made in bad-faith.',
-			'qc-good-faith-unsure': 'Unsure',
-			'qc-good-faith-unsure-title': 'It\'s not clear whether or not this edit was made in good-faith.',
-			'qc-revision-title': 'Revision: $1',
-			'qc-submit': 'Submit',
-			'qc-dataset-completed': 'You completed this dataset!'
+			'rvc-work-set': 'Work set:',
+			'rvc-damaging': 'Damaging?',
+			'rvc-damaging-title': 'Did this edit cause damage to the article?',
+			'rvc-damaging-yes': 'Yes',
+			'rvc-damaging-yes-title': 'Yes, this edit is damaging and should be reverted.',
+			'rvc-damaging-no': 'No',
+			'rvc-damaging-no-title': 'No, this edit is not damaging and should not be reverted.',
+			'rvc-damaging-unsure': 'Unsure',
+			'rvc-damaging-unsure-title': 'It\'s not clear whether this edit damages the article or not.',
+			'rvc-good-faith': 'Good faith?',
+			'rvc-good-faith-title': 'Does it appear as though the author of this edit was trying to contribute productively?',
+			'rvc-good-faith-yes': 'Yes',
+			'rvc-good-faith-yes-title': 'Yes, this edit appears to have been made in good-faith.',
+			'rvc-good-faith-no': 'No',
+			'rvc-good-faith-no-title': 'No, this edit appears to have been made in bad-faith.',
+			'rvc-good-faith-unsure': 'Unsure',
+			'rvc-good-faith-unsure-title': 'It\'s not clear whether or not this edit was made in good-faith.',
+			'rvc-revision-title': 'Revision: $1',
+			'rvc-submit': 'Submit',
+			'rvc-dataset-completed': 'You completed this dataset!'
 		},
 		pt: {
-			'qc-work-set': 'Conjunto de trabalho:',
-			'qc-damaging': 'Prejudicial?',
-			'qc-damaging-title': 'Esta edição prejudicou o artigo?',
-			'qc-damaging-yes': 'Sim',
-			'qc-damaging-yes-title': 'Sim, esta edição é prejudicial e deveria ser revertida.',
-			'qc-damaging-no': 'Não',
-			'qc-damaging-no-title': 'Não, esta edição não é prejudicial e não deveria ser revertida.',
-			'qc-damaging-unsure': 'Não tenho certeza',
-			'qc-damaging-unsure-title': 'Não está claro se esta edição prejudica o artigo ou não.',
-			'qc-good-faith': 'De boa fé?',
-			'qc-good-faith-title': 'Parece que o autor desta edição estava tentando contribuir produtivamente?',
-			'qc-good-faith-yes': 'Sim',
-			'qc-good-faith-yes-title': 'Sim, esta edição parece ter sido feita de boa fé.',
-			'qc-good-faith-no': 'Não',
-			'qc-good-faith-no-title': 'Não, esta edição parece ter sido feita de má fé.',
-			'qc-good-faith-unsure': 'Não tenho certeza',
-			'qc-good-faith-unsure-title': 'Não está claro se esta edição foi feita de boa fé.',
-			'qc-revision-title': 'Revisão: $1',
-			'qc-submit': 'Submeter',
-			'qc-dataset-completed': 'Você completou este conjunto de dados!'
+			'rvc-work-set': 'Conjunto de trabalho:',
+			'rvc-damaging': 'Prejudicial?',
+			'rvc-damaging-title': 'Esta edição prejudicou o artigo?',
+			'rvc-damaging-yes': 'Sim',
+			'rvc-damaging-yes-title': 'Sim, esta edição é prejudicial e deveria ser revertida.',
+			'rvc-damaging-no': 'Não',
+			'rvc-damaging-no-title': 'Não, esta edição não é prejudicial e não deveria ser revertida.',
+			'rvc-damaging-unsure': 'Não tenho certeza',
+			'rvc-damaging-unsure-title': 'Não está claro se esta edição prejudica o artigo ou não.',
+			'rvc-good-faith': 'De boa fé?',
+			'rvc-good-faith-title': 'Parece que o autor desta edição estava tentando contribuir produtivamente?',
+			'rvc-good-faith-yes': 'Sim',
+			'rvc-good-faith-yes-title': 'Sim, esta edição parece ter sido feita de boa fé.',
+			'rvc-good-faith-no': 'Não',
+			'rvc-good-faith-no-title': 'Não, esta edição parece ter sido feita de má fé.',
+			'rvc-good-faith-unsure': 'Não tenho certeza',
+			'rvc-good-faith-unsure-title': 'Não está claro se esta edição foi feita de boa fé.',
+			'rvc-revision-title': 'Revisão: $1',
+			'rvc-submit': 'Submeter',
+			'rvc-dataset-completed': 'Você completou este conjunto de dados!'
 		}
 	}, fields, workSet, curIdx;
 
@@ -60,22 +60,22 @@
 			{
 				id: 'damaging',
 				class: 'revcoding.ui.RadioButtons',
-				label: mw.msg( 'qc-damaging' ),
-				help: mw.msg( 'qc-damaging-title' ),
+				label: mw.msg( 'rvc-damaging' ),
+				help: mw.msg( 'rvc-damaging-title' ),
 				options: [
 					{
-						label: mw.msg( 'qc-damaging-yes' ),
-						tooltip: mw.msg( 'qc-damaging-yes-title' ),
+						label: mw.msg( 'rvc-damaging-yes' ),
+						tooltip: mw.msg( 'rvc-damaging-yes-title' ),
 						value: 'yes'
 					},
 					{
-						label: mw.msg( 'qc-damaging-unsure' ),
-						tooltip: mw.msg( 'qc-damaging-unsure-title' ),
+						label: mw.msg( 'rvc-damaging-unsure' ),
+						tooltip: mw.msg( 'rvc-damaging-unsure-title' ),
 						value: 'unsure'
 					},
 					{
-						label: mw.msg( 'qc-damaging-no' ),
-						tooltip: mw.msg( 'qc-damaging-no-title' ),
+						label: mw.msg( 'rvc-damaging-no' ),
+						tooltip: mw.msg( 'rvc-damaging-no-title' ),
 						value: 'no'
 					}
 				]
@@ -83,22 +83,22 @@
 			{
 				id: 'good-faith',
 				class: 'revcoding.ui.RadioButtons',
-				label: mw.msg( 'qc-good-faith' ),
-				help: mw.msg( 'qc-good-faith-title' ),
+				label: mw.msg( 'rvc-good-faith' ),
+				help: mw.msg( 'rvc-good-faith-title' ),
 				options: [
 					{
-						label: mw.msg( 'qc-good-faith-yes' ),
-						tooltip: mw.msg( 'qc-good-faith-yes-title' ),
+						label: mw.msg( 'rvc-good-faith-yes' ),
+						tooltip: mw.msg( 'rvc-good-faith-yes-title' ),
 						value: 'yes'
 					},
 					{
-						label: mw.msg( 'qc-good-faith-unsure' ),
-						tooltip: mw.msg( 'qc-good-faith-unsure-title' ),
+						label: mw.msg( 'rvc-good-faith-unsure' ),
+						tooltip: mw.msg( 'rvc-good-faith-unsure-title' ),
 						value: 'unsure'
 					},
 					{
-						label: mw.msg( 'qc-good-faith-no' ),
-						tooltip: mw.msg( 'qc-good-faith-no-title' ),
+						label: mw.msg( 'rvc-good-faith-no' ),
+						tooltip: mw.msg( 'rvc-good-faith-no-title' ),
 						value: 'no'
 					}
 				]
@@ -108,20 +108,20 @@
 
 	function toggleSelection( e ) {
 		var $target = $( e.target ),
-			wasSelected = $target.hasClass( 'qc-selected' );
+			wasSelected = $target.hasClass( 'rvc-selected' );
 		$target
 			.parent()
-				.find( '.qc-selected' )
-					.removeClass( 'qc-selected' )
+				.find( '.rvc-selected' )
+					.removeClass( 'rvc-selected' )
 					.end()
 				.end();
 		if ( !wasSelected ) {
-			$target.addClass( 'qc-selected' );
+			$target.addClass( 'rvc-selected' );
 		}
 		// The user must select one value for each field
-		$( '#qc-submit' ).prop(
+		$( '#rvc-submit' ).prop(
 			'disabled',
-			 $( '.mw-ui-button.qc-selected' ).length !== fields.length ||
+			 $( '.mw-ui-button.rvc-selected' ).length !== fields.length ||
 			 curIdx >= workSet.length
 		);
 	}
@@ -191,17 +191,17 @@
 
 	function showWorkSet( ws ){
 		var i, j, field, idx, $icon, className, tooltip, value,
-			$bar = $( '.qc-progress' ).empty();
+			$bar = $( '.rvc-progress' ).empty();
 		workSet = ws || workSet;
 		for ( i = 0; i < workSet.length; i++ ) {
 			$icon = $( '<div>' );
-			tooltip = mw.msg( 'qc-revision-title', workSet[i].revid );
+			tooltip = mw.msg( 'rvc-revision-title', workSet[i].revid );
 			for ( j = 0; j < fields.length; j++ ) {
 				field = fields[j].id;
 				idx = workSet[i].fields[ field ];
 				value = fields[j].options[ idx ] && fields[j].options[ idx ].value;
 				tooltip += '\n' + fields[j].label + ' ' + value;
-				className = 'qc-' + field + '-' + value;
+				className = 'rvc-' + field + '-' + value;
 				$icon.append( $( '<div>' ).addClass( className ) );
 			}
 			$icon.attr(
@@ -210,11 +210,11 @@
 			);
 			$bar.append( $icon );
 		}
-		$( '.qc-progress > div' ).css( 'width', ( 100 / workSet.length ) + '%' );
-		$( '.mw-ui-button.qc-selected' ).removeClass( 'qc-selected' );
-		$( '#qc-submit' ).prop( 'disabled', true );
+		$( '.rvc-progress > div' ).css( 'width', ( 100 / workSet.length ) + '%' );
+		$( '.mw-ui-button.rvc-selected' ).removeClass( 'rvc-selected' );
+		$( '#rvc-submit' ).prop( 'disabled', true );
 		if( curIdx < workSet.length ){
-			$bar.find( '> div' ).eq( curIdx ).addClass( 'qc-selected' );
+			$bar.find( '> div' ).eq( curIdx ).addClass( 'rvc-selected' );
 			showDiff( workSet[ curIdx ].revid );
 		}
 	}
@@ -237,10 +237,10 @@
 
 	function submit(){
 		var revData;
-		$( '.mw-ui-button.qc-selected' ).each( function(){
+		$( '.mw-ui-button.rvc-selected' ).each( function(){
 			var $this = $( this ),
-				idxValue = $this.data( 'qc-value' ),
-				field = $this.parent().data( 'qc-field' );
+				idxValue = $this.data( 'rvc-value' ),
+				field = $this.parent().data( 'rvc-field' );
 			if( field !== undefined && idxValue !== undefined ){
 				workSet[ curIdx ].fields[ field ] = idxValue;
 			}
@@ -270,13 +270,13 @@
 			comment: location.origin +
 				mw.util.getUrl( 'User:' + mw.config.get( 'wgUserName' ) )
 		};
-		$( '#qc-submit' ).injectSpinner( 'qc-submit-spinner' );
+		$( '#rvc-submit' ).injectSpinner( 'rvc-submit-spinner' );
 		$.ajax( {
 			url: '//ores-test.wmflabs.org/save',
 			data: revData,
 			dataType: 'jsonp'
 		} ).always( function(){
-			$.removeSpinner( 'qc-submit-spinner' );
+			$.removeSpinner( 'rvc-submit-spinner' );
 		} ).fail( function(){
 			console.log( arguments );
 			alert( 'An errror occurred! Check the console...' );
@@ -284,32 +284,32 @@
 		curIdx++;
 		showWorkSet();
 		if( curIdx >= workSet.length ){
-			alert( mw.msg( 'qc-dataset-completed' ) );
-			$( '#qc-submit' ).prop( 'disabled', true );
+			alert( mw.msg( 'rvc-dataset-completed' ) );
+			$( '#rvc-submit' ).prop( 'disabled', true );
 		}
 	}
 
 	function load() {
 		var $ui = $( '<div>' )
-				.addClass( 'qc-ui' ),
-			$submit = $( '<input id="qc-submit" class="mw-ui-button mw-ui-constructive" type="submit">' )
+				.addClass( 'rvc-ui' ),
+			$submit = $( '<input id="rvc-submit" class="mw-ui-button mw-ui-constructive" type="submit">' )
 				.prop( 'disabled', true )
-				.val( mw.msg( 'qc-submit' ) )
+				.val( mw.msg( 'rvc-submit' ) )
 				.click( submit ),
 			field, i, j, id, val, $feature, $group;
 		// When moving this around, make sure that mw.messages.set is called before mw.msg
 		fields = loadConfig();
 		$ui.append(
 			$( '<div>' )
-				.text( mw.msg( 'qc-work-set' ) ),
+				.text( mw.msg( 'rvc-work-set' ) ),
 			$( '<div>' )
-				.addClass( 'qc-progress' )
+				.addClass( 'rvc-progress' )
 		);
 		for ( i = 0; i < fields.length; i++ ) {
 			field = fields[i];
 			id = field.id;
 			$group = $( '<div>' )
-				.data( 'qc-field', id )
+				.data( 'rvc-field', id )
 				// .addClass( 'mw-ui-radio');
 				.addClass( 'mw-ui-button-group');
 			for ( j = 0; j < field.options.length; j++ ) {
@@ -317,19 +317,19 @@
 				$group.append(
 					$( '<div>' )
 						.addClass( 'mw-ui-button')
-						.attr( 'id', 'qc-' + field.id + '-' + val )
+						.attr( 'id', 'rvc-' + field.id + '-' + val )
 						.attr( 'title', field.options[j].tooltip )
 						.text( field.options[j].label )
-						.data( 'qc-value', j )
+						.data( 'rvc-value', j )
 						.click( toggleSelection )
 // 					$( '<input type="radio">' )
-// 						.attr( 'name', 'qc-' + field.id )
-// 						.attr( 'id', 'qc-' + field.id + '-' + val )
+// 						.attr( 'name', 'rvc-' + field.id )
+// 						.attr( 'id', 'rvc-' + field.id + '-' + val )
 // 						.attr( 'title', field.options[j].tooltip ),
 // 					$( '<label for="">' )
 // 						.text( field.options[j].label )
-// 						.attr( 'for', 'qc-' + field.id + '-' + val )
-// 						.data( 'qc-value', j )
+// 						.attr( 'for', 'rvc-' + field.id + '-' + val )
+// 						.data( 'rvc-value', j )
 // 						.click( toggleSelection )
 				);
 			}

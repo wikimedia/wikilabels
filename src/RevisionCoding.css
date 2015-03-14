@@ -1,10 +1,10 @@
-.qc-progress {
+.rvc-progress {
 	border: 1px solid #333;
 	padding: 0.5em;
 	padding-bottom: 0;
 }
 
-.qc-progress > div {
+.rvc-progress > div {
 	border: 1px solid #333;
 	min-width: 0.5em;
 	background: #FFF;
@@ -14,29 +14,29 @@
 	box-sizing: border-box;
 }
 
-.qc-progress div div {
+.rvc-progress div div {
 	height: 1em;
 }
 
-.qc-progress div.qc-damaging-yes,
-.qc-progress div.qc-good-faith-no {
+.rvc-progress div.rvc-damaging-yes,
+.rvc-progress div.rvc-good-faith-no {
 	background: #C00;
 }
 
-.qc-progress div.qc-damaging-no,
-.qc-progress div.qc-good-faith-yes {
+.rvc-progress div.rvc-damaging-no,
+.rvc-progress div.rvc-good-faith-yes {
 	background: #27AA65;
 }
 
-.qc-progress div.qc-damaging-unsure,
-.qc-progress div.qc-good-faith-unsure {
+.rvc-progress div.rvc-damaging-unsure,
+.rvc-progress div.rvc-good-faith-unsure {
 	background: #C9C9C9;
 }
 
-.qc-selected {
+.rvc-selected {
 	background: #CFC;
 }
 
-.qc-progress .qc-selected {
+.rvc-progress .rvc-selected {
 	background: #FF0;
 }

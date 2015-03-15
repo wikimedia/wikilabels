@@ -18,19 +18,14 @@
 	height: 1em;
 }
 
-.rvc-progress div.rvc-damaging-yes,
-.rvc-progress div.rvc-good-faith-no {
+.rvc-progress div.rvc-damaging-1,
+.rvc-progress div.rvc-good-faith-0 {
 	background: #C00;
 }
 
-.rvc-progress div.rvc-damaging-no,
-.rvc-progress div.rvc-good-faith-yes {
+.rvc-progress div.rvc-damaging-0,
+.rvc-progress div.rvc-good-faith-1 {
 	background: #27AA65;
-}
-
-.rvc-progress div.rvc-damaging-unsure,
-.rvc-progress div.rvc-good-faith-unsure {
-	background: #C9C9C9;
 }
 
 .rvc-selected {

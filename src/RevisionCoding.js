@@ -8,103 +8,7 @@
  */
 ( function ( mw, $ ) {
 	'use strict';
-	var i18n = {
-		en: {
-			'rvc-work-set': 'Work set:',
-			'rvc-damaging': 'Damaging?',
-			'rvc-damaging-title': 'Did this edit cause damage to the article?',
-			'rvc-damaging-yes': 'Yes',
-			'rvc-damaging-yes-title': 'Yes, this edit is damaging and should be reverted.',
-			'rvc-damaging-no': 'No',
-			'rvc-damaging-no-title': 'No, this edit is not damaging and should not be reverted.',
-			'rvc-damaging-unsure': 'Unsure',
-			'rvc-damaging-unsure-title': 'It\'s not clear whether this edit damages the article or not.',
-			'rvc-good-faith': 'Good faith?',
-			'rvc-good-faith-title': 'Does it appear as though the author of this edit was trying to contribute productively?',
-			'rvc-good-faith-yes': 'Yes',
-			'rvc-good-faith-yes-title': 'Yes, this edit appears to have been made in good-faith.',
-			'rvc-good-faith-no': 'No',
-			'rvc-good-faith-no-title': 'No, this edit appears to have been made in bad-faith.',
-			'rvc-good-faith-unsure': 'Unsure',
-			'rvc-good-faith-unsure-title': 'It\'s not clear whether or not this edit was made in good-faith.',
-			'rvc-revision-title': 'Revision: $1',
-			'rvc-submit': 'Submit',
-			'rvc-dataset-completed': 'You completed this dataset!'
-		},
-		pt: {
-			'rvc-work-set': 'Conjunto de trabalho:',
-			'rvc-damaging': 'Prejudicial?',
-			'rvc-damaging-title': 'Esta edição prejudicou o artigo?',
-			'rvc-damaging-yes': 'Sim',
-			'rvc-damaging-yes-title': 'Sim, esta edição é prejudicial e deveria ser revertida.',
-			'rvc-damaging-no': 'Não',
-			'rvc-damaging-no-title': 'Não, esta edição não é prejudicial e não deveria ser revertida.',
-			'rvc-damaging-unsure': 'Não tenho certeza',
-			'rvc-damaging-unsure-title': 'Não está claro se esta edição prejudica o artigo ou não.',
-			'rvc-good-faith': 'De boa fé?',
-			'rvc-good-faith-title': 'Parece que o autor desta edição estava tentando contribuir produtivamente?',
-			'rvc-good-faith-yes': 'Sim',
-			'rvc-good-faith-yes-title': 'Sim, esta edição parece ter sido feita de boa fé.',
-			'rvc-good-faith-no': 'Não',
-			'rvc-good-faith-no-title': 'Não, esta edição parece ter sido feita de má fé.',
-			'rvc-good-faith-unsure': 'Não tenho certeza',
-			'rvc-good-faith-unsure-title': 'Não está claro se esta edição foi feita de boa fé.',
-			'rvc-revision-title': 'Revisão: $1',
-			'rvc-submit': 'Submeter',
-			'rvc-dataset-completed': 'Você completou este conjunto de dados!'
-		}
-	}, fields, workSet, curIdx;
-
-	function loadConfig(){
-		return [
-			{
-				id: 'damaging',
-				class: 'revcoding.ui.RadioButtons',
-				label: mw.msg( 'rvc-damaging' ),
-				help: mw.msg( 'rvc-damaging-title' ),
-				options: [
-					{
-						label: mw.msg( 'rvc-damaging-yes' ),
-						tooltip: mw.msg( 'rvc-damaging-yes-title' ),
-						value: 'yes'
-					},
-					{
-						label: mw.msg( 'rvc-damaging-unsure' ),
-						tooltip: mw.msg( 'rvc-damaging-unsure-title' ),
-						value: 'unsure'
-					},
-					{
-						label: mw.msg( 'rvc-damaging-no' ),
-						tooltip: mw.msg( 'rvc-damaging-no-title' ),
-						value: 'no'
-					}
-				]
-			},
-			{
-				id: 'good-faith',
-				class: 'revcoding.ui.RadioButtons',
-				label: mw.msg( 'rvc-good-faith' ),
-				help: mw.msg( 'rvc-good-faith-title' ),
-				options: [
-					{
-						label: mw.msg( 'rvc-good-faith-yes' ),
-						tooltip: mw.msg( 'rvc-good-faith-yes-title' ),
-						value: 'yes'
-					},
-					{
-						label: mw.msg( 'rvc-good-faith-unsure' ),
-						tooltip: mw.msg( 'rvc-good-faith-unsure-title' ),
-						value: 'unsure'
-					},
-					{
-						label: mw.msg( 'rvc-good-faith-no' ),
-						tooltip: mw.msg( 'rvc-good-faith-no-title' ),
-						value: 'no'
-					}
-				]
-			}
-		];
-	}
+	var i18n, config, fields, workSet, curIdx;
 
 	function toggleSelection( e ) {
 		var $target = $( e.target ),
@@ -290,15 +194,18 @@
 		}
 	}
 
-	function load() {
+	function load( data ) {
 		var $ui = $( '#rvc-ui' ).empty(),
 			$submit = $( '<input id="rvc-submit" class="mw-ui-button mw-ui-constructive" type="submit">' )
 				.prop( 'disabled', true )
-				.val( mw.msg( 'rvc-submit' ) )
 				.click( submit ),
 			field, i, j, id, val, $feature, $group;
-		// When moving this around, make sure that mw.messages.set is called before mw.msg
-		fields = loadConfig();
+		config = $.parseJSON( data.query.pages[data.query.pageids[0]].revisions[0]['*'] )
+		fields = config.fields;
+		i18n = config.i18n;
+		mw.messages.set( i18n[ mw.config.get( 'wgUserLanguage' ) ] || i18n.en );
+
+		$submit.val( mw.msg( 'rvc-submit' ) );
 		$ui.append(
 			$( '<div>' )
 				.text( mw.msg( 'rvc-work-set' ) ),
@@ -318,26 +225,26 @@
 					$( '<div>' )
 						.addClass( 'mw-ui-button')
 						.attr( 'id', 'rvc-' + field.id + '-' + val )
-						.attr( 'title', field.options[j].tooltip )
-						.text( field.options[j].label )
+						.attr( 'title', mw.msg( field.options[j].tooltip ) )
+						.text( mw.msg( field.options[j].label ) )
 						.data( 'rvc-value', j )
 						.click( toggleSelection )
 // 					$( '<input type="radio">' )
 // 						.attr( 'name', 'rvc-' + field.id )
 // 						.attr( 'id', 'rvc-' + field.id + '-' + val )
-// 						.attr( 'title', field.options[j].tooltip ),
+// 						.attr( 'title', mw.msg( field.options[j].tooltip ) ),
 // 					$( '<label for="">' )
-// 						.text( field.options[j].label )
+// 						.text( mw.msg( field.options[j].label ) )
 // 						.attr( 'for', 'rvc-' + field.id + '-' + val )
 // 						.data( 'rvc-value', j )
 // 						.click( toggleSelection )
 				);
 			}
 			$feature = $( '<div>' )
-				.attr( 'title', field.help )
+				.attr( 'title', mw.msg( field.help ) )
 				.append(
 					$( '<div>' )
-						.text( field.label ),
+						.text( mw.msg( field.label ) ),
 					$group
 				);
 			$ui.append( $feature, '<div style="clear:both"></div>' );
@@ -360,14 +267,29 @@
 	if ( $.inArray( mw.config.get( 'wgAction' ), [ 'view', 'purge' ] ) !== -1 ) {
 		$( function () {
 			if ( $( '#rvc-ui' ).length !== 0 ) {
-				mw.messages.set( i18n[ mw.config.get( 'wgUserLanguage' ) ] || i18n.en );
 				mw.loader.using( [
 					'mediawiki.api',
 					'jquery.spinner',
 					// TODO: Load this only when necessary
 					// (e.g. if the user will be required to click on some button before the first diff appears)
 					'mediawiki.action.history.diff'
-				] ).done( load );
+				] ).done( function () {
+					$.ajax(
+					{
+						// TODO: Move this to Labs (and use CORS if needed)
+						'url': 'https://meta.wikimedia.org/w/api.php',
+						'data': {
+							action: 'query',
+							format: 'json',
+							prop: 'revisions',
+							rvprop: 'content',
+							titles: 'User:He7d3r/Tools/RevisionCodingConfig.js',
+							indexpageids: ''
+						},
+						'dataType': 'jsonp'
+					} )
+					.done( load );
+				} );
 			}
 		} );
 	}

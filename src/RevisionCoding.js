@@ -161,14 +161,12 @@
 			// FIXME: This is just a hack to map our values to
 			// the ones currently accepted by the tool
 			score: {
-					0: 'yes',
-					1: 'maybe',
-					2: 'no'
+					0: 'no',
+					1: 'yes'
 				}[ workSet[ curIdx ].fields.damaging ],
 			gfaith: {
-					0: 'yes',
-					1: 'maybe',
-					2: 'no'
+					0: 'no',
+					1: 'yes'
 				}[ workSet[ curIdx ].fields['good-faith'] ],
 			wiki: mw.config.get( 'wgDBname' ),
 			comment: location.origin +

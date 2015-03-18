@@ -56,6 +56,24 @@
 			"rvc-submit": "Submit",
 			"rvc-dataset-completed": "You completed this dataset!"
 		},
+		"fa": {
+			"rvc-work-set": "مجموعهٔ کار:",
+			"rvc-damaging": "خرابکاری?",
+			"rvc-damaging-title": "آیا ویرایش باعث خراب شدن مقاله شده‌است؟",
+			"rvc-damaging-yes": "بله",
+			"rvc-damaging-yes-title": "بله، این ویرایش باعث خراب شدن مقاله شده‌است و باید واگردانی شود",
+			"rvc-damaging-no": "نه",
+			"rvc-damaging-no-title": "نه، باید این ویرایش همین‌گونه باشد.",
+			"rvc-good-faith": "با فرض حسن نیت؟",
+			"rvc-good-faith-title": "آیا کاربر ویرایشگر با حسن نیست ویرایش کرده و سازنده بوده است؟",
+			"rvc-good-faith-yes": "بله",
+			"rvc-good-faith-yes-title": "بله، این ویرایش به نظرم با حسن نیت انجام شده‌است.",
+			"rvc-good-faith-no": "نه",
+			"rvc-good-faith-no-title": "نه، این ویرایش با حسن نیست نبوده است",
+			"rvc-revision-title": "نسخه: $1",
+			"rvc-submit": "بارگذاری",
+			"rvc-dataset-completed": "شما مجموعه داده‌ها را کامل کردید!"
+		},
 		"pt": {
 			"rvc-work-set": "Conjunto de trabalho:",
 			"rvc-damaging": "Prejudicial?",

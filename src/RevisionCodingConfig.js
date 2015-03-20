@@ -38,6 +38,24 @@
 		}
 	],
 	"i18n": {
+		"az": {
+			"rvc-work-set": "Veri kümesi:",
+			"rvc-damaging": "Zararlı mı?",
+			"rvc-damaging-title": "Değişiklik maddeye zarar verdi mi?",
+			"rvc-damaging-yes": "Evet",
+			"rvc-damaging-yes-title": "Evet bu değişiklik zararlı ve düzeltilmeli veya geri alınmalı.",
+			"rvc-damaging-no": "Hayır",
+			"rvc-damaging-no-title": "Hayır bu değişiklik zararlı değil ve olduğu gibi kalmalı.",
+			"rvc-good-faith": "İyi niyetli mi?",
+			"rvc-good-faith-title": "Bu kullanıcının yaptığı değişiklik yarar sağlama amaçlı mı gözüküyor?",
+			"rvc-good-faith-yes": "Evet",
+			"rvc-good-faith-yes-title": "Evet bu değişiklik iyi niyetli gibi gözüküyor.",
+			"rvc-good-faith-no": "Hayır",
+			"rvc-good-faith-no-title": "Hayır bu değişiklik kötü niyetli gibi gözüküyor.",
+			"rvc-revision-title": "Değişiklik: $1",
+			"rvc-submit": "Yolla",
+			"rvc-dataset-completed": "Bu veri kümesini incelemeyi tamamladınız!"
+		},
 		"en": {
 			"rvc-work-set": "Work set:",
 			"rvc-damaging": "Damaging?",
@@ -91,6 +109,24 @@
 			"rvc-revision-title": "Revisão: $1",
 			"rvc-submit": "Submeter",
 			"rvc-dataset-completed": "Você completou este conjunto de dados!"
+		},
+		"tr": {
+			"rvc-work-set": "Veri kümesi:",
+			"rvc-damaging": "Zararlı mı?",
+			"rvc-damaging-title": "Değişiklik maddeye zarar verdi mi?",
+			"rvc-damaging-yes": "Evet",
+			"rvc-damaging-yes-title": "Evet bu değişiklik zararlı ve düzeltilmeli veya geri alınmalı.",
+			"rvc-damaging-no": "Hayır",
+			"rvc-damaging-no-title": "Hayır bu değişiklik zararlı değil ve olduğu gibi kalmalı.",
+			"rvc-good-faith": "İyi niyetli mi?",
+			"rvc-good-faith-title": "Bu kullanıcının yaptığı değişiklik yarar sağlama amaçlı mı gözüküyor?",
+			"rvc-good-faith-yes": "Evet",
+			"rvc-good-faith-yes-title": "Evet bu değişiklik iyi niyetli gibi gözüküyor.",
+			"rvc-good-faith-no": "Hayır",
+			"rvc-good-faith-no-title": "Hayır bu değişiklik kötü niyetli gibi gözüküyor.",
+			"rvc-revision-title": "Değişiklik: $1",
+			"rvc-submit": "Yolla",
+			"rvc-dataset-completed": "Bu veri kümesini incelemeyi tamamladınız!"
 		}
 	}
 }

@@ -1,0 +1,56 @@
+name: Quality Coding -- English Wikipedia 2014 10k sample
+source: enwiki 2014 revisions -- 10k random sample
+author:
+    name: Aaron Halfaker
+    email: aaron.halfaker@gmail.com
+
+coder:
+    class: revcoding.coders.RevisionDiff
+    form:
+        fields:
+            - damaging
+            - good-faith
+
+fields:
+    damaging:
+        class: revcoding.ui.RadioButtons
+        label: Damaging?
+        help: Did this edit cause damage to the article?
+        options:
+            -
+                label: yes
+                value: yes
+                tooltip: Yes, this edit is damaging and should be reverted.
+            -
+                label: no
+                value: no
+                tooltip: >
+                         No, this edit is not damaging and should not be
+                         reverted.
+            -
+                label: unsure
+                value: unsure
+                tooltip: >
+                         It's not clear whether this edit damages the article or
+                         not.
+    good-faith:
+        class: revcoding.ui.RadioButtons
+        label: Good faith?
+        help: >
+              Does it appear as though the author of this edit was
+              trying to contribute productively?
+        options:
+            -
+                label: yes
+                value: yes
+                tooltip: Yes, this edit appears to have been made in good-faith.
+            -
+                label: no
+                value: no
+                tooltip: No, this edit appears to have been made in bad-faith.
+            -
+                label: unsure
+                value: unsure
+                tooltip: >
+                         It's not clear whether or not this edit was made in
+                         good-faith.

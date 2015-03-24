@@ -32,5 +32,5 @@ Once installed, the code will be executed on any page containing an HTML element
 
 For discussion on the design, access these pages on Meta-wiki
 * [meta:Research:Revision scoring as a service/Coder](https://meta.wikimedia.org/wiki/Research:Revision_scoring_as_a_service/Coder)
-* [meta:Research talk:Revision scoring as a service/Coder](https://meta.wikimedia.org/wiki/Research_talk:Revision_scoring_as_a_service/Coder]
-* [meta:Research talk:Revision scoring as a service#Revision handcoding (mockups)](https://meta.wikimedia.org/wiki/Research_talk:Revision_scoring_as_a_service#Revision_handcoding_.28mockups.29]
+* [meta:Research talk:Revision scoring as a service/Coder](https://meta.wikimedia.org/wiki/Research_talk:Revision_scoring_as_a_service/Coder)
+* [meta:Research talk:Revision scoring as a service#Revision handcoding (mockups)](https://meta.wikimedia.org/wiki/Research_talk:Revision_scoring_as_a_service#Revision_handcoding_.28mockups.29)

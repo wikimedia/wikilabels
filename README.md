@@ -30,5 +30,7 @@ This is a prototype of a gadget for scoring revisions according to their constru
 Once installed, the code will be executed on any page containing an HTML element with id="rvc-ui". The gadget loads a set of revisions (currently, the newest 50 recent changes) and allows the user to score them one by one. There is a progress bar showing each revision in the set, colored according to its status. Detailed information can be seen by putting the mouse over a specific revision in the bar. When the user submits the scores for a revision, the values are saved in a database in Tool Labs. The table can be viewed at
 * http://ores-test.wmflabs.org/table.
 
-For discussion on the design, access
-* https://meta.wikimedia.org/wiki/Research_talk:Revision_scoring_as_a_service#Revision_handcoding_.28mockups.29
+For discussion on the design, access these pages on Meta-wiki
+* [meta:Research:Revision scoring as a service/Coder](https://meta.wikimedia.org/wiki/Research:Revision_scoring_as_a_service/Coder)
+* [meta:Research talk:Revision scoring as a service/Coder](https://meta.wikimedia.org/wiki/Research_talk:Revision_scoring_as_a_service/Coder]
+* [meta:Research talk:Revision scoring as a service#Revision handcoding (mockups)](https://meta.wikimedia.org/wiki/Research_talk:Revision_scoring_as_a_service#Revision_handcoding_.28mockups.29]

@@ -1,7 +1,8 @@
 import json
 
 import mwoauth
-from flask import Flask, jsonify, request
+from flask import Flask, request
+from flask.ext.jsonpify import jsonify
 
 
 def configure(config=None):

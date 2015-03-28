@@ -194,13 +194,13 @@
 
 	function load( data ) {
 		var $ui = $( '#rvc-ui' ).empty(),
+			// FIXME: Migrate to OOjs UI (http://livingstyleguide.wmflabs.org/wiki/OOjs_UI)
 			$submit = $( '<input id="rvc-submit" class="mw-ui-button mw-ui-constructive" type="submit">' )
 				.prop( 'disabled', true )
 				.click( submit ),
 			field, i, j, id, val, $feature, $group;
-		config = $.parseJSON( data.query.pages[data.query.pageids[0]].revisions[0]['*'] )
-		fields = config.fields;
-		i18n = config.i18n;
+		fields = data.form.fields;
+		i18n = data.form.i18n;
 		mw.messages.set( i18n[ mw.config.get( 'wgUserLanguage' ) ] || i18n.en );
 
 		$submit.val( mw.msg( 'rvc-submit' ) );
@@ -274,16 +274,7 @@
 				] ).done( function () {
 					$.ajax(
 					{
-						// TODO: Move this to Labs (and use CORS if needed)
-						'url': 'https://meta.wikimedia.org/w/api.php',
-						'data': {
-							action: 'query',
-							format: 'json',
-							prop: 'revisions',
-							rvprop: 'content',
-							titles: 'User:He7d3r/Tools/RevisionCodingConfig.js',
-							indexpageids: ''
-						},
+						'url': '//ores-test.wmflabs.org/coder/forms/damaging_and_goodfaith',
 						'dataType': 'jsonp'
 					} )
 					.done( load );

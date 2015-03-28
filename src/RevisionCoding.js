@@ -8,7 +8,7 @@
  */
 ( function ( mw, $ ) {
 	'use strict';
-	var i18n, config, fields, workSet, curIdx;
+	var i18n, fields, tasks, curTaskIdx;
 
 	function toggleSelection( e ) {
 		var $target = $( e.target ),
@@ -26,85 +26,37 @@
 		$( '#rvc-submit' ).prop(
 			'disabled',
 			 $( '.mw-ui-button.rvc-selected' ).length !== fields.length ||
-			 curIdx >= workSet.length
+			 curTaskIdx >= tasks.length
 		);
 	}
-/*
-	function getRandomSet( size, done ) {
-		var i, j, rev,
-			apiDeferred = $.Deferred(),
-			list = [];
-		size = size || 100;
-		done = done || 70;
-		curIdx = done + 1;
-		for ( i = 0; i < size; i++ ) {
-			rev = {
-				revid: Math.floor( Math.random() * 1000000 ),
-				pageid: Math.floor( Math.random() * 1000000 ),
-				// One key for each of the things we want to predict (vandalism, good-faith, quality, etc)
-				fields: {}
-			};
-			if ( i <= done ) {
-				// TODO:
-				// * Should an 'undefined' value mean 'unknown'?
-				//   In that case, this could be a boolean
-				// * Or one should explicitly set a value (e.g. 0) to mean 'unknown'?
-				//   In case there are just three possibilities, we could use -1, 0 and 1 instead of 0, 1 and 2?
-				// FIXME: these names should not be hardcoded
-				// TODO: Should we hardcode common sense such as "not damaging implies good faith"?
-				for ( j = 0; j < fields.length; j++ ) {
-					// Classes from 0 to (N-1), where N is the number of options for this field
-					rev.fields[ fields[j].id ] = Math.floor( Math.random() * fields[j].options.length );
-				}
-			}
-			list.push( rev );
-		}
-		apiDeferred.resolve( list );
-		return apiDeferred.promise();
-	}
-*/
-	function getRecentChanges( options ) {
-		var apiDeferred = $.Deferred(),
-			defaultOptions = {
-				action: 'query',
-				list: 'recentchanges',
-				rctype: 'edit|new',
-				rclimit: 50
-			},
-			params = $.extend( {}, defaultOptions, options );
-		new mw.Api().get( params ).done( function( data ){
-			var i,
-				list = [],
-				changes = data.query.recentchanges;
-			for( i = 0; i < changes.length; i++ ){
-				list.push( {
-					revid: changes[i].revid,
-					pageid: changes[i].pageid,
-					// One key for each of the things we want to predict (vandalism, good-faith, quality, etc)
-					fields: {}
-				} );
-			}
-			apiDeferred.resolve( list );
-		} )
-		.fail( function(){
-			// TODO: Reject and pass some error info?
-			apiDeferred.resolve( [] );
+
+	function getWorkSet( campId, wsId ) {
+		campId = campId || 345;
+		wsId = wsId || 222;
+		return $.ajax( {
+			'url': '//ores-test.wmflabs.org/coder/campaigns/' +
+				mw.config.get( 'wgDBname' ) + '/' + campId + '/' + wsId + '/',
+			'dataType': 'jsonp'
 		} );
-		return apiDeferred.promise();
 	}
 
-	function showWorkSet( ws ){
-		var i, j, field, idx, $icon, className, tooltip, value,
+	function showWorkSet( data ){
+		var i, j, field, $icon, className, tooltip, value,
 			$bar = $( '.rvc-progress' ).empty();
-		workSet = ws || workSet;
-		for ( i = 0; i < workSet.length; i++ ) {
+		tasks = ( data && data.workset.tasks ) || tasks;
+		for ( i = 0; i < tasks.length; i++ ) {
 			$icon = $( '<div>' );
-			tooltip = mw.msg( 'rvc-revision-title', workSet[i].revid );
+			tooltip = mw.msg( 'rvc-revision-title', tasks[i].data.rev_id );
 			for ( j = 0; j < fields.length; j++ ) {
 				field = fields[j].id;
-				idx = workSet[i].fields[ field ];
-				value = fields[j].options[ idx ] && fields[j].options[ idx ].value;
-				tooltip += '\n' + fields[j].label + ' ' + value;
+				// FIXME: how to get the labels (values) without doing an API request for each task in this workset?
+				// FIXME: type of label values are inconsistent (boolean vs integers):
+				// * true/false: https://ores-test.wmflabs.org/coder/campaigns/enwiki/111/222/333/
+				// * 1/0: https://ores-test.wmflabs.org/coder/forms/damaging_and_goodfaith
+				//
+				// idx = tasks[i].fields[ field ];
+				// value = fields[j].options[ idx ] && fields[j].options[ idx ].value;
+				// tooltip += '\n' + fields[j].label + ' ' + value;
 				className = 'rvc-' + field + '-' + value;
 				$icon.append( $( '<div>' ).addClass( className ) );
 			}
@@ -114,12 +66,12 @@
 			);
 			$bar.append( $icon );
 		}
-		$( '.rvc-progress > div' ).css( 'width', ( 100 / workSet.length ) + '%' );
+		$( '.rvc-progress > div' ).css( 'width', ( 100 / tasks.length ) + '%' );
 		$( '.mw-ui-button.rvc-selected' ).removeClass( 'rvc-selected' );
 		$( '#rvc-submit' ).prop( 'disabled', true );
-		if( curIdx < workSet.length ){
-			$bar.find( '> div' ).eq( curIdx ).addClass( 'rvc-selected' );
-			showDiff( workSet[ curIdx ].revid );
+		if( curTaskIdx < tasks.length ){
+			$bar.find( '> div' ).eq( curTaskIdx ).addClass( 'rvc-selected' );
+			showDiff( tasks[curTaskIdx].data.rev_id );
 		}
 	}
 
@@ -131,62 +83,55 @@
 			revids: revid,
 			indexpageids: true
 		} ).done( function( data ){
-			var page = data.query.pages[ data.query.pageids[0] ];
-			// $( '#firstHeading' ).text( page.title );
-			$( '#rvc-diff' ).empty().append(
-				page.revisions[0].diff['*']
-			);
+			var page, pageids = data.query.pageids;
+			if( pageids && pageids[0] ){
+				page = data.query.pages[ pageids[0] ];
+				// $( '#firstHeading' ).text( page.title );
+				$( '#rvc-diff' ).empty().append(
+					page.revisions[0].diff['*']
+				);
+			} else {
+				$( '#rvc-diff' ).empty().text( mw.msg( 'rvc-badpageid' ) );
+			}
 		} );
 	}
 
 	function submit(){
-		var revData;
+		var campId = 123,
+			wsId = 456,
+			taskId = 789;
 		$( '.mw-ui-button.rvc-selected' ).each( function(){
 			var $this = $( this ),
 				idxValue = $this.data( 'rvc-value' ),
 				field = $this.parent().data( 'rvc-field' );
 			if( field !== undefined && idxValue !== undefined ){
-				workSet[ curIdx ].fields[ field ] = idxValue;
+				if ( !tasks[ curTaskIdx ].fields ){
+					tasks[ curTaskIdx ].fields = {};
+				}
+				tasks[ curTaskIdx ].fields[ field ] = idxValue;
 			}
 		} );
-		// FIXME: Generalize the API provided by the tool on Labs,
-		// to deal with arbitrary number of fields (columns?)
-		revData = {
-			action: 'save',
-			rev: workSet[ curIdx ].revid,
-			page: workSet[ curIdx ].pageid,
-			// FIXME: This number changes between wikis
-			// FIXME: Authenticate using OAuth
-			user: mw.config.get( 'wgUserId' ),
-			// FIXME: This is just a hack to map our values to
-			// the ones currently accepted by the tool
-			score: {
-					0: 'no',
-					1: 'yes'
-				}[ workSet[ curIdx ].fields.damaging ],
-			gfaith: {
-					0: 'no',
-					1: 'yes'
-				}[ workSet[ curIdx ].fields['good-faith'] ],
-			wiki: mw.config.get( 'wgDBname' ),
-			comment: location.origin +
-				mw.util.getUrl( 'User:' + mw.config.get( 'wgUserName' ) )
-		};
 		$( '#rvc-submit' ).injectSpinner( 'rvc-submit-spinner' );
 		$.ajax( {
-			// See the saved data on http://ores-test.wmflabs.org/table
-			url: '//ores-test.wmflabs.org/save',
-			data: revData,
+			url: '//ores-test.wmflabs.org/coder/campaigns/' +
+				mw.config.get( 'wgDBname' ) + '/' + campId + '/' + wsId + '/' + taskId + '/',
+			data: {
+				label: JSON.stringify( {
+					// TODO: use integers consistently for storing labels?
+					goodfaith: true,
+					damaging: false
+				} )
+			},
 			dataType: 'jsonp'
 		} ).always( function(){
+			console.log( arguments );
 			$.removeSpinner( 'rvc-submit-spinner' );
 		} ).fail( function(){
-			console.log( arguments );
 			alert( 'An errror occurred! Check the console...' );
 		} );
-		curIdx++;
+		curTaskIdx++;
 		showWorkSet();
-		if( curIdx >= workSet.length ){
+		if( curTaskIdx >= tasks.length ){
 			alert( mw.msg( 'rvc-dataset-completed' ) );
 			$( '#rvc-submit' ).prop( 'disabled', true );
 		}
@@ -256,9 +201,8 @@
 				'<col class="diff-content">' +
 				'</colgroup><tbody id="rvc-diff"></tbody></table>'
 			);
-		curIdx = 0;
-		// getRandomSet()
-		getRecentChanges()
+		curTaskIdx = 0;
+		getWorkSet()
 			.done( showWorkSet );
 	}
 

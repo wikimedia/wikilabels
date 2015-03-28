@@ -1,4 +1,4 @@
-CREATE TABLE user (
+CREATE TABLE "user" (
   id      INT,
   created TIMESTAMP,
   touched TIMESTAMP,
@@ -43,9 +43,9 @@ CREATE TABLE task (
   id          SERIAL,
   campaign_id INT,
   created     TIMESTAMP,
-  data        JSONB,
+  data        JSON,
   PRIMARY KEY(id),
-  KEY(campaign_id)
+  FOREIGN KEY(campaign_id) REFERENCES campaign(id)
 );
 /*
 -- Inserts a new task
@@ -74,10 +74,10 @@ CREATE TABLE label (
   task_id   INT,
   user_id   INT,
   timestamp TIMESTAMP,
-  data      JSONB,
-  PRIMARY_KEY(task_id, user_id),
-  KEY(user_id)
-)
+  data      JSON,
+  PRIMARY KEY(task_id, user_id),
+  FOREIGN KEY(user_id) REFERENCES "user"(id)
+);
 /*
 -- Inserts a new label
 -- ['label', 'updated']
@@ -100,8 +100,8 @@ CREATE TABLE workset (
   user_id     INT,
   created     TIMESTAMP,
   expires     TIMESTAMP,
-  PRIMARY_KEY(id),
-  KEY(user_id)
+  PRIMARY KEY(id),
+  FOREIGN KEY(user_id) REFERENCES "user"(id)
 );
 /*
 -- Inserts a new workset (but doesn't assign tasks yet)
@@ -124,8 +124,8 @@ WHERE workset.id = 345
 CREATE TABLE workset_task (
   workset_id INT,
   task_id INT,
-  KEY(workset_id, task_id),
-  KEY(task_id)
+  PRIMARY KEY(workset_id, task_id),
+  FOREIGN KEY(task_id) REFERENCES task(id)
 );
 /*
 -- Assigns a task to a workset
@@ -155,9 +155,9 @@ LIMIT 50
 
 CREATE TABLE event (
   id        SERIAL,
-  timestamp TIMESTAMP,
   type      VARCHAR(255), -- 'user_identified', 'workset_assigned', etc.
-  meta      JSONB,
+  timestamp TIMESTAMP,
+  meta      JSON,
   PRIMARY KEY(id),
-  KEY(object, action, timestamp)
+  KEY(type, timestamp)
 );

@@ -1,0 +1,98 @@
+name: damaging_and_goodfaith
+fields:
+  -
+    name: damaging
+    class: revcoding.ui.RadioButtons
+    label: <damaging-label>
+    help: <damaging-help>
+    options:
+      -
+        label: <damaging-yes-label>
+        tooltip: <damaging-yes-tooltip>
+        value: 1
+      -
+        label: <damaging-no-label>
+        tooltip: <damaging-no-tooltip>
+        value: 0
+
+  -
+    name: good-faith
+    class: revcoding.ui.RadioButtons
+    label: <good-faith-label>
+    help: <good-faith-tooltip>
+    options:
+      -
+        label: <good-faith-yes-label>
+        tooltip: <good-faith-yes-tooltip>
+        value: 1
+      -
+        label: <good-faith-no-label>
+        tooltip: <good-faith-no-tooltip>
+        value: 0
+
+i18n:
+  az:
+    damaging-label: "Zararlı mı?"
+    damaging-help: "Değişiklik maddeye zarar verdi mi?"
+    damaging-yes-label: "Evet"
+    damaging-yes-tooltip: "Evet bu değişiklik zararlı ve düzeltilmeli veya geri alınmalı."
+    damaging-no-label: "Hayır"
+    damaging-no-tooltip: "Hayır bu değişiklik zararlı değil ve olduğu gibi kalmalı."
+    good-faith-label: "İyi niyetli mi?"
+    good-faith-tooltip: "Bu kullanıcının yaptığı değişiklik yarar sağlama amaçlı mı gözüküyor?"
+    good-faith-yes-label: "Evet"
+    good-faith-yes-tooltip: "Evet bu değişiklik iyi niyetli gibi gözüküyor."
+    good-faith-no-label: "Hayır"
+    good-faith-no-tooltip: "Hayır bu değişiklik kötü niyetli gibi gözüküyor."
+  en:
+    damaging-label: "Damaging?"
+    damaging-help: "Did this edit cause damage to the article?"
+    damaging-yes-label: "Yes"
+    damaging-yes-tooltip: "Yes this edit is damaging and should be fixed or reverted."
+    damaging-no-label: "No"
+    damaging-no-tooltip: "No this edit is not damaging and can be kept as is."
+    good-faith-label: "Good faith?"
+    good-faith-tooltip: "Does it appear as though the author of this edit was trying to contribute productively?"
+    good-faith-yes-label: "Yes"
+    good-faith-yes-tooltip: "Yes this edit appears to have been made in good-faith."
+    good-faith-no-label: "No"
+    good-faith-no-tooltip: "No this edit appears to have been made in bad-faith."
+  fa:
+    damaging-label: "خرابکاری?"
+    damaging-help: "آیا ویرایش باعث خراب شدن مقاله شده‌است؟"
+    damaging-yes-label: "بله"
+    damaging-yes-tooltip: "بله، این ویرایش باعث خراب شدن مقاله شده‌است و باید واگردانی شود"
+    damaging-no-label: "نه"
+    damaging-no-tooltip: "نه، باید این ویرایش همین‌گونه باشد."
+    good-faith-label: "با فرض حسن نیت؟"
+    good-faith-tooltip: "آیا کاربر ویرایشگر با حسن نیست ویرایش کرده و سازنده بوده است؟"
+    good-faith-yes-label: "بله"
+    good-faith-yes-tooltip: "بله، این ویرایش به نظرم با حسن نیت انجام شده‌است."
+    good-faith-no-label: "نه"
+    good-faith-no-tooltip: "نه، این ویرایش با حسن نیست نبوده است"
+  pt:
+    damaging-label: "Prejudicial?"
+    damaging-help: "Esta edição prejudicou o artigo?"
+    damaging-yes-label: "Sim"
+    damaging-yes-tooltip: "Sim esta edição é prejudicial e deveria ser corrigida ou revertida."
+    damaging-no-label: "Não"
+    damaging-no-tooltip: "Não esta edição não é prejudicial e pode ser mantida como está."
+    good-faith-label: "De boa fé?"
+    good-faith-help: "Parece que o autor desta edição estava tentando contribuir produtivamente?"
+    good-faith-yes-label: "Sim"
+    good-faith-yes-tooltip: "Sim esta edição parece ter sido feita de boa fé."
+    good-faith-no-label: "Não"
+    good-faith-no-tooltip: "Não esta edição parece ter sido feita de má fé."
+  tr:
+    damaging-label: "Zararlı mı?"
+    damaging-help: "Değişiklik maddeye zarar verdi mi?"
+    damaging-yes-label: "Evet"
+    damaging-yes-tooltip: "Evet bu değişiklik zararlı ve düzeltilmeli veya geri alınmalı."
+    damaging-no-label: "Hayır"
+    damaging-no-tooltip: "Hayır bu değişiklik zararlı değil ve olduğu gibi kalmalı."
+    good-faith-label: "İyi niyetli mi?"
+    good-faith-help: "Bu kullanıcının yaptığı değişiklik yarar sağlama amaçlı mı gözüküyor?"
+    good-faith-yes-label: "Evet"
+    good-faith-yes-tooltip: "Evet bu değişiklik iyi niyetli gibi gözüküyor."
+    good-faith-no-label: "Hayır"
+    good-faith-no-tooltip: "Hayır bu değişiklik kötü niyetli gibi gözüküyor."

@@ -1,0 +1,13 @@
+database:
+  host: localhost
+  user: revcoding
+  database: revcoding
+  password: revcoding-admin
+
+form_directory: forms/enabled
+application_root: "/coder"
+
+oauth:
+  mw_uri: https://www.mediawiki.org/w/index.php
+  key: <snip>
+  secret: <snip>

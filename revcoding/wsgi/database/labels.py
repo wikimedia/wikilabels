@@ -33,7 +33,7 @@ class Labels(Collection):
                 cursor.execute("""
                 UPDATE label
                 SET
-                    data = %(data)s AND
+                    data = %(data)s,
                     timestamp = NOW()
                 WHERE
                     task_id = %(task_id)s AND

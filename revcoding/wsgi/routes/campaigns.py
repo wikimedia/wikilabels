@@ -87,8 +87,6 @@ def configure(bp, config, db):
         except NotFoundError as e:
             return responses.not_found(str(e))
 
-        return responses.not_implemented("Assign workset")
-
     @bp.route("/campaigns/<wiki>/<int:campaign_id>/<int:workset_id>/", methods=["GET"])
     def get_workset(wiki, campaign_id, workset_id):
         """

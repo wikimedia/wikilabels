@@ -10,47 +10,46 @@
 	'use strict';
 	var fields, tasks, curTaskIdx;
 
-	function lookup( k ){
-		console.log( 'rvc-' + k, mw.msg( 'rvc-' + k ))
+	function lookup( k ) {
 		return mw.msg( 'rvc-' + k );
 	}
 	// Applying a translation to any level of a form description doc
 	function applyTranslation( value, lookup ) {
-		var i, l, trans_l, obj, trans_obj, key;
-	    if( typeof( value ) === 'string' ) {
-	        // If a string, look to see if we need to translate it.
-	        var str = value;
-	        if ( str.charAt(0) === '<' && str.charAt( str.length - 1 ) === '>' ) {
-	            // Lookup translation
-	            return lookup( str.substr( 1, str.length - 2 ) );
-	        } else {
-	            // No translation necessary
-	            return str;
-	        }
-	    } else if ( $.isArray( value ) ) {
-	        // Going to have to recurse for each item
-	        l = value;
-	        trans_l = [];
-	        for( i in l ){
-	            if ( l.hasOwnProperty(i) ) {
-					trans_l.push( applyTranslation( l[i], lookup ) );
-	            }
-	        }
-	        return trans_l;
-	    } else if ( typeof( value ) === 'object' ) {
-	        // Going to have to recurse for each value
-	        obj = value;
-	        trans_obj = {};
-			for(var key in obj){
-				if ( obj.hasOwnProperty( key ) ) {
-					trans_obj[ key ] = applyTranslation( obj[key], lookup );
+		var i, l, transList, obj, transObj, key, str;
+		if ( typeof value === 'string' ) {
+			// If a string, look to see if we need to translate it.
+			str = value;
+			if ( str.charAt( 0 ) === '<' && str.charAt( str.length - 1 ) === '>' ) {
+				// Lookup translation
+				return lookup( str.substr( 1, str.length - 2 ) );
+			} else {
+				// No translation necessary
+				return str;
+			}
+		} else if ( $.isArray( value ) ) {
+			// Going to have to recurse for each item
+			l = value;
+			transList = [];
+			for ( i in l ) {
+				if ( l.hasOwnProperty( i ) ) {
+					transList.push( applyTranslation( l[i], lookup ) );
 				}
 			}
-	        return trans_obj;
-	    } else {
-	        // bool or numeric == A-OK
-	        return value;
-	    }
+			return transList;
+		} else if ( typeof value === 'object' ) {
+			// Going to have to recurse for each value
+			obj = value;
+			transObj = {};
+			for ( key in obj ) {
+				if ( obj.hasOwnProperty( key ) ) {
+					transObj[ key ] = applyTranslation( obj[key], lookup );
+				}
+			}
+			return transObj;
+		} else {
+			// bool or numeric == A-OK
+			return value;
+		}
 	}
 
 	function toggleSelection( e ) {
@@ -68,8 +67,8 @@
 		// The user must select one value for each field
 		$( '#rvc-submit' ).prop(
 			'disabled',
-			 $( '.mw-ui-button.rvc-selected' ).length !== fields.length ||
-			 curTaskIdx >= tasks.length
+			$( '.mw-ui-button.rvc-selected' ).length !== fields.length ||
+				curTaskIdx >= tasks.length
 		);
 	}
 
@@ -77,13 +76,13 @@
 		campId = campId || 345;
 		wsId = wsId || 222;
 		return $.ajax( {
-			'url': '//ores-test.wmflabs.org/coder/campaigns/' +
+			url: '//ores-test.wmflabs.org/coder/campaigns/' +
 				mw.config.get( 'wgDBname' ) + '/' + campId + '/' + wsId + '/',
-			'dataType': 'jsonp'
+			dataType: 'jsonp'
 		} );
 	}
 
-	function showWorkSet( data ){
+	function showWorkSet( data ) {
 		var i, j, field, $icon, className, tooltip, value,
 			$bar = $( '.rvc-progress' ).empty();
 		tasks = ( data && data.workset.tasks ) || tasks;
@@ -112,22 +111,22 @@
 		$( '.rvc-progress > div' ).css( 'width', ( 100 / tasks.length ) + '%' );
 		$( '.mw-ui-button.rvc-selected' ).removeClass( 'rvc-selected' );
 		$( '#rvc-submit' ).prop( 'disabled', true );
-		if( curTaskIdx < tasks.length ){
+		if ( curTaskIdx < tasks.length ) {
 			$bar.find( '> div' ).eq( curTaskIdx ).addClass( 'rvc-selected' );
 			showDiff( tasks[curTaskIdx].data.rev_id );
 		}
 	}
 
-	function showDiff( revid ){
+	function showDiff( revid ) {
 		new mw.Api().get( {
 			action: 'query',
 			prop: 'revisions',
 			rvdiffto: 'prev',
 			revids: revid,
 			indexpageids: true
-		} ).done( function( data ){
+		} ).done( function ( data ) {
 			var page, pageids = data.query.pageids;
-			if( pageids && pageids[0] ){
+			if ( pageids && pageids[0] ) {
 				page = data.query.pages[ pageids[0] ];
 				// $( '#firstHeading' ).text( page.title );
 				$( '#rvc-diff' ).empty().append(
@@ -139,16 +138,16 @@
 		} );
 	}
 
-	function submit(){
+	function submit() {
 		var campId = 123,
 			wsId = 456,
 			taskId = 789;
-		$( '.mw-ui-button.rvc-selected' ).each( function(){
+		$( '.mw-ui-button.rvc-selected' ).each( function () {
 			var $this = $( this ),
 				idxValue = $this.data( 'rvc-value' ),
 				field = $this.parent().data( 'rvc-field' );
-			if( field !== undefined && idxValue !== undefined ){
-				if ( !tasks[ curTaskIdx ].fields ){
+			if ( field !== undefined && idxValue !== undefined ) {
+				if ( !tasks[ curTaskIdx ].fields ) {
 					tasks[ curTaskIdx ].fields = {};
 				}
 				tasks[ curTaskIdx ].fields[ field ] = idxValue;
@@ -166,15 +165,14 @@
 				} )
 			},
 			dataType: 'jsonp'
-		} ).always( function(){
-			console.log( arguments );
+		} ).always( function () {
 			$.removeSpinner( 'rvc-submit-spinner' );
-		} ).fail( function(){
+		} ).fail( function () {
 			alert( 'An errror occurred! Check the console...' );
 		} );
 		curTaskIdx++;
 		showWorkSet();
-		if( curTaskIdx >= tasks.length ){
+		if ( curTaskIdx >= tasks.length ) {
 			alert( mw.msg( 'rvc-dataset-completed' ) );
 			$( '#rvc-submit' ).prop( 'disabled', true );
 		}
@@ -190,12 +188,11 @@
 		// Reads in messages and sets a prefix for mw.msg to do lookups
 		messages = data.i18n[ mw.config.get( 'wgUserLanguage' ) ] || data.i18n.en;
 		prefixedMsgs = {};
-		for( key in messages ) {
+		for ( key in messages ) {
 			if ( messages.hasOwnProperty( key ) ) {
 				prefixedMsgs[ 'rvc-' + key ] = messages[ key ];
 			}
 		}
-		console.log('prefixedMsgs',prefixedMsgs)
 		mw.messages.set( prefixedMsgs );
 		fields = applyTranslation( data.fields, lookup );
 
@@ -212,12 +209,12 @@
 			$group = $( '<div>' )
 				.data( 'rvc-field', id )
 				// .addClass( 'mw-ui-radio');
-				.addClass( 'mw-ui-button-group');
+				.addClass( 'mw-ui-button-group' );
 			for ( j = 0; j < field.options.length; j++ ) {
 				val = field.options[j].value;
 				$group.append(
 					$( '<div>' )
-						.addClass( 'mw-ui-button')
+						.addClass( 'mw-ui-button' )
 						.attr( 'id', 'rvc-' + field.id + '-' + val )
 						.attr( 'title', field.options[j].tooltip )
 						.text( field.options[j].label )
@@ -269,8 +266,8 @@
 				] ).done( function () {
 					$.ajax(
 					{
-						'url': '//ores-test.wmflabs.org/coder/forms/damaging_and_goodfaith',
-						'dataType': 'jsonp'
+						url: '//ores-test.wmflabs.org/coder/forms/damaging_and_goodfaith',
+						dataType: 'jsonp'
 					} )
 					.done( load );
 				} );

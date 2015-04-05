@@ -73,19 +73,26 @@
 	}
 
 	function getWorkSet( campId, wsId ) {
-		campId = campId || 345;
-		wsId = wsId || 222;
+		// FIXME: Remove these hardcoded values
+		campId = campId || 1;
+		wsId = wsId || 1;
 		return $.ajax( {
 			url: '//ores-test.wmflabs.org/coder/campaigns/' +
 				mw.config.get( 'wgDBname' ) + '/' + campId + '/' + wsId + '/',
-			dataType: 'jsonp'
+			data: {
+				tasks: ''
+			},
+			dataType: 'jsonp',
+			timeout: 3000
+		} ).fail( function ( jqXHR, textStatus ) {
+			alert( 'An errror occurred: ' + textStatus );
 		} );
 	}
 
 	function showWorkSet( data ) {
 		var i, j, field, $icon, className, tooltip, value,
 			$bar = $( '.rvc-progress' ).empty();
-		tasks = ( data && data.workset.tasks ) || tasks;
+		tasks = ( data && data.tasks ) || tasks;
 		for ( i = 0; i < tasks.length; i++ ) {
 			$icon = $( '<div>' );
 			tooltip = mw.msg( 'rvc-revision-title', tasks[i].data.rev_id );
@@ -128,10 +135,14 @@
 			var page, pageids = data.query.pageids;
 			if ( pageids && pageids[0] ) {
 				page = data.query.pages[ pageids[0] ];
-				// $( '#firstHeading' ).text( page.title );
-				$( '#rvc-diff' ).empty().append(
-					page.revisions[0].diff['*']
-				);
+				if ( page.missing !== '' ) {
+					// $( '#firstHeading' ).text( page.title );
+					$( '#rvc-diff' ).empty().append(
+						page.revisions[0].diff['*']
+					);
+				} else {
+					$( '#rvc-diff' ).empty().text( mw.msg( 'rvc-page-missing' ) );
+				}
 			} else {
 				$( '#rvc-diff' ).empty().text( mw.msg( 'rvc-badpageid' ) );
 			}
@@ -139,9 +150,9 @@
 	}
 
 	function submit() {
-		var campId = 123,
-			wsId = 456,
-			taskId = 789;
+		var campId = 1,
+			wsId = 1,
+			taskId = 1;
 		$( '.mw-ui-button.rvc-selected' ).each( function () {
 			var $this = $( this ),
 				idxValue = $this.data( 'rvc-value' ),
@@ -164,11 +175,12 @@
 					damaging: false
 				} )
 			},
-			dataType: 'jsonp'
+			dataType: 'jsonp',
+			timeout: 3000
 		} ).always( function () {
 			$.removeSpinner( 'rvc-submit-spinner' );
-		} ).fail( function () {
-			alert( 'An errror occurred! Check the console...' );
+		} ).fail( function ( jqXHR, textStatus ) {
+			alert( 'An errror occurred: ' + textStatus );
 		} );
 		curTaskIdx++;
 		showWorkSet();
@@ -264,12 +276,15 @@
 					// (e.g. if the user will be required to click on some button before the first diff appears)
 					'mediawiki.action.history.diff'
 				] ).done( function () {
-					$.ajax(
-					{
+					$.ajax( {
 						url: '//ores-test.wmflabs.org/coder/forms/damaging_and_goodfaith',
-						dataType: 'jsonp'
+						dataType: 'jsonp',
+						timeout: 3000
 					} )
-					.done( load );
+					.done( load )
+					.fail( function ( jqXHR, textStatus ) {
+						alert( 'An errror occurred: ' + textStatus );
+					} );
 				} );
 			}
 		} );

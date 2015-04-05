@@ -83,9 +83,9 @@
 				tasks: ''
 			},
 			dataType: 'jsonp',
-			timeout: 3000
+			timeout: 5000
 		} ).fail( function ( jqXHR, textStatus ) {
-			alert( 'An errror occurred: ' + textStatus );
+			alert( 'An error occurred: ' + textStatus );
 		} );
 	}
 
@@ -176,11 +176,11 @@
 				} )
 			},
 			dataType: 'jsonp',
-			timeout: 3000
+			timeout: 5000
 		} ).always( function () {
 			$.removeSpinner( 'rvc-submit-spinner' );
 		} ).fail( function ( jqXHR, textStatus ) {
-			alert( 'An errror occurred: ' + textStatus );
+			alert( 'An error occurred: ' + textStatus );
 		} );
 		curTaskIdx++;
 		showWorkSet();
@@ -279,11 +279,11 @@
 					$.ajax( {
 						url: '//ores-test.wmflabs.org/coder/forms/damaging_and_goodfaith',
 						dataType: 'jsonp',
-						timeout: 3000
+						timeout: 5000
 					} )
 					.done( load )
 					.fail( function ( jqXHR, textStatus ) {
-						alert( 'An errror occurred: ' + textStatus );
+						alert( 'An error occurred: ' + textStatus );
 					} );
 				} );
 			}

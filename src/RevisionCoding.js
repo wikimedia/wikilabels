@@ -8,7 +8,50 @@
  */
 ( function ( mw, $ ) {
 	'use strict';
-	var i18n, fields, tasks, curTaskIdx;
+	var fields, tasks, curTaskIdx;
+
+	function lookup( k ){
+		console.log( 'rvc-' + k, mw.msg( 'rvc-' + k ))
+		return mw.msg( 'rvc-' + k );
+	}
+	// Applying a translation to any level of a form description doc
+	function applyTranslation( value, lookup ) {
+		var i, l, trans_l, obj, trans_obj, key;
+	    if( typeof( value ) === 'string' ) {
+	        // If a string, look to see if we need to translate it.
+	        var str = value;
+	        if ( str.charAt(0) === '<' && str.charAt( str.length - 1 ) === '>' ) {
+	            // Lookup translation
+	            return lookup( str.substr( 1, str.length - 2 ) );
+	        } else {
+	            // No translation necessary
+	            return str;
+	        }
+	    } else if ( $.isArray( value ) ) {
+	        // Going to have to recurse for each item
+	        l = value;
+	        trans_l = [];
+	        for( i in l ){
+	            if ( l.hasOwnProperty(i) ) {
+					trans_l.push( applyTranslation( l[i], lookup ) );
+	            }
+	        }
+	        return trans_l;
+	    } else if ( typeof( value ) === 'object' ) {
+	        // Going to have to recurse for each value
+	        obj = value;
+	        trans_obj = {};
+			for(var key in obj){
+				if ( obj.hasOwnProperty( key ) ) {
+					trans_obj[ key ] = applyTranslation( obj[key], lookup );
+				}
+			}
+	        return trans_obj;
+	    } else {
+	        // bool or numeric == A-OK
+	        return value;
+	    }
+	}
 
 	function toggleSelection( e ) {
 		var $target = $( e.target ),
@@ -143,10 +186,18 @@
 			$submit = $( '<input id="rvc-submit" class="mw-ui-button mw-ui-constructive" type="submit">' )
 				.prop( 'disabled', true )
 				.click( submit ),
-			field, i, j, id, val, $feature, $group;
-		fields = data.form.fields;
-		i18n = data.form.i18n;
-		mw.messages.set( i18n[ mw.config.get( 'wgUserLanguage' ) ] || i18n.en );
+			field, i, j, id, val, $feature, $group, key, messages, prefixedMsgs;
+		// Reads in messages and sets a prefix for mw.msg to do lookups
+		messages = data.i18n[ mw.config.get( 'wgUserLanguage' ) ] || data.i18n.en;
+		prefixedMsgs = {};
+		for( key in messages ) {
+			if ( messages.hasOwnProperty( key ) ) {
+				prefixedMsgs[ 'rvc-' + key ] = messages[ key ];
+			}
+		}
+		console.log('prefixedMsgs',prefixedMsgs)
+		mw.messages.set( prefixedMsgs );
+		fields = applyTranslation( data.fields, lookup );
 
 		$submit.val( mw.msg( 'rvc-submit' ) );
 		$ui.append(
@@ -168,26 +219,26 @@
 					$( '<div>' )
 						.addClass( 'mw-ui-button')
 						.attr( 'id', 'rvc-' + field.id + '-' + val )
-						.attr( 'title', mw.msg( field.options[j].tooltip ) )
-						.text( mw.msg( field.options[j].label ) )
+						.attr( 'title', field.options[j].tooltip )
+						.text( field.options[j].label )
 						.data( 'rvc-value', j )
 						.click( toggleSelection )
 // 					$( '<input type="radio">' )
 // 						.attr( 'name', 'rvc-' + field.id )
 // 						.attr( 'id', 'rvc-' + field.id + '-' + val )
-// 						.attr( 'title', mw.msg( field.options[j].tooltip ) ),
+// 						.attr( 'title', field.options[j].tooltip ),
 // 					$( '<label for="">' )
-// 						.text( mw.msg( field.options[j].label ) )
+// 						.text( field.options[j].label )
 // 						.attr( 'for', 'rvc-' + field.id + '-' + val )
 // 						.data( 'rvc-value', j )
 // 						.click( toggleSelection )
 				);
 			}
 			$feature = $( '<div>' )
-				.attr( 'title', mw.msg( field.help ) )
+				.attr( 'title', field.help )
 				.append(
 					$( '<div>' )
-						.text( mw.msg( field.label ) ),
+						.text( field.label ),
 					$group
 				);
 			$ui.append( $feature, '<div style="clear:both"></div>' );

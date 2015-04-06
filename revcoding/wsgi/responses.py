@@ -1,5 +1,4 @@
-from flask import jsonify
-
+from flask.ext.jsonpify import jsonify
 
 def error(status, code, message):
     return jsonify({'error': {'code': code, 'message': message}}), status

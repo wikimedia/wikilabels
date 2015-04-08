@@ -1,0 +1,12 @@
+
+.CodeMirror {
+  border: 1px solid silver;
+  height: auto;
+}
+.CodeMirror-scroll {
+  height: auto;
+}
+
+.form_builder .controls {
+  text-align: right;
+}

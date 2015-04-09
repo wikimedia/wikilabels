@@ -1,0 +1,145 @@
+<html>
+  <head>
+    <title>Form Builder</title>
+    <script src="application.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+    </style>
+  </head>
+  <body>
+    <div class="form_builder">
+      <h1>Form builder!</h2>
+      <div class="info">
+        Experiment with
+        <a href="https://en.wikipedia.org/wiki/WP:Revision coder">Revision coder</a>
+        form configurations editing the textbox below.  Click "preview" to
+        review the changes and
+        <a href="https://en.wikipedia.org/wiki/WP:Revision coder/Request a form">request a form</a>
+        when you are ready.
+      </div>
+      <div class="config">
+        <textarea id="config_text">/*
+Fields are OOjs UI elements.  Reference i18n messages by specifying a value
+like "<this>".
+*/
+title: "<form-title>"
+
+fields:
+  - class: "FieldLayout"
+    label: "<damaging-label>"
+    align: right
+    fieldWidget:
+      name: "damaging"
+      class: "ButtonSelectWidget"
+      items:
+        - class: "ButtonOptionWidget"
+          data: true
+          label: "<damaging-true-label>"
+        - class: "ButtonOptionWidget"
+          data: false
+          label: "<damaging-false-label>"
+  - class: "FieldLayout"
+    label: "<goodfaith-label>"
+    align: right
+    fieldWidget:
+      name: "goodfaith-faith"
+      class: "ButtonSelectWidget"
+      items:
+        - class: "ButtonOptionWidget"
+          data: true
+          label: "<goodfaith-true-label>"
+        - class: "ButtonOptionWidget"
+          data: false
+          label: "<goodfaith-false-label>"
+  - class: "FieldLayout"
+    label: "<notes-label>"
+    align: right
+    fieldWidget:
+      name: "notes"
+      class: "TextInputWidget"
+
+i18n:
+  en:
+    form-title: Edit quality
+    notes-label: "Notes"
+    damaging-label: "Damaging?"
+    damaging-true-label: "yes"
+    damaging-false-label: "no"
+    goodfaith-label: "Good-faith?"
+    goodfaith-true-label: "yes"
+    goodfaith-false-label: "no"
+        </textarea>
+        <div class="controls" id="controls">
+        </div>
+      </div>
+      <div class="preview">
+      </div>
+    </div>
+    <script>
+      var form_config = CodeMirror.fromTextArea(
+        document.getElementById("config_text"),
+        {
+          mode:  "yaml",
+          lineNumbers: true,
+          viewportMargin: Infinity
+        }
+      );
+
+      var preview_button = new OO.ui.ButtonWidget( {
+          label: 'Preview',
+          icon: 'expand',
+          iconTitle: 'Preview',
+          align: 'inline',
+          flags: ['primary', 'constructive']
+      } );
+      $('#controls').append(preview_button.$element)
+      preview_button.on('click', function(e){
+        var i18n_lookup, fields, fields_container,
+            doc = YAML.eval(form_config.getValue())
+
+        //console.log(doc)
+
+        fields_container = $('div.form_builder .preview')
+        fields_container.html("")
+        if(doc.fields === undefined){
+          fields_container.text("'fields' missing")
+        }
+        if(doc.i18n === undefined){
+          fields_container.text("'i18n' missing")
+        }
+
+        var i18n_lookup = function(k){return doc.i18n.en[k]}
+        window_doc = doc
+        var translated_doc = applyTranslation(doc, i18n_lookup)
+        console.log(translated_doc)
+        var fields = translated_doc.fields
+        console.log(fields)
+
+        fieldset = new OO.ui.FieldsetLayout( {
+            label: translated_doc.title
+        } );
+        fields_container.append(fieldset.$element)
+        for(var i in fields){
+          var field_doc = fields[i]
+          var field = OO.ui.instantiateFromParameters(field_doc)
+          fieldset.addItems([field])
+        }
+
+        var submit_button = new OO.ui.ButtonWidget( {
+            label: 'Save label'
+        } );
+        submit_button.on('click', function(e){
+          console.log(OO.ui.getFormData(fieldset))
+        })
+        var submit_field = new OO.ui.FieldLayout(
+          submit_button,
+          {
+            label: $("<span>").html("&nbsp;"),
+            align: 'right'
+          }
+        )
+        fieldset.addItems([submit_field])
+      })
+    </script>
+  </body>
+</html>

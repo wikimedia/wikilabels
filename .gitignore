@@ -9,6 +9,9 @@ __pycache__/
 # npm stuff
 node_modules/
 
+# Trash
+_trash/
+
 # Distribution / packaging
 .Python
 env/

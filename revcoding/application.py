@@ -11,6 +11,8 @@ from .database import DB
 
 def configure(config):
     app = Flask("revcoding")
+    app.config["APPLICATION_ROOT"] = config['application_root']
+    
     bp = Blueprint('revcoding', __name__)
 
     db = DB.from_config(config)
@@ -24,6 +26,7 @@ def configure(config):
 
     consumer_token = mwoauth.ConsumerToken(config['oauth']['key'],
                                            config['oauth']['secret'])
+
     oauth = mwoauth.Handshaker(config['oauth']['mw_uri'], consumer_token)
 
     bp = routes.configure(config, bp, db, oauth, form_map)

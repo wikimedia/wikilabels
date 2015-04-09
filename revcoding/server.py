@@ -29,7 +29,6 @@ def main():
         config = None
 
     app = application.configure(config)
-    app.config["APPLICATION_ROOT"] = config['application_root']
     app.run(host="0.0.0.0",
             port=int(args['--port']),
             debug=True)

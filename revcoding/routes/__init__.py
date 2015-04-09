@@ -2,6 +2,7 @@ from . import auth
 from . import campaigns
 from . import users
 from . import forms
+from . import form_builder
 
 def configure(config, bp, db, oauth, form_map):
 
@@ -14,5 +15,6 @@ def configure(config, bp, db, oauth, form_map):
     bp = campaigns.configure(bp, config, db)
     bp = users.configure(bp, config, db)
     bp = forms.configure(bp, config, form_map)
+    bp = form_builder.configure(bp)
 
     return bp

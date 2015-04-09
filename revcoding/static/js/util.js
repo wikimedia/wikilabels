@@ -3,7 +3,7 @@ function applyTranslation( value, lookup ) {
 	var i, l, transArray, obj, transObj, key, str;
 	if ( typeof value === 'string' ) {
 		// If a string, look to see if we need to translate it.
-		str = value;
+		var str = value;
 		if ( str.charAt( 0 ) === '<' && str.charAt( str.length - 1 ) === '>' ) {
 			// Lookup translation
 			return lookup( str.substr( 1, str.length - 2 ) );
@@ -13,18 +13,18 @@ function applyTranslation( value, lookup ) {
 		}
 	} else if ( $.isArray( value ) ) {
 		// Going to have to recurse for each item
-		arr = value;
-		transArray = [];
-		for ( i in arr ) {
-			if ( arr.hasOwnProperty( i ) ) {
+		var arr = value;
+		var transArray = [];
+		for (var i in arr ) {
+			if ( arr.hasOwnProperty(i) ){
 				transArray.push( applyTranslation( arr[i], lookup ) );
 			}
 		}
 		return transArray;
 	} else if ( typeof value === 'object' ) {
 		// Going to have to recurse for each value
-		obj = value;
-		transObj = {};
+		var obj = value;
+		var transObj = {};
 		for ( key in obj ) {
 			if ( obj.hasOwnProperty( key ) ) {
 				transObj[ key ] = applyTranslation( obj[key], lookup );
@@ -96,4 +96,14 @@ OO.ui.preprocessConfig = function( config ) {
 	if ( error ) {
 		return error;
 	}
+}
+
+OO.ui.getFormData = function(element, cache){
+	var cache = cache || {}
+	if(element.getField){
+		OO.ui.getFormData(element.getField(), cache)
+	}else if(element.$input){
+		cache[element.$input.attr('name')] = element.$input.value()
+	}
+	return cache
 }

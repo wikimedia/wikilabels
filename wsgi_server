@@ -1,4 +1,4 @@
 #!/usr/bin/env python3
-from revcoding.wsgi import server
+from revcoding import server
 
 server.main()

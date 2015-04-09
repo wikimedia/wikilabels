@@ -1,5 +1,8 @@
+import os
 from functools import wraps
-from flask import request, current_app
+
+from flask import current_app, request
+
 
 def read_param(request, param, default=None, type=str):
     try:
@@ -29,3 +32,8 @@ def jsonp(func):
         else:
             return func(*args, **kwargs)
     return decorated_function
+
+
+def static_file_path(path):
+    dir_name = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(dir_name, "static", path)

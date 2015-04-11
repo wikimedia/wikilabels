@@ -10,9 +10,14 @@
 	'use strict';
 	var fields, tasks, curTaskIdx;
 
+	function failedRequest( jqXHR, textStatus ) {
+		alert( 'An error occurred: ' + textStatus );
+	}
+
 	function lookup( k ) {
 		return mw.msg( 'rvc-' + k );
 	}
+
 	// Applying a translation to any level of a form description doc
 	function applyTranslation( value, lookup ) {
 		var i, l, transList, obj, transObj, key, str;
@@ -84,9 +89,7 @@
 			},
 			dataType: 'jsonp',
 			timeout: 5000
-		} ).fail( function ( jqXHR, textStatus ) {
-			alert( 'An error occurred: ' + textStatus );
-		} );
+		} ).fail( failedRequest );
 	}
 
 	function showWorkSet( data ) {
@@ -179,9 +182,7 @@
 			timeout: 5000
 		} ).always( function () {
 			$.removeSpinner( 'rvc-submit-spinner' );
-		} ).fail( function ( jqXHR, textStatus ) {
-			alert( 'An error occurred: ' + textStatus );
-		} );
+		} ).fail( failedRequest );
 		curTaskIdx++;
 		showWorkSet();
 		if ( curTaskIdx >= tasks.length ) {
@@ -190,8 +191,8 @@
 		}
 	}
 
-	function load( data ) {
-		var $ui = $( '#rvc-ui' ).empty(),
+	function loadForm( data ) {
+		var $ui = $( '#rvc-ui' ),
 			// FIXME: Migrate to OOjs UI (http://livingstyleguide.wmflabs.org/wiki/OOjs_UI)
 			$submit = $( '<input id="rvc-submit" class="mw-ui-button mw-ui-constructive" type="submit">' )
 				.prop( 'disabled', true )
@@ -266,25 +267,65 @@
 			.done( showWorkSet );
 	}
 
+	function showCampaigns( data ){
+		var i, j, $li,
+			$ui = $( '#rvc-ui' ).empty(),
+			$campaigns = $( '<div id="rvc-campaigns"></div>' ),
+			$ul = $( '<ul></ul>' );
+		for ( i = 0; i < data.campaigns.length; i++ ){
+			// for ( j = 0; j < data.campaigns.length; j++ ){
+			//
+			// }
+			$li = $( '<li></li>' )
+				.text( data.campaigns[i].name )
+				.append(
+					$( '<ul></ul>' )
+						.addClass( 'mw-collapsible mw-collapsed' )
+						.append(
+							$( '<li></li>' ).text( '[ 2014-12-29 (100/100) ] [ review ]' ),
+							$( '<li></li>' ).text( '[ 2014-12-29 (100/100) ] [ review ]' ),
+							$( '<li></li>' ).text( '[ 2014-12-29 (2/100)] [ in-progress ]' )
+						)
+				);
+			$ul.append( $li );
+		}
+		$campaigns.append( $ul );
+		$ui.append( $campaigns );
+		$( '.mw-collapsible' ).makeCollapsible();
+		// FIXME: return the form for the campaing selected by the user, instead of the first one
+		return data.campaigns[0].form;
+	}
+
 	if ( $.inArray( mw.config.get( 'wgAction' ), [ 'view', 'purge' ] ) !== -1 ) {
 		$( function () {
 			if ( $( '#rvc-ui' ).length !== 0 ) {
 				mw.loader.using( [
 					'mediawiki.api',
 					'jquery.spinner',
+					'jquery.makeCollapsible',
 					// TODO: Load this only when necessary
 					// (e.g. if the user will be required to click on some button before the first diff appears)
 					'mediawiki.action.history.diff'
 				] ).done( function () {
+					// FIXME: Remove this hack! (once the server has campaigns for testwiki)
+					var db = mw.config.get( 'wgDBname' ) === 'testwiki' ? 'enwiki' : mw.config.get( 'wgDBname' );
 					$.ajax( {
-						url: '//ores-test.wmflabs.org/coder/forms/damaging_and_goodfaith',
-						dataType: 'jsonp',
-						timeout: 5000
+						url: '//ores-test.wmflabs.org/coder/campaigns/' +
+							db + '/', // mw.config.get( 'wgDBname' ) + '/',
+						dataType: 'jsonp'
 					} )
-					.done( load )
-					.fail( function ( jqXHR, textStatus ) {
-						alert( 'An error occurred: ' + textStatus );
-					} );
+					.then( showCampaigns, failedRequest )
+					.then( function( form ){
+						$.ajax( {
+							// FIXME: Use the form parameter, when its value is fixed on the server
+							// url: '//ores-test.wmflabs.org/coder/forms/' + form,
+							url: '//ores-test.wmflabs.org/coder/forms/damaging_and_goodfaith',
+							dataType: 'jsonp',
+							timeout: 5000
+						} )
+						.done( loadForm )
+						.fail( failedRequest );
+					}, failedRequest );
 				} );
 			}
 		} );

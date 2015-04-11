@@ -268,65 +268,82 @@
 	}
 
 	function showCampaigns( data ){
-		var i, j, $li,
+		var i,
+			promises = [],
 			$ui = $( '#rvc-ui' ).empty(),
 			$campaigns = $( '<div id="rvc-campaigns"></div>' ),
 			$ul = $( '<ul></ul>' );
-		for ( i = 0; i < data.campaigns.length; i++ ){
-			// for ( j = 0; j < data.campaigns.length; j++ ){
-			//
-			// }
-			$li = $( '<li></li>' )
-				.text( data.campaigns[i].name )
-				.append(
-					$( '<ul></ul>' )
-						.addClass( 'mw-collapsible mw-collapsed' )
-						.append(
-							$( '<li></li>' ).text( '[ 2014-12-29 (100/100) ] [ review ]' ),
-							$( '<li></li>' ).text( '[ 2014-12-29 (100/100) ] [ review ]' ),
-							$( '<li></li>' ).text( '[ 2014-12-29 (2/100)] [ in-progress ]' )
-						)
-				);
-			$ul.append( $li );
+
+		function addCampaign( campId ) { //, $li
+			return $.ajax( {
+				url: '//ores-test.wmflabs.org/coder/campaigns/enwiki/' +
+					campId + '/?worksets',
+				dataType: 'jsonp'
+			} )
+			.then( function ( data ) {
+				var i, d,
+					$li = $( '<li></li>' )
+						.text( data.campaign.name ),
+					$ul = $( '<ul></ul>' )
+						.addClass( 'mw-collapsible mw-collapsed' );
+				for ( i = 0; i < data.worksets.length; i++ ) {
+					d = new Date( data.worksets[i].created * 1000 );
+					$ul.append(
+						$( '<li></li>' ).text( '[ ' + d.toString() + ' (100/100) ] [ review ]' )
+					);
+				}
+				return $li.append( $ul );
+			} );
 		}
-		$campaigns.append( $ul );
-		$ui.append( $campaigns );
-		$( '.mw-collapsible' ).makeCollapsible();
+
+		for ( i = 0; i < data.campaigns.length; i++ ){
+			promises.push( addCampaign( data.campaigns[i].id ) );
+		}
+		$.when.apply( $, promises )
+			.done( function() {
+				var i;
+				for ( i = 0; i < arguments.length; i++ ) {
+					$ul.append( arguments[i] );
+				}
+				$ui.append( $campaigns.append( $ul ) );
+				$( '.mw-collapsible' ).makeCollapsible();
+			} );
 		// FIXME: return the form for the campaing selected by the user, instead of the first one
 		return data.campaigns[0].form;
 	}
 
 	if ( $.inArray( mw.config.get( 'wgAction' ), [ 'view', 'purge' ] ) !== -1 ) {
 		$( function () {
+			// FIXME: Remove this hack! (once the server has campaigns for testwiki)
+			var db = mw.config.get( 'wgDBname' ) === 'testwiki' ? 'enwiki' : mw.config.get( 'wgDBname' );
 			if ( $( '#rvc-ui' ).length !== 0 ) {
-				mw.loader.using( [
+				$.ajax( {
+					url: '//ores-test.wmflabs.org/coder/campaigns/' +
+						db + '/', // mw.config.get( 'wgDBname' ) + '/',
+					dataType: 'jsonp'
+				} )
+				.then( mw.loader.using( [
 					'mediawiki.api',
 					'jquery.spinner',
 					'jquery.makeCollapsible',
 					// TODO: Load this only when necessary
 					// (e.g. if the user will be required to click on some button before the first diff appears)
 					'mediawiki.action.history.diff'
-				] ).done( function () {
-					// FIXME: Remove this hack! (once the server has campaigns for testwiki)
-					var db = mw.config.get( 'wgDBname' ) === 'testwiki' ? 'enwiki' : mw.config.get( 'wgDBname' );
+				] ) )
+				.then( showCampaigns, failedRequest )
+				.then( function( formName ){
+					// FIXME: Remove this once the correct name is returned by the server
+					if( formName === 'damaging_and_badfaith' ){
+						formName = 'damaging_and_goodfaith';
+					}
 					$.ajax( {
-						url: '//ores-test.wmflabs.org/coder/campaigns/' +
-							db + '/', // mw.config.get( 'wgDBname' ) + '/',
-						dataType: 'jsonp'
+						url: '//ores-test.wmflabs.org/coder/forms/' + formName,
+						dataType: 'jsonp',
+						timeout: 5000
 					} )
-					.then( showCampaigns, failedRequest )
-					.then( function( form ){
-						$.ajax( {
-							// FIXME: Use the form parameter, when its value is fixed on the server
-							// url: '//ores-test.wmflabs.org/coder/forms/' + form,
-							url: '//ores-test.wmflabs.org/coder/forms/damaging_and_goodfaith',
-							dataType: 'jsonp',
-							timeout: 5000
-						} )
-						.done( loadForm )
-						.fail( failedRequest );
-					}, failedRequest );
-				} );
+					.done( loadForm )
+					.fail( failedRequest );
+				}, failedRequest );
 			}
 		} );
 	}

@@ -8,7 +8,8 @@
  */
 ( function ( mw, $ ) {
 	'use strict';
-	var fields, tasks, curTaskIdx;
+	var fields, tasks, curTaskIdx,
+		baseUrl = '//ores-test.wmflabs.org/coder/';
 
 	function failedRequest( jqXHR, textStatus ) {
 		alert( 'An error occurred: ' + textStatus );
@@ -82,8 +83,8 @@
 		campId = campId || 1;
 		wsId = wsId || 1;
 		return $.ajax( {
-			url: '//ores-test.wmflabs.org/coder/campaigns/' +
-				mw.config.get( 'wgDBname' ) + '/' + campId + '/' + wsId + '/',
+			url: baseUrl + 'campaigns/' + mw.config.get( 'wgDBname' ) + '/' +
+				campId + '/' + wsId + '/',
 			data: {
 				tasks: ''
 			},
@@ -169,8 +170,8 @@
 		} );
 		$( '#rvc-submit' ).injectSpinner( 'rvc-submit-spinner' );
 		$.ajax( {
-			url: '//ores-test.wmflabs.org/coder/campaigns/' +
-				mw.config.get( 'wgDBname' ) + '/' + campId + '/' + wsId + '/' + taskId + '/',
+			url: baseUrl + 'campaigns/' + mw.config.get( 'wgDBname' ) + '/' +
+				campId + '/' + wsId + '/' + taskId + '/',
 			data: {
 				label: JSON.stringify( {
 					// TODO: use integers consistently for storing labels?
@@ -267,17 +268,17 @@
 			.done( showWorkSet );
 	}
 
-	function showCampaigns( data ){
+	function showCampaigns( data ) {
 		var i,
+			dfd = $.Deferred(),
 			promises = [],
 			$ui = $( '#rvc-ui' ).empty(),
 			$campaigns = $( '<div id="rvc-campaigns"></div>' ),
 			$ul = $( '<ul></ul>' );
 
-		function addCampaign( campId ) { //, $li
+		function addCampaign( campId ) { // , $li
 			return $.ajax( {
-				url: '//ores-test.wmflabs.org/coder/campaigns/enwiki/' +
-					campId + '/?worksets',
+				url: baseUrl + 'campaigns/enwiki/' + campId + '/?worksets',
 				dataType: 'jsonp'
 			} )
 			.then( function ( data ) {
@@ -296,20 +297,23 @@
 			} );
 		}
 
-		for ( i = 0; i < data.campaigns.length; i++ ){
+		for ( i = 0; i < data.campaigns.length; i++ ) {
 			promises.push( addCampaign( data.campaigns[i].id ) );
 		}
 		$.when.apply( $, promises )
-			.done( function() {
+			.done( function () {
 				var i;
 				for ( i = 0; i < arguments.length; i++ ) {
 					$ul.append( arguments[i] );
 				}
 				$ui.append( $campaigns.append( $ul ) );
 				$( '.mw-collapsible' ).makeCollapsible();
+				// FIXME: return the form for the campaing selected by the user, instead of the first one
+				dfd.resolve( data.campaigns[0].form );
+			} ).fail( function () {
+				dfd.reject();
 			} );
-		// FIXME: return the form for the campaing selected by the user, instead of the first one
-		return data.campaigns[0].form;
+		return dfd.promise();
 	}
 
 	if ( $.inArray( mw.config.get( 'wgAction' ), [ 'view', 'purge' ] ) !== -1 ) {
@@ -318,8 +322,7 @@
 			var db = mw.config.get( 'wgDBname' ) === 'testwiki' ? 'enwiki' : mw.config.get( 'wgDBname' );
 			if ( $( '#rvc-ui' ).length !== 0 ) {
 				$.ajax( {
-					url: '//ores-test.wmflabs.org/coder/campaigns/' +
-						db + '/', // mw.config.get( 'wgDBname' ) + '/',
+					url: baseUrl + 'campaigns/' + db + '/', // mw.config.get( 'wgDBname' ) + '/',
 					dataType: 'jsonp'
 				} )
 				.then( mw.loader.using( [
@@ -331,13 +334,13 @@
 					'mediawiki.action.history.diff'
 				] ) )
 				.then( showCampaigns, failedRequest )
-				.then( function( formName ){
+				.then( function( formName ) {
 					// FIXME: Remove this once the correct name is returned by the server
-					if( formName === 'damaging_and_badfaith' ){
+					if ( formName === 'damaging_and_badfaith' ) {
 						formName = 'damaging_and_goodfaith';
 					}
 					$.ajax( {
-						url: '//ores-test.wmflabs.org/coder/forms/' + formName,
+						url: baseUrl + 'forms/' + formName,
 						dataType: 'jsonp',
 						timeout: 5000
 					} )

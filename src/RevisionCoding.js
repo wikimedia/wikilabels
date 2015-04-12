@@ -11,8 +11,20 @@
 	var fields, tasks, curTaskIdx,
 		baseUrl = '//ores-test.wmflabs.org/coder/';
 
+	mw.messages.set( {
+		'rvc-review': 'Review',
+		'rvc-revision-title': 'Revision: $1',
+		'rvc-work-set': 'Work set:',
+		'rvc-submit': 'Submit',
+		'rvc-dataset-completed': 'You completed this dataset!'
+	} );
+
 	function failedRequest( jqXHR, textStatus ) {
 		alert( 'An error occurred: ' + textStatus );
+	}
+
+	function notImplemented() {
+		alert( 'Not implemented yet.' );
 	}
 
 	function lookup( k ) {
@@ -291,7 +303,19 @@
 					for ( i = 0; i < data.worksets.length; i++ ) {
 						d = new Date( data.worksets[i].created * 1000 );
 						$ul.append(
-							$( '<li></li>' ).text( '[ ' + d.toString() + ' (100/100) ] [ review ]' )
+							$( '<li></li>' )
+								.append(
+									$( '<div class="mw-ui-button-group"></div>' )
+										.append(
+											$( '<div class="mw-ui-button" disabled></div>' )
+												.text( d.toString() + ' (100/100)' )
+												.click( notImplemented ),
+											$( '<div class="mw-ui-button mw-ui-progressive"></div>' )
+												.text( mw.msg( 'rvc-review' ) )
+												.click( notImplemented )
+										),
+									$( '<div style="clear:both"></div>' )
+								)
 						);
 					}
 					$li.append( $ul );

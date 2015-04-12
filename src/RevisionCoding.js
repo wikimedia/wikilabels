@@ -282,18 +282,21 @@
 				dataType: 'jsonp'
 			} )
 			.then( function ( data ) {
-				var i, d,
+				var i, d, $ul,
 					$li = $( '<li></li>' )
-						.text( data.campaign.name ),
+						.text( data.campaign.name );
+				if ( data.worksets.length ) {
 					$ul = $( '<ul></ul>' )
-						.addClass( 'mw-collapsible mw-collapsed' );
-				for ( i = 0; i < data.worksets.length; i++ ) {
-					d = new Date( data.worksets[i].created * 1000 );
-					$ul.append(
-						$( '<li></li>' ).text( '[ ' + d.toString() + ' (100/100) ] [ review ]' )
-					);
+						.addClass( 'mw-collapsible mw-collapsed' )
+					for ( i = 0; i < data.worksets.length; i++ ) {
+						d = new Date( data.worksets[i].created * 1000 );
+						$ul.append(
+							$( '<li></li>' ).text( '[ ' + d.toString() + ' (100/100) ] [ review ]' )
+						);
+					}
+					$li.append( $ul );
 				}
-				return $li.append( $ul );
+				return $li;
 			} );
 		}
 

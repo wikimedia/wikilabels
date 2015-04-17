@@ -34,7 +34,8 @@ def concat_css():
         css_cache = "".join([
             open(static_file_path("lib/oojs-ui/oojs-ui-mediawiki.css")).read(),
             open(static_file_path("lib/codemirror/codemirror.css")).read(),
-            open(static_file_path("css/form_builder.css")).read()
+            open(static_file_path("css/form_builder.css")).read(),
+            open(static_file_path("css/revcoder.css")).read()
         ])
 
     return css_cache
@@ -51,6 +52,7 @@ def concat_js():
             open(static_file_path("lib/codemirror/codemirror.js")).read(),
             open(static_file_path("lib/codemirror-modes/yaml/yaml.js")).read(),
             open(static_file_path("js/util.js")).read(),
+            open(static_file_path("js/event.js")).read(),
             open(static_file_path("js/form_builder.js")).read()
         ])
 

@@ -5,32 +5,34 @@ body {
   padding: 0px .5em;
 }
 
+h1 {
+  size: 200%;
+}
+
+div.info {
+  padding: 1ex 1em;
+}
+
 .oo-ui-fieldLayout-align-right {
   text-align: right;
 }
 
 .CodeMirror {
   border: 1px solid silver;
+  min-height: 5em;
   height: auto;
 }
 .CodeMirror-scroll {
   height: auto;
 }
 
-#controls {
-  text-align: right;
-}
+
 
 .form_builder {
 }
-.form_builder h1 {
-  size: 200%;
+.form_builder .config_editor .controls {
+  text-align: right;
 }
-.form_builder .info {
-  padding: 1ex 1em;
-}
-
-.form_builder .preview {
-  background: #f0f0f0;
-  padding: 1em;
+.form_builder .form_preview .controls {
+  text-align: right;
 }

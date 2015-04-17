@@ -11,11 +11,11 @@ def configure(bp):
 
     @bp.route("/form_builder/style.css")
     def style():
-        return Response(concat_css(), "text/css")
+        return Response(concat_css(), mimetype="text/css")
 
     @bp.route("/form_builder/application.js")
     def application():
-        return Response(concat_js(), "application/javascript")
+        return Response(concat_js(), mimetype="application/javascript")
 
     @bp.route("/form_builder/themes/<path:path>")
     def themes(path):

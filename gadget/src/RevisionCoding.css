@@ -1,0 +1,42 @@
+#rvc-ui {
+	border: 1px solid #333;
+	padding: 1em;
+}
+
+.rvc-progress {
+	border: 1px solid #333;
+	padding: 0.5em;
+	padding-bottom: 0;
+}
+
+.rvc-progress > div {
+	border: 1px solid #333;
+	min-width: 0.5em;
+	background: #FFF;
+	display: inline-block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.rvc-progress div div {
+	height: 1em;
+}
+
+.rvc-progress div.rvc-damaging-1,
+.rvc-progress div.rvc-good-faith-0 {
+	background: #C00;
+}
+
+.rvc-progress div.rvc-damaging-0,
+.rvc-progress div.rvc-good-faith-1 {
+	background: #27AA65;
+}
+
+.rvc-selected {
+	background: #CFC;
+}
+
+.rvc-progress .rvc-selected {
+	background: #FF0;
+}

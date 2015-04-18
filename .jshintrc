@@ -1,5 +1,6 @@
 // Same options used on https://github.com/wikimedia/mediawiki-core/blob/master/.jshintrc
 {
+
 	// Enforcing
 	"bitwise": true,
 	"eqeqeq": true,
@@ -8,21 +9,26 @@
 	"latedef": true,
 	"noarg": true,
 	"nonew": true,
-	"undef": true,
 	"unused": true,
 	"strict": false,
+	"undef": true,
+	"unused": false,
 
 	// Relaxing
 	"laxbreak": true,
 	"multistr": true,
+	"es5": true,
+	"sub": true,
 
 	// Environment
 	"browser": true,
+	"devel": true,
 
 	"globals": {
 		"mediaWiki": true,
 		"jQuery": false,
-		"QUnit": false
+		"QUnit": false,
+		"JSON": true
 	},
 
 	// Legacy (to be handled by jscs once supported)

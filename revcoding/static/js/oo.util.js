@@ -1,19 +1,19 @@
-( function ($, OO) {
-	
-	var ifundef = function(val, then) {
-		if (val !== undefined && val !== null) {
+( function ( $, OO ) {
+
+	var ifundef = function ( val, then ) {
+		if ( val !== undefined && val !== null ) {
 			return val;
 		} else {
 			return then;
 		}
 	};
 
-
 	OO.ui.getFieldsValues = function ( fieldMap ) {
-		var valueMap = {};
-		for (var name in fieldMap) {
-			if ( fieldMap.hasOwnProperty(name) ) {
-				valueMap[name] = OO.ui.getWidgetValue(fieldMap[name]);
+		var valueMap = {},
+			name;
+		for ( name in fieldMap ) {
+			if ( fieldMap.hasOwnProperty( name ) ) {
+				valueMap[ name ] = OO.ui.getWidgetValue( fieldMap[ name ] );
 			}
 		}
 		return valueMap;
@@ -21,28 +21,28 @@
 
 	OO.ui.instantiateFromParameters = function ( config, fieldMap ) {
 		fieldMap = fieldMap || {};
-		var className = config['class'];
+		var className = config[ 'class' ],
+			error, widget;
 
 		if ( typeof OO.ui[className] === 'undefined' ) {
-			throw "Unable to load OO.ui." + className;
+			throw 'Unable to load OO.ui.' + className;
 		}
 
-		var error = OO.ui.preprocessConfig( config, fieldMap );
+		error = OO.ui.preprocessConfig( config, fieldMap );
 
 		// Pass out errors
 		if ( error ) {
 			return error;
 		}
 
-		var widget;
 		if ( className === 'FieldLayout' ) {
 			widget = config.fieldWidget;
 
-			delete config['fieldWidget'];
+			delete config.fieldWidget;
 			widget = new OO.ui.FieldLayout( widget, config );
 		} else {
 			widget = new OO.ui[className]( config );
-			if ( config.name !== undefined) {
+			if ( config.name !== undefined ) {
 				fieldMap[config.name] = widget;
 			}
 		}
@@ -76,7 +76,7 @@
 		}
 
 		$.each( config, function ( name, value ) {
-			if ( String(name).substr( 0, 1 ) === '$' ) {
+			if ( String( name ).substr( 0, 1 ) === '$' ) {
 				config[name] = $( value );
 			} else if ( typeof value === 'object' && $.isPlainObject( value ) ) {
 				OO.ui.preprocessConfig( value, fieldMap );
@@ -88,8 +88,8 @@
 		}
 	};
 
-	OO.ui.getWidgetValue = function (widget) {
-		switch (widget.constructor){
+	OO.ui.getWidgetValue = function ( widget ) {
+		switch ( widget.constructor ){
 			case OO.ui.ActionWidget:
 			case OO.ui.ButtonGroupWidget:
 			case OO.ui.ButtonWidget:
@@ -113,8 +113,10 @@
 				return widget.isSelected();
 			case OO.ui.RadioSelectWidget:
 				if ( widget.getSelectedItem() ) {
-					return ifundef(widget.getSelectedItem().getData(),
-					widget.getSelectedItem().getValue());
+					return ifundef(
+                        widget.getSelectedItem().getData(),
+						widget.getSelectedItem().getValue()
+                    );
 				} else {
 					return null;
 				}
@@ -147,4 +149,4 @@
 		}
 	};
 
-})(jQuery, OO);
+} )( jQuery, OO );

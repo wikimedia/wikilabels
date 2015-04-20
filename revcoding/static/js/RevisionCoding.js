@@ -361,7 +361,7 @@
 					'mediawiki.action.history.diff'
 				] ) )
 				.then( showCampaigns, failedRequest )
-				.then( function( formName ) {
+				.then( function ( formName ) {
 					// FIXME: Remove this once the correct name is returned by the server
 					if ( formName === 'damaging_and_badfaith' ) {
 						formName = 'damaging_and_goodfaith';

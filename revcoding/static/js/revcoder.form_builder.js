@@ -5,11 +5,11 @@
 
 		this.configEditor = new ConfigEditor();
 		this.$element.append( this.configEditor.$element );
-		this.configEditor.submit.attach( this.handleConfigEditorSubmit.bind( this ) );
+		this.configEditor.submit.add( this.handleConfigEditorSubmit.bind( this ) );
 
 		this.formPreview = new FormPreview();
 		this.$element.append( this.formPreview.$element );
-		this.formPreview.submit.attach( this.handleFormPreviewSubmit.bind( this ) );
+		this.formPreview.submit.add( this.handleFormPreviewSubmit.bind( this ) );
 	},
         ConfigEditor, FormPreview, LanguageSelector;
 	FormBuilder.prototype.handleConfigEditorSubmit = function ( codeEditor ) {
@@ -56,11 +56,11 @@
 
 		// Events
 		// FIXME: Use https://api.jquery.com/jQuery.Callbacks/
-		this.submit = new Event( this );
+		this.submit = $.Callbacks();
 	};
 	ConfigEditor.prototype.handlePreviewButtonClick = function () {
 		// Handles an OO.ui event
-		this.submit.notify();
+		this.submit.fire();
 	};
 	ConfigEditor.prototype.text = function ( val ) {
 		if ( val === undefined ) {
@@ -81,7 +81,7 @@
 
 		this.languageSelector = new LanguageSelector();
 		this.$element.append(this.languageSelector.$element);
-		this.languageSelector.select.attach( this.handleLanguageSelection.bind( this ) );
+		this.languageSelector.select.add( this.handleLanguageSelection.bind( this ) );
 
 		this.$formContainer = $( '<div>' ).addClass( 'form_container' );
 		this.$element.append( this.$formContainer );
@@ -99,11 +99,10 @@
 		this.$controls.append( this.submitButton.$element );
 
 		// Events
-		// FIXME: Use https://api.jquery.com/jQuery.Callbacks/
-		this.submit = new Event( this );
+		this.submit = $.Callbacks();
 	};
 	FormPreview.prototype.handleSubmitButtonClick = function ( e ) {
-		this.submit.notify();
+		this.submit.fire();
 	};
 	FormPreview.prototype.handleLanguageSelection = function ( _, lang ) {
 		// Make sure the submit button is disabled while we try to load the form.
@@ -161,10 +160,10 @@
 		);
 		this.$element.append( layout.$element );
 		// FIXME: Use https://api.jquery.com/jQuery.Callbacks/
-		this.select = new Event( this );
+		this.select = $.Callbacks();
 	};
 	LanguageSelector.prototype.handleSelect = function () {
-		this.select.notify( this.dropdown.getMenu().getSelectedItem().getData() );
+		this.select.fire( this.dropdown.getMenu().getSelectedItem().getData() );
 	};
 	LanguageSelector.prototype.load = function ( langs ) {
 		var i, lang,

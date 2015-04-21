@@ -19,7 +19,7 @@ Event.prototype.notify = function () {
 	// This adds the source as the first argument of
 	arguments.unshift( this.source );
 
-	for ( i = 0; i< this.listeners.length; i++ ) {
+	for ( i = 0; i < this.listeners.length; i++ ) {
 		this.listeners[i].apply( this.source, arguments );
 	}
 }

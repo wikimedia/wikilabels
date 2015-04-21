@@ -18,8 +18,9 @@
 	Form.fromConfig = function ( config, lang ) {
 		var i, fieldset, fieldDoc, field, fieldMap,
 			i18n = function ( key ) {
+				var message;
 				try {
-					var message = config.i18n[lang][key];
+					message = config.i18n[lang][key];
 					if ( message === undefined ) {
 						return '<' + key + '>';
 					} else {

@@ -55,6 +55,7 @@
 		this.$controls.append( this.previewButton.$element );
 
 		// Events
+		// FIXME: Use https://api.jquery.com/jQuery.Callbacks/
 		this.submit = new Event( this );
 	};
 	ConfigEditor.prototype.handlePreviewButtonClick = function () {
@@ -98,6 +99,7 @@
 		this.$controls.append( this.submitButton.$element );
 
 		// Events
+		// FIXME: Use https://api.jquery.com/jQuery.Callbacks/
 		this.submit = new Event( this );
 	};
 	FormPreview.prototype.handleSubmitButtonClick = function ( e ) {
@@ -145,19 +147,20 @@
 	};
 
 	LanguageSelector = function () {
+		var layout;
 		this.$element = $( '<div>' ).addClass( 'language_selector' );
 		this.dropdown = new OO.ui.DropdownWidget( {
 			menu: { items: [] }
 		} );
 		this.dropdown.getMenu().on( 'select', this.handleSelect.bind( this ) );
-		var layout = new OO.ui.FieldLayout(
-		this.dropdown,
+		layout = new OO.ui.FieldLayout(
+			this.dropdown,
 			{
 				label: 'Select a language'
 			}
 		);
 		this.$element.append( layout.$element );
-
+		// FIXME: Use https://api.jquery.com/jQuery.Callbacks/
 		this.select = new Event( this );
 	};
 	LanguageSelector.prototype.handleSelect = function () {

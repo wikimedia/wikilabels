@@ -5,11 +5,11 @@
 
 		this.configEditor = new ConfigEditor();
 		this.$element.append( this.configEditor.$element );
-		this.configEditor.submit.attach( this.handleConfigEditorSubmit.bind( this ) );
+		this.configEditor.submit.add( this.handleConfigEditorSubmit.bind( this ) );
 
 		this.formPreview = new FormPreview();
 		this.$element.append( this.formPreview.$element );
-		this.formPreview.submit.attach( this.handleFormPreviewSubmit.bind( this ) );
+		this.formPreview.submit.add( this.handleFormPreviewSubmit.bind( this ) );
 	},
         ConfigEditor, FormPreview, LanguageSelector;
 	FormBuilder.prototype.handleConfigEditorSubmit = function ( codeEditor ) {
@@ -55,11 +55,12 @@
 		this.$controls.append( this.previewButton.$element );
 
 		// Events
-		this.submit = new Event( this );
+		// FIXME: Use https://api.jquery.com/jQuery.Callbacks/
+		this.submit = $.Callbacks();
 	};
 	ConfigEditor.prototype.handlePreviewButtonClick = function () {
 		// Handles an OO.ui event
-		this.submit.notify();
+		this.submit.fire();
 	};
 	ConfigEditor.prototype.text = function ( val ) {
 		if ( val === undefined ) {
@@ -80,7 +81,7 @@
 
 		this.languageSelector = new LanguageSelector();
 		this.$element.append(this.languageSelector.$element);
-		this.languageSelector.select.attach( this.handleLanguageSelection.bind( this ) );
+		this.languageSelector.select.add( this.handleLanguageSelection.bind( this ) );
 
 		this.$formContainer = $( '<div>' ).addClass( 'form_container' );
 		this.$element.append( this.$formContainer );
@@ -98,10 +99,10 @@
 		this.$controls.append( this.submitButton.$element );
 
 		// Events
-		this.submit = new Event( this );
+		this.submit = $.Callbacks();
 	};
 	FormPreview.prototype.handleSubmitButtonClick = function ( e ) {
-		this.submit.notify();
+		this.submit.fire();
 	};
 	FormPreview.prototype.handleLanguageSelection = function ( _, lang ) {
 		// Make sure the submit button is disabled while we try to load the form.
@@ -145,23 +146,24 @@
 	};
 
 	LanguageSelector = function () {
+		var layout;
 		this.$element = $( '<div>' ).addClass( 'language_selector' );
 		this.dropdown = new OO.ui.DropdownWidget( {
 			menu: { items: [] }
 		} );
 		this.dropdown.getMenu().on( 'select', this.handleSelect.bind( this ) );
-		var layout = new OO.ui.FieldLayout(
-		this.dropdown,
+		layout = new OO.ui.FieldLayout(
+			this.dropdown,
 			{
 				label: 'Select a language'
 			}
 		);
 		this.$element.append( layout.$element );
-
-		this.select = new Event( this );
+		// FIXME: Use https://api.jquery.com/jQuery.Callbacks/
+		this.select = $.Callbacks();
 	};
 	LanguageSelector.prototype.handleSelect = function () {
-		this.select.notify( this.dropdown.getMenu().getSelectedItem().getData() );
+		this.select.fire( this.dropdown.getMenu().getSelectedItem().getData() );
 	};
 	LanguageSelector.prototype.load = function ( langs ) {
 		var i, lang,

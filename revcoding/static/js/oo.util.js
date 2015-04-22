@@ -20,9 +20,9 @@
 	};
 
 	OO.ui.instantiateFromParameters = function ( config, fieldMap ) {
-		fieldMap = fieldMap || {};
 		var className = config[ 'class' ],
 			error, widget;
+		fieldMap = fieldMap || {};
 
 		if ( typeof OO.ui[className] === 'undefined' ) {
 			throw 'Unable to load OO.ui.' + className;
@@ -50,9 +50,9 @@
 	};
 
 	OO.ui.preprocessConfig = function ( config, fieldMap ) {
+		var newItems,
+			error = false;
 		fieldMap = fieldMap || {};
-		var error = false,
-		newItems = [];
 
 		if ( config.items ) {
 			newItems = [];

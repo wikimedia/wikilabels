@@ -2,7 +2,7 @@ from flask import redirect, request, session
 from flask.ext.jsonpify import jsonify
 
 from .. import preprocessors, responses
-from ..database import NotFoundError
+from ...database import NotFoundError
 
 
 def configure(bp, config, db):

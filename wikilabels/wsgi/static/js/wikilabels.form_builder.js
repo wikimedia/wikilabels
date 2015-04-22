@@ -1,4 +1,4 @@
-( function ( $, OO, CodeMirror, YAML, revcoder ) {
+( function ( $, OO, CodeMirror, YAML, WL ) {
 
 	var FormBuilder = function () {
 		this.$element = $( '<div>' ).addClass( 'form_builder' );
@@ -104,7 +104,7 @@
 	FormPreview.prototype.handleSubmitButtonClick = function ( e ) {
 		this.submit.fire();
 	};
-	FormPreview.prototype.handleLanguageSelection = function ( _, lang ) {
+	FormPreview.prototype.handleLanguageSelection = function ( lang ) {
 		// Make sure the submit button is disabled while we try to load the form.
 		this.submitButton.setDisabled( true );
 
@@ -112,7 +112,7 @@
 		this.$formContainer.html( '' );
 
 		// Construct a new form
-		this.form = revcoder.Form.fromConfig( this.config, lang );
+		this.form = WL.Form.fromConfig( this.config, lang );
 		this.$formContainer.append( this.form.$element );
 
 		// Enable the submit button now that we're ready
@@ -184,5 +184,5 @@
 		menu.selectItem( this.dropdown.getMenu().getItemFromData( lang ) );
 	};
 
-	revcoder.FormBuilder = FormBuilder;
-} )( jQuery, OO, CodeMirror, YAML, revcoder );
+	WL.FormBuilder = FormBuilder;
+} )( jQuery, OO, CodeMirror, YAML, wikiLabels );

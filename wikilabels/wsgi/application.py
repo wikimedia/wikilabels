@@ -6,14 +6,18 @@ import yaml
 from flask import Blueprint, Flask, request
 
 from . import responses, routes, sessions
-from .database import DB
+from ..database import DB
 
 
 def configure(config):
-    app = Flask("revcoding")
+    dir = os.path.dirname(os.path.realpath(__file__))
+
+    app = Flask("wikilabels",
+                static_folder=os.path.join(dir, 'static'),
+                template_folder=os.path.join(dir, 'templates'))
     app.config["APPLICATION_ROOT"] = config['application_root']
-    
-    bp = Blueprint('revcoding', __name__)
+
+    bp = Blueprint('wikilabels', __name__)
 
     db = DB.from_config(config)
 
@@ -30,6 +34,6 @@ def configure(config):
     oauth = mwoauth.Handshaker(config['oauth']['mw_uri'], consumer_token)
 
     bp = routes.configure(config, bp, db, oauth, form_map)
-    app.register_blueprint(bp, url_prefix=config['application_root'])
+    app.register_blueprint(bp, url_prefix=config['url_prefix'])
 
     return app

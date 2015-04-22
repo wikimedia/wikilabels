@@ -6,6 +6,8 @@ database:
 
 form_directory: forms/enabled
 application_root: "/coder"
+static_folder: /project/wikilabels/static/
+
 
 oauth:
   mw_uri: https://www.mediawiki.org/w/index.php

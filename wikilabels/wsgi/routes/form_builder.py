@@ -35,7 +35,7 @@ def concat_css():
             open(static_file_path("lib/oojs-ui/oojs-ui-mediawiki.css")).read(),
             open(static_file_path("lib/codemirror/codemirror.css")).read(),
             open(static_file_path("css/form_builder.css")).read(),
-            open(static_file_path("css/revcoder.css")).read()
+            open(static_file_path("css/wikilabels.css")).read()
         ])
 
     return css_cache
@@ -48,12 +48,15 @@ def concat_js():
             open(static_file_path("lib/jquery/jquery.js")).read(),
             open(static_file_path("lib/oojs/oojs.jquery.js")).read(),
             open(static_file_path("lib/oojs-ui/oojs-ui.js")).read(),
+            open(static_file_path("lib/oojs-ui/oojs-ui-mediawiki.js")).read(),
             open(static_file_path("lib/yaml/yaml.js")).read(),
             open(static_file_path("lib/codemirror/codemirror.js")).read(),
             open(static_file_path("lib/codemirror-modes/yaml/yaml.js")).read(),
-            open(static_file_path("js/util.js")).read(),
-            open(static_file_path("js/event.js")).read(),
-            open(static_file_path("js/form_builder.js")).read()
+            open(static_file_path("js/oo.util.js")).read(),
+            open(static_file_path("js/wikilabels.js")).read(),
+            open(static_file_path("js/wikilabels.util.js")).read(),
+            open(static_file_path("js/wikilabels.form.js")).read(),
+            open(static_file_path("js/wikilabels.form_builder.js")).read()
         ])
 
     return js_cache

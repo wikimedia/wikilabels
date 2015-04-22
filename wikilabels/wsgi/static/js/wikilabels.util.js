@@ -1,5 +1,5 @@
-( function ($, revcoder) {
-	revcoder.applyTranslation = function ( value, lookup ) {
+( function ($, WL) {
+	WL.applyTranslation = function ( value, lookup ) {
 		var str, arr, transArray, i, obj, transObj, key;
 		if ( typeof value === 'string' ) {
 			// If a string, look to see if we need to translate it.
@@ -17,7 +17,7 @@
 			transArray = [];
 			for ( i in arr ) {
 				if ( arr.hasOwnProperty(i) ) {
-					transArray.push( revcoder.applyTranslation( arr[i], lookup ) );
+					transArray.push( WL.applyTranslation( arr[i], lookup ) );
 				}
 			}
 			return transArray;
@@ -27,7 +27,7 @@
 			transObj = {};
 			for ( key in obj ) {
 				if ( obj.hasOwnProperty( key ) ) {
-					transObj[ key ] = revcoder.applyTranslation( obj[key], lookup );
+					transObj[ key ] = WL.applyTranslation( obj[key], lookup );
 				}
 			}
 			return transObj;
@@ -36,4 +36,4 @@
 			return value;
 		}
 	};
-})(jQuery, revcoder);
+})(jQuery, wikiLabels);

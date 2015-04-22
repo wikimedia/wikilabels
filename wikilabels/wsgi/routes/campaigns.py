@@ -4,7 +4,7 @@ from flask import redirect, request, session
 from flask.ext.jsonpify import jsonify
 
 from .. import preprocessors, responses
-from ..database import IntegrityError, NotFoundError
+from ...database import IntegrityError, NotFoundError
 
 
 def configure(bp, config, db):

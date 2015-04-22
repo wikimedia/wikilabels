@@ -1,0 +1,7 @@
+docopt
+mediawiki-utilities
+psycopg2
+flask
+flask-jsonpify
+yamlconf
+beaker

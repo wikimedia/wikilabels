@@ -12,11 +12,11 @@
 		baseUrl = '//ores-test.wmflabs.org/coder/';
 
 	mw.messages.set( {
-		'rvc-review': 'Review',
-		'rvc-revision-title': 'Revision: $1',
-		'rvc-work-set': 'Work set:',
-		'rvc-submit': 'Submit',
-		'rvc-dataset-completed': 'You completed this dataset!'
+		'wikilabels-review': 'Review',
+		'wikilabels-revision-title': 'Revision: $1',
+		'wikilabels-work-set': 'Work set:',
+		'wikilabels-submit': 'Submit',
+		'wikilabels-dataset-completed': 'You completed this dataset!'
 	} );
 
 	function failedRequest( jqXHR, textStatus ) {
@@ -28,7 +28,7 @@
 	}
 
 	function lookup( k ) {
-		return mw.msg( 'rvc-' + k );
+		return mw.msg( 'wikilabels-' + k );
 	}
 
 	// Applying a translation to any level of a form description doc
@@ -72,20 +72,20 @@
 
 	function toggleSelection( e ) {
 		var $target = $( e.target ),
-			wasSelected = $target.hasClass( 'rvc-selected' );
+			wasSelected = $target.hasClass( 'wikilabels-selected' );
 		$target
 			.parent()
-				.find( '.rvc-selected' )
-					.removeClass( 'rvc-selected' )
+				.find( '.wikilabels-selected' )
+					.removeClass( 'wikilabels-selected' )
 					.end()
 				.end();
 		if ( !wasSelected ) {
-			$target.addClass( 'rvc-selected' );
+			$target.addClass( 'wikilabels-selected' );
 		}
 		// The user must select one value for each field
-		$( '#rvc-submit' ).prop(
+		$( '#wikilabels-submit' ).prop(
 			'disabled',
-			$( '.mw-ui-button.rvc-selected' ).length !== fields.length ||
+			$( '.mw-ui-button.wikilabels-selected' ).length !== fields.length ||
 				curTaskIdx >= tasks.length
 		);
 	}
@@ -107,11 +107,11 @@
 
 	function showWorkSet( data ) {
 		var i, j, field, $icon, className, tooltip, value,
-			$bar = $( '.rvc-progress' ).empty();
+			$bar = $( '.wikilabels-progress' ).empty();
 		tasks = ( data && data.tasks ) || tasks;
 		for ( i = 0; i < tasks.length; i++ ) {
 			$icon = $( '<div>' );
-			tooltip = mw.msg( 'rvc-revision-title', tasks[i].data.rev_id );
+			tooltip = mw.msg( 'wikilabels-revision-title', tasks[i].data.rev_id );
 			for ( j = 0; j < fields.length; j++ ) {
 				field = fields[j].id;
 				// FIXME: how to get the labels (values) without doing an API request for each task in this workset?
@@ -122,7 +122,7 @@
 				// idx = tasks[i].fields[ field ];
 				// value = fields[j].options[ idx ] && fields[j].options[ idx ].value;
 				// tooltip += '\n' + fields[j].label + ' ' + value;
-				className = 'rvc-' + field + '-' + value;
+				className = 'wikilabels-' + field + '-' + value;
 				$icon.append( $( '<div>' ).addClass( className ) );
 			}
 			$icon.attr(
@@ -131,11 +131,11 @@
 			);
 			$bar.append( $icon );
 		}
-		$( '.rvc-progress > div' ).css( 'width', ( 100 / tasks.length ) + '%' );
-		$( '.mw-ui-button.rvc-selected' ).removeClass( 'rvc-selected' );
-		$( '#rvc-submit' ).prop( 'disabled', true );
+		$( '.wikilabels-progress > div' ).css( 'width', ( 100 / tasks.length ) + '%' );
+		$( '.mw-ui-button.wikilabels-selected' ).removeClass( 'wikilabels-selected' );
+		$( '#wikilabels-submit' ).prop( 'disabled', true );
 		if ( curTaskIdx < tasks.length ) {
-			$bar.find( '> div' ).eq( curTaskIdx ).addClass( 'rvc-selected' );
+			$bar.find( '> div' ).eq( curTaskIdx ).addClass( 'wikilabels-selected' );
 			showDiff( tasks[curTaskIdx].data.rev_id );
 		}
 	}
@@ -153,14 +153,14 @@
 				page = data.query.pages[ pageids[0] ];
 				if ( page.missing !== '' ) {
 					// $( '#firstHeading' ).text( page.title );
-					$( '#rvc-diff' ).empty().append(
+					$( '#wikilabels-diff' ).empty().append(
 						page.revisions[0].diff['*']
 					);
 				} else {
-					$( '#rvc-diff' ).empty().text( mw.msg( 'rvc-page-missing' ) );
+					$( '#wikilabels-diff' ).empty().text( mw.msg( 'wikilabels-page-missing' ) );
 				}
 			} else {
-				$( '#rvc-diff' ).empty().text( mw.msg( 'rvc-badpageid' ) );
+				$( '#wikilabels-diff' ).empty().text( mw.msg( 'wikilabels-badpageid' ) );
 			}
 		} );
 	}
@@ -169,10 +169,10 @@
 		var campId = 1,
 			wsId = 1,
 			taskId = 1;
-		$( '.mw-ui-button.rvc-selected' ).each( function () {
+		$( '.mw-ui-button.wikilabels-selected' ).each( function () {
 			var $this = $( this ),
-				idxValue = $this.data( 'rvc-value' ),
-				field = $this.parent().data( 'rvc-field' );
+				idxValue = $this.data( 'wikilabels-value' ),
+				field = $this.parent().data( 'wikilabels-field' );
 			if ( field !== undefined && idxValue !== undefined ) {
 				if ( !tasks[ curTaskIdx ].fields ) {
 					tasks[ curTaskIdx ].fields = {};
@@ -180,7 +180,7 @@
 				tasks[ curTaskIdx ].fields[ field ] = idxValue;
 			}
 		} );
-		$( '#rvc-submit' ).injectSpinner( 'rvc-submit-spinner' );
+		$( '#wikilabels-submit' ).injectSpinner( 'wikilabels-submit-spinner' );
 		$.ajax( {
 			url: baseUrl + 'campaigns/' + mw.config.get( 'wgDBname' ) + '/' +
 				campId + '/' + wsId + '/' + taskId + '/',
@@ -194,20 +194,20 @@
 			dataType: 'jsonp',
 			timeout: 5000
 		} ).always( function () {
-			$.removeSpinner( 'rvc-submit-spinner' );
+			$.removeSpinner( 'wikilabels-submit-spinner' );
 		} ).fail( failedRequest );
 		curTaskIdx++;
 		showWorkSet();
 		if ( curTaskIdx >= tasks.length ) {
-			alert( mw.msg( 'rvc-dataset-completed' ) );
-			$( '#rvc-submit' ).prop( 'disabled', true );
+			alert( mw.msg( 'wikilabels-dataset-completed' ) );
+			$( '#wikilabels-submit' ).prop( 'disabled', true );
 		}
 	}
 
 	function loadForm( data ) {
-		var $ui = $( '#rvc-ui' ),
+		var $ui = $( '#wikilabels-ui' ),
 			// FIXME: Migrate to OOjs UI (http://livingstyleguide.wmflabs.org/wiki/OOjs_UI)
-			$submit = $( '<input id="rvc-submit" class="mw-ui-button mw-ui-constructive" type="submit">' )
+			$submit = $( '<input id="wikilabels-submit" class="mw-ui-button mw-ui-constructive" type="submit">' )
 				.prop( 'disabled', true )
 				.click( submit ),
 			field, i, j, id, val, $feature, $group, key, messages, prefixedMsgs;
@@ -216,24 +216,24 @@
 		prefixedMsgs = {};
 		for ( key in messages ) {
 			if ( messages.hasOwnProperty( key ) ) {
-				prefixedMsgs[ 'rvc-' + key ] = messages[ key ];
+				prefixedMsgs[ 'wikilabels-' + key ] = messages[ key ];
 			}
 		}
 		mw.messages.set( prefixedMsgs );
 		fields = applyTranslation( data.fields, lookup );
 
-		$submit.val( mw.msg( 'rvc-submit' ) );
+		$submit.val( mw.msg( 'wikilabels-submit' ) );
 		$ui.append(
 			$( '<div>' )
-				.text( mw.msg( 'rvc-work-set' ) ),
+				.text( mw.msg( 'wikilabels-work-set' ) ),
 			$( '<div>' )
-				.addClass( 'rvc-progress' )
+				.addClass( 'wikilabels-progress' )
 		);
 		for ( i = 0; i < fields.length; i++ ) {
 			field = fields[i];
 			id = field.id;
 			$group = $( '<div>' )
-				.data( 'rvc-field', id )
+				.data( 'wikilabels-field', id )
 				// .addClass( 'mw-ui-radio');
 				.addClass( 'mw-ui-button-group' );
 			for ( j = 0; j < field.options.length; j++ ) {
@@ -241,19 +241,19 @@
 				$group.append(
 					$( '<div>' )
 						.addClass( 'mw-ui-button' )
-						.attr( 'id', 'rvc-' + field.id + '-' + val )
+						.attr( 'id', 'wikilabels-' + field.id + '-' + val )
 						.attr( 'title', field.options[j].tooltip )
 						.text( field.options[j].label )
-						.data( 'rvc-value', j )
+						.data( 'wikilabels-value', j )
 						.click( toggleSelection )
 // 					$( '<input type="radio">' )
-// 						.attr( 'name', 'rvc-' + field.id )
-// 						.attr( 'id', 'rvc-' + field.id + '-' + val )
+// 						.attr( 'name', 'wikilabels-' + field.id )
+// 						.attr( 'id', 'wikilabels-' + field.id + '-' + val )
 // 						.attr( 'title', field.options[j].tooltip ),
 // 					$( '<label for="">' )
 // 						.text( field.options[j].label )
-// 						.attr( 'for', 'rvc-' + field.id + '-' + val )
-// 						.data( 'rvc-value', j )
+// 						.attr( 'for', 'wikilabels-' + field.id + '-' + val )
+// 						.data( 'wikilabels-value', j )
 // 						.click( toggleSelection )
 				);
 			}
@@ -273,7 +273,7 @@
 				'<col class="diff-content">' +
 				'<col class="diff-marker">' +
 				'<col class="diff-content">' +
-				'</colgroup><tbody id="rvc-diff"></tbody></table>'
+				'</colgroup><tbody id="wikilabels-diff"></tbody></table>'
 			);
 		curTaskIdx = 0;
 		getWorkSet()
@@ -284,8 +284,8 @@
 		var i,
 			dfd = $.Deferred(),
 			promises = [],
-			$ui = $( '#rvc-ui' ).empty(),
-			$campaigns = $( '<div id="rvc-campaigns"></div>' ),
+			$ui = $( '#wikilabels-ui' ).empty(),
+			$campaigns = $( '<div id="wikilabels-campaigns"></div>' ),
 			$ul = $( '<ul></ul>' );
 
 		function addCampaign( campId ) { // , $li
@@ -311,7 +311,7 @@
 												.text( d.toString() + ' (100/100)' )
 												.click( notImplemented ),
 											$( '<div class="mw-ui-button mw-ui-progressive"></div>' )
-												.text( mw.msg( 'rvc-review' ) )
+												.text( mw.msg( 'wikilabels-review' ) )
 												.click( notImplemented )
 										),
 									$( '<div style="clear:both"></div>' )
@@ -347,7 +347,7 @@
 		$( function () {
 			// FIXME: Remove this hack! (once the server has campaigns for testwiki)
 			var db = mw.config.get( 'wgDBname' ) === 'testwiki' ? 'enwiki' : mw.config.get( 'wgDBname' );
-			if ( $( '#rvc-ui' ).length !== 0 ) {
+			if ( $( '#wikilabels-ui' ).length !== 0 ) {
 				$.ajax( {
 					url: baseUrl + 'campaigns/' + db + '/', // mw.config.get( 'wgDBname' ) + '/',
 					dataType: 'jsonp'

@@ -1,1 +1,1 @@
-wikiLabels = {};
+wikiLabels = {prefix="wikilabels-"};

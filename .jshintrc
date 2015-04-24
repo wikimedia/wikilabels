@@ -17,7 +17,6 @@
 	// Relaxing
 	"laxbreak": true,
 	"multistr": true,
-	"es5": true,
 	"sub": true,
 
 	// Environment
@@ -25,10 +24,12 @@
 	"devel": true,
 
 	"globals": {
-		"mediaWiki": true,
+		"mediaWiki": false,
 		"jQuery": false,
 		"QUnit": false,
-		"JSON": true
+		"JSON": false,
+		"wikiLabels": true,
+		"OO": false
 	},
 
 	// Legacy (to be handled by jscs once supported)

@@ -77,7 +77,7 @@ def configure(bp, config, db):
         """
         Assigns and gathers metadata for a particular workset
         """
-        user_id = session['user']
+        user_id = session['user']['id']
 
         try:
             workset = db.worksets.assign(campaign_id, user_id)
@@ -122,13 +122,13 @@ def configure(bp, config, db):
         """
         workset = db.worksets.get(workset_id)
 
-        if workset['user_id'] != session['user']:
+        if workset['user_id'] != session['user']['id']:
             return responses.forbidden(("workset_id={0} is owned by " +
                                         "user_id={1}, but your user_id is {2}")\
                                         .format(workset_id, workset['user_id'],
-                                                session['user']))
+                                                session['user']['id']))
 
-        db.worksets.abandon(workset_id, session['user'])
+        db.worksets.abandon(workset_id, session['user']['id'])
 
         return jsonify({'success': True})
 
@@ -173,7 +173,7 @@ def configure(bp, config, db):
         """
         label = json.loads(label or request.form.get('label'))
 
-        db.labels.upsert(task_id, session['user'], label)
+        db.labels.upsert(task_id, session['user']['id'], label)
 
         return jsonify({'task': db.tasks.get(task_id)})
 

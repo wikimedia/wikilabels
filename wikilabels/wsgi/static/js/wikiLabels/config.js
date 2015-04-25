@@ -3,7 +3,7 @@
 		Config.prototype.update.call(this, obj);
 	};
 	Config.prototype.update = function (update) {
-		$.merge(this, update, true); // Deep merge
+		$.extend(this, update, true); // Deep merge
 	};
 	WL.config = new Config(WL.config || {});
 }(jQuery, wikiLabels));

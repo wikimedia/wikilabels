@@ -4,23 +4,23 @@
 		if ( $element === undefined || $element.length === 0 ) {
 			throw "$element must be a defined element";
 		}
-		if ( this.$element.attr('id') !== WL.prefix + "home" ) {
-			throw "Expected $element to have id='wikilabels-home'";
+		if ( $element.attr('id') !== WL.config.prefix + "home" ) {
+			throw "Expected $element to have id='" + WL.config.prefix + "home'";
 		}
 
 		this.$element = $element;
 
 		this.campaignList = new CampaignList(
-			this.$element.find("." + WL.prefix + "campaigns")
+			this.$element.find("." + WL.config.prefix + "campaigns")
 		);
 		this.$element.append(this.campaignList.$element);
 
 		this.workspace = new WL.Workspace(
-			this.$element.find("." + WL.prefix + "workspace")
-			);
+			this.$element.find("." + WL.config.prefix + "workspace")
+		);
 		this.$element.append(this.workspace.$element);
 
-		this.user = new WL.User();
+
 	};
 
 	var CampaignList = function ($element) {
@@ -30,49 +30,84 @@
 
 		this.$element = $element;
 		this.$element.html(""); // Clears the "Install the gadget" button
-
+		
+	};
+	CampaignList.prototype.refresh = function(){
+			WL.server.getCampaigns(
+				function(doc){
+					var i, campaignData;
+					for ( i=0; i<doc['campaigns'].length; i++) {
+						campaignData = doc['campaigns'][i];
+						this.push(new Campaign(campaignData));
+					}
+				}.bind(this),
+				function(doc){
+					this.$element.html(doc.code + ":" + doc.message);
+				}.bind(this)
+			);
+	};
+	CampaignList.prototype.push = function(campaign) {
+		this.$element.append(campaign.$element);
 	};
 
-	var Campaign = function () {
-		this.$element = $("<div>").addClass(WL.prefix + "campaign");
+	var Campaign = function (campaignData) {
+		this.campaignData = campaignData;
+		this.$element = $("<div>").addClass(WL.config.prefix + "campaign");
 
-		this.$expander = $("<div>").addClass(WL.prefix + "expander");
+		this.$expander = $("<div>").addClass(WL.config.prefix + "expander");
 		this.$element.append(this.$expander);
 
-		this.$name = $("<div>").addClass(WL.prefix + "name");
+		this.$name = $("<div>").addClass(WL.config.prefix + "name");
 		this.$element.append(this.$name);
 
-		this.$controls = $("<div>").addClass(WL.prefix + "controls");
+		this.worksetList = new WorksetList();
+
+		this.$controls = $("<div>").addClass(WL.config.prefix + "controls");
 		this.$element.append(this.$controls);
 
-		this.newButton = OO.ui.ButtonWidget( {
+		this.newButton = new OO.ui.ButtonWidget( {
 			label: WL.i18n("assign new")
 		} );
-		this.$control.append(this.newButton.$element);
+		this.$controls.append(this.newButton.$element);
 		this.newButton.on('click', this.handleNewButtonClick.bind(this));
+
+		this.load(campaignData);
 	};
+	Campaign.prototype.handleNewButtonClick = function (e) {
+		WL.server.assignWorkset(
+			function(doc){
 
-	var WorksetList = function (worksetListData) {
-		this.$element = $("<div>").addClass(WL.prefix + "workset-list");
+			},
+			function(){
 
-		this.$container = $("<div>").addClass(WL.prefix + "container");
-		this.$element.append(this.$container);
-
-		this.worksets = [];
-		this.worksetActivated = $.Callbacks();
-
-		this.load(worksetListData);
+			}
+		);
 	};
-	WorksetList.handleWorksetActivated = function (workset) {
-		this.worksetActivated.fire(this, workset);
-	};
-	WorksetList.handleWorksetUpdate = function (workset) {
+	Campaign.prototype.handleWorksetUpdate = function (workset) {
 		var i;
 		if ( workset.completed && this.allCompleted() ) {
 			this.newButton.setDisabled(false);
 		} else {
 			this.newButton.setDisabled(true);
 		}
+	};
+	Campaign.prototype.load = function(campaignData){
+		this.$name.text(campaignData['name']);
+		WL.server.getUserWorksetList()
+	};
+
+	var WorksetList = function () {
+		this.$element = $("<div>").addClass(WL.config.prefix + "workset-list");
+
+		this.$container = $("<div>").addClass(WL.config.prefix + "container");
+		this.$element.append(this.$container);
+
+		this.worksets = [];
+		this.worksetActivated = $.Callbacks();
+
+	};
+	WorksetList.handleWorksetActivated = function (workset) {
+		this.worksetActivated.fire(this, workset);
 	};
 	WorksetList.prototype.push = function (workset) {
 		this.$container.append(workset.$element);
@@ -111,7 +146,7 @@
 	};
 
 	var Workset = function (worksetData) {
-		this.$element = $("<div>").addClass(WL.prefix + "workset");
+		this.$element = $("<div>").addClass(WL.config.prefix + "workset");
 
 		this.progress = new OO.ui.ProgressBarWidget( {
 			progress: 0,
@@ -159,13 +194,13 @@
 	};
 	Workset.prototype.select = function (selected) {
 		if ( selected === undefined) {
-			return this.$element.hasClass(WL.prefix + "selected");
+			return this.$element.hasClass(WL.config.prefix + "selected");
 		} else if ( selected ) {
-			this.$element.addClass(WL.prefix + "selected");
+			this.$element.addClass(WL.config.prefix + "selected");
 			this.selected.fire();
 			return this;
 		} else {
-			this.$element.removeClass(WL.prefix + "selected");
+			this.$element.removeClass(WL.config.prefix + "selected");
 			return this;
 		}
 	};

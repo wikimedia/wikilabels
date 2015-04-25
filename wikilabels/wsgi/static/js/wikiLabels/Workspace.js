@@ -5,7 +5,7 @@
 		}
 		this.$element = $element;
 
-		this.$menu = $("<div>").addClass(WL.prefix + "menu");
+		this.$menu = $("<div>").addClass(WL.config.prefix + "menu");
 		this.$element.append(this.$menu);
 		this.fullscreenToggle = new OO.ui.ToggleButtonWidget( {
 			label: WL.i18n("fullscreen")
@@ -17,7 +17,7 @@
 		this.form = null;
 		this.view = null;
 
-		this.$controls = $("<div>").addClass(WL.prefix + "controls");
+		this.$controls = $("<div>").addClass(WL.config.prefix + "controls");
 		this.submitButton = new OO.ui.ButtonWidget( {
 			label: WL.i18n("Submit label"),
 			align: 'inline',
@@ -51,24 +51,24 @@
 	};
 	Workspace.prototype.fullscreen = function (fullscreen) {
 		if ( fullscreen === undefined) {
-			return this.$element.hasClass(WL.prefix + "fullscreen");
+			return this.$element.hasClass(WL.config.prefix + "fullscreen");
 		} else if ( fullscreen ) {
-			this.$element.addClass(WL.prefix + "fullscreen");
+			this.$element.addClass(WL.config.prefix + "fullscreen");
 			return this;
 		} else {
-			this.$element.removeClass(WL.prefix + "fullscreen");
+			this.$element.removeClass(WL.config.prefix + "fullscreen");
 			return this;
 		}
 	};
 
 	var TaskList = function (taskListData) {
-		this.$element = $("<div>").addClass(WL.prefix + "task-list");
+		this.$element = $("<div>").addClass(WL.config.prefix + "task-list");
 
-		this.$header = $("<div>").addClass(WL.prefix + "header");
+		this.$header = $("<div>").addClass(WL.config.prefix + "header");
 		this.$element.append(this.$header);
 
 		this.tasks = [];
-		this.$tasks = $("<div>").addClass(WL.prefix + "tasks");
+		this.$tasks = $("<div>").addClass(WL.config.prefix + "tasks");
 		this.$element.append(this.$tasks);
 
 		this.taskSelected = $.Callbacks();
@@ -98,7 +98,7 @@
 	};
 
 	var Task = function (taskData) {
-		this.$element = $("<div>").addClass(WL.prefix + "task");
+		this.$element = $("<div>").addClass(WL.config.prefix + "task");
 		this.$element.click(this.handleClick);
 
 		this.selected = $.Callbacks();
@@ -118,27 +118,27 @@
   };
 	Task.prototype.select = function (selected) {
 		if ( selected === undefined) {
-			return this.$element.hasClass(WL.prefix + "selected");
+			return this.$element.hasClass(WL.config.prefix + "selected");
 		} else if ( selected ) {
-			this.$element.addClass(WL.prefix + "selected");
+			this.$element.addClass(WL.config.prefix + "selected");
 			this.selected.fire();
 			return this;
 		} else {
-			this.$element.removeClass(WL.prefix + "selected");
+			this.$element.removeClass(WL.config.prefix + "selected");
 			return this;
 		}
 	};
 	Task.prototype.disable = function (disabled) {
 		if ( disabled === undefined) {
-			return this.$element.hasClass(WL.prefix + "disabled");
+			return this.$element.hasClass(WL.config.prefix + "disabled");
 		} else if ( disabled ) {
-			this.$element.addClass(WL.prefix + "disabled");
+			this.$element.addClass(WL.config.prefix + "disabled");
 			return this;
 		} else {
-			this.$element.removeClass(WL.prefix + "disabled");
+			this.$element.removeClass(WL.config.prefix + "disabled");
 			return this;
 		}
 	};
 
 	wikiLabels.Workspace = Workspace;
-})(mediaWiki, jQuery, OO, wikiLabels)
+})(mediaWiki, jQuery, OO, wikiLabels);

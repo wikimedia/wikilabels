@@ -20,7 +20,8 @@ build/
 develop-eggs/
 dist/
 eggs/
-lib/
+*/lib/
+!static/lib/
 lib64/
 parts/
 sdist/

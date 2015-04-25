@@ -83,7 +83,7 @@ def configure(bp, config, db):
             workset = db.worksets.assign(campaign_id, user_id)
             return jsonify({'workset': workset})
         except IntegrityError as e:
-            return responses.bad_request(str(e))
+            return responses.conflict(str(e))
         except NotFoundError as e:
             return responses.not_found(str(e))
 

@@ -3,23 +3,24 @@ from flask import Response, render_template, request, send_from_directory
 from ..util import (build_script_tags, build_style_tags, read_cat,
                     read_javascript)
 
-MEDIAWIKI_LIBS = ("lib/jquery/jquery.js",
+MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
+                  "lib/jquery/jquery.js",
                   "lib/oojs/oojs.jquery.js",
                   "lib/oojs-ui/oojs-ui.js",
                   "lib/oojs-ui/oojs-ui-mediawiki.js")
 LOCAL_LIBS = ("lib/date-format/date-format.js", )
 JS = ("js/oo.util.js",
       "js/wikiLabels/wikiLabels.js",
-      "js/wikiLabels/util.js",
+      "js/wikiLabels/config.js",
       "js/wikiLabels/Form.js",
       "js/wikiLabels/Home.js",
       "js/wikiLabels/i18n.js",
       "js/wikiLabels/server.js",
-      "js/wikiLabels/User.js",
+      "js/wikiLabels/user.js",
       "js/wikiLabels/util.js",
       "js/wikiLabels/Workspace.js")
 
-MEDIAWIKI_STYLES = tuple() # TODO: Will need to include MediaWiki CSS
+MEDIAWIKI_STYLES = ("lib/mediaWiki/enwiki.vector.css",)
 LOCAL_STYLES = tuple()
 CSS = ("css/wikiLabels.css",
        "css/home.css")

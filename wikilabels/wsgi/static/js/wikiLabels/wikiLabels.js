@@ -1,6 +1,6 @@
 wikiLabels = {
   config: {
-    serverRoot: "//localhost:8080/labels/",
+    serverRoot: "//ores.wmflabs.org/labels",
     prefix: "wikilabels-"
   }
 };

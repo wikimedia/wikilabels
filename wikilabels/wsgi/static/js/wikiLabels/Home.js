@@ -20,7 +20,7 @@
 		);
 		this.$element.append(this.workspace.$element);
 
-
+		WL.user.updateStatus()
 	};
 
 	var CampaignList = function ($element) {
@@ -30,7 +30,7 @@
 
 		this.$element = $element;
 		this.$element.html(""); // Clears the "Install the gadget" button
-		
+
 	};
 	CampaignList.prototype.refresh = function(){
 			WL.server.getCampaigns(

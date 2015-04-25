@@ -17,11 +17,11 @@ import docopt
 
 import yamlconf
 
-from . import application
+from ..wsgi import application
 
 
-def main():
-    args = docopt.docopt(__doc__)
+def main(argv=None):
+    args = docopt.docopt(__doc__, argv=argv)
 
     if args['--config'] is not None:
         config = yamlconf.load(open(args['--config']))

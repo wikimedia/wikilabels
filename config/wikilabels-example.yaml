@@ -1,11 +1,13 @@
 database:
   host: localhost
-  user: revcoding
-  database: revcoding
-  password: revcoding-admin
+  user: wikilabels
+  database: wikilabels
+  password: wikilabels-admin
 
 form_directory: forms/enabled
-application_root: "/coder"
+application_root: "/labels"
+url_prefix: "/labels"
+
 
 oauth:
   mw_uri: https://www.mediawiki.org/w/index.php

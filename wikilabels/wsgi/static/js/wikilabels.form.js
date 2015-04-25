@@ -1,9 +1,9 @@
-( function ( $, OO, revcoder ) {
+( function ( $, OO, WL ) {
 
 	var Form = function ( fieldset, fieldMap ) {
 		this.fieldMap = fieldMap;
 
-		this.$element = $( '<div>' ).addClass( 'revcoder-form' );
+		this.$element = $( '<div>' ).addClass( 'wikilabels-form' );
 		this.$element.append( fieldset.$element );
 	};
 	Form.prototype.getValues = function () {
@@ -24,7 +24,7 @@
 					if ( message === undefined ) {
 						return '<' + key + '>';
 					} else {
-						return message
+						return message;
 					}
 				} catch ( err ) {
 					return '<' + key + '>';
@@ -33,12 +33,12 @@
 
 		// Create a new fieldset & load the translated fields
 		fieldset = new OO.ui.FieldsetLayout( {
-			label: revcoder.applyTranslation( config.title, i18n )
+			label: WL.applyTranslation( config.title, i18n )
 		} );
 		fieldMap = {};
 		for ( i in config.fields ) {
 			if ( config.fields.hasOwnProperty( i ) ) {
-				fieldDoc = revcoder.applyTranslation( config.fields[i], i18n );
+				fieldDoc = WL.applyTranslation( config.fields[i], i18n );
 				field = OO.ui.instantiateFromParameters( fieldDoc, fieldMap );
 				fieldset.addItems( [ field ] );
 			}
@@ -47,5 +47,5 @@
 		return new Form( fieldset, fieldMap );
 	};
 
-	revcoder.Form = Form;
-} )( jQuery, OO, revcoder );
+	WL.Form = Form;
+} )( jQuery, OO, wikiLabels );

@@ -12,7 +12,7 @@ be started locally with
 ### Installation
 Installation will require some additional packages to be available.  
 
-:Ubuntu:
+#### Ubuntu
   `sudo apt-get install postgresql-server-dev-9.4 libffi-dev`
 
 ## Gadget

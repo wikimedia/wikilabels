@@ -1,0 +1,15 @@
+#wikilabels-home .wikilabels-campaigns {
+  margin-left: 26em;
+  text-align: center;
+  width: auto;
+  height: 20em;
+  border-left: 1px solid silver;
+}
+
+#wikilabels-home .wikilabels-lead {
+  width: 25em;
+  padding: 1ex 1em 1ex 0em;
+  text-align: left;
+  vertical-align: middle;
+  float: left;
+}

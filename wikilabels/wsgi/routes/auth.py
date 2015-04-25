@@ -29,8 +29,11 @@ def configure(bp, config, oauth):
 
     @bp.route("/auth/whoami/")
     def whoami():
-        """Returns logged in status"""
-        return jsonify({"user_id": session.get('user')})
+        """Returns user information if authenticated"""
+        if 'user' in session:
+            return jsonify({'user': session['user']})
+        else:
+            return responses.forbidden()
 
     @bp.route("/auth/callback/")
     def auth_callback():
@@ -45,10 +48,9 @@ def configure(bp, config, oauth):
 
         # Get user info
         identity = oauth.identify(access_token)
-        user_id = identity['sub']
 
-        # Store snuggler
-        session['user'] = user_id
+        # Store user info in session
+        session['user'] = {'id': identity['sub']}
 
         # Return window closing script.
         return """

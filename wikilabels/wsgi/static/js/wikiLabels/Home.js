@@ -20,7 +20,7 @@
 		);
 		this.$element.append(this.workspace.$element);
 
-		WL.user.updateStatus()
+		WL.user.updateStatus();
 	};
 
 	var CampaignList = function ($element) {
@@ -29,10 +29,31 @@
 		}
 
 		this.$element = $element;
-		this.$element.html(""); // Clears the "Install the gadget" button
 
+		this.connectButton = new OO.ui.ButtonWidget( {
+			label: WL.i18n("Connect to server")
+		} );
+		this.connectButton.on('click', this.handleConnectButtonClick);
+
+		WL.user.statusChanged.add(this.refresh.bind(this));
+	};
+	CampaignList.prototype.handleConnectButtonClick = function(e){
+		WL.user.initiateOAuth();
 	};
 	CampaignList.prototype.refresh = function(){
+		if ( WL.user.authenticated() ) {
+			this.loadCampaigns();
+		} else {
+			this.clear();
+			this.$element.append(this.connectButton.$element);
+		}
+	};
+
+	CampaignList.prototype.clear = function(){
+		this.$element.html("");
+	};
+	CampaignList.prototype.loadCampaigns = function(){
+			this.clear();
 			WL.server.getCampaigns(
 				function(doc){
 					var i, campaignData;
@@ -75,10 +96,11 @@
 	};
 	Campaign.prototype.handleNewButtonClick = function (e) {
 		WL.server.assignWorkset(
+			this.campaignData['id'],
 			function(doc){
-
+				console.log(doc);
 			},
-			function(){
+			function(doc){
 
 			}
 		);
@@ -93,7 +115,12 @@
 	};
 	Campaign.prototype.load = function(campaignData){
 		this.$name.text(campaignData['name']);
-		WL.server.getUserWorksetList()
+		WL.server.getUserWorksetList(
+			WL.user.id, campaignData['id'],
+			function(doc){
+
+			}
+		);
 	};
 
 	var WorksetList = function () {

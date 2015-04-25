@@ -4,21 +4,20 @@
 		this.id = null;
 		$(window).focus(this.handleRefocus.bind(this));
 
-		this.statusChange = $.Callbacks();
+		this.statusChanged = $.Callbacks();
 	};
 	User.prototype.handleRefocus = function (e) {
 		this.updateStatus();
 	};
-	User.prototype.updateStatus = function (callback) {
-		callback = callback || function(){};
+	User.prototype.updateStatus = function () {
 		var oldId = this.id;
 		WL.server.whoami(
 			function(doc){
 				this.id = doc['user']['id'];
 				if ( oldId !== this.id ) {
-					this.statusChange.fire();
+					console.log("Setting user_id to " + this.id)
+					this.statusChanged.fire();
 				}
-				callback();
 			}.bind(this),
 			function(doc){
 				this.id = null;
@@ -35,7 +34,7 @@
 		}
 	};
 	User.prototype.authenticated = function () {
-		return this.globalId !== null;
+		return this.id !== null;
 	};
 
 	WL.user = new User();

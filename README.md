@@ -1,25 +1,21 @@
-Wiki Labels
-===========
+# Wiki Labels
 This package provides the components of a generalized labeling service for
 MediaWiki.  There are two primary components, a user script to be used on
 MediaWiki and a flask server for the gadget to converse with.  
 
 
-Server
-======
+## Server
 The flask server is intended to be hosted by a web server, but a dev server can
 be started locally with
 `wikilabels dev_server --config config/wikilabels-localdev.yaml`
 
-Installation
-++++++++++++
+### Installation
 Installation will require some additional packages to be available.  
 
 :Ubuntu:
   `sudo apt-get install postgresql-server-dev-9.4 libffi-dev`
 
-Gadget
-======
+## Gadget
 
 This script is available as a gadget on test.wikipedia.org. You can enable it there by checking the box for "RevisionCoding" at
 https://test.wikipedia.org/wiki/Special:Preferences#mw-prefsection-gadgets
@@ -42,8 +38,7 @@ Alternativelly, if you want to install it in other wikis:
 
 This will import the minified copy of the script I maintain on Meta-wiki.
 
-Usage
-+++++
+### Usage
 
 This is a prototype of a gadget for scoring revisions according to their constructiveness, their author's good-faith and other similar (not necessarily binary) criteria.
 

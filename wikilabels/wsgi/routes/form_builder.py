@@ -1,62 +1,55 @@
-from flask import Response, render_template, send_from_directory
+import uglipyjs
+from flask import Response, render_template, request, send_from_directory
 
-from ..util import static_file_path
+from ..util import (build_script_tags, build_style_tags, read_cat,
+                    read_javascript)
 
+MEDIAWIKI_LIBS = ("lib/jquery/jquery.js",
+                  "lib/oojs/oojs.jquery.js",
+                  "lib/oojs-ui/oojs-ui.js",
+                  "lib/oojs-ui/oojs-ui-mediawiki.js")
+LOCAL_LIBS = ("lib/yaml/yaml.js",
+              "lib/codemirror/codemirror.js",
+              "lib/codemirror-modes/yaml/yaml.js")
+JS = ("js/oo.util.js",
+      "js/wikiLabels/wikiLabels.js",
+      "js/wikiLabels/util.js",
+      "js/wikiLabels/Form.js",
+      "js/wikiLabels/FormBuilder.js")
+
+MEDIAWIKI_STYLES = ("lib/oojs-ui/oojs-ui-mediawiki.css")
+LOCAL_STYLES = ("lib/codemirror/codemirror.css")
+CSS = ("css/form_builder.css",
+       "css/wikilabels.css")
 
 def configure(bp):
 
+
     @bp.route("/form_builder/")
     def form_builder():
-        return render_template("form_builder.html")
+        script_tags = build_script_tags(MEDIAWIKI_LIBS + LOCAL_LIBS + JS)
+        style_tags = build_style_tags(MEDIAWIKI_STYLES + LOCAL_STYLES + CSS)
+        return render_template("form_builder.html",
+                               script_tags=script_tags,
+                               style_tags=style_tags)
 
-    @bp.route("/form_builder/style.css")
-    def style():
-        return Response(concat_css(), mimetype="text/css")
 
-    @bp.route("/form_builder/application.js")
-    def application():
-        return Response(concat_js(), mimetype="application/javascript")
+    @bp.route("/form_builder/FormBuiler.css")
+    def form_builder_style():
+        return Response(read_cat(LOCAL_STYLES + CSS),
+                        mimetype="text/css")
+
+    @bp.route("/form_builder/FormBuilder.js")
+    def form_builder_application():
+
+        minify = 'minify' in request.args
+
+        return Response(read_javascript(LOCAL_LIBS + JS, minify),
+                        mimetype="application/javascript")
 
     @bp.route("/form_builder/themes/<path:path>")
-    def themes(path):
+    def form_builder_themes(path):
         return send_from_directory(static_file_path("lib/oojs-ui/themes"),
                                    path)
 
     return bp
-
-js_cache = None
-css_cache = None
-
-def concat_css():
-    global css_cache
-    css_cache = None
-    if css_cache is None:
-        css_cache = "".join([
-            open(static_file_path("lib/oojs-ui/oojs-ui-mediawiki.css")).read(),
-            open(static_file_path("lib/codemirror/codemirror.css")).read(),
-            open(static_file_path("css/form_builder.css")).read(),
-            open(static_file_path("css/wikilabels.css")).read()
-        ])
-
-    return css_cache
-
-def concat_js():
-    global js_cache
-    js_cache = None
-    if js_cache is None:
-        js_cache = "".join([
-            open(static_file_path("lib/jquery/jquery.js")).read(),
-            open(static_file_path("lib/oojs/oojs.jquery.js")).read(),
-            open(static_file_path("lib/oojs-ui/oojs-ui.js")).read(),
-            open(static_file_path("lib/oojs-ui/oojs-ui-mediawiki.js")).read(),
-            open(static_file_path("lib/yaml/yaml.js")).read(),
-            open(static_file_path("lib/codemirror/codemirror.js")).read(),
-            open(static_file_path("lib/codemirror-modes/yaml/yaml.js")).read(),
-            open(static_file_path("js/oo.util.js")).read(),
-            open(static_file_path("js/wikilabels.js")).read(),
-            open(static_file_path("js/wikilabels.util.js")).read(),
-            open(static_file_path("js/wikilabels.form.js")).read(),
-            open(static_file_path("js/wikilabels.form_builder.js")).read()
-        ])
-
-    return js_cache

@@ -10,14 +10,14 @@ from ..database import DB
 
 
 def configure(config):
-    dir = os.path.dirname(os.path.realpath(__file__))
+    directory = os.path.dirname(os.path.realpath(__file__))
 
     app = Flask("wikilabels",
-                static_folder=os.path.join(dir, 'static'),
-                template_folder=os.path.join(dir, 'templates'))
+                template_folder=os.path.join(directory, 'templates'))
     app.config["APPLICATION_ROOT"] = config['application_root']
 
-    bp = Blueprint('wikilabels', __name__)
+    bp = Blueprint('wikilabels', __name__,
+                   static_folder=os.path.join(directory, 'static'))
 
     db = DB.from_config(config)
 

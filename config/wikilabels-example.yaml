@@ -1,8 +1,8 @@
 database:
   host: localhost
-  user: revcoding
-  database: revcoding
-  password: revcoding-admin
+  user: wikilabels
+  database: wikilabels
+  password: wikilabels-admin
 
 form_directory: forms/enabled
 application_root: "/labels"

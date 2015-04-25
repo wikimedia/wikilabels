@@ -5,8 +5,6 @@
 		$(window).focus(this.handleRefocus.bind(this));
 
 		this.statusChange = $.Callbacks();
-
-		this.updateStatus();
 	};
 	User.prototype.handleRefocus = function (e) {
 		this.updateStatus();

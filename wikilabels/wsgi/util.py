@@ -1,6 +1,7 @@
 import os
-from functools import wraps
+from functools import lru_cache, wraps
 
+import uglipyjs
 from flask import current_app, request
 
 
@@ -37,3 +38,24 @@ def jsonp(func):
 def static_file_path(path):
     dir_name = os.path.dirname(os.path.abspath(__file__))
     return os.path.join(dir_name, "static", path)
+
+@lru_cache(128)
+def read_javascript(static_paths, minify=False):
+    if minify:
+        return uglipyjs.compile(read_cat(static_paths))
+    else:
+        return read_cat(static_paths)
+
+@lru_cache(128)
+def read_cat(static_paths):
+    return "".join(open(static_file_path(path)).read()
+                   for path in static_paths)
+
+def build_script_tags(static_paths):
+    return "".join('<script src="../static/{0}"></script>'.format(path)
+                   for path in static_paths)
+
+def build_style_tags(static_paths):
+    return "".join('<link rel="stylesheet" type="text/css" ' + \
+                   'href="../static/{0}" />'.format(path)
+                   for path in static_paths)

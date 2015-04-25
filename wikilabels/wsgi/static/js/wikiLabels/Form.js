@@ -33,12 +33,12 @@
 
 		// Create a new fieldset & load the translated fields
 		fieldset = new OO.ui.FieldsetLayout( {
-			label: WL.applyTranslation( config.title, i18n )
+			label: WL.util.applyTranslation( config.title, i18n )
 		} );
 		fieldMap = {};
 		for ( i in config.fields ) {
 			if ( config.fields.hasOwnProperty( i ) ) {
-				fieldDoc = WL.applyTranslation( config.fields[i], i18n );
+				fieldDoc = WL.util.applyTranslation( config.fields[i], i18n );
 				field = OO.ui.instantiateFromParameters( fieldDoc, fieldMap );
 				fieldset.addItems( [ field ] );
 			}

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import os
-from revcoding.wsgi import application
+from wikilabels.wsgi import application
 from flask import request
 import yamlconf
 

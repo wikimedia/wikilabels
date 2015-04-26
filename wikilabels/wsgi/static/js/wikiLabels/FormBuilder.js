@@ -109,7 +109,7 @@
 		this.submitButton.setDisabled( true );
 
 		// Clear the container
-		this.$formContainer.html( '' );
+		this.$formContainer.empty();
 
 		// Construct a new form
 		this.form = WL.Form.fromConfig( this.config, lang );

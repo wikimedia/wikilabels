@@ -37,7 +37,7 @@
 	};
 	Workspace.prototype.load = function (tasklist, form, view) {
 
-		this.$element.html(""); // Clears out old elements
+		this.$element.empty(); // Clears out old elements
 
 		this.tasklist = tasklist;
 		this.$element.append(tasklist.$element);
@@ -86,7 +86,7 @@
 	TaskList.prototype.load = function (taskListData) {
 		var taskData, task, i;
 
-		this.$tasks.html(""); // Just in case there was something in there.
+		this.$tasks.empty(); // Just in case there was something in there.
 		for (i = 0; i < taskListData.length; i++) {
 			taskData = taskListData.tasks[i];
 

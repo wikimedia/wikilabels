@@ -50,7 +50,7 @@
 	};
 
 	CampaignList.prototype.clear = function(){
-		this.$element.html("");
+		this.$element.empty();
 	};
 	CampaignList.prototype.loadCampaigns = function(){
 			this.clear();
@@ -143,7 +143,7 @@
 	};
 	WorksetList.prototype.clear = function () {
 		// Clear the container
-		this.$container.html("");
+		this.$container.empty();
 		this.worksets = [];
 	};
 	WorksetList.prototype.load = function (worksetListData) {

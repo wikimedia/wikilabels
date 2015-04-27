@@ -63,7 +63,7 @@
 		WL.user.initiateOAuth();
 	};
 	CampaignList.prototype.clear = function(){
-		this.$element.html("");
+		this.$element.empty();
 	};
 	CampaignList.prototype.load = function(){
 		if ( !WL.user.authenticated() ) {
@@ -186,7 +186,7 @@
 	};
 	WorksetList.prototype.clear = function () {
 		// Clear the container
-		this.$container.html("");
+		this.$container.empty();
 		this.worksets = [];
 	};
 	WorksetList.prototype.load = function (worksetListData) {

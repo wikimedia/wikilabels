@@ -1,15 +1,55 @@
-#wikilabels-home .wikilabels-campaigns {
+#wikilabels-home > .lead {
+  width: 25em;
+  padding: 1ex 1em 1ex 0em;
+  text-align: left;
+  vertical-align: middle;
+  float: left;
+}
+
+#wikilabels-home > .menu {
   margin-left: 26em;
   text-align: center;
   width: auto;
   height: 20em;
   border-left: 1px solid silver;
 }
-
-#wikilabels-home .wikilabels-lead {
-  width: 25em;
-  padding: 1ex 1em 1ex 0em;
+#wikilabels-home > .menu > .connector {
+  padding-top: 10em;
+}
+#wikilabels-home > .menu > .campaign-list {
+  height: 100%;
+  overflow: auto;
+  padding: .5ex;
+}
+#wikilabels-home .campaign-list > .campaign {
+  background: #DDD;
+  margin-bottom: .5ex;
   text-align: left;
+  padding: .5ex;
+}
+#wikilabels-home .campaign-list > .campaign > .expander {
+  display: inline-block;
   vertical-align: middle;
-  float: left;
+}
+#wikilabels-home .campaign-list > .campaign > .expander > a {
+  padding: .5ex;
+}
+#wikilabels-home .campaign-list > .campaign > .expander .oo-ui-labelElement-label {
+  line-height: .9em;
+}
+#wikilabels-home .campaign-list > .campaign > .name {
+  display: inline-block;
+}
+#wikilabels-home .campaign-list > .campaign > .controls,
+#wikilabels-home .campaign-list > .campaign > .workset-list {
+  display: none;
+}
+#wikilabels-home .campaign-list > .campaign.expanded > .controls,
+#wikilabels-home .campaign-list > .campaign.expanded > .workset-list {
+  display: block;
+}
+
+#wikilabels-home > .workspace {
+  position: relative;
+  min-height: 5em;
 }

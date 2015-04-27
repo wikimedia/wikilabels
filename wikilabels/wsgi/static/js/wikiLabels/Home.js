@@ -9,63 +9,79 @@
 		}
 
 		this.$element = $element;
+		this.$menu = this.$element.find(".menu");
+		if ( this.$menu === undefined || this.$menu.length === 0 ) {
+			throw "." + WL.config.prefix + "menu must be a single defined element";
+		}
 
-		this.campaignList = new CampaignList(
-			this.$element.find("." + WL.config.prefix + "campaigns")
-		);
-		this.$element.append(this.campaignList.$element);
+		this.campaignList = new CampaignList();
+		this.connector = new Connector();
 
 		this.workspace = new WL.Workspace(
-			this.$element.find("." + WL.config.prefix + "workspace")
+			this.$element.find(".workspace")
 		);
 		this.$element.append(this.workspace.$element);
 
 		WL.user.updateStatus();
+		WL.user.statusChanged.add(this.handleUserStatusChange.bind(this));
+		this.handleUserStatusChange();
+	};
+	Home.prototype.handleUserStatusChange = function() {
+		if ( WL.user.authenticated() ) {
+			this.campaignList.load();
+			this.$menu.empty();
+			this.$menu.append(this.campaignList.$element);
+		} else {
+			this.$menu.empty();
+			this.$menu.append(this.connector.$element);
+		}
 	};
 
-	var CampaignList = function ($element) {
-		if ( $element === undefined || $element.length === 0 ) {
-			throw "$element must be a defined element";
-		}
+	/**
+	 * Connector Widget
+	 *
+	 *
+	 */
+	var Connector = function() {
+		this.$element = $("<div>").addClass(".connector");
 
-		this.$element = $element;
-
-		this.connectButton = new OO.ui.ButtonWidget( {
-			label: WL.i18n("Connect to server")
+		this.button = new OO.ui.ButtonWidget( {
+			label: WL.i18n("connect to server"),
+			flags: ["primary"]
 		} );
-		this.connectButton.on('click', this.handleConnectButtonClick);
+		this.$element.append(this.button.$element);
+		this.button.on('click', this.handleButtonClick.bind(this));
+	};
+	Connector.prototype.handleButtonClick = function(e){
+		WL.user.initiateOAuth();
+	};
 
-		WL.user.statusChanged.add(this.refresh.bind(this));
+	var CampaignList = function () {
+		this.$element = $("<div>").addClass("campaign-list");
 	};
 	CampaignList.prototype.handleConnectButtonClick = function(e){
 		WL.user.initiateOAuth();
 	};
-	CampaignList.prototype.refresh = function(){
-		if ( WL.user.authenticated() ) {
-			this.loadCampaigns();
-		} else {
-			this.clear();
-			this.$element.append(this.connectButton.$element);
-		}
-	};
-
 	CampaignList.prototype.clear = function(){
 		this.$element.html("");
 	};
-	CampaignList.prototype.loadCampaigns = function(){
-			this.clear();
-			WL.server.getCampaigns(
-				function(doc){
-					var i, campaignData;
-					for ( i=0; i<doc['campaigns'].length; i++) {
-						campaignData = doc['campaigns'][i];
-						this.push(new Campaign(campaignData));
-					}
-				}.bind(this),
-				function(doc){
-					this.$element.html(doc.code + ":" + doc.message);
-				}.bind(this)
-			);
+	CampaignList.prototype.load = function(){
+		if ( !WL.user.authenticated() ) {
+			throw "Cannot load campaign list when user is not authenticated.";
+		}
+		this.clear();
+		WL.server.getCampaigns(
+			function(doc){
+				var i, campaignData;
+				for ( i=0; i<doc['campaigns'].length; i++) {
+					campaignData = doc['campaigns'][i];
+					this.push(new Campaign(campaignData));
+				}
+			}.bind(this),
+			function(doc){
+				this.$element.html(doc.code + ":" + doc.message);
+			}.bind(this)
+		);
 	};
 	CampaignList.prototype.push = function(campaign) {
 		this.$element.append(campaign.$element);
@@ -73,39 +89,49 @@
 
 	var Campaign = function (campaignData) {
 		this.campaignData = campaignData;
-		this.$element = $("<div>").addClass(WL.config.prefix + "campaign");
+		this.$element = $("<div>").addClass("campaign");
 
-		this.$expander = $("<div>").addClass(WL.config.prefix + "expander");
-		this.$element.append(this.$expander);
+		this.expander = new OO.ui.ToggleButtonWidget( {
+			label: "+",
+			value: false,
+			classes: [ "expander" ]
+		} );
+		this.$element.append(this.expander.$element);
+		this.expander.on('change', this.handleExpanderChange.bind(this));
 
-		this.$name = $("<div>").addClass(WL.config.prefix + "name");
+		this.$name = $("<div>").addClass("name");
 		this.$element.append(this.$name);
 
 		this.worksetList = new WorksetList();
 
-		this.$controls = $("<div>").addClass(WL.config.prefix + "controls");
+		this.$controls = $("<div>").addClass("controls");
 		this.$element.append(this.$controls);
 
 		this.newButton = new OO.ui.ButtonWidget( {
-			label: WL.i18n("assign new")
+			label: WL.i18n("new workset")
 		} );
 		this.$controls.append(this.newButton.$element);
 		this.newButton.on('click', this.handleNewButtonClick.bind(this));
 
+		this.expanded = $.Callbacks();
+
 		this.load(campaignData);
+	};
+	Campaign.prototype.handleExpanderChange = function( expanded ) {
+		this.expand(expanded);
 	};
 	Campaign.prototype.handleNewButtonClick = function (e) {
 		WL.server.assignWorkset(
 			this.campaignData['id'],
 			function(doc){
-				console.log(doc);
+				console.log(doc); //TODO: Should add a new workset to the list.
 			},
 			function(doc){
 
 			}
 		);
 	};
-	Campaign.prototype.handleWorksetUpdate = function (workset) {
+	Campaign.prototype.handleWorksetUpdate = function ( workset ) {
 		var i;
 		if ( workset.completed && this.allCompleted() ) {
 			this.newButton.setDisabled(false);
@@ -119,14 +145,31 @@
 			WL.user.id, campaignData['id'],
 			function(doc){
 
+			},
+			function(doc){
+				
 			}
 		);
 	};
+	Campaign.prototype.expand = function(expanded){
+		if ( expanded === undefined) {
+			return this.$element.hasClass("expanded");
+		} else if ( expanded ) {
+			this.$element.addClass("expanded");
+			this.expander.setLabel("-");
+			this.expanded.fire(expanded);
+			return this;
+		} else {
+			this.$element.removeClass("expanded");
+			this.expander.setLabel("+");
+			return this;
+		}
+	};
 
 	var WorksetList = function () {
-		this.$element = $("<div>").addClass(WL.config.prefix + "workset-list");
+		this.$element = $("<div>").addClass("workset-list");
 
-		this.$container = $("<div>").addClass(WL.config.prefix + "container");
+		this.$container = $("<div>").addClass("container");
 		this.$element.append(this.$container);
 
 		this.worksets = [];
@@ -173,7 +216,7 @@
 	};
 
 	var Workset = function (worksetData) {
-		this.$element = $("<div>").addClass(WL.config.prefix + "workset");
+		this.$element = $("<div>").addClass("workset");
 
 		this.progress = new OO.ui.ProgressBarWidget( {
 			progress: 0,
@@ -221,13 +264,13 @@
 	};
 	Workset.prototype.select = function (selected) {
 		if ( selected === undefined) {
-			return this.$element.hasClass(WL.config.prefix + "selected");
+			return this.$element.hasClass("selected");
 		} else if ( selected ) {
-			this.$element.addClass(WL.config.prefix + "selected");
+			this.$element.addClass("selected");
 			this.selected.fire();
 			return this;
 		} else {
-			this.$element.removeClass(WL.config.prefix + "selected");
+			this.$element.removeClass("selected");
 			return this;
 		}
 	};

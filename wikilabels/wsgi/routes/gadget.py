@@ -8,9 +8,11 @@ MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
                   "lib/oojs/oojs.jquery.js",
                   "lib/oojs-ui/oojs-ui.js",
                   "lib/oojs-ui/oojs-ui-mediawiki.js")
-LOCAL_LIBS = ("lib/date-format/date-format.js", )
+LOCAL_LIBS = ("lib/date-format/date-format.js",
+              "lib/strftime/strftime.js")
 JS = ("js/oo.util.js",
       "js/wikiLabels/wikiLabels.js",
+      "js/wikiLabels/api.js",
       "js/wikiLabels/config.js",
       "js/wikiLabels/Form.js",
       "js/wikiLabels/Home.js",
@@ -18,6 +20,7 @@ JS = ("js/oo.util.js",
       "js/wikiLabels/server.js",
       "js/wikiLabels/user.js",
       "js/wikiLabels/util.js",
+      "js/wikiLabels/views.js",
       "js/wikiLabels/Workspace.js")
 
 MEDIAWIKI_STYLES = ("lib/mediaWiki/enwiki.vector.css",
@@ -58,35 +61,3 @@ def configure(bp):
                                    path)
 
     return bp
-
-application_cache = None
-style_cache = None
-
-def concat_style():
-    global style_cache
-    style_cache = None
-    if style_cache is None:
-        style_cache = "".join([
-            open(static_file_path("lib/oojs-ui/oojs-ui-mediawiki.css")).read(),
-            open(static_file_path("lib/codemirror/codemirror.css")).read(),
-            open(static_file_path("css/form_builder.css")).read(),
-            open(static_file_path("css/wikilabels.css")).read()
-        ])
-
-    return style_cache
-
-def concat_application():
-    global application_cache
-    application_cache = None
-    if application_cache is None:
-        application_cache = "".join([
-            open(static_file_path("js/wikilabels.form.js")).read(),
-            open(static_file_path("js/wikilabels.home.js")).read(),
-            open(static_file_path("js/wikilabels.i18n.js")).read(),
-            open(static_file_path("js/wikilabels.server.js")).read(),
-            open(static_file_path("js/wikilabels.user.js")).read(),
-            open(static_file_path("js/wikilabels.util.js")).read(),
-            open(static_file_path("js/wikilabels.workspace.js")).read(),
-        ])
-
-    return application_cache

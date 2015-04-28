@@ -26,7 +26,7 @@ def configure(bp, config, form_map):
     @bp.route("/forms/<form_name>", methods=['GET'])
     def get_form(form_name):
         if form_name in form_map:
-            return jsonify(form_map[form_name])
+            return jsonify({'form': form_map[form_name]})
         else:
             return responses.not_found("form_name={0}".format(form_name))
 

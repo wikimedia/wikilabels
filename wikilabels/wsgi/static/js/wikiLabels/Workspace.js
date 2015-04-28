@@ -13,7 +13,7 @@
 		this.$menu.append(this.fullscreen.$element);
 		this.fullscreenToggle.on('change', this.handleFullscreenChange.bind(this));
 
-		this.tasklist = null;
+		this.taskList = null;
 		this.form = null;
 		this.view = null;
 
@@ -38,28 +38,44 @@
 	Workspace.prototype.loadWorkset = function (worksetId) {
 		var query = WL.server.getWorkset(worksetId);
 		query.done(function(doc) {
+			var formQuery;
 			try{
 				this.view = WL.views[doc['campaign']['view']](doc['tasks']);
 			}catch(err){
 				alert("Could not load view '" + doc['campaign']['view'] + "': " + err);
-				this.view = WL.views.View();
+				this.view = WL.views.View(doc['tasks']);
 			}
-			try{
-				this.view = WL.views[doc['campaign']['view']](doc['tasks']);
-			}catch(err){
-				alert("Could not load view '" + doc['campaign']['view'] + "': " + err);
-			}
+
+			this.taskList = new TaskList(doc['tasks']);
+
+			formQuery = WL.server.getForm(doc['campaign']['form']);
+			formQuery.done(function(formDoc){
+				try{
+					this.form = WL.Form.fromConfig(formDoc['form']);
+				}catch(err){
+					alert(
+						"Could not load form '" + doc['campaign']['form'] + "': " + err
+					);
+				}
+				this.load();
+			}.bind(this));
+			formQuery.fail(function(errorDoc){
+				alert(
+					"Could not load form '" + doc['campaign']['form'] + "': " +
+					JSON.stringify(errorDoc)
+				);
+			}.bind(this));
 
 
 		}.bind(this) );
 	};
-	Workspace.prototype.load = function (tasklist, form, view) {
+	Workspace.prototype.load = function (taskList, form, view) {
 
 		this.$element.empty(); // Clears out old elements
 
-		this.tasklist = tasklist;
-		this.$element.append(tasklist.$element);
-		this.tasklist.taskSelected.add(this.handleTaskSelected.bind(this));
+		this.taskList = taskList;
+		this.$element.append(taskList.$element);
+		this.taskList.taskSelected.add(this.handleTaskSelected.bind(this));
 
 		this.form = form;
 		this.$element.append(form.$element);

@@ -1,68 +1,71 @@
 ( function (mw, $, WL) {
 
 	var Server = function () {};
-	Server.prototype.request = function (relPath, data, success, error) {
-		return $.ajax(
+	Server.prototype.request = function (relPath, data) {
+		var localPromise = $.Deferred(),
+		    ajaxPromise = $.ajax(
 			$.merge([WL.config.serverRoot], relPath).join("/"),
 			{
 				dataType: "jsonp",
-				data: data,
-				success: function (doc, status, jqXHR) {
-					if (!doc.error) {
-						success(doc);
-					} else {
-						console.error(doc.error);
-						error(doc.error);
-					}
-				}.bind(this),
-				error: function (jqXHR, status, err) {
-					var errorData = { code: status, message: err };
-					console.error(errorData);
-					error(errorData);
-				}.bind(this)
+				data: data || {}
 			}
 		);
+
+		ajaxPromise.done(function (doc, status, jqXHR) {
+			if (!doc.error) {
+				localPromise.resolve(doc);
+			} else {
+				console.error(doc.error);
+				localPromise.reject(doc.error);
+			}
+		}.bind(this));
+
+		ajaxPromise.fail(function (jqXHR, status, err) {
+			var errorData = { code: status, message: err };
+			console.error(errorData);
+			localPromise.reject(errorData);
+		}.bind(this));
+
+		return localPromise;
 	};
-	Server.prototype.getCampaigns = function (success, error) {
+
+	Server.prototype.getCampaigns = function () {
 		return this.request(
-			["campaigns", mw.config.get('wgDBName')],
-			{},
-			success, error
+			["campaigns", mw.config.get('wgDBName')]
 		);
 	};
-	Server.prototype.whoami = function (success, error) {
+	Server.prototype.whoami = function () {
 		return this.request(
-			["auth", "whoami"],
-			{},
-			success, error
+			["auth", "whoami"]
 		);
 	};
-	Server.prototype.getUserWorksetList = function (userId, campaignId, success, error) {
+	Server.prototype.getUserWorksetList = function (userId, campaignId) {
 		return this.request(
 			["users", userId, campaignId],
-			{ worksets: "stats" },
-			success, error
+			{ worksets: "stats" }
 		);
 	};
-	Server.prototype.assignWorkset = function (campaignId, success, error) {
+	Server.prototype.assignWorkset = function (campaignId) {
 		return this.request(
 			["campaigns", mw.config.get('wgDBName'), campaignId],
-			{ assign: "" },
-			success, error
+			{ assign: "" }
 		);
 	};
-	Server.prototype.getTaskList = function (campaignId, worksetId, success, error) {
+	Server.prototype.getWorkset = function (campaignId, worksetId) {
 		return this.request(
 			["campaigns", mw.config.get('wgDBName'), campaignId, worksetId],
-			{ tasks: "" },
-			success, error
+			{ tasks: "", campaign: "" }
 		);
 	};
-	Server.prototype.saveLabel = function (campaignId, worksetId, taskId, labelData, success, error) {
+	Server.prototype.getForm = function (formName) {
+		return this.request(
+			["forms", formName]
+		);
+	};
+	Server.prototype.saveLabel = function (campaignId, worksetId, taskId, labelData) {
 		return this.request(
 			["campaigns", mw.config.get('wgDBName'), campaignId, worksetId, taskId],
-			{ label: JSON.stringify(labelData) },
-			success, error
+			{ label: JSON.stringify(labelData) }
 		);
 	};
 

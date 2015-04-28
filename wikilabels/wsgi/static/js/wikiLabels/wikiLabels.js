@@ -4,13 +4,16 @@ wikiLabels = {
 		prefix: "wikilabels-",
 		messages: {
 			en: {
+				'date-format': "%Y-%m-%d",
 				'Review': 'Review',
 				'Workset': 'Workset',
 				'Submit': 'Submit',
 				'workset': 'workset',
 				'workset-completed': 'You have completed this workset!',
-				'new workset': 'new workset',
-				'connect to server': 'connect to server'
+				'request workset': 'request workset',
+				'connect to server': 'connect to server',
+				'Campaigns': 'Campaigns',
+				'Workset complete!': 'Workset complete!'
 			},
 			pt: {
 

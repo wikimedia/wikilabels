@@ -10,19 +10,19 @@
 		this.updateStatus();
 	};
 	User.prototype.updateStatus = function () {
-		var oldId = this.id;
-		WL.server.whoami(
-			function(doc){
-				this.id = doc['user']['id'];
-				if ( oldId !== this.id ) {
-					console.log("Setting user_id to " + this.id)
-					this.statusChanged.fire();
-				}
-			}.bind(this),
-			function(doc){
-				this.id = null;
-			}.bind(this)
-		);
+		var oldId = this.id,
+		    query = WL.server.whoami();
+
+		query.done(function(doc){
+			this.id = doc['user']['id'];
+			if ( oldId !== this.id ) {
+				console.log("Setting user_id to " + this.id);
+				this.statusChanged.fire();
+			}
+		}.bind(this));
+		query.fail(function(doc){
+			this.id = null;
+		}.bind(this));
 	};
 	User.prototype.initiateOAuth = function () {
 		var oauthWindow = window.open(

@@ -35,6 +35,24 @@
 	Workspace.prototype.handleFullscreenChange = function (e) {
 		this.fullscreen(this.fullscreenToggle.getValue());
 	};
+	Workspace.prototype.loadWorkset = function (worksetId) {
+		var query = WL.server.getWorkset(worksetId);
+		query.done(function(doc) {
+			try{
+				this.view = WL.views[doc['campaign']['view']](doc['tasks']);
+			}catch(err){
+				alert("Could not load view '" + doc['campaign']['view'] + "': " + err);
+				this.view = WL.views.View();
+			}
+			try{
+				this.view = WL.views[doc['campaign']['view']](doc['tasks']);
+			}catch(err){
+				alert("Could not load view '" + doc['campaign']['view'] + "': " + err);
+			}
+
+
+		}.bind(this) );
+	};
 	Workspace.prototype.load = function (tasklist, form, view) {
 
 		this.$element.empty(); // Clears out old elements
@@ -93,7 +111,7 @@
 			task = new Task(taskData);
 			task.selected.add(this.handleTaskSelected.bind(this));
 			this.tasks.push(task);
-			this.$tasks.append(task.element);
+			this.$tasks.append(task.$element);
 		}
 	};
 

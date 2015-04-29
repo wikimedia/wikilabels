@@ -13,7 +13,8 @@ wikiLabels = {
 				'request workset': 'request workset',
 				'connect to server': 'connect to server',
 				'Campaigns': 'Campaigns',
-				'Workset complete!': 'Workset complete!'
+				'Workset complete!': 'Workset complete!',
+				'Submit label': 'Submit label'
 			},
 			pt: {
 

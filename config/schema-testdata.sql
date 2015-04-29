@@ -1,11 +1,11 @@
 TRUNCATE campaign CASCADE;
 INSERT INTO campaign VALUES
   (1, 'Edit Quality -- 2014 10k sample', 'enwiki',
-   'damaging_and_badfaith', 'diff_to_previous', NOW(), 1, 2, True),
+   'damaging_and_goodfaith', 'DiffToPrevious', NOW(), 1, 2, True),
   (2, 'Edit Type -- 2015 january sample', 'enwiki',
-   'edit_type', 'diff_to_previous', NOW(), 1, 2, True),
+   'edit_type', 'DiffToPrevious', NOW(), 1, 2, True),
   (3, 'Edit Quality -- 2014 10k sample', 'ptwiki',
-   'edit_type', 'diff_to_previous', NOW(), 1, 2, True);
+   'damaging_and_goodfaith', 'DiffToPrevious', NOW(), 1, 2, True);
 
 
 TRUNCATE task CASCADE;

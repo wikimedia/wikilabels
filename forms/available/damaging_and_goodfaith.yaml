@@ -5,6 +5,7 @@ fields:
   - class: "FieldLayout"
     label: "<damaging-label>"
     align: right
+    classes: ['inline-field']
     fieldWidget:
       name: "damaging"
       class: "ButtonSelectWidget"
@@ -20,6 +21,7 @@ fields:
   - class: "FieldLayout"
     label: "<goodfaith-label>"
     align: right
+    classes: ['inline-field']
     fieldWidget:
       name: "goodfaith"
       class: "ButtonSelectWidget"

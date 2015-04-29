@@ -23,7 +23,7 @@
 		this.connector = new Connector();
 
 		this.workspace = new WL.Workspace(
-			this.$element.find(".workspace")
+			this.$element.find(".wikilabels-workspace")
 		);
 		this.$element.append(this.workspace.$element);
 
@@ -41,10 +41,10 @@
 			this.$menu.append(this.connector.$element);
 		}
 	};
-	Home.prototype.handleWorksetActivation = function( workset ) {
+	Home.prototype.handleWorksetActivation = function( campaign, workset ) {
 		this.campaignList.selectWorkset(workset);
 
-		//this.workspace.load(null);
+		this.workspace.loadWorkset(campaign.id, workset.id);
 	};
 
 	/**
@@ -84,8 +84,8 @@
 
 		this.worksetActivated = $.Callbacks();
 	};
-	CampaignList.prototype.handleWorksetActivation = function( workset ) {
-		this.worksetActivated.fire( workset );
+	CampaignList.prototype.handleWorksetActivation = function( campaign, workset ) {
+		this.worksetActivated.fire( campaign, workset );
 	};
 	CampaignList.prototype.clear = function () {
 		this.$container.empty();
@@ -130,8 +130,6 @@
 	 *
 	 */
 	var Campaign = function (campaignData) {
-		this.campaignData = campaignData;
-		this.id = campaignData['id'];
 		this.$element = $("<div>").addClass("campaign");
 
 		this.expander = new OO.ui.ToggleButtonWidget( {
@@ -173,15 +171,13 @@
 		this.assignNewWorkset();
 	};
 	Campaign.prototype.handleWorksetActivation = function ( workset ) {
-		this.worksetActivated.fire(workset);
+		this.worksetActivated.fire(this, workset);
 	};
 	Campaign.prototype.handleWorksetUpdate = function ( workset ) {
 		this.updateButtonState();
 	};
 	Campaign.prototype.assignNewWorkset = function() {
-		var query = WL.server.assignWorkset(
-			this.campaignData['id']
-		);
+		var query = WL.server.assignWorkset(this.id);
 		query.done( function (doc) {
 			console.log(doc); //TODO: Should add a new workset to the list.
 		});
@@ -198,6 +194,8 @@
 	};
 	Campaign.prototype.load = function (campaignData) {
 		var query;
+
+		this.id = campaignData['id'];
 		this.$name.text(campaignData['name']);
 
 		query = WL.server.getUserWorksetList(
@@ -277,8 +275,6 @@
 	 *
 	 */
 	var Workset = function (worksetData) {
-		this.id = worksetData['id'];
-		this.worksetData = worksetData;
 		this.$element = $("<div>").addClass("workset");
 		this.$element.click(this.handleClick.bind(this));
 
@@ -310,7 +306,9 @@
 		this.activated.fire(this);
 	};
 	Workset.prototype.load = function (worksetData) {
-		this.created = worksetData.created;
+		this.id = worksetData['id'];
+		this.campaignId = worksetData['campaign_id'];
+		this.created = worksetData['created'];
 		this.updateProgress(worksetData.stats.tasks, worksetData.stats.labeled);
 	};
 	Workset.prototype.updateProgress = function (tasks, labeled) {

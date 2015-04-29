@@ -27,6 +27,8 @@ MEDIAWIKI_STYLES = ("lib/mediaWiki/enwiki.vector.css",
                     "lib/oojs-ui/oojs-ui-mediawiki.css")
 LOCAL_STYLES = tuple()
 CSS = ("css/wikiLabels.css",
+       "css/form.css",
+       "css/workspace.css",
        "css/home.css")
 
 def configure(bp):

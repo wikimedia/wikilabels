@@ -2,20 +2,22 @@
 
 	var View = function (taskListData) {
 		this.$element = $("<div>").addClass("view");
-		this.taskMap = null;
-		this.taskList = null;
-		this.selectedTaskInfo = null;
-		this.load(taskListData);
 
+		this.taskMap = null;
+		this.tasks = [];
+		this.selectedTaskInfo = null;
 		this.taskSelected = $.Callbacks();
+
+		this.load(taskListData);
 	};
+	OO.initClass(View);
 	View.prototype.load = function (taskListData) {
-		var i, taskData;
+		var i, taskData, taskInfo;
 		this.taskMap = {};
-		this.taskList = {};
 		for (i = 0; i < taskListData.length; i++) {
 			taskData = taskListData[i];
-			this.taskList.push( { i: i, data: taskData } );
+			taskInfo = { i: i, data: taskData };
+			this.tasks.push(taskInfo);
 			this.taskMap[taskData.id] = i;
 		}
 	};
@@ -23,22 +25,8 @@
 		if (this.taskMap[taskId] === undefined) {
 			throw "Could not find data for task_id=" + taskId;
 		} else {
-			this.present(this.taskMap[taskId]);
+			this.select(this.tasks[this.taskMap[taskId]]);
 		}
-	};
-	View.prototype.shift = function (delta) {
-		var newI;
-		if (!this.selectedTaskInfo) {
-			throw "No task assigned.  Can't shift().";
-		}
-		newI = (this.selectedTaskInfo.i + delta) % this.taskList.length;
-		this.select(this.taskList[newI]);
-	};
-	View.prototype.next = function () {
-		return this.shift(1);
-	};
-	View.prototype.prev = function () {
-		return this.shift(-1);
 	};
 	View.prototype.select = function (taskInfo) {
 		var oldTaskInfo = this.selectedTaskInfo;
@@ -51,47 +39,55 @@
 	View.prototype.present = function (taskInfo) {
 		var jsonString = JSON.stringify(taskInfo, null, 2);
 
-		this.$element.append($("<pre>").text(jsonString)); // spacing set pprint
+
+		this.$element.html($("<pre>").text(jsonString)); // spacing set pprint
 	};
-	OO.initClass(View);
 
 	var DiffToPrevious = function(taskListData) {
-		View.call( this, taskListData );
+		DiffToPrevious.super.call( this, taskListData );
 	};
+	OO.inheritClass(DiffToPrevious, View);
 	DiffToPrevious.prototype.load = function (taskListData) {
-		View.prototype.load.call( this, taskListData );
+		DiffToPrevious.super.prototype.load.call( this, taskListData );
 		this.preCacheDiffs();
 	};
 	DiffToPrevious.prototype.present = function (taskInfo) {
 		var query;
+		console.log(JSON.stringify(taskInfo).length);
 		if(taskInfo.diff){
 			this.presentDiff(taskInfo.diff);
 		} else {
-			query = WL.api.getDiff(taskInfo.data['data']['rev_id']);
+			query = WL.api.diffToPrevious(taskInfo.data['data']['rev_id']);
 			query.done( function (diff) {
-				taskInfo.diff = diff; // Cache!
+				this.tasks[taskInfo.i].diff = diff; // Cache!
 				this.presentDiff(diff);
 			}.bind(this) );
 			query.fail( function (doc) {
 				this.$element.html($("<pre>").html(JSON.stringify(doc, null, 2)));
-			} );
+			}.bind(this) );
 		}
 	};
 	DiffToPrevious.prototype.preCacheDiffs = function (index) {
-		var query;
+		var query, revId;
 		index = index || 0;
 
-		if ( index >= this.taskList.length ) {
+		if ( index >= this.tasks.length ) {
 			// We're done here
 			return null;
-		} else if ( this.taskList[index].diff !== undefined ) {
+		} else if ( this.tasks[index].diff !== undefined ) {
 			//Already cached this diff.  Recurse!
 			this.preCacheDiffs(index + 1);
 		} else {
 			//We don't have the diff.  Go get it.
-			query = WL.api.getDiff(this.taskList[index].data['data']['rev_id']);
+			revId = this.tasks[index].data['data']['rev_id'];
+			query = WL.api.diffToPrevious(revId);
 			query.done( function (diff) {
-				this.taskList[index].diff = diff;
+				console.log("pre-caching diff for " + revId);
+				this.tasks[index].diff = diff;
+				// Recurse!
+				this.preCacheDiffs(index + 1);
+			}.bind(this) );
+			query.fail( function (doc) {
 				// Recurse!
 				this.preCacheDiffs(index + 1);
 			}.bind(this) );
@@ -101,7 +97,6 @@
 		var table = $("<table>").addClass("diff").html(diff);
 		this.$element.html(table);
 	};
-	OO.inheritClass(DiffToPrevious, View);
 
 	var WorksetCompleted = function () {
 		this.$element = $("<div>").addClass("completed");
@@ -127,3 +122,17 @@
 		DiffToPrevious: DiffToPrevious
 	};
 }(mediaWiki, jQuery, wikiLabels));
+
+
+function Foo() {};
+Foo.prototype.hello = function(){return "foo";};
+
+function Bar() {
+    Foo.call( this );
+}
+Bar.prototype.hello = function(){return "bar";};
+
+OO.inheritClass( Foo, Bar );
+
+b = new Bar();
+b.hello();

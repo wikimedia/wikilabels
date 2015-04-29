@@ -1,0 +1,35 @@
+.wikilabels-form {
+  background: #f6f6f6;
+  border: 2px solid #ddd;
+  border-radius: 2px;
+  padding: 1em;
+}
+
+.wikilabels-form .fieldset > .oo-ui-fieldsetLayout > div {
+  text-align: center;
+}
+.wikilabels-form .fieldset > .oo-ui-fieldsetLayout > div > * {
+  text-align: left;
+}
+
+.wikilabels-form .inline-field {
+  display: inline-block;
+  margin: 0px 1em;
+  white-space: nowrap;
+}
+.wikilabels-form .inline-field > .oo-ui-fieldLayout-body > {
+  white-space: nowrap;
+}
+.wikilabels-form .inline-field > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
+  display: inline-block;
+  width: auto;
+}
+.wikilabels-form .inline-field > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-field {
+  display: inline-block;
+  width: auto;
+  margin-left: 1em;
+}
+
+.wikilabels-form > .controls {
+  text-align: right;
+}

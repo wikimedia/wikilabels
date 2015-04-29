@@ -6,9 +6,10 @@
 
   var Config = function () {
     this.obj = {
-      'wgDBName': "enwiki",
-      'wgServer': "//en.wikipedia.org",
-      'wgScriptPath': "/w"
+      "wgDBName": "enwiki",
+      "wgServer": "//en.wikipedia.org",
+      "wgScriptPath": "/w",
+			"wgUserLanguage": "en"
     };
   };
   Config.prototype.get = function(key){

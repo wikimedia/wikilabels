@@ -29,7 +29,9 @@
 		"QUnit": false,
 		"JSON": false,
 		"wikiLabels": true,
-		"OO": false
+		"OO": false,
+		"CodeMirror": false,
+		"YAML": false
 	},
 
 	// Legacy (to be handled by jscs once supported)

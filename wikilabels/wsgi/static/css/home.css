@@ -112,10 +112,3 @@
   font-size: 90%;
   line-height: 1em;
 }
-
-#wikilabels-home > .workspace {
-  position: relative;
-  min-height: 5em;
-  margin-top: 1em;
-  background: #ccc;
-}

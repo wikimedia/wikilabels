@@ -2,7 +2,7 @@
 
 	var API = function () {};
 	API.prototype.request = function (data) {
-		data['format'] = "json"
+		data['format'] = "json";
 		var localPromise = $.Deferred(),
 		    ajaxPromise = $.ajax(
 			[mw.config.get('wgServer'), mw.config.get('wgScriptPath')].join("") + "/api.php",

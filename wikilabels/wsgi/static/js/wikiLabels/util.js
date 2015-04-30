@@ -1,4 +1,4 @@
-( function ($, WL) {
+( function (mw, $, WL) {
 	WL.util = {
 		applyTranslation: function ( value, lookup ) {
 			var str, arr, transArray, i, obj, transObj, key;
@@ -36,6 +36,25 @@
 				// bool or numeric == A-OK
 				return value;
 			}
+		},
+		oneOrMany: function (val) {
+			if ($.isArray(val)) {
+				return val;
+			} else {
+				return [val];
+			}
+		},
+		linkToTitle: function(title, label){
+			var url = mw.config.get('wgServer') +
+			          mw.config.get('wgArticlePath').replace("$1", title);
+
+			return $("<a>").attr('href', url).text(label || title);
+		},
+		linkToDiff: function(revId, label){
+			var url = mw.config.get('wgServer') +
+			          mw.config.get('wgArticlePath').replace("$1", "?diff=" + revId);
+
+			return $("<a>").attr('href', url).text(label || revId);
 		}
 	};
-})(jQuery, wikiLabels);
+})(mediaWiki, jQuery, wikiLabels);

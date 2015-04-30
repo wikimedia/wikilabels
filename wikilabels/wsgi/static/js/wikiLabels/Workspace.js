@@ -4,6 +4,11 @@
 			throw '$element must be a defined element';
 		}
 		this.$element = $element;
+		this.campaignId = null;
+		this.worksetId = null;
+		this.taskList = null;
+		this.form = null;
+		this.view = null;
 
 		this.$menu = $('<div>').addClass( 'menu');
 		this.$element.append(this.$menu);
@@ -13,24 +18,16 @@
 		this.$menu.append(this.fullscreen.$element);
 		this.fullscreenToggle.on('change', this.handleFullscreenChange.bind(this));
 
-		this.taskList = null;
-		this.form = null;
-		this.view = null;
+		this.labelSaved = $.Callbacks();
+		this.newWorksetRequested = $.Callbacks();
 
-		this.$controls = $('<div>').addClass( 'controls');
-		this.submitButton = new OO.ui.ButtonWidget( {
-			label: WL.i18n('Submit label'),
-			align: 'inline',
-			flags: [ 'primary', 'constructive' ]
-		} );
-
-		this.submitted = $.Callbacks();
 	};
-	Workspace.prototype.handleSubmitButtonClicked = function (e) {
-		this.submitted.fire();
+	Workspace.prototype.handleFormSubmission = function ( labelData ) {
+		this.saveLabel(labelData);
 	};
 	Workspace.prototype.handleTaskActivation = function (task) {
 		this.view.show(task.id);
+		this.form.setValues(task.label.data);
 		this.taskList.select(task);
 	};
 	Workspace.prototype.handleFullscreenChange = function (e) {
@@ -42,10 +39,14 @@
 		this.clear();
 		query.done( function (doc) {
 			var formQuery;
-			view = new WL.views[doc['campaign']['view']](doc['tasks']);
+
+			// Use this when debugging to make sure that errors in view construction
+			// are reported with a full stack trace.  Otherwise, keep it commented
+			// out.
 			try {
 				view = new WL.views[doc['campaign']['view']](doc['tasks']);
 			} catch (err) {
+				console.error(err.stack);
 				alert('Could not load view "' + doc['campaign']['view'] + '": ' + err +
 				      '\nUsing simple task viewer.');
 				view = new WL.views.View(doc['tasks']);
@@ -57,8 +58,9 @@
 			formQuery.done( function (formDoc) {
 				try {
 					form = WL.Form.fromConfig(formDoc['form'], mw.config.get('wgUserLanguage'));
-					this.load(taskList, form, view);
+					this.load(campaignId, worksetId, taskList, form, view);
 				} catch (err) {
+					console.error(err.stack);
 					alert(
 						'Could not load form "' + doc['campaign']['form'] + '": \n' + err
 					);
@@ -72,9 +74,15 @@
 			}.bind(this) );
 		}.bind(this) );
 	};
-	Workspace.prototype.load = function (taskList, form, view) {
+	Workspace.prototype.handleNewWorksetRequested = function () {
+		this.newWorksetRequested.fire();
+	};
+	Workspace.prototype.load = function (campaignId, worksetId, taskList, form, view) {
+		var firstTask;
+		this.clear();
 
-		this.$element.empty(); // Clears out old elements
+		this.campaignId = campaignId;
+		this.worksetId = worksetId;
 
 		this.taskList = taskList;
 		this.$element.append(taskList.$element);
@@ -82,9 +90,39 @@
 
 		this.form = form;
 		this.$element.append(form.$element);
+		this.form.submitted.add(this.handleFormSubmission.bind(this));
 
 		this.view = view;
 		this.$element.append(view.$element);
+		this.view.newWorksetRequested.add(this.handleNewWorksetRequested.bind(this));
+
+		firstTask = this.taskList.selectByIndex(0);
+		this.view.show(firstTask.id);
+	};
+	Workspace.prototype.saveLabel = function (labelData) {
+		var task = this.taskList.selectedTask;
+
+		if ( !task ){
+			alert("Can't save label.  No task is selected!");
+		}
+
+		WL.server.saveLabel(this.campaignId, this.worksetId, task.id, labelData)
+			.done(function(doc){
+				var tasks, labels;
+				task.label.load(doc['label']);
+
+				tasks = this.taskList.length();
+				labels = this.taskList.labeled();
+
+				this.labelSaved.fire(this.campaignId, this.worksetId, tasks, labels);
+
+				if( this.taskList.last() && this.taskList.completed() ){
+					this.view.completed();
+				} else {
+					this.taskList.next();
+				}
+			}.bind(this));
+
 	};
 	Workspace.prototype.fullscreen = function (fullscreen) {
 		if ( fullscreen === undefined) {
@@ -136,8 +174,6 @@
 			this.tasks.push(task);
 			this.$tasksRow.append(task.$element);
 		}
-
-		this.selectByIndex(0);
 	};
 	TaskList.prototype.select = function (task) {
 		if (this.selectedTask) {
@@ -153,6 +189,7 @@
 			throw "Could not select task. Index " + index + " out of bounds.";
 		}
 		this.select(this.tasks[index]);
+		return this.tasks[index];
 	};
 	TaskList.prototype.shift = function (delta) {
 		var newI;
@@ -168,7 +205,24 @@
 	TaskList.prototype.prev = function () {
 		return this.shift(-1);
 	};
-	TaskList.prototype.allComplete = function () {
+	TaskList.prototype.last = function () {
+		if ( this.selectedTask ) {
+			return this.selectedTask.i === this.tasks.length;
+		} else {
+			throw "No task selected";
+		}
+	};
+	TaskList.prototype.labeled = function () {
+		var i, task,
+		    labeledTasks = 0;
+
+		for (i = 0; i < this.tasks.length; i++) {
+			task = this.tasks[i];
+			labeledTasks += task.complete();
+		}
+		return labeledTasks;
+	};
+	TaskList.prototype.complete = function () {
 		var i, task;
 		for (i = 0; i < this.tasks.length; i++) {
 			task = this.tasks[i];
@@ -177,6 +231,9 @@
 			}
 		}
 		return true;
+	};
+	TaskList.prototype.length = function () {
+		return this.tasks.length;
 	};
 
 	var Task = function (i, taskData) {
@@ -198,7 +255,7 @@
 		this.$element.empty();
 		this.id = taskData.id;
 		this.taskData = taskData['task_data'];
-		this.label = new Label(taskData['labels']);
+		this.label = new Label(taskData['labels'][0]);
 		this.$element.append(this.label.$element);
 	};
 	Task.prototype.select = function (selected) {
@@ -238,11 +295,18 @@
 	};
 	Label.prototype.load = function (labelData) {
 		this.$element.empty();
-
-		if ( labelData ) {
-			this.data = labelData;
+		this.data = labelData;
+		this.complete(this.data !== undefined && this.data !== null);
+	};
+	Label.prototype.complete = function (completed) {
+		if ( completed === undefined) {
+			return this.$element.hasClass('completed');
+		} else if ( completed ) {
+			this.$element.addClass('completed');
+			return this;
 		} else {
-			this.data = null;
+			this.$element.removeClass('completed');
+			return this;
 		}
 	};
 

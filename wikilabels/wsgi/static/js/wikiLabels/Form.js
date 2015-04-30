@@ -12,18 +12,18 @@
 		this.$controls = $( '<div>' ).addClass( 'controls' );
 		this.$element.append( this.$controls );
 
-		this.submitLabel = new OO.ui.ButtonWidget( {
-			label: WL.i18n('Submit label'),
+		this.submitButton = new OO.ui.ButtonWidget( {
+			label: WL.i18n('Save'),
 			align: 'inline',
 			flags: [ 'primary', 'constructive' ]
 		} );
-		this.submitLabel.on( 'click', this.handleSubmitLabelClick.bind( this ) );
-		this.$controls.append( this.submitLabel.$element );
+		this.$controls.append( this.submitButton.$element );
+		this.submitButton.on( 'click', this.handleSubmitClick.bind( this ) );
 
 		this.submitted = $.Callbacks();
 	};
-	Form.prototype.handleSubmitLabelClick = function () {
-		this.submitted.fire();
+	Form.prototype.handleSubmitClick = function () {
+		this.submitted.fire( this.getValues() );
 	};
 	Form.prototype.getValues = function () {
 		var name, valueMap = {};
@@ -36,6 +36,7 @@
 	};
 	Form.prototype.setValues = function(valueMap) {
 		var name;
+		valueMap = valueMap || {};
 		for ( name in this.fieldMap ) {
 			if ( this.fieldMap.hasOwnProperty( name ) ) {
 				 OO.ui.setWidgetValue( this.fieldMap[name], valueMap[name] );
@@ -61,7 +62,7 @@
 
 		// Create a new fieldset & load the translated fields
 		fieldset = new OO.ui.FieldsetLayout( {
-			label: WL.util.applyTranslation( config.title, i18n )
+			//label: WL.util.applyTranslation( config.title, i18n )
 		} );
 		fieldMap = {};
 		for ( i in config.fields ) {

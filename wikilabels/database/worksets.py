@@ -119,7 +119,7 @@ class Worksets(Collection):
                 return None
 
 
-    def assign(self, campaign_id, user_id):
+    def assign(self, campaign_id, user_id, stats=False):
         with self.db.conn.cursor() as cursor:
             campaign = self.db.campaigns.get(campaign_id)
             if not campaign['active']:
@@ -177,7 +177,7 @@ class Worksets(Collection):
                 self.db.conn.rollback()
                 raise
 
-            return self.get(workset_id)
+            return self.get(workset_id, stats);
 
     def users(self):
         with self.db.conn.cursor() as cursor:

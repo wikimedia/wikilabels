@@ -1,0 +1,17 @@
+.wikilabels-diff-to-previous {
+  background: #fff;
+}
+.wikilabels-diff-to-previous a.title {
+  display: block;
+  text-align: center;
+  font-size: 150%;
+  margin-top: 1em;
+}
+.wikilabels-diff-to-previous div.description {
+  display: block;
+  text-align: center;
+  margin-top: .5em;
+}
+.wikilabels-diff-to-previous table.diff{
+  margin-top: 1em;
+}

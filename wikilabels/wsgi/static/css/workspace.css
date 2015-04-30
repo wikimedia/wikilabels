@@ -2,7 +2,16 @@
   position: relative;
   min-height: 5em;
   margin-top: 1em;
-  background: #ccc;
+  background: #fff;
+}
+.wikilabels-workspace.fullscreen {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  padding: 2em;
+  margin-top: 0em;
 }
 
 .wikilabels-workspace > .task-list {
@@ -35,6 +44,10 @@
   left: 0px;
   border: 1px solid #777;
   background: #DDD;
+  cursor: pointer;
+}
+.wikilabels-workspace > .task-list > .tasks .task > .label.completed {
+  background: #0F0;
 }
 .wikilabels-workspace > .task-list > .tasks .task.selected > .label {
   border: 2px solid #000;

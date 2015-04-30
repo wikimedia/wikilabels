@@ -48,7 +48,7 @@
 	Server.prototype.assignWorkset = function (campaignId) {
 		return this.request(
 			["campaigns", mw.config.get('wgDBName'), campaignId],
-			{ assign: "" }
+			{ assign: "", workset: "stats"}
 		);
 	};
 	Server.prototype.getWorkset = function (campaignId, worksetId) {

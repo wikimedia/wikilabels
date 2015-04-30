@@ -24,12 +24,14 @@ JS = ("js/oo.util.js",
       "js/wikiLabels/Workspace.js")
 
 MEDIAWIKI_STYLES = ("lib/mediaWiki/enwiki.vector.css",
+                    "lib/mediaWiki/diffs.css",
                     "lib/oojs-ui/oojs-ui-mediawiki.css")
 LOCAL_STYLES = tuple()
 CSS = ("css/wikiLabels.css",
        "css/form.css",
        "css/workspace.css",
-       "css/home.css")
+       "css/home.css",
+       "css/views.css")
 
 def configure(bp):
 

@@ -26,6 +26,8 @@
 			this.$element.find(".wikilabels-workspace")
 		);
 		this.$element.append(this.workspace.$element);
+		this.workspace.labelSaved.add(this.handleLabelSaved.bind(this));
+		this.workspace.newWorksetRequested.add(this.handleNewWorksetRequested.bind(this));
 
 		WL.user.updateStatus();
 		WL.user.statusChanged.add(this.handleUserStatusChange.bind(this));
@@ -41,10 +43,20 @@
 			this.$menu.append(this.connector.$element);
 		}
 	};
-	Home.prototype.handleWorksetActivation = function( campaign, workset ) {
+	Home.prototype.handleWorksetActivation = function ( campaign, workset ) {
 		this.campaignList.selectWorkset(workset);
 
 		this.workspace.loadWorkset(campaign.id, workset.id);
+	};
+	Home.prototype.handleLabelSaved = function ( campaignId, worksetId, tasks, labels ) {
+		var campaign, workset;
+		campaign = this.campaignList.get(campaignId);
+		workset = campaign.worksetList.get(worksetId);
+		workset.updateProgress(tasks, labels);
+	};
+	Home.prototype.handleNewWorksetRequested = function () {
+		var campaign = this.campaignList.get(this.workspace.campaignId);
+		campaign.assignNewWorkset();
 	};
 
 	/**
@@ -84,8 +96,11 @@
 
 		this.worksetActivated = $.Callbacks();
 	};
-	CampaignList.prototype.handleWorksetActivation = function( campaign, workset ) {
+	CampaignList.prototype.handleWorksetActivation = function ( campaign, workset ) {
 		this.worksetActivated.fire( campaign, workset );
+	};
+	CampaignList.prototype.get = function (campaignId) {
+		return this.campaigns[campaignId];
 	};
 	CampaignList.prototype.clear = function () {
 		this.$container.empty();
@@ -115,12 +130,12 @@
 		this.$container.append(campaign.$element);
 		campaign.worksetActivated.add(this.handleWorksetActivation.bind(this));
 	};
-	CampaignList.prototype.selectWorkset = function( workset ){
-		if(this.selectedWorkset){
+	CampaignList.prototype.selectWorkset = function ( workset ) {
+		if (this.selectedWorkset) {
 			this.selectedWorkset.select(false);
 		}
 		this.selectedWorkset = workset;
-		if(this.selectedWorkset){
+		if (this.selectedWorkset) {
 			this.selectedWorkset.select(true);
 		}
 	};
@@ -145,9 +160,7 @@
 
 		this.worksetList = new WorksetList();
 		this.$element.append(this.worksetList.$element);
-		this.worksetList.worksetUpdated.add(this.handleWorksetUpdate.bind(this));
 		this.worksetList.worksetActivated.add(this.handleWorksetActivation.bind(this));
-
 
 		this.$controls = $("<div>").addClass("controls");
 		this.$element.append(this.$controls);
@@ -173,20 +186,19 @@
 	Campaign.prototype.handleWorksetActivation = function ( workset ) {
 		this.worksetActivated.fire(this, workset);
 	};
-	Campaign.prototype.handleWorksetUpdate = function ( workset ) {
-		this.updateButtonState();
+	Campaign.prototype.assignNewWorkset = function () {
+		WL.server.assignWorkset(this.id)
+			.done( function (doc) {
+				var workset = new Workset(doc['workset']);
+				this.worksetList.push(workset);
+				this.worksetActivated.fire(this, workset);
+			}.bind(this))
+			.fail( function (doc) {
+				alert(doc.code + ": " + doc.message);
+			}.bind(this));
 	};
-	Campaign.prototype.assignNewWorkset = function() {
-		var query = WL.server.assignWorkset(this.id);
-		query.done( function (doc) {
-			console.log(doc); //TODO: Should add a new workset to the list.
-		});
-		query.fail( function (doc) {
-			alert(doc.code + ": " + doc.message);
-		});
-	};
-	Campaign.prototype.updateButtonState = function() {
-		if ( this.worksetList.allComplete() ) {
+	Campaign.prototype.updateButtonState = function () {
+		if ( this.worksetList.complete() ) {
 			this.newButton.setDisabled(false);
 		} else {
 			this.newButton.setDisabled(true);
@@ -236,35 +248,35 @@
 		this.$container = $("<div>").addClass("container");
 		this.$element.append(this.$container);
 
-		this.worksets = [];
+		this.worksets = {};
 		this.worksetActivated = $.Callbacks();
-		this.worksetUpdated = $.Callbacks();
 
-	};
-	WorksetList.prototype.handleWorksetUpdate = function (workset) {
-		this.worksetUpdated.fire(workset);
 	};
 	WorksetList.prototype.handleWorksetActivation = function (workset) {
 		this.worksetActivated.fire(workset);
 	};
 	WorksetList.prototype.push = function (workset) {
 		this.$container.append(workset.$element);
-		this.worksets.push(workset);
-		workset.updated.add(this.handleWorksetUpdate.bind(this));
+		this.worksets[workset.id] = workset;
 		workset.activated.add(this.handleWorksetActivation.bind(this));
+	};
+	WorksetList.prototype.get = function (worksetId) {
+		return this.worksets[worksetId];
 	};
 	WorksetList.prototype.clear = function () {
 		// Clear the container
 		this.$container.empty();
-		this.worksets = [];
+		this.worksets = {};
 	};
-	WorksetList.prototype.allComplete = function () {
-		var i, workset;
-		for ( i = 0; i < this.worksets.length; i++) {
-			workset = this.worksets[i];
+	WorksetList.prototype.complete = function () {
+		var key, workset;
+		for ( key in this.worksets ) {
+			if (this.worksets.hasOwnProperty(key)) {
+				workset = this.worksets[key];
 
-			if ( !workset.completed ) {
-				return false;
+				if ( !workset.completed ) {
+					return false;
+				}
 			}
 		}
 		return true;
@@ -294,12 +306,11 @@
 		this.$element.append(this.progress.$element);
 
 		this.completed = false;
-		this.updated = $.Callbacks();
 		this.activated = $.Callbacks();
 
 		this.load(worksetData);
 	};
-	Workset.prototype.handleClick = function(e) {
+	Workset.prototype.handleClick = function (e) {
 		this.activated.fire(this);
 	};
 	Workset.prototype.handleOpenButtonClick = function (e) {
@@ -312,8 +323,9 @@
 		this.updateProgress(worksetData.stats.tasks, worksetData.stats.labeled);
 	};
 	Workset.prototype.updateProgress = function (tasks, labeled) {
-		this.completed = labeled === tasks;
-		if ( this.completed ) {
+		var percent = (labeled / tasks) * 100;
+		this.completed = percent === 100;
+		if ( percent >= 100 ) {
 			this.openButton.setLabel("review");
 			this.openButton.setFlags( [] );
 		} else {
@@ -321,11 +333,9 @@
 			this.openButton.setFlags(["constructive"]);
 		}
 
-		this.progress.setProgress( labeled / tasks );
+		this.progress.setProgress( percent );
 
 		this.progressContent.text( this.formatProgress(tasks, labeled) );
-
-		this.updated.fire();
 	};
 	Workset.prototype.formatProgress = function (tasks, labeled) {
 		return (new Date(this.created * 1000)).format(WL.i18n("date-format")) + "  " +

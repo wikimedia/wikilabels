@@ -1,16 +1,23 @@
 ( function (mw, $, WL) {
 
 	var View = function (taskListData) {
-		this.$element = $("<div>").addClass("view");
+		this.$element = $("<div>").addClass(WL.config.prefix + "view");
 
 		this.taskMap = null;
 		this.tasks = [];
 		this.selectedTaskInfo = null;
 		this.taskSelected = $.Callbacks();
+		this.worksetCompleted = new WorksetCompleted();
+		this.worksetCompleted.newWorksetRequested.add(this.handleNewWorksetRequested.bind(this));
+
+		this.newWorksetRequested = $.Callbacks();
 
 		this.load(taskListData);
 	};
 	OO.initClass(View);
+	View.prototype.handleNewWorksetRequested = function ( ) {
+		this.newWorksetRequested.fire();
+	};
 	View.prototype.load = function (taskListData) {
 		var i, taskData, taskInfo;
 		this.taskMap = {};
@@ -39,12 +46,15 @@
 	View.prototype.present = function (taskInfo) {
 		var jsonString = JSON.stringify(taskInfo, null, 2);
 
-
 		this.$element.html($("<pre>").text(jsonString)); // spacing set pprint
+	};
+	View.prototype.completed = function () {
+		this.$element.html(this.worksetComplete.$element);
 	};
 
 	var DiffToPrevious = function(taskListData) {
 		DiffToPrevious.super.call( this, taskListData );
+		this.$element.addClass(WL.config.prefix + "diff-to-previous");
 	};
 	OO.inheritClass(DiffToPrevious, View);
 	DiffToPrevious.prototype.load = function (taskListData) {
@@ -53,7 +63,6 @@
 	};
 	DiffToPrevious.prototype.present = function (taskInfo) {
 		var query;
-		console.log(JSON.stringify(taskInfo).length);
 		if(taskInfo.diff){
 			this.presentDiff(taskInfo.diff);
 		} else {
@@ -94,8 +103,31 @@
 		}
 	};
 	DiffToPrevious.prototype.presentDiff = function(diff){
-		var table = $("<table>").addClass("diff").html(diff);
-		this.$element.html(table);
+		var diffLink,
+			title = WL.util.linkToTitle(diff.title).addClass("title"),
+			description = $("<div>").addClass("description"),
+			diffTable = $("<table>").addClass("diff");
+
+		this.$element.empty();
+
+		this.$element.append(title);
+
+		diffLink = WL.util.linkToDiff(diff.revId).prop('outerHTML');
+		description.html(WL.i18n("Diff for revision $1", [diffLink]));
+		this.$element.append(description);
+
+		if (diff.tableRows) {
+			diffTable.append(
+				"<col class='diff-marker' />" +
+				"<col class='diff-content' />" +
+				"<col class='diff-marker' />" +
+				"<col class='diff-content' />"
+			);
+			diffTable.append(diff.tableRows);
+			this.$element.append(diffTable.append(diff.tableRows));
+		} else {
+			this.$element.append("<center>No difference</center>");
+		}
 	};
 
 	var WorksetCompleted = function () {
@@ -109,7 +141,7 @@
 			label: WL.i18n("Request new workset"),
 			classes: [ "new-button" ]
 		} );
-		this.$element.append(this.handleNewWorksetClick.$element);
+		this.$element.append(this.newWorkset.$element);
 
 		this.newWorksetRequested = $.Callbacks();
 	};
@@ -122,17 +154,3 @@
 		DiffToPrevious: DiffToPrevious
 	};
 }(mediaWiki, jQuery, wikiLabels));
-
-
-function Foo() {};
-Foo.prototype.hello = function(){return "foo";};
-
-function Bar() {
-    Foo.call( this );
-}
-Bar.prototype.hello = function(){return "bar";};
-
-OO.inheritClass( Foo, Bar );
-
-b = new Bar();
-b.hello();

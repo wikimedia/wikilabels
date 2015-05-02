@@ -1,3 +1,6 @@
+.mw-body-content {
+  position: static;
+}
 #wikilabels-home > .lead {
   width: 25em;
   padding: 1ex 1em 1ex 0em;
@@ -20,6 +23,7 @@
 #wikilabels-home > .menu > .campaign-list {
   height: 100%;
   overflow: auto;
+  line-height: 1;
 }
 #wikilabels-home > .menu > .campaign-list .container {
   padding: .5ex;
@@ -67,10 +71,18 @@
 #wikilabels-home .workset-list .workset {
   background: #ddd;
   padding: .5ex .5ex;
+  padding-right: 1ex;
   cursor: pointer;
 }
+#wikilabels-home .workset-list .workset:hover {
+  background: #EEF;
+  padding-right: .5ex;
+  border-right: .5ex solid #AAA;
+}
 #wikilabels-home .workset-list .workset.selected {
-  background: #bbf;
+  background: #EEF;
+  padding-right: .5ex;
+  border-right: .5ex solid black;
 }
 
 #wikilabels-home .workset-list .workset > .progress {
@@ -99,16 +111,29 @@
   height: 100%;
 }
 
-#wikilabels-home .workset-list .workset > .open-button {
+#wikilabels-home .workset-list .workset > .controls {
   float: right;
   width: 5em;
-  vertical-align: top;
-  text-align: right;
+  text-align: center;
+
 }
-#wikilabels-home .workset-list .workset > .open-button > a {
+#wikilabels-home .workset-list .workset .button > a {
+  display: inline-block;
   margin-top: 0px;
 }
-#wikilabels-home .workset-list .workset > .open-button .oo-ui-labelElement-label {
+#wikilabels-home .workset-list .workset .button .oo-ui-labelElement-label {
   font-size: 90%;
   line-height: 1em;
+}
+#wikilabels-home .workset-list .workset .button.review > a {
+  padding: .2em .8em;
+}
+
+
+#wikilabels-home .workset-list .workset .progress  {
+  background: #EEE;
+}
+
+#wikilabels-home .workset-list .workset .progress > .oo-ui-progressBarWidget-bar {
+  background: #7F7;
 }

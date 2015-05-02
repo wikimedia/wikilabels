@@ -8,14 +8,18 @@ wikiLabels = {
 				'Review': 'Review',
 				'Workset': 'Workset',
 				'Save': 'Save',
-				'workset': 'workset',
-				'workset-completed': 'You have completed this workset!',
 				'request workset': 'request workset',
 				'connect to server': 'connect to server',
 				'Campaigns': 'Campaigns',
 				'Workset complete!': 'Workset complete!',
 				'Submit label': 'Submit label',
-				'Diff for revision $1': 'Diff for revision $1'
+				'Request new workset': 'Request new workset',
+				'Diff for revision $1': 'Diff for revision $1',
+				'No difference': 'No difference', // between revisions
+				'review': 'review', // 'review' a workset
+				'open': 'open', // 'open' a workset
+				'\'$1\' not completed.  Submit anyway?': '\'$1\' not completed.  Submit anyway?',
+				'fullscreen': 'fullscreen'
 			},
 			pt: {
 

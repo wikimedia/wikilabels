@@ -4,19 +4,26 @@
 			throw '$element must be a defined element';
 		}
 		this.$element = $element;
+		this.$element.hide();
 		this.campaignId = null;
 		this.worksetId = null;
 		this.taskList = null;
 		this.form = null;
 		this.view = null;
 
+		this.$parent = $element.parent();
+
 		this.$menu = $('<div>').addClass( 'menu');
 		this.$element.append(this.$menu);
 		this.fullscreenToggle = new OO.ui.ToggleButtonWidget( {
-			label: WL.i18n('fullscreen')
+			label: WL.i18n('fullscreen'),
+			classes: ['fullscreen']
 		} );
-		this.$menu.append(this.fullscreen.$element);
+		this.$menu.append(this.fullscreenToggle.$element);
 		this.fullscreenToggle.on('change', this.handleFullscreenChange.bind(this));
+
+		this.$container = $('<div>').addClass('container');
+		this.$element.append(this.$container);
 
 		this.labelSaved = $.Callbacks();
 		this.newWorksetRequested = $.Callbacks();
@@ -25,18 +32,24 @@
 	Workspace.prototype.handleFormSubmission = function ( labelData ) {
 		this.saveLabel(labelData);
 	};
-	Workspace.prototype.handleTaskActivation = function (task) {
-		this.view.show(task.id);
-		this.form.setValues(task.label.data);
-		this.taskList.select(task);
+	Workspace.prototype.handleTaskSelection = function (task) {
+		if (task) {
+			this.view.show(task.id);
+			this.form.setValues(task.label.data);
+			this.form.show();
+		}
 	};
 	Workspace.prototype.handleFullscreenChange = function (e) {
 		this.fullscreen(this.fullscreenToggle.getValue());
+	};
+	Workspace.prototype.handleNewWorksetRequested = function () {
+		this.newWorksetRequested.fire();
 	};
 	Workspace.prototype.loadWorkset = function (campaignId, worksetId) {
 		var taskList, form, view,
 		    query = WL.server.getWorkset(campaignId, worksetId);
 		this.clear();
+		this.$element.show();
 		query.done( function (doc) {
 			var formQuery;
 
@@ -74,9 +87,6 @@
 			}.bind(this) );
 		}.bind(this) );
 	};
-	Workspace.prototype.handleNewWorksetRequested = function () {
-		this.newWorksetRequested.fire();
-	};
 	Workspace.prototype.load = function (campaignId, worksetId, taskList, form, view) {
 		var firstTask;
 		this.clear();
@@ -85,29 +95,33 @@
 		this.worksetId = worksetId;
 
 		this.taskList = taskList;
-		this.$element.append(taskList.$element);
-		this.taskList.taskActivated.add(this.handleTaskActivation.bind(this));
+		this.$container.append(taskList.$element);
+		this.taskList.taskSelected.add(this.handleTaskSelection.bind(this));
 
 		this.form = form;
-		this.$element.append(form.$element);
+		this.$container.append(form.$element);
 		this.form.submitted.add(this.handleFormSubmission.bind(this));
 
 		this.view = view;
-		this.$element.append(view.$element);
+		this.$container.append(view.$element);
 		this.view.newWorksetRequested.add(this.handleNewWorksetRequested.bind(this));
+
+		this.fullscreenToggle.setDisabled(false);
 
 		firstTask = this.taskList.selectByIndex(0);
 		this.view.show(firstTask.id);
 	};
 	Workspace.prototype.saveLabel = function (labelData) {
-		var task = this.taskList.selectedTask;
+		var fieldName,
+		    fieldsMissingValues,
+		    task = this.taskList.selectedTask;
 
-		if ( !task ){
+		if ( !task ) {
 			alert("Can't save label.  No task is selected!");
 		}
 
 		WL.server.saveLabel(this.campaignId, this.worksetId, task.id, labelData)
-			.done(function(doc){
+			.done( function (doc) {
 				var tasks, labels;
 				task.label.load(doc['label']);
 
@@ -116,7 +130,10 @@
 
 				this.labelSaved.fire(this.campaignId, this.worksetId, tasks, labels);
 
-				if( this.taskList.last() && this.taskList.completed() ){
+				if ( this.taskList.last() && this.taskList.complete() ) {
+					this.taskList.select(null);
+					this.form.clear();
+					this.form.hide();
 					this.view.completed();
 				} else {
 					this.taskList.next();
@@ -126,17 +143,20 @@
 	};
 	Workspace.prototype.fullscreen = function (fullscreen) {
 		if ( fullscreen === undefined) {
-			return this.$element.hasClass( 'fullscreen');
+			return this.$element.hasClass('fullscreen');
 		} else if ( fullscreen ) {
-			this.$element.addClass( 'fullscreen');
+			$('body').append(this.$element);
+			this.$element.addClass('fullscreen');
 			return this;
 		} else {
-			this.$element.removeClass( 'fullscreen');
+			this.$parent.append(this.$element);
+			this.$element.removeClass('fullscreen');
 			return this;
 		}
 	};
 	Workspace.prototype.clear = function () {
-		this.$element.empty();
+		this.$container.empty();
+		this.fullscreenToggle.setDisabled(true);
 	};
 
 	var TaskList = function (taskListData) {
@@ -154,12 +174,12 @@
 		this.$tasksTable.append(this.$tasksRow);
 
 		this.selectedTaskInfo = null;
-		this.taskActivated = $.Callbacks();
+		this.taskSelected = $.Callbacks();
 
 		this.load(taskListData);
 	};
 	TaskList.prototype.handleTaskActivation = function (task) {
-		this.taskActivated.fire(task);
+		this.select(task);
 	};
 	TaskList.prototype.load = function (taskListData) {
 		var taskData, task, i;
@@ -183,6 +203,7 @@
 			task.select(true);
 		}
 		this.selectedTask = task;
+		this.taskSelected.fire(task);
 	};
 	TaskList.prototype.selectByIndex = function (index) {
 		if (index >= this.tasks.length) {
@@ -207,7 +228,7 @@
 	};
 	TaskList.prototype.last = function () {
 		if ( this.selectedTask ) {
-			return this.selectedTask.i === this.tasks.length;
+			return this.selectedTask.i === this.tasks.length - 1;
 		} else {
 			throw "No task selected";
 		}
@@ -254,7 +275,7 @@
 	Task.prototype.load = function (taskData) {
 		this.$element.empty();
 		this.id = taskData.id;
-		this.taskData = taskData['task_data'];
+		this.data = taskData['task_data'];
 		this.label = new Label(taskData['labels'][0]);
 		this.$element.append(this.label.$element);
 	};
@@ -290,12 +311,15 @@
 
 	var Label = function (labelData) {
 		this.$element = $("<div>").addClass("label");
-		this.load(labelData);
+		this.timestamp = null;
 		this.data = null;
+
+		this.load(labelData);
 	};
 	Label.prototype.load = function (labelData) {
-		this.$element.empty();
-		this.data = labelData;
+		labelData = labelData || {};
+		this.timestamp = labelData['timestamp'];
+		this.data = labelData['data'];
 		this.complete(this.data !== undefined && this.data !== null);
 	};
 	Label.prototype.complete = function (completed) {

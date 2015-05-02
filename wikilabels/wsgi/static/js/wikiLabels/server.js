@@ -31,7 +31,7 @@
 
 	Server.prototype.getCampaigns = function () {
 		return this.request(
-			["campaigns", mw.config.get('wgDBName')]
+			["campaigns", mw.config.get('wgDBname')]
 		);
 	};
 	Server.prototype.whoami = function () {
@@ -47,13 +47,13 @@
 	};
 	Server.prototype.assignWorkset = function (campaignId) {
 		return this.request(
-			["campaigns", mw.config.get('wgDBName'), campaignId],
+			["campaigns", mw.config.get('wgDBname'), campaignId],
 			{ assign: "", workset: "stats"}
 		);
 	};
 	Server.prototype.getWorkset = function (campaignId, worksetId) {
 		return this.request(
-			["campaigns", mw.config.get('wgDBName'), campaignId, worksetId],
+			["campaigns", mw.config.get('wgDBname'), campaignId, worksetId],
 			{ tasks: "", campaign: "" }
 		);
 	};
@@ -64,7 +64,7 @@
 	};
 	Server.prototype.saveLabel = function (campaignId, worksetId, taskId, labelData) {
 		return this.request(
-			["campaigns", mw.config.get('wgDBName'), campaignId, worksetId, taskId],
+			["campaigns", mw.config.get('wgDBname'), campaignId, worksetId, taskId],
 			{ label: JSON.stringify(labelData) }
 		);
 	};

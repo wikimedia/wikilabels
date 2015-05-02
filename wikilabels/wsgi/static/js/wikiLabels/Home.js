@@ -53,6 +53,7 @@
 		campaign = this.campaignList.get(campaignId);
 		workset = campaign.worksetList.get(worksetId);
 		workset.updateProgress(tasks, labels);
+		campaign.updateButtonState();
 	};
 	Home.prototype.handleNewWorksetRequested = function () {
 		var campaign = this.campaignList.get(this.workspace.campaignId);
@@ -69,7 +70,7 @@
 
 		this.button = new OO.ui.ButtonWidget( {
 			label: WL.i18n("connect to server"),
-			flags: ["primary"]
+			flags: ["progressive"]
 		} );
 		this.$element.append(this.button.$element);
 		this.button.on('click', this.handleButtonClick.bind(this));
@@ -166,8 +167,7 @@
 		this.$element.append(this.$controls);
 
 		this.newButton = new OO.ui.ButtonWidget( {
-			label: WL.i18n("request workset"),
-			flags: [ "constructive" ]
+			label: WL.i18n("request workset")
 		} );
 		this.$controls.append(this.newButton.$element);
 		this.newButton.on('click', this.handleNewButtonClick.bind(this));
@@ -290,12 +290,23 @@
 		this.$element = $("<div>").addClass("workset");
 		this.$element.click(this.handleClick.bind(this));
 
+		this.$controls = $("<div>").addClass("controls");
+		this.$element.append(this.$controls);
+
 		this.openButton = new OO.ui.ButtonWidget( {
-			label: "",
-			classes: [ 'open-button' ]
+			label: WL.i18n("open"),
+			classes: [ 'button', 'open' ],
+			flags: [ 'constructive' ]
 		} );
-		this.openButton.on('click', this.handleOpenButtonClick.bind(this));
-		this.$element.append(this.openButton.$element);
+		this.openButton.on('click', this.handleButtonClick.bind(this));
+
+		this.reviewButton = new OO.ui.ButtonWidget( {
+			label: WL.i18n("review"),
+			classes: [ 'button', 'review' ],
+			flags: [ 'constructive' ],
+			framed: false
+		} );
+		this.reviewButton.on('click', this.handleButtonClick.bind(this));
 
 		this.progressContent = $("<span>");
 		this.progress = new OO.ui.ProgressBarWidget( {
@@ -313,7 +324,7 @@
 	Workset.prototype.handleClick = function (e) {
 		this.activated.fire(this);
 	};
-	Workset.prototype.handleOpenButtonClick = function (e) {
+	Workset.prototype.handleButtonClick = function (e) {
 		this.activated.fire(this);
 	};
 	Workset.prototype.load = function (worksetData) {
@@ -324,13 +335,13 @@
 	};
 	Workset.prototype.updateProgress = function (tasks, labeled) {
 		var percent = (labeled / tasks) * 100;
+
 		this.completed = percent === 100;
-		if ( percent >= 100 ) {
-			this.openButton.setLabel("review");
-			this.openButton.setFlags( [] );
+
+		if ( this.completed ) {
+			this.$controls.html(this.reviewButton.$element);
 		} else {
-			this.openButton.setLabel("open");
-			this.openButton.setFlags(["constructive"]);
+			this.$controls.html(this.openButton.$element);
 		}
 
 		this.progress.setProgress( percent );

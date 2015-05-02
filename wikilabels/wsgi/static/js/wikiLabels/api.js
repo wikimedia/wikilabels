@@ -77,7 +77,7 @@
 	API.prototype.diffTo = function(revId, diffToId){
 		var promise = $.Deferred();
 
-		this.getRevision(revId, {'rvdiffto': diffToId})
+		this.getRevision(diffToId, {'rvdiffto': revId})
 			.done(function(doc){
 				promise.resolve(doc['diff']['*'] || "");
 			}.bind(this))
@@ -90,7 +90,7 @@
 	API.prototype.diffToPrevious = function(revId){
 		var promise = $.Deferred();
 
-		this.getRevision(revId, {rvprop: "ids"})
+		this.getRevision(revId, {rvprop: "ids|comment"})
 			.done(function(rev){
 				if ( rev.parentid ) {
 					this.diffTo(revId, rev.parentid)
@@ -98,6 +98,7 @@
 							promise.resolve( {
 								revId: rev.revid,
 								title: rev.page.title,
+								comment: rev.comment || "",
 								tableRows: tableRows
 							} );
 						}.bind(this))

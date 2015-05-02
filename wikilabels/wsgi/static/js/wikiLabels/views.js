@@ -49,7 +49,7 @@
 		this.$element.html($("<pre>").text(jsonString)); // spacing set pprint
 	};
 	View.prototype.completed = function () {
-		this.$element.html(this.worksetComplete.$element);
+		this.$element.html(this.worksetCompleted.$element);
 	};
 
 	var DiffToPrevious = function(taskListData) {
@@ -62,7 +62,7 @@
 		this.preCacheDiffs();
 	};
 	DiffToPrevious.prototype.present = function (taskInfo) {
-		var query;
+		var query, error;
 		if(taskInfo.diff){
 			this.presentDiff(taskInfo.diff);
 		} else {
@@ -72,7 +72,8 @@
 				this.presentDiff(diff);
 			}.bind(this) );
 			query.fail( function (doc) {
-				this.$element.html($("<pre>").html(JSON.stringify(doc, null, 2)));
+				error = $("<pre>").addClass("error");
+				this.$element.html(error.text(JSON.stringify(doc, null, 2)));
 			}.bind(this) );
 		}
 	};
@@ -106,15 +107,19 @@
 		var diffLink,
 			title = WL.util.linkToTitle(diff.title).addClass("title"),
 			description = $("<div>").addClass("description"),
+			comment = $("<div>").addClass("comment"),
 			diffTable = $("<table>").addClass("diff");
 
 		this.$element.empty();
 
 		this.$element.append(title);
 
+
 		diffLink = WL.util.linkToDiff(diff.revId).prop('outerHTML');
 		description.html(WL.i18n("Diff for revision $1", [diffLink]));
 		this.$element.append(description);
+
+		this.$element.append(comment.text(diff.comment));
 
 		if (diff.tableRows) {
 			diffTable.append(
@@ -124,9 +129,12 @@
 				"<col class='diff-content' />"
 			);
 			diffTable.append(diff.tableRows);
-			this.$element.append(diffTable.append(diff.tableRows));
+			this.$element.append(diffTable);
 		} else {
-			this.$element.append("<center>No difference</center>");
+			this.$element.append(
+				$("<div>").addClass("no-difference")
+				          .text(WL.i18n("No difference"))
+			);
 		}
 	};
 
@@ -142,10 +150,11 @@
 			classes: [ "new-button" ]
 		} );
 		this.$element.append(this.newWorkset.$element);
+		this.newWorkset.on('click', this.handleNewWorksetClick.bind(this));
 
 		this.newWorksetRequested = $.Callbacks();
 	};
-	WorksetCompleted.handleNewWorksetClick = function () {
+	WorksetCompleted.prototype.handleNewWorksetClick = function () {
 		this.newWorksetRequested.fire();
 	};
 

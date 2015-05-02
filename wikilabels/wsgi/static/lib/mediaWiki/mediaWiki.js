@@ -6,7 +6,7 @@
 
   var Config = function () {
     this.obj = {
-      'wgDBName': 'enwiki',
+      'wgDBname': 'enwiki',
       'wgServer': '//en.wikipedia.org',
 			'wgArticlePath': '/wiki/$1',
       'wgScriptPath': '/w',

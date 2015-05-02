@@ -14,10 +14,12 @@ fields:
           data: true
           label: "<damaging-yes-label>"
           indicatorTitle: "<damaging-yes-tooltip>"
+          flags: [ "destructive" ]
         - class: "ButtonOptionWidget"
           data: false
           label: "<damaging-no-label>"
           indicatorTitle: "<damaging-no-tooltip>"
+          flags: [ "constructive" ]
   - class: "FieldLayout"
     label: "<goodfaith-label>"
     align: right
@@ -30,10 +32,12 @@ fields:
           data: true
           label: "<goodfaith-yes-label>"
           indicatorTitle: "<goodfaith-yes-tooltip>"
+          flags: [ "constructive" ]
         - class: "ButtonOptionWidget"
           data: false
           label: "<goodfaith-no-label>"
           indicatorTitle: "<goodfaith-no-tooltip>"
+          flags: [ "destructive" ]
 i18n:
   az:
     damaging-label: "Zararlı mı?"

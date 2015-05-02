@@ -15,7 +15,7 @@
 		this.submitButton = new OO.ui.ButtonWidget( {
 			label: WL.i18n('Save'),
 			align: 'inline',
-			flags: [ 'primary', 'constructive' ]
+			flags: [ 'primary', 'progressive' ]
 		} );
 		this.$controls.append( this.submitButton.$element );
 		this.submitButton.on( 'click', this.handleSubmitClick.bind( this ) );
@@ -23,7 +23,7 @@
 		this.submitted = $.Callbacks();
 	};
 	Form.prototype.handleSubmitClick = function () {
-		this.submitted.fire( this.getValues() );
+		this.submit();
 	};
 	Form.prototype.getValues = function () {
 		var name, valueMap = {};
@@ -43,6 +43,30 @@
 			}
 		}
 		return valueMap;
+	};
+	Form.prototype.clear = function() {
+		this.setValues(null);
+	};
+	Form.prototype.hide = function() {
+		this.$element.hide();
+	};
+	Form.prototype.show = function() {
+		this.$element.show();
+	};
+	Form.prototype.submit = function(){
+		var fieldName,
+		    labelData = this.getValues();
+
+		// TODO: This is hacky.  Constraints should be specified in the form config
+		for ( fieldName in labelData ) {
+			if(labelData.hasOwnProperty(fieldName) && labelData[fieldName] === null){
+				if(!confirm(WL.i18n("'$1' not completed.  Submit anyway?", [fieldName]))){
+					return;
+				}
+			}
+		}
+
+		this.submitted.fire( this.getValues() );
 	};
 	Form.fromConfig = function ( config, lang ) {
 		var i, fieldset, fieldDoc, field, fieldMap,

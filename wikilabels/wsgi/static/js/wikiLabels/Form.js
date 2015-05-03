@@ -66,7 +66,7 @@
 			}
 		}
 
-		this.submitted.fire( this.getValues() );
+		this.submitted.fire( labelData );
 	};
 	Form.fromConfig = function ( config, lang ) {
 		var i, fieldset, fieldDoc, field, fieldMap,

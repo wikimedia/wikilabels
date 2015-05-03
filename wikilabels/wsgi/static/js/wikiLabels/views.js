@@ -119,7 +119,7 @@
 		description.html(WL.i18n("Diff for revision $1", [diffLink]));
 		this.$element.append(description);
 
-		this.$element.append(comment.text(diff.comment));
+		this.$element.append(comment.html(diff.comment));
 
 		if (diff.tableRows) {
 			diffTable.append(

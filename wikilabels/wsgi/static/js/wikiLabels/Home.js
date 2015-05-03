@@ -14,8 +14,8 @@
 
 		this.$element = $element;
 		this.$menu = this.$element.find(".menu");
-		if ( this.$menu === undefined || this.$menu.length === 0 ) {
-			throw "." + WL.config.prefix + "menu must be a single defined element";
+		if ( this.$menu === undefined || this.$menu.length !== 1 ) {
+			throw "#" + WL.config.prefix + "home > .menu must be a single defined element";
 		}
 
 		this.campaignList = new CampaignList();
@@ -210,18 +210,21 @@
 		this.id = campaignData['id'];
 		this.$name.text(campaignData['name']);
 
-		query = WL.server.getUserWorksetList(
+		WL.server.getUserWorksetList(
 			WL.user.id, campaignData['id']
-		);
-		query.done( function (doc) {
-			var i, workset;
-			this.worksetList.clear();
-			for (i = 0; i < doc['worksets'].length; i++) {
-				workset = new Workset(doc['worksets'][i]);
-				this.worksetList.push(workset);
-			}
-			this.updateButtonState();
-		}.bind(this) );
+		)
+			.done( function (doc) {
+				var i, workset;
+				this.worksetList.clear();
+				for (i = 0; i < doc['worksets'].length; i++) {
+					workset = new Workset(doc['worksets'][i]);
+					this.worksetList.push(workset);
+				}
+				this.updateButtonState();
+			}.bind(this) )
+			.fail( function(doc) {
+				alert("Could not load workset list: " + JSON.stringify(doc));
+			}.bind(this) );
 	};
 	Campaign.prototype.expand = function (expanded) {
 		if ( expanded === undefined) {
@@ -334,9 +337,9 @@
 		this.updateProgress(worksetData.stats.tasks, worksetData.stats.labeled);
 	};
 	Workset.prototype.updateProgress = function (tasks, labeled) {
-		var percent = (labeled / tasks) * 100;
+		var percent = ((labeled / tasks) || 0) * 100;
 
-		this.completed = percent === 100;
+		this.completed = labeled === tasks;
 
 		if ( this.completed ) {
 			this.$controls.html(this.reviewButton.$element);

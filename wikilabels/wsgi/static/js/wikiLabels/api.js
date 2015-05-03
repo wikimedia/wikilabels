@@ -3,9 +3,9 @@
 	var API = function () {};
 	API.prototype.request = function (data) {
 		data['format'] = "json";
-		var localPromise = $.Deferred(),
+		var deferred = $.Deferred(),
 		    ajaxPromise = $.ajax(
-			[mw.config.get('wgServer'), mw.config.get('wgScriptPath')].join("") + "/api.php",
+			mw.config.get('wgServer') + mw.util.wikiScript( 'api' ),
 			{
 				dataType: "jsonp",
 				data: data
@@ -14,20 +14,20 @@
 
 		ajaxPromise.done(function (doc, status, jqXHR) {
 			if (!doc.error) {
-				localPromise.resolve(doc);
+				deferred.resolve(doc);
 			} else {
 				console.error(doc.error);
-				localPromise.reject(doc.error);
+				deferred.reject(doc.error);
 			}
 		}.bind(this));
 
 		ajaxPromise.fail(function (jqXHR, status, err) {
 			var errorData = { code: status, message: err };
 			console.error(errorData);
-			localPromise.reject(errorData);
+			deferred.reject(errorData);
 		}.bind(this));
 
-		return localPromise;
+		return deferred.promise();
   };
 	API.prototype.getRevision = function(revId, params){
 		var defaultParams = {
@@ -35,14 +35,14 @@
 				prop: "revisions",
 				revids: revId
 			},
-			promise = $.Deferred();
+			deferred = $.Deferred();
 
 		this.request($.extend(defaultParams, params || {}))
 			.done(function(doc){
 				var id, page, includePage, i, rev;
 				try {
 					if (doc.query.badrevids) {
-						promise.reject( {
+						deferred.reject( {
 							code: "revision not found",
 							message: "Could not get metadata for rev_id=" + revId
 						} );
@@ -59,71 +59,71 @@
 						rev = page.revisions[i];
 						rev['page'] = includePage;
 						// Cache the diff
-						promise.resolve(rev);
+						deferred.resolve(rev);
 					}
 				} catch(err) {
-					promise.reject( {
+					deferred.reject( {
 						code: "api error",
 						message: "Could not parse MediaWiki API's response: " + err
 					} );
 				}
 			}.bind(this))
 			.fail(function(doc){
-				promise.reject(doc);
+				deferred.reject(doc);
 			}.bind(this));
 
-		return promise;
+		return deferred.promise();
 	};
 	API.prototype.diffTo = function(revId, diffToId){
-		var promise = $.Deferred();
+		var deferred = $.Deferred();
 
 		this.getRevision(diffToId, {'rvdiffto': revId})
 			.done(function(doc){
-				promise.resolve(doc['diff']['*'] || "");
+				deferred.resolve(doc['diff']['*'] || "");
 			}.bind(this))
 			.fail(function(doc){
-				promise.fail(doc);
+				deferred.fail(doc);
 			}.bind(this));
 
-		return promise;
+		return deferred.promise();
 	};
 	API.prototype.diffToPrevious = function(revId){
-		var promise = $.Deferred();
+		var deferred = $.Deferred();
 
-		this.getRevision(revId, {rvprop: "ids|comment"})
+		this.getRevision(revId, {rvprop: "ids|parsedcomment"})
 			.done(function(rev){
 				if ( rev.parentid ) {
 					this.diffTo(revId, rev.parentid)
 						.done(function(tableRows){
-							promise.resolve( {
+							deferred.resolve( {
 								revId: rev.revid,
 								title: rev.page.title,
-								comment: rev.comment || "",
+								comment: rev.parsedcomment || "",
 								tableRows: tableRows
 							} );
 						}.bind(this))
 						.fail(function(doc){
-							promise.reject(doc);
+							deferred.reject(doc);
 						}.bind(this));
 				} else {
 					this.getRevision(revId, {rvprop: "content"})
 						.done(function(contentRev){
-							promise.resolve( {
+							deferred.resolve( {
 								revId: rev.revid,
 								title: rev.page.title,
 								tableRows: API.creationDiff(contentRev['*'])
 							} );
 						}.bind(this))
 						.fail(function(doc){
-							promise.reject(doc);
+							deferred.reject(doc);
 						});
 				}
 			}.bind(this))
 			.fail(function(doc){
-				promise.reject(doc);
+				deferred.reject(doc);
 			}.bind(this));
 
-		return promise;
+		return deferred.promise();
 	};
 	API.creationDiff = function(content){
 		return '<tr>\n' +

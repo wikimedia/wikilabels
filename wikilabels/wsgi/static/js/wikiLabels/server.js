@@ -2,31 +2,30 @@
 
 	var Server = function () {};
 	Server.prototype.request = function (relPath, data) {
-		var localPromise = $.Deferred(),
-		    ajaxPromise = $.ajax(
+		var deferred = $.Deferred();
+
+		$.ajax(
 			$.merge([WL.config.serverRoot], relPath).join("/"),
 			{
 				dataType: "jsonp",
 				data: data || {}
 			}
-		);
+		)
+			.done(function (doc, status, jqXHR) {
+				if (!doc.error) {
+					deferred.resolve(doc);
+				} else {
+					console.error(doc.error);
+					deferred.reject(doc.error);
+				}
+			}.bind(this))
+			.fail(function (jqXHR, status, err) {
+				var errorData = { code: status, message: err };
+				console.error(errorData);
+				deferred.reject(errorData);
+			}.bind(this));
 
-		ajaxPromise.done(function (doc, status, jqXHR) {
-			if (!doc.error) {
-				localPromise.resolve(doc);
-			} else {
-				console.error(doc.error);
-				localPromise.reject(doc.error);
-			}
-		}.bind(this));
-
-		ajaxPromise.fail(function (jqXHR, status, err) {
-			var errorData = { code: status, message: err };
-			console.error(errorData);
-			localPromise.reject(errorData);
-		}.bind(this));
-
-		return localPromise;
+		return deferred.promise();
 	};
 
 	Server.prototype.getCampaigns = function () {

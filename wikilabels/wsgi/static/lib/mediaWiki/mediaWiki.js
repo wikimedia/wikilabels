@@ -20,6 +20,7 @@
 	window.mediaWiki = {
 		messages: new Messages(),
 		msg: function (key) {throw 'msg not implemented';},
-    config: new Config()
+    config: new Config(),
+		util: { wikiScript: function(){return "/w/api.php";} }
 	};
 })();

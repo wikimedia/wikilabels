@@ -21,7 +21,7 @@
 
 	var ConfigEditor = function () {
 
-		this.$element = $( "<div>" ).addClass( 'config_editor' );
+		this.$element = $( "<div>" ).addClass( 'config-editor' );
 
 		this.codeMirror = new CodeMirror(
 		this.$element[0],
@@ -134,7 +134,7 @@
 
 	var LanguageSelector = function () {
 		var layout;
-		this.$element = $( "<div>" ).addClass( 'language_selector' );
+		this.$element = $( "<div>" ).addClass( 'language-selector' );
 		this.dropdown = new OO.ui.DropdownWidget( {
 			menu: { items: [] }
 		} );

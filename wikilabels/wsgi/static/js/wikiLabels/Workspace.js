@@ -134,7 +134,7 @@
 					this.taskList.select(null);
 					this.form.clear();
 					this.form.hide();
-					this.view.completed();
+					this.view.showCompleted();
 				} else {
 					this.taskList.next();
 				}

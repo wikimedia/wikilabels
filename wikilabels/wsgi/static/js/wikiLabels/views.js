@@ -48,7 +48,7 @@
 
 		this.$element.html($("<pre>").text(jsonString)); // spacing set pprint
 	};
-	View.prototype.completed = function () {
+	View.prototype.showCompleted = function () {
 		this.$element.html(this.worksetCompleted.$element);
 	};
 

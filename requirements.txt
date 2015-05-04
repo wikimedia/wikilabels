@@ -3,7 +3,10 @@ docopt
 flask
 flask-jsonpify
 mediawiki-utilities
+mwoauth
 psycopg2
+pyexecjs
 pylibmc
 pyopenssl
+uglipyjs
 yamlconf

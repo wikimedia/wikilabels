@@ -1,0 +1,19 @@
+server {
+    listen 80;
+    server_tokens off;
+    server_name labels.wmflabs.org;
+
+     location / {
+         include uwsgi_params;
+         uwsgi_pass unix:/tmp/wikilabels.sock;
+     }
+
+     location /static {
+         alias /var/www/wikilabels/wikilabels/wsgi/static;
+     }
+
+     ## Only requests to our Host are allowed
+     if ($host !~ ^(labels.wmflabs.org)$ ) {
+        return 444;
+     }
+}

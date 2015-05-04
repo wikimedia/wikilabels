@@ -1,0 +1,7 @@
+[uwsgi]
+vhost = true
+socket = /tmp/wikilabels.sock
+venv = /home/wikilabels/env/wikilabels-3.4
+chdir = /var/www/wikilabels
+module = wikilabels_wsgi
+callable = app

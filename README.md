@@ -15,7 +15,7 @@ be started locally with
 #### Dependencies
 Installation will require some additional packages to be available.
 
-  `sudo apt-get install postgresql-server-dev-9.4 libffi-dev`
+  `sudo apt-get install postgresql-server-dev-all postgresql libffi-dev npm g++ python3-dev libmemcached-dev`
 
 #### Database setup
 You'll need to create a `wikilabels` user and database. Here's a sequence of
@@ -29,6 +29,7 @@ Switch to `postgres` user to run commands
     $ sudo su postgres
     $ psql
     postgres=# CREATE USER wikilabels WITH PASSWORD 'something secure';
+    postgres=# CREATE DATABASE wikilabels;
     postgres=# GRANT ALL PRIVILEGES ON DATABASE wikilabels to wikilabels;
     postgres=# \q
     $ exit
@@ -36,7 +37,6 @@ Switch to `postgres` user to run commands
 Switch to `wikilabels` user to load schema
     $ sudo su wikilabels
     $ psql
-    $ wikilabels=>
 
 Copy-paste config/schema.sql into the command prompt.
 

@@ -62,19 +62,18 @@
 		this.preCacheDiffs();
 	};
 	DiffToPrevious.prototype.present = function (taskInfo) {
-		var query, error;
 		if(taskInfo.diff){
 			this.presentDiff(taskInfo.diff);
 		} else {
-			query = WL.api.diffToPrevious(taskInfo.data['data']['rev_id']);
-			query.done( function (diff) {
-				this.tasks[taskInfo.i].diff = diff; // Cache!
-				this.presentDiff(diff);
-			}.bind(this) );
-			query.fail( function (doc) {
-				error = $("<pre>").addClass("error");
-				this.$element.html(error.text(JSON.stringify(doc, null, 2)));
-			}.bind(this) );
+			WL.api.diffToPrevious(taskInfo.data['data']['rev_id'])
+				.done( function (diff) {
+					this.tasks[taskInfo.i].diff = diff; // Cache!
+					this.presentDiff(diff);
+				}.bind(this) )
+				.fail( function (doc) {
+					var error = $("<pre>").addClass("error");
+					this.$element.html(error.text(JSON.stringify(doc, null, 2)));
+				}.bind(this) );
 		}
 	};
 	DiffToPrevious.prototype.preCacheDiffs = function (index) {

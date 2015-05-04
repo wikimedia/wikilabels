@@ -45,8 +45,7 @@
 			}
 		},
 		linkToTitle: function(title, label){
-			var url = mw.config.get('wgServer') +
-			          mw.config.get('wgArticlePath').replace("$1", title);
+			var url = mw.util.getUrl( title )
 
 			return $("<a>").attr('href', url).text(label || title);
 		},

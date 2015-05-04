@@ -17,10 +17,15 @@
     return this.obj[key];
   };
 
+	var util = {
+		wikiScript: function(){return "/w/api.php";},
+		getUrl: function(title){return "//en.wikipedia.org/wiki/" + title;}
+	};
+
 	window.mediaWiki = {
 		messages: new Messages(),
 		msg: function (key) {throw 'msg not implemented';},
     config: new Config(),
-		util: { wikiScript: function(){return "/w/api.php";} }
+		util: util
 	};
 })();

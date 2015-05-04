@@ -13,6 +13,7 @@ def configure(config):
     directory = os.path.dirname(os.path.realpath(__file__))
 
     app = Flask("wikilabels",
+                static_url_path="/BASE_STATIC", # No conflict with blueprint
                 template_folder=os.path.join(directory, 'templates'))
     app.config["APPLICATION_ROOT"] = config['wsgi']['application_root']
 

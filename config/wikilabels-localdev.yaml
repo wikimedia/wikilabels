@@ -12,5 +12,5 @@ database:
 
 oauth:
   mw_uri: https://www.mediawiki.org/w/index.php
-  key: <snip>
-  secret: <snip>
+  key: b321d4c978793c5e0143b743e384ad98
+  secret: 8cad97660fa9db099e96277ebe3dd6eef89b8421

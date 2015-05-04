@@ -1,7 +1,8 @@
-from flask import Response, render_template, request, send_from_directory
+from flask import (Response, render_template, render_template_string, request,
+                   send_from_directory)
 
 from ..util import (build_script_tags, build_style_tags, read_cat,
-                    read_javascript)
+                    read_javascript, url_for)
 
 MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
                   "lib/jquery/jquery.js",
@@ -33,7 +34,7 @@ CSS = ("css/wikiLabels.css",
        "css/home.css",
        "css/views.css")
 
-def configure(bp):
+def configure(bp, config):
 
     @bp.route("/gadget/")
     def gadget():
@@ -53,11 +54,26 @@ def configure(bp):
 
         minify = 'minify' in request.args
 
-        print(LOCAL_LIBS + JS)
         return Response(read_javascript(LOCAL_LIBS + JS, minify),
                         mimetype="application/javascript")
 
 
+
+
+    @bp.route("/gadget/loader.js")
+    def gadget_loader():
+
+        if 'prefix' in request.args:
+            prefix = request.args['prefix']
+            css_path = prefix + "WikiLabels.css"
+            js_path = prefix + "WikiLabels.js"
+        else:
+            css_path = url_for("/gadget/WikiLabels.css", config)
+            js_path = url_for("/gadget/WikiLabels.js", config)
+
+        js = render_template("loader.js", css_path=css_path, js_path=js_path,
+                             server_root=url_for("/", config))
+        return Response(js, mimetype="application/javascript")
 
     @bp.route("/gadget/themes/<path:path>")
     def gadget_themes(path):

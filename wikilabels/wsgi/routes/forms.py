@@ -23,7 +23,7 @@ def configure(bp, config, form_map):
                         'forms': form_names})
 
 
-    @bp.route("/forms/<form_name>", methods=['GET'])
+    @bp.route("/forms/<form_name>/", methods=['GET'])
     def get_form(form_name):
         if form_name in form_map:
             return jsonify({'form': form_map[form_name]})

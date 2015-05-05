@@ -20,7 +20,7 @@ def configure(bp, config, oauth):
         """
         Performs an OAuth handshake.
         """
-        oauth_callback = config['application_root'] + "/auth/callback/"
+        #oauth_callback = config['wsgi']['application_root'] + "/auth/callback/"
         auth_url, rt = oauth.initiate(callback=oauth_callback)
         session['request_token'] = rt
 

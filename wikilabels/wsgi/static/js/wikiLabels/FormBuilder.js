@@ -1,7 +1,7 @@
 ( function ( $, OO, CodeMirror, YAML, WL ) {
 
 	var FormBuilder = function () {
-		this.$element = $( '<div>' ).addClass( 'form_builder' );
+		this.$element = $( "<div>" ).addClass( WL.config.prefix + 'form-builder' );
 
 		this.configEditor = new ConfigEditor();
 		this.$element.append( this.configEditor.$element );
@@ -9,9 +9,8 @@
 
 		this.formPreview = new FormPreview();
 		this.$element.append( this.formPreview.$element );
-		this.formPreview.submit.add( this.handleFormPreviewSubmit.bind( this ) );
-	},
-        ConfigEditor, FormPreview, LanguageSelector;
+		this.formPreview.submitted.add( this.handleFormPreviewSubmit.bind( this ) );
+	};
 	FormBuilder.prototype.handleConfigEditorSubmit = function ( codeEditor ) {
 		var config = this.configEditor.json();
 		this.formPreview.load( config );
@@ -20,9 +19,9 @@
 		alert( 'Label data: ' + JSON.stringify( this.formPreview.getLabelData() ) );
 	};
 
-	ConfigEditor = function () {
+	var ConfigEditor = function () {
 
-		this.$element = $( '<div>' ).addClass( 'config_editor' );
+		this.$element = $( "<div>" ).addClass( 'config-editor' );
 
 		this.codeMirror = new CodeMirror(
 		this.$element[0],
@@ -41,7 +40,7 @@
 			}
 		} );
 
-		this.$controls = $( '<div>' ).addClass( 'controls' );
+		this.$controls = $( "<div>" ).addClass( 'controls' );
 		this.$element.append( this.$controls );
 
 		this.previewButton = new OO.ui.ButtonWidget( {
@@ -74,8 +73,8 @@
 		return YAML.eval( this.text() );
 	};
 
-	FormPreview = function () {
-		this.$element = $( '<div>' ).addClass( 'form_preview' );
+	var FormPreview = function () {
+		this.$element = $( "<div>" ).addClass( 'form-preview' );
 		this.config = null;
 		this.form = null;
 
@@ -83,46 +82,34 @@
 		this.$element.append(this.languageSelector.$element);
 		this.languageSelector.select.add( this.handleLanguageSelection.bind( this ) );
 
-		this.$formContainer = $( '<div>' ).addClass( 'form_container' );
+		this.$formContainer = $( "<div>" ).addClass( 'form-container' );
 		this.$element.append( this.$formContainer );
 
-		this.$controls = $( '<div>' ).addClass( 'controls' );
-		this.$element.append( this.$controls );
-
-		this.submitButton = new OO.ui.ButtonWidget( {
-			label: 'Submit Label',
-			align: 'inline',
-			disabled: true,
-			flags: [ 'primary', 'constructive' ]
-		} );
-		this.submitButton.on( 'click', this.handleSubmitButtonClick.bind( this ) );
-		this.$controls.append( this.submitButton.$element );
-
 		// Events
-		this.submit = $.Callbacks();
+		this.submitted = $.Callbacks();
 	};
 	FormPreview.prototype.handleSubmitButtonClick = function ( e ) {
 		this.submit.fire();
 	};
 	FormPreview.prototype.handleLanguageSelection = function ( lang ) {
-		// Make sure the submit button is disabled while we try to load the form.
-		this.submitButton.setDisabled( true );
-
 		// Clear the container
-		this.$formContainer.html( '' );
+		this.$formContainer.empty();
 
 		// Construct a new form
 		this.form = WL.Form.fromConfig( this.config, lang );
+
+		// Insert new form
 		this.$formContainer.append( this.form.$element );
 
-		// Enable the submit button now that we're ready
-		this.submitButton.setDisabled( false );
+		// Register submit event
+		this.form.submitted.add(this.handleFormSubmission.bind(this));
+	};
+	FormPreview.prototype.handleFormSubmission = function(){
+		this.submitted.fire();
 	};
 	FormPreview.prototype.load = function ( config ) {
 		var lang,
 			langs = [];
-		// Disable the submit button while we load the config
-		this.submitButton.setDisabled( true );
 
 		// Cache form
 		this.config = config;
@@ -145,9 +132,9 @@
 		}
 	};
 
-	LanguageSelector = function () {
+	var LanguageSelector = function () {
 		var layout;
-		this.$element = $( '<div>' ).addClass( 'language_selector' );
+		this.$element = $( "<div>" ).addClass( 'language-selector' );
 		this.dropdown = new OO.ui.DropdownWidget( {
 			menu: { items: [] }
 		} );

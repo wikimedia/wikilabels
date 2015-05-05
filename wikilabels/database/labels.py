@@ -10,9 +10,9 @@ class Labels(Collection):
     def upsert(self, task_id, user_id, data):
         user_id = int(user_id)
         try:
-            self.insert(task_id, user_id, data)
+            return self.insert(task_id, user_id, data)
         except psycopg2.IntegrityError:
-            self.update(task_id, user_id, data)
+            return self.update(task_id, user_id, data)
 
     def insert(self, task_id, user_id, data):
         with self.db.conn.cursor() as cursor:
@@ -20,12 +20,14 @@ class Labels(Collection):
                 cursor.execute("""
                 INSERT INTO label VALUES
                   (%(task_id)s, %(user_id)s, NOW(), %(data)s)
+                RETURNING *
                 """, {'task_id': task_id, 'user_id': user_id, 'data': Json(data)})
                 self.db.conn.commit()
             except Exception:
                 self.db.conn.rollback()
                 raise
-            return cursor.rowcount
+            for row in cursor:
+                return row
 
     def update(self, task_id, user_id, data):
         with self.db.conn.cursor() as cursor:
@@ -38,9 +40,11 @@ class Labels(Collection):
                 WHERE
                     task_id = %(task_id)s AND
                     user_id = %(user_id)s
+                RETURNING *
                 """, {'task_id': task_id, 'user_id': user_id, 'data': Json(data)})
                 self.db.conn.commit()
             except Exception:
                 self.db.conn.rollback()
                 raise
-            return cursor.rowcount
+            for row in cursor:
+                return row

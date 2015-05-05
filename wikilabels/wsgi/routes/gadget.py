@@ -1,4 +1,3 @@
-import uglipyjs
 from flask import Response, render_template, request, send_from_directory
 
 from ..util import (build_script_tags, build_style_tags, read_cat,
@@ -9,50 +8,59 @@ MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
                   "lib/oojs/oojs.jquery.js",
                   "lib/oojs-ui/oojs-ui.js",
                   "lib/oojs-ui/oojs-ui-mediawiki.js")
-LOCAL_LIBS = ("lib/yaml/yaml.js",
-              "lib/codemirror/codemirror.js",
-              "lib/codemirror-modes/yaml/yaml.js")
+LOCAL_LIBS = ("lib/date-format/date-format.js",
+              "lib/strftime/strftime.js")
 JS = ("js/oo.util.js",
       "js/wikiLabels/wikiLabels.js",
-      "js/wikiLabels/i18n.js",
-      "js/wikiLabels/util.js",
+      "js/wikiLabels/api.js",
+      "js/wikiLabels/config.js",
       "js/wikiLabels/Form.js",
-      "js/wikiLabels/FormBuilder.js")
+      "js/wikiLabels/Home.js",
+      "js/wikiLabels/i18n.js",
+      "js/wikiLabels/server.js",
+      "js/wikiLabels/user.js",
+      "js/wikiLabels/util.js",
+      "js/wikiLabels/views.js",
+      "js/wikiLabels/Workspace.js")
 
-MEDIAWIKI_STYLES = ("lib/oojs-ui/oojs-ui-mediawiki.css",)
-LOCAL_STYLES = ("lib/codemirror/codemirror.css",)
+MEDIAWIKI_STYLES = ("lib/mediaWiki/enwiki.vector.css",
+                    "lib/mediaWiki/diffs.css",
+                    "lib/oojs-ui/oojs-ui-mediawiki.css")
+LOCAL_STYLES = tuple()
 CSS = ("css/wikiLabels.css",
-       "css/form_builder.css",
        "css/form.css",
-       "css/workspace.css")
+       "css/workspace.css",
+       "css/home.css",
+       "css/views.css")
 
 def configure(bp):
 
-
-    @bp.route("/form_builder/")
-    def form_builder():
+    @bp.route("/gadget/")
+    def gadget():
         script_tags = build_script_tags(MEDIAWIKI_LIBS + LOCAL_LIBS + JS)
         style_tags = build_style_tags(MEDIAWIKI_STYLES + LOCAL_STYLES + CSS)
-        return render_template("form_builder.html",
+        return render_template("gadget.html",
                                script_tags=script_tags,
                                style_tags=style_tags)
 
-
-    @bp.route("/form_builder/FormBuiler.css")
-    def form_builder_style():
+    @bp.route("/gadget/WikiLabels.css")
+    def gadget_style():
         return Response(read_cat(LOCAL_STYLES + CSS),
                         mimetype="text/css")
 
-    @bp.route("/form_builder/FormBuilder.js")
-    def form_builder_application():
+    @bp.route("/gadget/WikiLabels.js")
+    def gadget_application():
 
         minify = 'minify' in request.args
 
+        print(LOCAL_LIBS + JS)
         return Response(read_javascript(LOCAL_LIBS + JS, minify),
                         mimetype="application/javascript")
 
-    @bp.route("/form_builder/themes/<path:path>")
-    def form_builder_themes(path):
+
+
+    @bp.route("/gadget/themes/<path:path>")
+    def gadget_themes(path):
         return send_from_directory(static_file_path("lib/oojs-ui/themes"),
                                    path)
 

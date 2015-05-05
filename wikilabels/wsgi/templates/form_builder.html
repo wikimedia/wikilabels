@@ -1,13 +1,22 @@
 <html>
   <head>
     <title>Form Builder</title>
-    <script src="application.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    {{ script_tags|safe }}
+    {{ style_tags|safe }}
     <style>
+      body {
+        max-width: 51em;
+        margin: 0px auto 2em auto;
+        padding: 0px .5em;
+      }
+
+      h1 {
+        size: 200%;
+      }
     </style>
   </head>
   <body>
-    <h1>Form builder!</h2>
+    <h1>Form builder!</h1>
     <div class="info">
       Experiment with
       <a href="https://en.wikipedia.org/wiki/WP:Revision coder">Revision coder</a>

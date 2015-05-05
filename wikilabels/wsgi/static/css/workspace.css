@@ -1,0 +1,66 @@
+.wikilabels-workspace {
+  position: relative;
+  min-height: 5em;
+  margin-top: 1em;
+  padding: 1ex 1em;
+  background: #fff;
+  box-shadow: 0em 0em 1em rgba(0,0,0,.5);
+}
+.wikilabels-workspace.fullscreen {
+  position: absolute;
+  z-index: 9999;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  padding: 2em;
+  margin-top: 0em;
+}
+
+.wikilabels-workspace > .menu {
+  text-align: right;
+  margin-bottom: .5em;
+}
+
+.wikilabels-workspace > .menu > .fullscreen .oo-ui-labelElement-label {
+  line-height: .9em;
+}
+
+.wikilabels-workspace .task-list {
+  background: #EEE;
+  padding: 1ex 1em;
+}
+.wikilabels-workspace .task-list > .header {
+  width: 6em;
+  float: left;
+  text-align: right;
+  padding: .25em 1em;
+}
+.wikilabels-workspace .task-list > .tasks {
+  margin-left: 8em;
+  background: #f6f6f6;
+  border: 1px solid silver;
+}
+.wikilabels-workspace .task-list > .tasks > .table {
+  width: 100%;
+  height: 2.5em;
+}
+.wikilabels-workspace .task-list > .tasks .task {
+  position: relative;
+}
+.wikilabels-workspace .task-list > .tasks .task > .label {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  border: 1px solid #777;
+  background: #EEE;
+  cursor: pointer;
+}
+.wikilabels-workspace .task-list > .tasks .task > .label.completed {
+  background: #7F7;
+}
+.wikilabels-workspace .task-list > .tasks .task.selected > .label {
+  border: 2px solid #000;
+}

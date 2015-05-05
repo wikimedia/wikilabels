@@ -1,0 +1,139 @@
+.mw-body-content {
+  position: static;
+}
+#wikilabels-home > .lead {
+  width: 25em;
+  padding: 1ex 1em 1ex 0em;
+  text-align: left;
+  vertical-align: middle;
+  float: left;
+}
+
+#wikilabels-home > .menu {
+  margin-left: 26em;
+  text-align: center;
+  width: auto;
+  height: 20em;
+  border-left: 1px solid silver;
+}
+#wikilabels-home > .menu > .connector {
+  font-size: 200%;
+  padding-top: 2em;
+}
+#wikilabels-home > .menu > .campaign-list {
+  height: 100%;
+  overflow: auto;
+  line-height: 1;
+}
+#wikilabels-home > .menu > .campaign-list .container {
+  padding: .5ex;
+}
+#wikilabels-home .campaign-list > .container > .campaign {
+  background: #f6f6f6;
+  margin-bottom: .5ex;
+  text-align: left;
+  padding: .5ex;
+  border-radius: 2px;
+}
+#wikilabels-home .campaign-list .campaign > .expander {
+  display: inline-block;
+  vertical-align: middle;
+}
+#wikilabels-home .campaign-list .campaign > .expander > a {
+  padding: .5ex;
+  width: 1em;
+}
+#wikilabels-home .campaign-list .campaign > .expander .oo-ui-labelElement-label {
+  line-height: .9em;
+}
+#wikilabels-home .campaign-list .campaign > .name {
+  display: inline-block;
+}
+#wikilabels-home .campaign-list .campaign > .controls,
+#wikilabels-home .campaign-list .campaign > .workset-list {
+  display: none;
+}
+#wikilabels-home .campaign-list .campaign.expanded > .controls,
+#wikilabels-home .campaign-list .campaign.expanded > .workset-list {
+  display: block;
+}
+#wikilabels-home .campaign-list .campaign > .controls {
+  text-align: center;
+}
+#wikilabels-home .campaign-list .campaign > .controls {
+  font-size: 90%;
+}
+
+#wikilabels-home .workset-list {
+  padding: .5em .5ex;
+}
+
+#wikilabels-home .workset-list .workset {
+  background: #ddd;
+  padding: .5ex .5ex;
+  padding-right: 1ex;
+  cursor: pointer;
+}
+#wikilabels-home .workset-list .workset:hover {
+  background: #EEF;
+  padding-right: .5ex;
+  border-right: .5ex solid #AAA;
+}
+#wikilabels-home .workset-list .workset.selected {
+  background: #EEF;
+  padding-right: .5ex;
+  border-right: .5ex solid black;
+}
+
+#wikilabels-home .workset-list .workset > .progress {
+  position: relative;
+  vertical-align: top;
+  margin-right: 6em;
+  max-width: 100em;
+  height: 1.5em;
+  background: #fff;
+  font-size: .9em;
+}
+#wikilabels-home .workset-list .workset > .progress > span {
+  position: absolute;
+  display: block;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  text-align: center;
+  padding: .25em;
+  color: #666;
+  letter-spacing: .1em;
+  font-style: italic;
+}
+#wikilabels-home .workset-list .workset > .progress > div {
+  height: 100%;
+}
+
+#wikilabels-home .workset-list .workset > .controls {
+  float: right;
+  width: 5em;
+  text-align: center;
+
+}
+#wikilabels-home .workset-list .workset .button > a {
+  display: inline-block;
+  margin-top: 0px;
+}
+#wikilabels-home .workset-list .workset .button .oo-ui-labelElement-label {
+  font-size: 90%;
+  line-height: 1em;
+}
+#wikilabels-home .workset-list .workset .button.review > a {
+  padding: .2em .8em;
+}
+
+
+#wikilabels-home .workset-list .workset .progress  {
+  background: #EEE;
+}
+
+#wikilabels-home .workset-list .workset .progress > .oo-ui-progressBarWidget-bar {
+  background: #7F7;
+}

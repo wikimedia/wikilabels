@@ -1,0 +1,14 @@
+name: edit_type
+title: "<form-title>"
+
+fields:
+  - class: "FieldLayout"
+    label: "<kind-label>"
+    align: right
+    fieldWidget:
+      name: "kind"
+      class: "TextInputWidget"
+i18n:
+  en:
+    form-title: Edit type
+    kind-label: "What type of edit is this?"

@@ -77,15 +77,27 @@ def configure(bp, config, db):
         """
         Assigns and gathers metadata for a particular workset
         """
-        user_id = session['user']
+        user_id = session['user']['id']
 
+        stats = request.args.get('workset') == "stats"
         try:
-            workset = db.worksets.assign(campaign_id, user_id)
-            return jsonify({'workset': workset})
+            doc = {'workset': db.worksets.assign(campaign_id, user_id, stats)}
         except IntegrityError as e:
-            return responses.bad_request(str(e))
+            return responses.conflict(str(e))
         except NotFoundError as e:
             return responses.not_found(str(e))
+
+        if 'campaign' in request.args:
+            stats = request.args.get('campaign') == "stats"
+            try:
+                doc['campaign'] = db.campaigns.get(campaign_id, stats)
+            except NotFoundError as e:
+                return responses.not_found(str(e))
+
+        if 'tasks' in request.args:
+            doc['tasks'] = db.tasks.for_workset(doc['workset']['id'])
+
+        return jsonify(doc)
 
     @bp.route("/campaigns/<wiki>/<int:campaign_id>/<int:workset_id>/", methods=["GET"])
     def get_workset(wiki, campaign_id, workset_id):
@@ -122,13 +134,13 @@ def configure(bp, config, db):
         """
         workset = db.worksets.get(workset_id)
 
-        if workset['user_id'] != session['user']:
+        if workset['user_id'] != session['user']['id']:
             return responses.forbidden(("workset_id={0} is owned by " +
                                         "user_id={1}, but your user_id is {2}")\
                                         .format(workset_id, workset['user_id'],
-                                                session['user']))
+                                                session['user']['id']))
 
-        db.worksets.abandon(workset_id, session['user'])
+        db.worksets.abandon(workset_id, session['user']['id'])
 
         return jsonify({'success': True})
 
@@ -173,8 +185,28 @@ def configure(bp, config, db):
         """
         label = json.loads(label or request.form.get('label'))
 
-        db.labels.upsert(task_id, session['user'], label)
+        doc = {'label': db.labels.upsert(task_id, session['user']['id'], label)}
 
-        return jsonify({'task': db.tasks.get(task_id)})
+        if 'campaign' in request.args:
+            stats = request.args.get('campaign') == "stats"
+            try:
+                doc['campaign'] = db.campaigns.get(campaign_id, stats)
+            except NotFoundError as e:
+                return responses.not_found(str(e))
+
+        if 'workset' in request.args:
+            stats = request.args.get('workset') == "stats"
+            try:
+                doc['workset'] = db.worksets.get(workset_id, stats)
+            except NotFoundError as e:
+                return responses.not_found(str(e))
+
+        if 'task' in request.args:
+            try:
+                doc['task'] = db.tasks.get(task_id)
+            except NotFoundError as e:
+                return responses.not_found(str(e))
+
+        return jsonify(doc)
 
     return bp

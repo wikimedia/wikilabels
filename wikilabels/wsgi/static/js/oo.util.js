@@ -114,9 +114,9 @@
 			case OO.ui.RadioSelectWidget:
 				if ( widget.getSelectedItem() ) {
 					return ifundef(
-                        widget.getSelectedItem().getData(),
+						widget.getSelectedItem().getData(),
 						widget.getSelectedItem().getValue()
-                    );
+					);
 				} else {
 					return null;
 				}
@@ -146,6 +146,57 @@
 			case OO.ui.ToggleButtonWidget:
 			case OO.ui.ToggleSwitchWidget:
 				return widget.getValue();
+		}
+	};
+
+	OO.ui.setWidgetValue = function ( widget, value ) {
+		switch ( widget.constructor ){
+			case OO.ui.ActionWidget:
+			case OO.ui.ButtonGroupWidget:
+			case OO.ui.ButtonWidget:
+			case OO.ui.DecoratedOptionWidget:
+			case OO.ui.DropdownWidget:
+			case OO.ui.IconWidget:
+			case OO.ui.IndicatorWidget:
+			case OO.ui.LabelWidget:
+			case OO.ui.MenuOptionWidget:
+			case OO.ui.MenuSelectOptionWidget:
+			case OO.ui.OutlineControlsWidget:
+			case OO.ui.OutlineOptionWidget:
+			case OO.ui.OutlineSelectWidget:
+			case OO.ui.PopupButtonWidget:
+			case OO.ui.PopupWidget:
+			case OO.ui.ProgressBarWidget:
+			case OO.ui.RadioOptionWidget:
+				widget.setData(value);
+				break;
+			case OO.ui.ButtonOptionWidget:
+			case OO.ui.CheckboxInputWidget:
+				widget.setSelected(value);
+				break;
+			case OO.ui.RadioSelectWidget:
+				widget.selectItem( widget.getItemFromData(value) );
+				break;
+			case OO.ui.ButtonInputWidget:
+			case OO.ui.DropdownInputWidget:
+			case OO.ui.RadioInputWidget:
+				widget.setData(value);
+				break;
+			case OO.ui.MenuSelectWidget:
+			case OO.ui.ButtonSelectWidget:
+				widget.selectItem( widget.getItemFromData(value) );
+				break;
+			case OO.ui.ComboboxInputWidget:
+				widget.getMenu().selectItem( widget.getMenu().getItemFromData(value) );
+				break;
+			case OO.ui.SearchWidget:
+				widget.getQuery().setValue(value);
+				break;
+			case OO.ui.TextInputWidget:
+			case OO.ui.ToggleButtonWidget:
+			case OO.ui.ToggleSwitchWidget:
+				widget.setValue(ifundef(value, ""));
+				break;
 		}
 	};
 

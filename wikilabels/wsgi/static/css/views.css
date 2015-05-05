@@ -1,0 +1,48 @@
+.wikilables-view {
+}
+.wikilabels-view > .completed {
+  margin-top: 1em;
+  text-align: center;
+}
+.wikilabels-view > .completed > .message {
+  font-size: 150%;
+  margin-bottom: 1em;
+}
+
+.wikilabels-diff-to-previous {
+  background: #fff;
+  text-align: center;
+  margin-top: 1em;
+}
+.wikilabels-diff-to-previous > .error {
+  text-align: left;
+}
+.wikilabels-diff-to-previous > .title {
+  font-size: 150%;
+  margin-top: 1em;
+}
+.wikilabels-diff-to-previous > .description {
+  margin-top: .5em;
+}
+.wikilabels-diff-to-previous > .comment {
+  margin-top: .5em;
+  font-style: italic;
+}
+.wikilabels-diff-to-previous > .comment:before,
+.wikilabels-diff-to-previous > .comment:after {
+  content: '"';
+  color: #333;
+}
+.wikilabels-diff-to-previous > .diff {
+  text-align: left;
+  margin-top: 1em;
+}
+.wikilabels-diff-to-previous > .no-difference {
+  font-size: 200%;
+  text-align: center;
+  margin-top: 1em;
+  font-weight: bold;
+  font-style: italic;
+  color: #999;
+
+}

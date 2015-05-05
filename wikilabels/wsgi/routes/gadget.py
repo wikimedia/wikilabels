@@ -42,7 +42,8 @@ def configure(bp, config):
         style_tags = build_style_tags(MEDIAWIKI_STYLES + LOCAL_STYLES + CSS)
         return render_template("gadget.html",
                                script_tags=script_tags,
-                               style_tags=style_tags)
+                               style_tags=style_tags,
+                               server_root=url_for("", config))
 
     @bp.route("/gadget/WikiLabels.css")
     def gadget_style():
@@ -72,7 +73,7 @@ def configure(bp, config):
             js_path = url_for("/gadget/WikiLabels.js", config)
 
         js = render_template("loader.js", css_path=css_path, js_path=js_path,
-                             server_root=url_for("/", config))
+                             server_root=url_for("", config))
         return Response(js, mimetype="application/javascript")
 
     @bp.route("/gadget/themes/<path:path>")

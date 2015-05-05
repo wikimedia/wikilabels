@@ -9,7 +9,7 @@ MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
                   "lib/oojs/oojs.jquery.js",
                   "lib/oojs-ui/oojs-ui.js",
                   "lib/oojs-ui/oojs-ui-mediawiki.js")
-LOCAL_LIBS = ("lib/yaml/yaml.js",
+LOCAL_LIBS = ("lib/yamljs/yaml.js",
               "lib/codemirror/codemirror.js",
               "lib/codemirror-modes/yaml/yaml.js")
 JS = ("js/oo.util.js",

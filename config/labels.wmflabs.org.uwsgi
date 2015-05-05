@@ -1,7 +1,10 @@
 [uwsgi]
+plugins = python3
 vhost = true
-socket = /tmp/wikilabels.sock
 venv = /home/wikilabels/env/wikilabels-3.4
 chdir = /var/www/wikilabels
-module = wikilabels_wsgi
-callable = app
+module = wikilabels_wsgi:app
+master = True
+vacuum = True
+socket = /tmp/%n.sock
+pidfile = /tmp/%n.pid

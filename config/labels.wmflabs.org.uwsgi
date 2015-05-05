@@ -8,3 +8,7 @@ master = True
 vacuum = True
 socket = /tmp/%n.sock
 pidfile = /tmp/%n.pid
+
+# the fix for db connection issues
+lazy = true
+lazy-apps = true

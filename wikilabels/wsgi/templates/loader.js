@@ -2,7 +2,7 @@
 	$(function(){
 		// Check if we should try to load Wiki Labels
 		if($('#wikilabels-home').length){
-			mw.loader.load( '//localhost:8080/labels/gadget/WikiLabels.css', 'text/css' );
+			mw.loader.load( '{{ css_path|safe }}', 'text/css' );
 			mw.loader.using(
 				[
 					'oojs',
@@ -13,10 +13,10 @@
 				],
 				function(){
 					$.getScript(
-						"//localhost:8080/labels/gadget/WikiLabels.js",
+						'{{ js_path|safe }}',
 						function(){
 							wikiLabels.config.update( {
-								serverRoot: "//localhost:8080/labels"
+								serverRoot: '{{ server_root|safe }}'
 							} );
 							wikiLabels.home = new wikiLabels.Home($('#wikilabels-home'));
 						}

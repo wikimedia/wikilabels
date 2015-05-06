@@ -12,8 +12,13 @@
 		this.formPreview.submitted.add( this.handleFormPreviewSubmit.bind( this ) );
 	};
 	FormBuilder.prototype.handleConfigEditorSubmit = function ( codeEditor ) {
-		var config = this.configEditor.json();
-		this.formPreview.load( config );
+		var config;
+		try{
+			config = this.configEditor.json();
+			this.formPreview.load( config );
+		} catch(err) {
+			alert(err);
+		}
 	};
 	FormBuilder.prototype.handleFormPreviewSubmit = function ( codeEditor ) {
 		alert( 'Label data: ' + JSON.stringify( this.formPreview.getLabelData() ) );
@@ -70,7 +75,7 @@
 		}
 	};
 	ConfigEditor.prototype.json = function () {
-		return YAML.eval( this.text() );
+		return YAML.parse( this.text() );
 	};
 
 	var FormPreview = function () {
@@ -104,7 +109,7 @@
 		// Register submit event
 		this.form.submitted.add(this.handleFormSubmission.bind(this));
 	};
-	FormPreview.prototype.handleFormSubmission = function(){
+	FormPreview.prototype.handleFormSubmission = function () {
 		this.submitted.fire();
 	};
 	FormPreview.prototype.load = function ( config ) {

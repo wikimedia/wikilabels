@@ -1,9 +1,12 @@
+beaker
 docopt
-mediawiki-utilities
-psycopg2
 flask
 flask-jsonpify
-yamlconf
-beaker
-pyopenssl
+mediawiki-utilities
+mwoauth
+psycopg2
+pyexecjs
 pylibmc
+pyopenssl
+uglipyjs
+yamlconf

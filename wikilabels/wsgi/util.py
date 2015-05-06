@@ -52,10 +52,15 @@ def read_cat(static_paths):
                    for path in static_paths)
 
 def build_script_tags(static_paths):
-    return "".join('<script src="../static/{0}"></script>'.format(path)
+    return "".join('<script src="/static/{0}"></script>'.format(path)
                    for path in static_paths)
 
 def build_style_tags(static_paths):
     return "".join('<link rel="stylesheet" type="text/css" ' + \
-                   'href="../static/{0}" />'.format(path)
+                   'href="/static/{0}" />'.format(path)
                    for path in static_paths)
+
+
+def url_for(relative_path, config):
+    return "//{host}{application_root}{0}"\
+           .format(relative_path, **config['wsgi'])

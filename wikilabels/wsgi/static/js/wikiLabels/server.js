@@ -5,7 +5,7 @@
 		var deferred = $.Deferred();
 
 		$.ajax(
-			$.merge([WL.config.serverRoot], relPath).join("/"),
+			$.merge([WL.config.serverRoot], relPath).join("/") + "/",
 			{
 				dataType: "jsonp",
 				data: data || {}

@@ -31,7 +31,7 @@
       </div>
       <script>
         wikiLabels.config.update( {
-          serverRoot: "//localhost:8080/labels"
+          serverRoot: '{{ server_root|safe }}'
         } );
         home = new wikiLabels.Home($('#wikilabels-home'));
       </script>

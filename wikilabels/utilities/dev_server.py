@@ -11,6 +11,7 @@ Options:
     -h --help        Print this documentation
     --port=<num>     The port number to start the server on [default: 8080]
     --config=<path>  The path to a yaml config file
+                     [default: config/wikilabels.yaml]
     --verbose        Print logging information
 """
 import docopt

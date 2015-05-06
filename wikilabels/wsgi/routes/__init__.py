@@ -18,6 +18,6 @@ def configure(config, bp, db, oauth, form_map):
     bp = users.configure(bp, config, db)
     bp = forms.configure(bp, config, form_map)
     bp = form_builder.configure(bp)
-    bp = gadget.configure(bp)
+    bp = gadget.configure(bp, config)
 
     return bp

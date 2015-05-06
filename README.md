@@ -7,7 +7,8 @@ MediaWiki and a flask server for the gadget to converse with.
 ## Server
 The flask server is intended to be hosted by a web server, but a dev server can
 be started locally with
-`wikilabels dev_server --config config/wikilabels-localdev.yaml`
+
+    wikilabels dev_server
 
 ### Installation
 
@@ -23,9 +24,11 @@ commands that works on a fresh install of postgres (note that `sudo` rights
 will be required).
 
 Create a wikilabels user
+
     $ sudo useradd wikilabels
 
 Switch to `postgres` user to run commands
+
     $ sudo su postgres
     $ psql
     postgres=# CREATE USER wikilabels WITH PASSWORD 'something secure';
@@ -35,6 +38,7 @@ Switch to `postgres` user to run commands
     $ exit
 
 Switch to `wikilabels` user to load schema
+
     $ sudo su wikilabels
     $ psql
 

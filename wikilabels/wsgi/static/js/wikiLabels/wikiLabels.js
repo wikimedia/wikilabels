@@ -22,7 +22,22 @@ wikiLabels = {
 				'fullscreen': 'fullscreen'
 			},
 			pt: {
-
+				'date-format': "%d-%m-%Y",
+				'Review': 'Revisar',
+				'Workset': 'Conjunto de trabalho',
+				'Save': 'Salvar',
+				'request workset': 'solicitar um conjunto de trabalho',
+				'connect to server': 'conectar ao servidor',
+				'Campaigns': 'Campanhas',
+				'Workset complete!': 'Conjunto de trabalho concluído!',
+				'Submit label': 'Submeter o rótulo',
+				'Request new workset': 'Solicitar um novo conjunto de trabalho',
+				'Diff for revision $1': 'Diferenças para a revisão $1',
+				'No difference': 'Nenhuma diferença', // between revisions
+				'review': 'revisar', // 'review' a workset
+				'open': 'abrir', // 'open' a workset
+				'\'$1\' not completed.  Submit anyway?': '\'$1\' não foi concluído. Submeter mesmo assim?',
+				'fullscreen': 'tela cheia'
 			},
 			tr: {
 

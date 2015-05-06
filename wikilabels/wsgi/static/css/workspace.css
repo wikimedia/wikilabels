@@ -34,7 +34,8 @@
   width: 6em;
   float: left;
   text-align: right;
-  padding: .25em 1em;
+  padding: .25em .5em;
+  font-weight: bold;
 }
 .wikilabels-workspace .task-list > .tasks {
   margin-left: 8em;

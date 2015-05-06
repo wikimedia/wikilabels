@@ -24,9 +24,9 @@ wikiLabels = {
 			pt: {
 				'date-format': "%d-%m-%Y",
 				'Review': 'Revisar',
-				'Workset': 'Conjunto de trabalho',
+				'Workset': 'Grupo',
 				'Save': 'Salvar',
-				'request workset': 'solicitar um conjunto de trabalho',
+				'request workset': 'solicitar um grupo de tarefas',
 				'connect to server': 'conectar ao servidor',
 				'Campaigns': 'Campanhas',
 				'Workset complete!': 'Conjunto de trabalho concluído!',

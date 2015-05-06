@@ -26,6 +26,7 @@
 		messages: new Messages(),
 		msg: function (key) {throw 'msg not implemented';},
     config: new Config(),
-		util: util
+		util: util,
+		language: {getFallbackLanguageChain: function(){return ['en', 'pt'];}}
 	};
 })();

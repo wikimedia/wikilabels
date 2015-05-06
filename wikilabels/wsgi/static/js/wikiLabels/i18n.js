@@ -1,25 +1,27 @@
-(function(mw, WL){
+( function (mw, WL) {
+	
+	var format = function (str, args) {
 
-  //mw.messages.set(); TODO: Set messages in a way that makes sense
+		return str.replace(
+		/\$[0-9]+/,
+		function (m) { return args[parseInt(m.substring(1), 10) - 1] || m;}
+		);
+	};
 
-  var format = function(str, args){
+	var i18n = function (key, args) {
+		var i, lang, message,
+		langChain = mw.language.getFallbackLanguageChain();
 
-    return str.replace(
-      /\$[0-9]+/,
-      function(m){return args[parseInt(m.substring(1), 10)-1] || m;}
-    );
-  };
+		for (i = 0; i < langChain.length; i++) {
+			lang = langChain[i];
 
-  var i18n = function(key, args){
-    // TODO: use mw.msg here
-    var message = WL.config.messages['en'][key];
-    if(message === undefined || message === null){
-      return "<" + key + ">";
-    } else {
-      return format(message, args);
-    }
-  };
+			if (WL.config.messages[lang] && WL.config.messages[lang][key]) {
+				return format(WL.config.messages[lang][key], args);
+			}
+		}
+		return "<" + format(key, args) + ">";
+	};
 
-  WL.i18n = i18n;
+	WL.i18n = i18n;
 
 })(mediaWiki, wikiLabels);

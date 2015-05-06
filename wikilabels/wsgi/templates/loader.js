@@ -9,7 +9,8 @@
 					'oojs-ui',
 					'json',
 					'mediawiki.action.history.diff',
-					'mediawiki.util'
+					'mediawiki.util',
+					'mediawiki.language'
 				],
 				function(){
 					$.getScript(

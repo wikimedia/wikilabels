@@ -12,3 +12,6 @@ i18n:
   en:
     form-title: Edit type
     kind-label: "What type of edit is this?"
+  pt:
+    form-title: Mudar tipo
+    kind-label: "Que tipo de mudança é isso?"

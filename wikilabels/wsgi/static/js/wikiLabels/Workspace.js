@@ -70,7 +70,7 @@
 			formQuery = WL.server.getForm(doc['campaign']['form']);
 			formQuery.done( function (formDoc) {
 				try {
-					form = WL.Form.fromConfig(formDoc['form'], mw.config.get('wgUserLanguage'));
+					form = WL.Form.fromConfig(formDoc['form'], mw.language.getFallbackLanguageChain());
 					this.load(campaignId, worksetId, taskList, form, view);
 				} catch (err) {
 					console.error(err.stack);

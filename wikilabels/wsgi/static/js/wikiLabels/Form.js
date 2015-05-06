@@ -68,21 +68,20 @@
 
 		this.submitted.fire( labelData );
 	};
-	Form.fromConfig = function ( config, lang ) {
+	Form.fromConfig = function ( config, langChain ) {
 		var i, fieldset, fieldDoc, field, fieldMap,
-			i18n = function ( key ) {
-				var message;
-				try {
-					message = config.i18n[lang][key];
-					if ( message === undefined ) {
-						return '<' + key + '>';
-					} else {
-						return message;
-					}
-				} catch ( err ) {
-					return '<' + key + '>';
+		    i18n = function ( key ) {
+			var i, lang, message;
+			langChain = WL.util.oneOrMany(langChain);
+
+			for (i = 0; i < langChain.length; i++) {
+				lang = langChain[i];
+				if (config.i18n[lang] && config.i18n[lang][key]) {
+					return config.i18n[lang][key];
 				}
-			};
+			}
+			return "<" + key + ">";
+		};
 
 		// Create a new fieldset & load the translated fields
 		fieldset = new OO.ui.FieldsetLayout( {

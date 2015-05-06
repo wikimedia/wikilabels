@@ -1,5 +1,6 @@
 import os
 from functools import lru_cache, wraps
+from itertools import chain
 
 import uglipyjs
 from flask import current_app, request
@@ -51,16 +52,35 @@ def read_cat(static_paths):
     return "".join(open(static_file_path(path)).read()
                    for path in static_paths)
 
-def build_script_tags(static_paths):
-    return "".join('<script src="/static/{0}"></script>'.format(path)
+def build_script_tags(static_paths, config):
+    return "".join('<script src="{0}"></script>'\
+                   .format(static_path(path, config))
                    for path in static_paths)
 
-def build_style_tags(static_paths):
-    return "".join('<link rel="stylesheet" type="text/css" ' + \
-                   'href="/static/{0}" />'.format(path)
+def build_style_tags(static_paths, config):
+    return "".join('<link rel="stylesheet" type="text/css" href="{0}" />'\
+                   .format(static_path(path, config))
                    for path in static_paths)
 
+def app_path(path, config):
+    return path_join("/", config['wsgi']['application_root'], path)
 
-def url_for(relative_path, config):
-    return "//{host}{application_root}{0}"\
-           .format(relative_path, **config['wsgi'])
+def static_path(path, config):
+    return app_path(path_join("static", path), config)
+
+def url_for(path, config):
+    print(config['wsgi']['host'])
+    return "//" + path_join(config['wsgi']['host'],
+                            config['wsgi']['application_root'],
+                            path)
+
+def path_join(*path_parts):
+    path_parts = [path for path in path_parts if len(path) > 0]
+    if len(path_parts) == 0:
+        return ""
+    elif len(path_parts) == 1:
+        return path_parts[0]
+    else: # len(path_parts) >= 2
+        return "/".join(chain([path_parts[0].rstrip("/")],
+                              (path.strip("/") for path in path_parts[1:-1]),
+                              [path_parts[-1].lstrip("/")]))

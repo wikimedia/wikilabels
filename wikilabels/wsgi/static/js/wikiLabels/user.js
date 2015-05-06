@@ -26,9 +26,9 @@
 	};
 	User.prototype.initiateOAuth = function () {
 		var oauthWindow = window.open(
-      [WL.config.serverRoot, "auth", "initiate"].join("/"), "OAuth",
-		  'height=768,width=1024'
-    );
+			WL.server.absPath("auth", "initiate"), "OAuth",
+			'height=768,width=1024'
+		);
 		if (window.focus) {
 			oauthWindow.focus();
 		}

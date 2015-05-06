@@ -3,8 +3,7 @@
 	var Server = function () {};
 	Server.prototype.request = function (relPath, data) {
 		var deferred = $.Deferred();
-
-
+		
 		$.ajax(
 			this.absPath.apply(this, relPath),
 			{

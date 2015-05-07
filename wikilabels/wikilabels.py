@@ -2,6 +2,7 @@
 This script provides access to a set of utilities for Wiki-Labels
 
 * dev_server -- Starts a development webserver on localhost
+* task_inserts -- Converts a TSV to SQL insert statements for a set of tasks
 
 Usage:
     wikilabels (-h | --help)

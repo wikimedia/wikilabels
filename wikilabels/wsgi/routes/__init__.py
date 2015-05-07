@@ -17,7 +17,7 @@ def configure(config, bp, db, oauth, form_map):
     bp = campaigns.configure(bp, config, db)
     bp = users.configure(bp, config, db)
     bp = forms.configure(bp, config, form_map)
-    bp = form_builder.configure(bp)
+    bp = form_builder.configure(bp, config)
     bp = gadget.configure(bp, config)
 
     return bp

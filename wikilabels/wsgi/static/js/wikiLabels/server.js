@@ -3,11 +3,12 @@
 	var Server = function () {};
 	Server.prototype.request = function (relPath, data) {
 		var deferred = $.Deferred();
-		
+
 		$.ajax(
 			this.absPath.apply(this, relPath),
 			{
 				dataType: "jsonp",
+				crossDomain: true,
 				data: data || {}
 			}
 		)
@@ -31,7 +32,7 @@
 		var serverRoot = WL.config.serverRoot,
 		    relPath = WL.util.pathJoin.apply(this, Array.prototype.slice.call(arguments));
 
-		return serverRoot.replace(/\/+$/g, "") + "/" + relPath.replace(/^\/+/g, "");
+		return serverRoot.replace(/\/+$/g, "") + "/" + relPath.replace(/^\/+/g, "") + "/";
 	};
 
 	Server.prototype.getCampaigns = function () {

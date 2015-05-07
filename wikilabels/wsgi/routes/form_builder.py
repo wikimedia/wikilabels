@@ -26,7 +26,7 @@ CSS = ("css/wikiLabels.css",
        "css/form.css",
        "css/workspace.css")
 
-def configure(bp):
+def configure(bp, config):
 
 
     @bp.route("/form_builder/")

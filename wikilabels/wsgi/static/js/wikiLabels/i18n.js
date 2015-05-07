@@ -1,5 +1,5 @@
 ( function (mw, WL) {
-	
+
 	var format = function (str, args) {
 
 		return str.replace(
@@ -9,8 +9,8 @@
 	};
 
 	var i18n = function (key, args) {
-		var i, lang, message,
-		langChain = mw.language.getFallbackLanguageChain();
+		var i, lang,
+		    langChain = mw.language.getFallbackLanguageChain();
 
 		for (i = 0; i < langChain.length; i++) {
 			lang = langChain[i];

@@ -38,8 +38,10 @@ def configure(bp, config):
 
     @bp.route("/gadget/")
     def gadget():
-        script_tags = build_script_tags(MEDIAWIKI_LIBS + LOCAL_LIBS + JS)
-        style_tags = build_style_tags(MEDIAWIKI_STYLES + LOCAL_STYLES + CSS)
+        script_tags = build_script_tags(MEDIAWIKI_LIBS + LOCAL_LIBS + JS,
+                                        config)
+        style_tags = build_style_tags(MEDIAWIKI_STYLES + LOCAL_STYLES + CSS,
+                                      config)
         return render_template("gadget.html",
                                script_tags=script_tags,
                                style_tags=style_tags,
@@ -57,9 +59,6 @@ def configure(bp, config):
 
         return Response(read_javascript(LOCAL_LIBS + JS, minify),
                         mimetype="application/javascript")
-
-
-
 
     @bp.route("/gadget/loader.js")
     def gadget_loader():

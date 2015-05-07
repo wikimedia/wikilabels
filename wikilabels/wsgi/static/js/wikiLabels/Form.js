@@ -34,7 +34,7 @@
 		}
 		return valueMap;
 	};
-	Form.prototype.setValues = function(valueMap) {
+	Form.prototype.setValues = function (valueMap) {
 		var name;
 		valueMap = valueMap || {};
 		for ( name in this.fieldMap ) {
@@ -44,23 +44,23 @@
 		}
 		return valueMap;
 	};
-	Form.prototype.clear = function() {
+	Form.prototype.clear = function () {
 		this.setValues(null);
 	};
-	Form.prototype.hide = function() {
+	Form.prototype.hide = function () {
 		this.$element.hide();
 	};
-	Form.prototype.show = function() {
+	Form.prototype.show = function () {
 		this.$element.show();
 	};
-	Form.prototype.submit = function(){
+	Form.prototype.submit = function () {
 		var fieldName,
 		    labelData = this.getValues();
 
 		// TODO: This is hacky.  Constraints should be specified in the form config
 		for ( fieldName in labelData ) {
-			if(labelData.hasOwnProperty(fieldName) && labelData[fieldName] === null){
-				if(!confirm(WL.i18n("'$1' not completed.  Submit anyway?", [fieldName]))){
+			if (labelData.hasOwnProperty(fieldName) && labelData[fieldName] === null) {
+				if (!confirm(WL.i18n("'$1' not completed.  Submit anyway?", [fieldName]))) {
 					return;
 				}
 			}
@@ -68,21 +68,20 @@
 
 		this.submitted.fire( labelData );
 	};
-	Form.fromConfig = function ( config, lang ) {
+	Form.fromConfig = function ( config, langChain ) {
 		var i, fieldset, fieldDoc, field, fieldMap,
-			i18n = function ( key ) {
-				var message;
-				try {
-					message = config.i18n[lang][key];
-					if ( message === undefined ) {
-						return '<' + key + '>';
-					} else {
-						return message;
-					}
-				} catch ( err ) {
-					return '<' + key + '>';
+		    i18n = function ( key ) {
+			var i, lang;
+			langChain = WL.util.oneOrMany(langChain);
+
+			for (i = 0; i < langChain.length; i++) {
+				lang = langChain[i];
+				if (config.i18n[lang] && config.i18n[lang][key]) {
+					return config.i18n[lang][key];
 				}
-			};
+			}
+			return "<" + key + ">";
+		};
 
 		// Create a new fieldset & load the translated fields
 		fieldset = new OO.ui.FieldsetLayout( {

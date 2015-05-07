@@ -3,9 +3,9 @@
 	var Server = function () {};
 	Server.prototype.request = function (relPath, data) {
 		var deferred = $.Deferred();
-
+		
 		$.ajax(
-			$.merge([WL.config.serverRoot], relPath).join("/") + "/",
+			this.absPath.apply(this, relPath),
 			{
 				dataType: "jsonp",
 				data: data || {}
@@ -26,6 +26,12 @@
 			}.bind(this));
 
 		return deferred.promise();
+	};
+	Server.prototype.absPath = function(/* relative path parts */){
+		var serverRoot = WL.config.serverRoot,
+		    relPath = WL.util.pathJoin.apply(this, Array.prototype.slice.call(arguments));
+
+		return serverRoot.replace(/\/+$/g, "") + "/" + relPath.replace(/^\/+/g, "");
 	};
 
 	Server.prototype.getCampaigns = function () {

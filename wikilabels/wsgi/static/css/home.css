@@ -1,6 +1,9 @@
 .mw-body-content {
   position: static;
 }
+#wikilabels-home {
+  min-width: 50em;
+}
 #wikilabels-home > .lead {
   width: 25em;
   padding: 1ex 1em 1ex 0em;

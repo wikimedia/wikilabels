@@ -43,6 +43,7 @@ class Tasks(Collection):
                     task.id = label.task_id AND
                     label.user_id = workset.user_id
                 WHERE workset.id = %(workset_id)s
+                ORDER BY task.id
             """, {'workset_id': workset_id})
 
             return self._group_task_labels(cursor)

@@ -29,31 +29,31 @@ wikiLabels = {
 				'request workset': 'solicitar um grupo de tarefas',
 				'connect to server': 'conectar ao servidor',
 				'Campaigns': 'Campanhas',
-				'Workset complete!': 'Conjunto de trabalho concluído!',
-				'Submit label': 'Submeter o rótulo',
+				'Workset complete!': 'Conjunto de trabalho concluÃ­do!',
+				'Submit label': 'Submeter o rÃ³tulo',
 				'Request new workset': 'Solicitar um novo conjunto de trabalho',
-				'Diff for revision $1': 'Diferenças para a revisão $1',
-				'No difference': 'Nenhuma diferença', // between revisions
+				'Diff for revision $1': 'DiferenÃ§as para a revisÃ£o $1',
+				'No difference': 'Nenhuma diferenÃ§a', // between revisions
 				'review': 'revisar', // 'review' a workset
 				'open': 'abrir', // 'open' a workset
-				'\'$1\' not completed.  Submit anyway?': '\'$1\' não foi concluído. Submeter mesmo assim?',
+				'\'$1\' not completed.  Submit anyway?': '\'$1\' nÃ£o foi concluÃ­do. Submeter mesmo assim?',
 				'fullscreen': 'tela cheia'
 			},
 			tr: {
 				'date-format': "%Y-%m-%d",
 				'Review': '"Incele',
-				'Workset': 'Is k�mesi',
+				'Workset': 'Is kümesi',
 				'Save': 'Kaydet',
-				'request workset': 'is k�mesi iste',
+				'request workset': 'is kümesi iste',
 				'connect to server': 'sunucuya baglan',
 				'Campaigns': 'Girisimler',
-				'Workset complete!': 'Is k�mesi tamamlandi!',
+				'Workset complete!': 'Is kümesi tamamlandi!',
 				'Submit label': 'Etiketi sun',
-				'Request new workset': 'Yeni is k�mesi iste',
+				'Request new workset': 'Yeni is kümesi iste',
 				'Diff for revision $1': '$1 degisikligi i.in diff',
 				'No difference': 'Fark yoktur', // between revisions
 				'review': 'incele', // 'review' a workset
-				'open': 'a�ik', // 'open' a workset
+				'open': 'açik', // 'open' a workset
 				'\'$1\' not completed.  Submit anyway?': '\'$1\' tamamlanmadi. Genede sunulsun mu?',
 				'fullscreen': 'tam ekran'
 			},
@@ -61,7 +61,22 @@ wikiLabels = {
 
 			},
 			fa: {
-
+				'date-format': "%Y-%m-%d",
+				'Review': 'بازبینی',
+				'Workset': 'مجموعه کاری',
+				'Save': 'ذخیره',
+				'request workset': 'درخواست یک مجموعه',
+				'connect to server': 'اتصال به سرور',
+				'Campaigns': 'کمپین‌ها',
+				'Workset complete!': 'مجموعه کامل شد!',
+				'Submit label': 'برچسب را بفرست',
+				'Request new workset': 'درخواست یک مجموعه جدید',
+				'Diff for revision $1': 'تغییرات برای ویرایش $1',
+				'No difference': 'بدون تغییر', // between revisions
+				'review': 'بازبینی', // 'review' a workset
+				'open': 'باز', // 'open' a workset
+				'\'$1\' not completed.  Submit anyway?': '\'$1\' باز است. آیا مطمئنید؟',
+				'fullscreen': 'تمام صفحه'
 			}
 		}
 	}

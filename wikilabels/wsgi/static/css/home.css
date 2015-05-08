@@ -11,6 +11,10 @@
   vertical-align: middle;
   float: left;
 }
+html[dir="rtl"] #wikilabels-home > .lead {
+text-align: right;
+float: right;
+}
 
 #wikilabels-home > .menu {
   margin-left: 26em;
@@ -18,6 +22,12 @@
   width: auto;
   height: 20em;
   border-left: 1px solid silver;
+}
+html[dir="rtl"] #wikilabels-home > .menu {
+  margin-left: 0em;
+  border-left: 0px;
+  margin-right: 26em;
+  border-right: 1px solid silver;
 }
 #wikilabels-home > .menu > .connector {
   font-size: 200%;
@@ -37,6 +47,9 @@
   text-align: left;
   padding: .5ex;
   border-radius: 2px;
+}
+html[dir="rtl"] #wikilabels-home .campaign-list > .container > .campaign {
+  text-align: right;
 }
 #wikilabels-home .campaign-list .campaign > .expander {
   display: inline-block;
@@ -77,15 +90,33 @@
   padding-right: 1ex;
   cursor: pointer;
 }
+html[dir="rtl"] #wikilabels-home .workset-list .workset {
+  padding-right: 0ex;
+  padding-left: 1ex;
+}
+
 #wikilabels-home .workset-list .workset:hover {
   background: #EEF;
   padding-right: .5ex;
   border-right: .5ex solid #AAA;
 }
+html[dir="rtl"] #wikilabels-home .workset-list .workset:hover {
+  padding-right: 0ex;
+  border-right: none;
+  padding-left: .5ex;
+  border-left: .5ex solid #AAA;
+}
+
 #wikilabels-home .workset-list .workset.selected {
   background: #EEF;
   padding-right: .5ex;
   border-right: .5ex solid black;
+}
+html[dir="rtl"] #wikilabels-home .workset-list .workset.selected {
+  padding-right: 0ex;
+  border-right: none;
+  padding-left: .5ex;
+  border-left: .5ex solid black;
 }
 
 #wikilabels-home .workset-list .workset > .progress {
@@ -97,6 +128,11 @@
   background: #fff;
   font-size: .9em;
 }
+html[dir="rtl"] #wikilabels-home .workset-list .workset > .progress {
+  margin-right: 0em;
+  margin-left: 6em;
+}
+
 #wikilabels-home .workset-list .workset > .progress > span {
   position: absolute;
   display: block;
@@ -118,6 +154,8 @@
   float: right;
   width: 5em;
   text-align: center;
+}
+html[dir="rtl"] #wikilabels-home .workset-list .workset > .controls{
 
 }
 #wikilabels-home .workset-list .workset .button > a {

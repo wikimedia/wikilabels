@@ -16,6 +16,7 @@ class Worksets(Collection):
                     EXTRACT(EPOCH FROM expires) AS expires
                 FROM workset
                 WHERE id = %(workset_id)s
+                ORDER BY id
             """, {'workset_id': workset_id})
 
             try:

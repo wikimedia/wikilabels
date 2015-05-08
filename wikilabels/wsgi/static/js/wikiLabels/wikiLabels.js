@@ -61,7 +61,22 @@ wikiLabels = {
 
 			},
 			fa: {
-
+				'date-format': "%Y-%m-%d",
+				'Review': 'بازبینی',
+				'Workset': 'مجموعه کاری',
+				'Save': 'ذخیره',
+				'request workset': 'درخواست یک مجموعه',
+				'connect to server': 'اتصال به سرور',
+				'Campaigns': 'کمپین‌ها',
+				'Workset complete!': 'مجموعه کامل شد!',
+				'Submit label': 'برچسب را بفرست',
+				'Request new workset': 'درخواست یک مجموعه جدید',
+				'Diff for revision $1': 'تغییرات برای ویرایش $1',
+				'No difference': 'بدون تغییر', // between revisions
+				'review': 'بازبینی', // 'review' a workset
+				'open': 'باز', // 'open' a workset
+				'\'$1\' not completed.  Submit anyway?': '\'$1\' باز است. آیا مطمئنید؟',
+				'fullscreen': 'تمام صفحه'
 			}
 		}
 	}

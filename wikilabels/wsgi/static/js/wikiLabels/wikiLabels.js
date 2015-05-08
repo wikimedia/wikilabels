@@ -40,7 +40,22 @@ wikiLabels = {
 				'fullscreen': 'tela cheia'
 			},
 			tr: {
-
+				'date-format': "%Y-%m-%d",
+				'Review': '"Incele',
+				'Workset': 'Is kümesi',
+				'Save': 'Kaydet',
+				'request workset': 'is kümesi iste',
+				'connect to server': 'sunucuya baglan',
+				'Campaigns': 'Girisimler',
+				'Workset complete!': 'Is kümesi tamamlandi!',
+				'Submit label': 'Etiketi sun',
+				'Request new workset': 'Yeni is kümesi iste',
+				'Diff for revision $1': '$1 degisikligi i.in diff',
+				'No difference': 'Fark yoktur', // between revisions
+				'review': 'incele', // 'review' a workset
+				'open': 'açik', // 'open' a workset
+				'\'$1\' not completed.  Submit anyway?': '\'$1\' tamamlanmadi. Genede sunulsun mu?',
+				'fullscreen': 'tam ekran'
 			},
 			az: {
 

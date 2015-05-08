@@ -41,7 +41,7 @@ wikiLabels = {
 			},
 			tr: {
 				'date-format': "%Y-%m-%d",
-				'Review': '"İncele',
+				'Review': 'İncele',
 				'Workset': 'İş kümesi',
 				'Save': 'Kaydet',
 				'request workset': 'iş kümesi iste',

@@ -29,32 +29,32 @@ wikiLabels = {
 				'request workset': 'solicitar um grupo de tarefas',
 				'connect to server': 'conectar ao servidor',
 				'Campaigns': 'Campanhas',
-				'Workset complete!': 'Conjunto de trabalho concluÃ­do!',
-				'Submit label': 'Submeter o rÃ³tulo',
+				'Workset complete!': 'Conjunto de trabalho concluí­do!',
+				'Submit label': 'Submeter o rótulo',
 				'Request new workset': 'Solicitar um novo conjunto de trabalho',
-				'Diff for revision $1': 'DiferenÃ§as para a revisÃ£o $1',
-				'No difference': 'Nenhuma diferenÃ§a', // between revisions
+				'Diff for revision $1': 'Diferenças para a revisão $1',
+				'No difference': 'Nenhuma diferença', // between revisions
 				'review': 'revisar', // 'review' a workset
 				'open': 'abrir', // 'open' a workset
-				'\'$1\' not completed.  Submit anyway?': '\'$1\' nÃ£o foi concluÃ­do. Submeter mesmo assim?',
+				'\'$1\' not completed.  Submit anyway?': '\'$1\' não foi concluído. Submeter mesmo assim?',
 				'fullscreen': 'tela cheia'
 			},
 			tr: {
 				'date-format': "%Y-%m-%d",
-				'Review': '"Incele',
-				'Workset': 'Is kümesi',
+				'Review': 'İncele',
+				'Workset': 'İş kümesi',
 				'Save': 'Kaydet',
-				'request workset': 'is kümesi iste',
-				'connect to server': 'sunucuya baglan',
-				'Campaigns': 'Girisimler',
-				'Workset complete!': 'Is kümesi tamamlandi!',
+				'request workset': 'iş kümesi iste',
+				'connect to server': 'sunucuya bağlan',
+				'Campaigns': 'Girişimler',
+				'Workset complete!': 'İş kümesi tamamlandı!',
 				'Submit label': 'Etiketi sun',
-				'Request new workset': 'Yeni is kümesi iste',
-				'Diff for revision $1': '$1 degisikligi i.in diff',
+				'Request new workset': 'Yeni iş kümesi iste',
+				'Diff for revision $1': '$1 değisikliği için diff',
 				'No difference': 'Fark yoktur', // between revisions
 				'review': 'incele', // 'review' a workset
-				'open': 'açik', // 'open' a workset
-				'\'$1\' not completed.  Submit anyway?': '\'$1\' tamamlanmadi. Genede sunulsun mu?',
+				'open': 'açık', // 'open' a workset
+				'\'$1\' not completed.  Submit anyway?': '\'$1\' tamamlanmadı. Genede sunulsun mu?',
 				'fullscreen': 'tam ekran'
 			},
 			az: {

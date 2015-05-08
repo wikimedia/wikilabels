@@ -29,14 +29,14 @@ wikiLabels = {
 				'request workset': 'solicitar um grupo de tarefas',
 				'connect to server': 'conectar ao servidor',
 				'Campaigns': 'Campanhas',
-				'Workset complete!': 'Conjunto de trabalho concluÃ­do!',
-				'Submit label': 'Submeter o rÃ³tulo',
+				'Workset complete!': 'Conjunto de trabalho concluí­do!',
+				'Submit label': 'Submeter o rótulo',
 				'Request new workset': 'Solicitar um novo conjunto de trabalho',
-				'Diff for revision $1': 'DiferenÃ§as para a revisÃ£o $1',
-				'No difference': 'Nenhuma diferenÃ§a', // between revisions
+				'Diff for revision $1': 'Diferenças para a revisão $1',
+				'No difference': 'Nenhuma diferença', // between revisions
 				'review': 'revisar', // 'review' a workset
 				'open': 'abrir', // 'open' a workset
-				'\'$1\' not completed.  Submit anyway?': '\'$1\' nÃ£o foi concluÃ­do. Submeter mesmo assim?',
+				'\'$1\' not completed.  Submit anyway?': '\'$1\' não foi concluído. Submeter mesmo assim?',
 				'fullscreen': 'tela cheia'
 			},
 			tr: {

@@ -67,7 +67,7 @@ i18n:
     goodfaith-no-label: "No"
     goodfaith-no-tooltip: "No this edit appears to have been made in bad-faith."
   fa:
-    damaging-label: "خرابکاری?"
+    damaging-label: "خرابکاری؟"
     damaging-help: "آیا ویرایش باعث خراب شدن مقاله شده‌است؟"
     damaging-yes-label: "بله"
     damaging-yes-tooltip: "بله، این ویرایش باعث خراب شدن مقاله شده‌است و باید واگردانی شود"

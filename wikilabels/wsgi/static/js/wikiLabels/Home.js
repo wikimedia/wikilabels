@@ -5,18 +5,29 @@
 	 *
 	 */
 	var Home = function ($element) {
+		var i, instance;
 		if ( $element === undefined || $element.length === 0 ) {
 			throw "$element must be a defined element";
 		}
 		if ( $element.attr('id') !== WL.config.prefix + "home" ) {
 			throw "Expected $element to have id='" + WL.config.prefix + "home'";
 		}
-
+		if ( WL.Home.instances ) {
+			for (i = 0; i < WL.Home.instances.length; i++) {
+				instance = WL.Home.instances[i];
+				if ( instance.$element.is($element) ) {
+					throw "Home is already loaded on top of " + $element.attr('id');
+				}
+			}
+		}
 		this.$element = $element;
+		WL.Home.instances.push(this)
+
 		this.$menu = this.$element.find("> .menu");
 		if ( this.$menu === undefined || this.$menu.length !== 1 ) {
 			throw "#" + WL.config.prefix + "home > .menu must be a single defined element";
 		}
+
 
 		this.campaignList = new CampaignList();
 		this.campaignList.worksetActivated.add(this.handleWorksetActivation.bind(this));
@@ -33,6 +44,7 @@
 		WL.user.statusChanged.add(this.handleUserStatusChange.bind(this));
 		this.handleUserStatusChange();
 	};
+	Home.instances = [];
 	Home.prototype.handleUserStatusChange = function () {
 		if ( WL.user.authenticated() ) {
 			this.campaignList.load();
@@ -222,7 +234,7 @@
 				}
 				this.updateButtonState();
 			}.bind(this) )
-			.fail( function(doc) {
+			.fail( function (doc) {
 				alert("Could not load workset list: " + JSON.stringify(doc));
 			}.bind(this) );
 	};

@@ -93,6 +93,7 @@ html[dir="rtl"] #wikilabels-home .campaign-list > .container > .campaign {
 html[dir="rtl"] #wikilabels-home .workset-list .workset {
   padding-right: 0ex;
   padding-left: 1ex;
+
 }
 
 #wikilabels-home .workset-list .workset:hover {
@@ -156,7 +157,7 @@ html[dir="rtl"] #wikilabels-home .workset-list .workset > .progress {
   text-align: center;
 }
 html[dir="rtl"] #wikilabels-home .workset-list .workset > .controls{
-
+  float: left;
 }
 #wikilabels-home .workset-list .workset .button > a {
   display: inline-block;

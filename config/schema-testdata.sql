@@ -4,7 +4,7 @@ INSERT INTO campaign VALUES
    'damaging_and_goodfaith', 'DiffToPrevious', NOW(), 1, 10, True),
   (2, 'Edit Type -- 2015 january sample', 'enwiki',
    'edit_type', 'DiffToPrevious', NOW(), 1, 10, True),
-  (3, 'Edit Quality -- 2014 10k sample', 'ptwiki',
+  (3, 'Qualidade das edições -- Amostra de 10k revisões de 2014', 'ptwiki',
    'damaging_and_goodfaith', 'DiffToPrevious', NOW(), 1, 10, True);
 
 

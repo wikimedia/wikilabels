@@ -138,6 +138,7 @@
 				} else {
 					this.taskList.next();
 				}
+				$.removeSpinner( WL.config.prefix + 'submit-spinner' );
 			}.bind(this));
 
 	};

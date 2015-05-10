@@ -8,6 +8,7 @@
 					'oojs',
 					'oojs-ui',
 					'json',
+					'jquery.spinner',
 					'mediawiki.action.history.diff',
 					'mediawiki.util',
 					'mediawiki.language'

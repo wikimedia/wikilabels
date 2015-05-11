@@ -2,85 +2,83 @@ name: damaging_and_goodfaith
 title: "<form-title>"
 
 fields:
-  - class: "FieldLayout"
+  - class: FieldLayout
     label: "<damaging-label>"
     align: right
     classes: ['inline-field']
+    help: "<damaging-help>"
     fieldWidget:
-      name: "damaging"
-      class: "ButtonSelectWidget"
+      name: damaging
+      class: ButtonSelectWidget
       items:
-        - class: "ButtonOptionWidget"
+        - class: ButtonOptionWidget
           data: true
           label: "<damaging-yes-label>"
           indicatorTitle: "<damaging-yes-tooltip>"
           flags: [ "destructive" ]
-        - class: "ButtonOptionWidget"
+        - class: ButtonOptionWidget
           data: false
           label: "<damaging-no-label>"
           indicatorTitle: "<damaging-no-tooltip>"
           flags: [ "constructive" ]
-  - class: "FieldLayout"
+  - class: FieldLayout
     label: "<goodfaith-label>"
-    align: right
     classes: ['inline-field']
+    help: "<goodfaith-help>"
     fieldWidget:
       name: "goodfaith"
-      class: "ButtonSelectWidget"
+      class: ButtonSelectWidget
       items:
-        - class: "ButtonOptionWidget"
+        - class: ButtonOptionWidget
           data: true
           label: "<goodfaith-yes-label>"
           indicatorTitle: "<goodfaith-yes-tooltip>"
           flags: [ "constructive" ]
-        - class: "ButtonOptionWidget"
+        - class: ButtonOptionWidget
           data: false
           label: "<goodfaith-no-label>"
           indicatorTitle: "<goodfaith-no-tooltip>"
           flags: [ "destructive" ]
+  - class: FieldLayout
+    label: "<unsure-label>"
+    align: right
+    classes: ['inline-field']
+    fieldWidget:
+      name: "unsure"
+      class: CheckboxInputWidget
 i18n:
-  az:
-    damaging-label: "Zararlı mı?"
-    damaging-help: "Değişiklik maddeye zarar verdi mi?"
-    damaging-yes-label: "Evet"
-    damaging-yes-tooltip: "Evet bu değişiklik zararlı ve düzeltilmeli veya geri alınmalı."
-    damaging-no-label: "Hayır"
-    damaging-no-tooltip: "Hayır bu değişiklik zararlı değil ve olduğu gibi kalmalı."
-    goodfaith-label: "İyi niyetli mi?"
-    goodfaith-tooltip: "Bu kullanıcının yaptığı değişiklik yarar sağlama amaçlı mı gözüküyor?"
-    goodfaith-yes-label: "Evet"
-    goodfaith-yes-tooltip: "Evet bu değişiklik iyi niyetli gibi gözüküyor."
-    goodfaith-no-label: "Hayır"
-    goodfaith-no-tooltip: "Hayır bu değişiklik kötü niyetli gibi gözüküyor."
   en:
     form-title: Edit quality
+    unsure-label: "Unsure?"
     damaging-label: "Damaging?"
-    damaging-help: "Did this edit cause damage to the article?"
+    damaging-help: "Would you revert this edit?"
     damaging-yes-label: "Yes"
-    damaging-yes-tooltip: "Yes this edit is damaging and should be fixed or reverted."
+    damaging-yes-tooltip: "Yes this edit is damaging and should be reverted."
     damaging-no-label: "No"
     damaging-no-tooltip: "No this edit is not damaging and can be kept as is."
     goodfaith-label: "Good faith?"
-    goodfaith-tooltip: "Does it appear as though the author of this edit was trying to contribute productively?"
+    goodfaith-help: "Does it appear as though the author of this edit was trying to contribute productively?"
     goodfaith-yes-label: "Yes"
     goodfaith-yes-tooltip: "Yes this edit appears to have been made in good-faith."
     goodfaith-no-label: "No"
     goodfaith-no-tooltip: "No this edit appears to have been made in bad-faith."
   fa:
     damaging-label: "خرابکاری؟"
+    unsure-label: "مطمئنید؟"
     damaging-help: "آیا ویرایش باعث خراب شدن مقاله شده‌است؟"
     damaging-yes-label: "بله"
     damaging-yes-tooltip: "بله، این ویرایش باعث خراب شدن مقاله شده‌است و باید واگردانی شود"
     damaging-no-label: "نه"
     damaging-no-tooltip: "نه، باید این ویرایش همین‌گونه باشد."
     goodfaith-label: "با فرض حسن نیت؟"
-    goodfaith-tooltip: "آیا کاربر ویرایشگر با حسن نیست ویرایش کرده و سازنده بوده است؟"
+    goodfaith-help: "آیا کاربر ویرایشگر با حسن نیست ویرایش کرده و سازنده بوده است؟"
     goodfaith-yes-label: "بله"
     goodfaith-yes-tooltip: "بله، این ویرایش به نظرم با حسن نیت انجام شده‌است."
     goodfaith-no-label: "نه"
     goodfaith-no-tooltip: "نه، این ویرایش با حسن نیست نبوده است"
   pt:
     damaging-label: "Prejudicial?"
+    unsure-label: "Inseguro?"
     damaging-help: "Esta edição prejudicou o artigo?"
     damaging-yes-label: "Sim"
     damaging-yes-tooltip: "Sim esta edição é prejudicial e deveria ser corrigida ou revertida."
@@ -94,6 +92,7 @@ i18n:
     goodfaith-no-tooltip: "Não esta edição parece ter sido feita de má fé."
   tr:
     damaging-label: "Zararlı mı?"
+    unsure-label: "Emin ?"
     damaging-help: "Değişiklik maddeye zarar verdi mi?"
     damaging-yes-label: "Evet"
     damaging-yes-tooltip: "Evet bu değişiklik zararlı ve düzeltilmeli veya geri alınmalı."

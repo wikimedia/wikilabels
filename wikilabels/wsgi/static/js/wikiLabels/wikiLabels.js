@@ -35,7 +35,7 @@
 					'Campaigns': 'Campanhas',
 					'Workset complete!': 'Conjunto de trabalho concluí­do!',
 					'Submit label': 'Submeter o rótulo',
-					'Request new workset': 'Solicitar um novo conjunto de trabalho',
+					'Request new workset': 'Solicitar um novo grupo de tarefas',
 					'Diff for revision $1': 'Diferenças para a revisão $1',
 					'No difference': 'Nenhuma diferença', // between revisions
 					'review': 'revisar', // 'review' a workset

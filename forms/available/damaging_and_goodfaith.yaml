@@ -79,9 +79,9 @@ i18n:
   pt:
     damaging-label: "Prejudicial?"
     unsure-label: "Inseguro?"
-    damaging-help: "Esta edição prejudicou o artigo?"
+    damaging-help: "Você reverteria esta edição?"
     damaging-yes-label: "Sim"
-    damaging-yes-tooltip: "Sim esta edição é prejudicial e deveria ser corrigida ou revertida."
+    damaging-yes-tooltip: "Sim esta edição é prejudicial e deveria ser revertida."
     damaging-no-label: "Não"
     damaging-no-tooltip: "Não esta edição não é prejudicial e pode ser mantida como está."
     goodfaith-label: "De boa fé?"

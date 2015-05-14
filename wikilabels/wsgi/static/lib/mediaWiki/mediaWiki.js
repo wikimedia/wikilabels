@@ -1,21 +1,21 @@
 ( function () {
 	var Messages = function () {};
 	Messages.prototype.set = function (_) {
-		//throw 'Messages.set not implemented';
+		// throw 'Messages.set not implemented';
 	};
 
-  var Config = function () {
-    this.obj = {
-      'wgDBname': 'enwiki',
-      'wgServer': '//en.wikipedia.org',
+	var Config = function () {
+		this.obj = {
+		'wgDBname': 'enwiki',
+		'wgServer': '//en.wikipedia.org',
 			'wgArticlePath': '/wiki/$1',
-      'wgScriptPath': '/w',
+		'wgScriptPath': '/w',
 			'wgUserLanguage': 'en'
-    };
-  };
-  Config.prototype.get = function(key){
-    return this.obj[key];
-  };
+		};
+	};
+	Config.prototype.get = function(key){
+		return this.obj[key];
+	};
 
 	var util = {
 		wikiScript: function(){return "/w/api.php";},
@@ -25,7 +25,7 @@
 	window.mediaWiki = {
 		messages: new Messages(),
 		msg: function (key) {throw 'msg not implemented';},
-    config: new Config(),
+		config: new Config(),
 		util: util,
 		language: {getFallbackLanguageChain: function(){return ['en', 'pt'];}}
 	};

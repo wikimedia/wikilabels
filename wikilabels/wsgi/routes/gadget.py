@@ -6,6 +6,7 @@ from ..util import (build_script_tags, build_style_tags, read_cat,
 
 MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
                   "lib/jquery/jquery.js",
+                  "lib/jquery-spinner/jquery.spinner.js",
                   "lib/oojs/oojs.jquery.js",
                   "lib/oojs-ui/oojs-ui.js",
                   "lib/oojs-ui/oojs-ui-mediawiki.js")

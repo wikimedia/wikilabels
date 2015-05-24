@@ -81,6 +81,25 @@
 					'open': 'باز', // 'open' a workset
 					'\'$1\' not completed.  Submit anyway?': '\'$1\' باز است. آیا مطمئنید؟',
 					'fullscreen': 'تمام صفحه'
+				},
+
+				fr: {
+					'date-format': "%d-%m-%Y",
+					'Review': 'Relecture',
+					'Workset': 'Ensemble de données',
+					'Save': 'Sauvegarder',
+					'request workset': 'Demander l\'ensemble de données',
+					'connect to server': 'Connecter au serveur',
+					'Campaigns': 'Campagnes',
+					'Workset complete!': 'Ensemble de données terminé !',
+					'Submit label': 'Soumettre l\'étiquette',
+					'Request new workset': 'Demander un nouvel ensemble de données',
+					'Diff for revision $1': 'Différence pour la révision $1',
+					'No difference': 'Aucune différence', // between revisions
+					'review': 'Relecture', // 'review' a workset
+					'open': 'Ouvrir', // 'open' a workset
+					'\'$1\' not completed.  Submit anyway?': '\'$1\' incomplet.  Soumettre quand même ?',
+					'fullscreen': 'Plein écran'
 				}
 			}
 		}

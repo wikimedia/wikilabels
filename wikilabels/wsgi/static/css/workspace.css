@@ -17,15 +17,18 @@
   margin-top: 0em;
 }
 
-.wikilabels-workspace > .menu {
+.wikilabels-workspace > .menu,
+.wikilabels-workspace > .wikilabels-menu {
   text-align: right;
   margin-bottom: .5em;
 }
-html[dir="rtl"] .wikilabels-workspace > .menu {
+html[dir="rtl"] .wikilabels-workspace > .menu,
+html[dir="rtl"] .wikilabels-workspace > .wikilabels-menu {
   text-align: left;
 }
 
-.wikilabels-workspace > .menu > .fullscreen .oo-ui-labelElement-label {
+.wikilabels-workspace > .menu > .fullscreen .oo-ui-labelElement-label,
+.wikilabels-workspace > .wikilabels-menu > .fullscreen .oo-ui-labelElement-label {
   line-height: .9em;
 }
 

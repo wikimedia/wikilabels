@@ -23,9 +23,9 @@
 		this.$element = $element;
 		WL.Home.instances.push(this)
 
-		this.$menu = this.$element.find("> .menu");
+		this.$menu = this.$element.find("> .menu, > .wikilabels-menu");
 		if ( this.$menu === undefined || this.$menu.length !== 1 ) {
-			throw "#" + WL.config.prefix + "home > .menu must be a single defined element";
+			throw "#" + WL.config.prefix + "home > .wikilabels-menu must be a single defined element";
 		}
 
 

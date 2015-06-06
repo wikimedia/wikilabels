@@ -13,7 +13,7 @@
 
 		this.$parent = $element.parent();
 
-		this.$menu = $('<div>').addClass( 'menu');
+		this.$menu = $('<div>').addClass( 'wikilabels-menu' );
 		this.$element.append(this.$menu);
 		this.fullscreenToggle = new OO.ui.ToggleButtonWidget( {
 			label: WL.i18n('fullscreen'),

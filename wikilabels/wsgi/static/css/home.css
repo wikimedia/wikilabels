@@ -16,29 +16,34 @@ text-align: right;
 float: right;
 }
 
-#wikilabels-home > .menu {
+#wikilabels-home > .menu,
+#wikilabels-home > .wikilabels-menu {
   margin-left: 26em;
   text-align: center;
   width: auto;
   height: 20em;
   border-left: 1px solid silver;
 }
-html[dir="rtl"] #wikilabels-home > .menu {
+html[dir="rtl"] #wikilabels-home > .menu,
+html[dir="rtl"] #wikilabels-home > .wikilabels-menu {
   margin-left: 0em;
   border-left: 0px;
   margin-right: 26em;
   border-right: 1px solid silver;
 }
-#wikilabels-home > .menu > .connector {
+#wikilabels-home > .menu > .connector,
+#wikilabels-home > .wikilabels-menu > .connector {
   font-size: 200%;
   padding-top: 2em;
 }
-#wikilabels-home > .menu > .campaign-list {
+#wikilabels-home > .menu > .campaign-list,
+#wikilabels-home > .wikilabels-menu > .campaign-list {
   height: 100%;
   overflow: auto;
   line-height: 1;
 }
-#wikilabels-home > .menu > .campaign-list .container {
+#wikilabels-home > .menu > .campaign-list .container,
+#wikilabels-home > .wikilabels-menu > .campaign-list .container {
   padding: .5ex;
 }
 #wikilabels-home .campaign-list > .container > .campaign {

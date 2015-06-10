@@ -18,11 +18,12 @@
 			flags: [ 'primary', 'progressive' ]
 		} );
 		this.$controls.append( this.submitButton.$element );
-		this.submitButton.on( 'click', this.handleSubmitClick.bind( this ) );
+		this.submitButton.on( 'click', this.handleSubmitClick.bind( this, this.submitButton.$element ) );
 
 		this.submitted = $.Callbacks();
 	};
-	Form.prototype.handleSubmitClick = function () {
+	Form.prototype.handleSubmitClick = function ( button ) {
+		$( button ).injectSpinner( WL.config.prefix + 'submit-spinner' );
 		this.submit();
 	};
 	Form.prototype.getValues = function () {

@@ -15,10 +15,13 @@ setup(
     version = "0.1.0", # Update in wikilabels/__init__.py
     author = "Aaron Halfaker",
     author_email = "ahalfaker@wikimedia.org",
-    description = "A generalized data labeling system for use in MediaWiki wikis",
+    description = "A generalized data labeling system for use in MediaWiki " + \
+                  "wikis",
     license = "MIT",
     url = "https://github.com/halfak/Wiki-Labels",
     packages=find_packages(),
+    include_package_data = True,
+    zip_safe = False,
     entry_points = {
         'console_scripts': [
             'wikilabels=wikilabels.wikilabels:main',

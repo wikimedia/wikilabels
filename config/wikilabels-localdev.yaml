@@ -1,6 +1,8 @@
+wikilabels:
+  form_directory: forms/enabled
+
 wsgi:
   host: localhost:8080
-  form_directory: forms/enabled
   application_root: "/labels"
   url_prefix: "/labels"
 
@@ -12,5 +14,4 @@ database:
 
 oauth:
   mw_uri: https://www.mediawiki.org/w/index.php
-  key: b321d4c978793c5e0143b743e384ad98
-  secret: 8cad97660fa9db099e96277ebe3dd6eef89b8421
+  creds: config/oauth-localdev.yaml

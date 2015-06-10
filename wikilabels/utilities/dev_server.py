@@ -18,7 +18,7 @@ import docopt
 
 import yamlconf
 
-from ..wsgi import application
+from ..wsgi import server
 
 
 def main(argv=None):
@@ -29,7 +29,8 @@ def main(argv=None):
     else:
         config = None
 
-    app = application.configure(config)
+    app = server.configure(config)
+    app.debug = True
     app.run(host="0.0.0.0",
             port=int(args['--port']),
             debug=True,

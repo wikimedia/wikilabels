@@ -21,16 +21,18 @@ def configure(config):
                    static_folder=os.path.join(directory, 'static'))
 
     db = DB.from_config(config)
-
-    form_filenames = (os.path.join(config['wsgi']['form_directory'], fn)
-                      for fn in os.listdir(config['wsgi']['form_directory']))
+    form_directory = config['wikilabels']['form_directory']
+    form_filenames = (os.path.join(form_directory, fn)
+                      for fn in os.listdir(form_directory))
     form_map = {d['name']:d for d in
                 (yaml.load(open(fn)) for fn in form_filenames)}
 
     app = sessions.configure(app)
 
-    consumer_token = mwoauth.ConsumerToken(config['oauth']['key'],
-                                           config['oauth']['secret'])
+    oauth_config = yaml.load(open(config['oauth']['creds']))
+
+    consumer_token = mwoauth.ConsumerToken(oauth_config['key'],
+                                           oauth_config['secret'])
 
     oauth = mwoauth.Handshaker(config['oauth']['mw_uri'], consumer_token)
 

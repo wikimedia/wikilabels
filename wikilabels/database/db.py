@@ -16,6 +16,12 @@ class DB:
         self.tasks = Tasks(self)
         self.labels = Labels(self)
 
+    def execute(self, sql):
+        cursor = self.conn.cursor()
+        cursor.execute(sql)
+        self.conn.commit()
+        return cursor
+
     @classmethod
     def from_config(cls, config):
         conn = psycopg2.connect(cursor_factory=RealDictCursor,

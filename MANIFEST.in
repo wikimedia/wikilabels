@@ -1,4 +1,4 @@
 include LICENSE README.md requirements.txt
-include config/schema.sql config/schema-testdata.sql
+include wikilabels/database/schema.sql wikilabels/database/schema-testdata.sql
 recursive-include wikilabels/wsgi/templates *
 recursive-include wikilabels/wsgi/static *

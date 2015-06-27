@@ -38,7 +38,7 @@ def run(db, reload_test_data):
 
     directory = os.path.dirname(os.path.realpath(__file__))
 
-    schema_sql = open(os.path.join(directory, "../../config/schema.sql")).read()
+    schema_sql = open(os.path.join(directory, "../database/schema.sql")).read()
 
     logger.info("Loading schema...")
     db.execute(schema_sql)

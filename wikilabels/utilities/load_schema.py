@@ -1,16 +1,16 @@
 """
-Initializes a Postgres database with a Wikilabels schema.
+Initializes the database with a Wikilabels schema.
 
 Usage:
-    initialize_db -h | --help
-    initialize_db <config> [--reload-test-data]
+    load_schema -h | --help
+    load_schema <config> [--reload-test-data]
 
 Options:
     -h --help           Prints this documentation
     <config>            Path to a config file to use when connecting to the
                         database
-    --reload-test-data  Loads test data into the database if set.  This is
-                        useful for the dev_server.
+    --reload-test-data  Clears current data and loads test data into the
+                        database if set.  This is useful for the dev_server.
 """
 import logging
 import os
@@ -23,7 +23,7 @@ import yamlconf
 
 from ..database import DB
 
-logger = logging.getLogger("wikilabels.utilities.initialize_db")
+logger = logging.getLogger("wikilabels.utilities.load_schema")
 
 def main(argv=None):
     args = docopt.docopt(__doc__, argv=argv)
@@ -47,7 +47,7 @@ def run(db, reload_test_data):
         logger.info("Loading test data...")
         if prompt("This will clear the database and reload it with test " +
                   "data. Continue?", default=False):
-            path = "../../config/schema-testdata.sql"
+            path = "../database/schema-testdata.sql"
             test_data_sql = open(os.path.join(directory, path)).read()
             db.execute(test_data_sql)
         else:

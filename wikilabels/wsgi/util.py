@@ -66,7 +66,10 @@ def app_path(path, config):
     return path_join("/", config['wsgi']['application_root'], path)
 
 def static_path(path, config):
-    return app_path(path_join("static", path), config)
+    if path[:4] == "http" or path[:2] == "//":
+        return path
+    else:
+        return app_path(path_join("static", path), config)
 
 def url_for(path, config):
     return "//" + path_join(config['wsgi']['host'],

@@ -4,8 +4,10 @@ from flask import (Response, render_template, render_template_string, request,
 from ..util import (build_script_tags, build_style_tags, read_cat,
                     read_javascript, url_for)
 
+TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
+
 MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
-                  "lib/jquery/jquery.js",
+                  TOOLS_CDN + "jquery/2.1.3/jquery.js",
                   "lib/jquery-spinner/jquery.spinner.js",
                   "lib/oojs/oojs.jquery.js",
                   "lib/oojs-ui/oojs-ui.js",

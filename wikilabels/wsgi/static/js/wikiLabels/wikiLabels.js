@@ -101,6 +101,24 @@
 					'\'$1\' not completed.  Submit anyway?': '\'$1\' incomplet.  Soumettre quand même ?',
 					'fullscreen': 'Plein écran'
 				}
+				uk: {
+					'date-format': "%Y-%m-%d",
+					'Review': 'Перевірка',
+					'Workset': 'Робочий набір',
+					'Save': 'Зберегти',
+					'request workset': 'запитати робочий набір',
+					'connect to server': 'під\'єднатись до сервера',
+					'Campaigns': 'Кампанії',
+					'Workset complete!': 'Робочий набір готовий!',
+					'Submit label': 'Надіслати мітку',
+					'Request new workset': 'Запитати новий робочий набір',
+					'Diff for revision $1': 'Різниця для версії $1',
+					'No difference': 'Немає різниці', // between revisions
+					'review': 'перевірити', // 'review' a workset
+					'open': 'відкрити', // 'open' a workset
+					'\'$1\' not completed.  Submit anyway?': '\'$1\' не готовий.  Усе одно надіслати?',
+					'fullscreen': 'повний екран'
+				},
 			}
 		}
 	};

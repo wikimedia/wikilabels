@@ -1,0 +1,64 @@
+{
+  "name": "oojs-ui",
+  "version": "0.9.7",
+  "description": "User interface classes built on the OOjs framework.",
+  "keywords": [
+    "oojs-plugin",
+    "ui"
+  ],
+  "homepage": "https://www.mediawiki.org/wiki/OOjs UI",
+  "repository": {
+    "type": "git",
+    "url": "https://git.wikimedia.org/git/oojs/ui.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://oojs.mit-license.org"
+    }
+  ],
+  "scripts": {
+    "test": "grunt test",
+    "predoc": "grunt build",
+    "doc": "jsduck",
+    "postdoc": "grunt copy:jsduck",
+    "prepublish": "grunt build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-banana-checker": "0.2.1",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-contrib-concat-sourcemaps": "0.6.0",
+    "grunt-contrib-copy": "0.8.0",
+    "grunt-contrib-csslint": "0.4.0",
+    "grunt-contrib-cssmin": "0.12.1",
+    "grunt-contrib-jshint": "0.11.0",
+    "grunt-contrib-less": "1.0.0",
+    "grunt-contrib-uglify": "0.7.0",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-csscomb": "3.0.0",
+    "grunt-cssjanus": "0.2.3",
+    "grunt-exec": "0.4.6",
+    "grunt-file-exists": "0.1.2",
+    "grunt-jscs": "1.5.0",
+    "grunt-svg2png": "0.2.7",
+    "grunt-karma": "0.10.1",
+    "grunt-promise-q": "0.1.1",
+    "karma": "0.12.31",
+    "karma-chrome-launcher": "0.1.7",
+    "karma-coverage": "0.2.7",
+    "karma-firefox-launcher": "0.1.4",
+    "karma-qunit": "0.1.4",
+    "q": "1.1.2",
+    "qunitjs": "1.17.1"
+  },
+  "readme": "[![npm](https://img.shields.io/npm/v/oojs-ui.svg?style=flat)](https://www.npmjs.com/package/oojs-ui) [![Packagist](https://img.shields.io/packagist/v/oojs/oojs-ui.svg?style=flat)](https://packagist.org/packages/oojs/oojs-ui) [![David](https://img.shields.io/david/dev/wikimedia/oojs-ui.svg?style=flat)](https://david-dm.org/wikimedia/oojs-ui#info=devDependencies)\n\nOOjs UI\n=================\n\nOOjs UI is a modern JavaScript UI toolkit for browsers. It provides a library of common widgets, layouts and windows that are ready to use, as well as many foundational classes for constructing custom user interfaces. The library was originally created for use by [VisualEditor](https://www.mediawiki.org/wiki/VisualEditor), which uses it for its entire user interface, and is now completely independent, and more useful and convenient for other use cases.\n\nQuick start\n----------\n\nThis library is available as an [npm](https://npmjs.org/) package! Install it right away:\n<pre lang=\"bash\">\nnpm install oojs-ui\n</pre>\n\nIf you don't want to use npm, you can:\n\n1. Clone the repo, `git clone https://git.wikimedia.org/git/oojs/ui.git`.\n\n1. Install Grunt command-line utility:<br/>`$ npm install -g grunt-cli`\n\n1. Install dev dependencies and build the distribution files:<br/>`$ npm install`\n\n1. You can now copy the distribution files from the dist directory into your project.\n\n\nVersioning\n----------\n\nWe use the Semantic Versioning guidelines as much as possible.\n\nReleases will be numbered in the following format:\n\n`<major>.<minor>.<patch>`\n\nFor more information on SemVer, please visit http://semver.org/.\n\n\nIssue tracker\n-------------\n\nFound a bug or missing feature? Please report it in the [issue tracker](https://phabricator.wikimedia.org/maniphest/task/create/?projects=PHID-PROJ-dgmoevjqeqlerleqzzx5)!\n\n\nRelease\n----------\n\nRelease process:\n<pre lang=\"bash\">\n$ cd path/to/oojs-ui/\n$ git remote update\n$ git checkout -B release -t origin/master\n\n# Ensure tests pass\n$ npm install && npm test\n\n# Avoid using \"npm version patch\" because that creates\n# both a commit and a tag, and we shouldn't tag until after\n# the commit is merged.\n\n# Update release notes\n# Copy the resulting list into a new section on History.md\n$ git log --format='* %s (%aN)' --no-merges --reverse v$(node -e 'console.log(require(\"./package.json\").version);')...HEAD | grep -v \"Localisation updates from\" | sort\n$ edit History.md\n\n# Update the version number\n$ edit package.json\n\n$ git add -p\n$ git commit -m \"Tag vX.X.X\"\n$ git review\n\n# After merging:\n$ git remote update\n$ git checkout origin/master\n$ git tag \"vX.X.X\"\n$ git push --tags\n$ npm publish\n</pre>\n",
+  "readmeFilename": "README.md",
+  "_id": "oojs-ui@0.9.7",
+  "dist": {
+    "shasum": "7d77c453348f3d0bef9aa311e3f66926e6410fb4"
+  },
+  "_from": "oojs-ui@",
+  "_resolved": "https://registry.npmjs.org/oojs-ui/-/oojs-ui-0.9.7.tgz"
+}

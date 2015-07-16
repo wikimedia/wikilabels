@@ -100,6 +100,24 @@
 					'open': 'Ouvrir', // 'open' a workset
 					'\'$1\' not completed.  Submit anyway?': '\'$1\' incomplet.  Soumettre quand même ?',
 					'fullscreen': 'Plein écran'
+				},
+				es: {
+					'date-format': "%d-%m-%Y",
+					'Review': ‘Revisar’,
+					'Workset': ‘Grupo’,
+					'Save': ‘Guardar’,
+					'request workset': ‘Solicitar grupo de tareas’,
+					'connect to server': ‘Conectar al servidor’,
+					'Campaigns': 'Campañas’,
+					'Workset complete!': ‘¡Grupo de tareas finalizado!’,
+					'Submit label': ‘Entrar etiqueta’,
+					'Request new workset': ‘Solicitar nuevo grupo de tareas’,
+					'Diff for revision $1': ‘Revisar diferencia $1’,
+					'No difference': ‘No hay diferencia’, // between revisions
+					'review': ‘revisar’, // 'review' a workset
+					'open': ‘abrir’, // 'open' a workset
+					'\'$1\' not completed.  Submit anyway?': '\'$1\' incompleto.  ¿Entrar de todas formas?’,
+					'fullscreen': 'Pantalla completa’
 				}
 			}
 		}

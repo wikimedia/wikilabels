@@ -7,8 +7,8 @@ Usage:
 
 Options:
     -h --help           Prints this documentation
-    <config>            Path to a config file to use when connecting to the
-                        database
+    <config>            Path to a database config file to use when connecting
+                        to the database
     --reload-test-data  Clears current data and loads test data into the
                         database if set.  This is useful for the dev_server.
 """
@@ -25,13 +25,16 @@ from ..database import DB
 
 logger = logging.getLogger("wikilabels.utilities.load_schema")
 
+
 def main(argv=None):
     args = docopt.docopt(__doc__, argv=argv)
-    config = yamlconf.load(open(args['<config>']))
-    db = DB.from_config(config)
+    # This expects the database config file path
+    db_config = yamlconf.load(open(args['<config>']))
+    db = DB.from_config(**db_config)
     reload_test_data = args['--reload-test-data']
 
     run(db, reload_test_data)
+
 
 def run(db, reload_test_data):
     logging.basicConfig(level=logging.INFO)

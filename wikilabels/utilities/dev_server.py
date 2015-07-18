@@ -26,6 +26,9 @@ def main(argv=None):
 
     if args['--config'] is not None:
         config = yamlconf.load(open(args['--config']))
+        # FIXME: DON'T DO THIS
+        db_config = config['database']['config']
+        config['database'] = yamlconf.load(open(db_config))
     else:
         config = None
 

@@ -4,14 +4,16 @@ from flask import Response, render_template, request, send_from_directory
 from ..util import (build_script_tags, build_style_tags, read_cat,
                     read_javascript)
 
+TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
+
 MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
                   "lib/jquery/jquery.js",
                   "lib/oojs/oojs.jquery.js",
                   "lib/oojs-ui/oojs-ui.js",
                   "lib/oojs-ui/oojs-ui-mediawiki.js")
 LOCAL_LIBS = ("lib/yamljs/yaml.js",
-              "lib/codemirror/codemirror.js",
-              "lib/codemirror-modes/yaml/yaml.js")
+              TOOLS_CDN + "codemirror/5.2.0/codemirror.js",
+              TOOLS_CDN + "codemirror/5.2.0/mode/yaml/yaml.js")
 JS = ("js/oo.util.js",
       "js/wikiLabels/wikiLabels.js",
       "js/wikiLabels/i18n.js",
@@ -20,7 +22,7 @@ JS = ("js/oo.util.js",
       "js/wikiLabels/FormBuilder.js")
 
 MEDIAWIKI_STYLES = ("lib/oojs-ui/oojs-ui-mediawiki.css",)
-LOCAL_STYLES = ("lib/codemirror/codemirror.css",)
+LOCAL_STYLES = (TOOLS_CDN + "codemirror/5.2.0/codemirror.css",)
 CSS = ("css/wikiLabels.css",
        "css/form_builder.css",
        "css/form.css",

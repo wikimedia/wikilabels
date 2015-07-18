@@ -7,10 +7,7 @@ wsgi:
   url_prefix: "/labels"
 
 database:
-  host: localhost
-  user: wikilabels
-  database: wikilabels
-  password: wikilabels-admin
+  config: config/localdev-db-config.yaml
 
 oauth:
   mw_uri: https://www.mediawiki.org/w/index.php

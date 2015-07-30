@@ -113,10 +113,7 @@
 				return widget.isSelected();
 			case OO.ui.RadioSelectWidget:
 				if ( widget.getSelectedItem() ) {
-					return ifundef(
-						widget.getSelectedItem().getData(),
-						widget.getSelectedItem().getValue()
-					);
+					return widget.getSelectedItem().getData();
 				} else {
 					return null;
 				}

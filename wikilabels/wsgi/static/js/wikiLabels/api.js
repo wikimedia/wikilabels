@@ -136,6 +136,29 @@
 				'<td class="diff-addedline"><div>' + content + '</div></td>' +
 			'</tr>';
 	};
+	API.prototype.wikitext2HTML = function(wikitext, title){
+		title = title || 'CURRENT PAGE';
+		var params = {
+				action: "parse",
+				prop: "text",
+				title: title,
+				text: wikitext.substring(0, 4000),
+				contentmode: "wikitext"
+			},
+			deferred = $.Deferred();
+
+		this.request(params)
+			.done(function(doc){
+				deferred.resolve(
+					doc['parse']['text']['*']
+				);
+			}.bind(this))
+			.fail(function(doc){
+				deferred.reject(doc);
+			}.bind(this));
+
+		return deferred.promise();
+	};
 
 
 

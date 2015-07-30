@@ -137,6 +137,73 @@
 		}
 	};
 
+	var PageAsOfRevision = function(taskListData) {
+		PageAsOfRevision.super.call( this, taskListData );
+		this.$element.addClass(WL.config.prefix + "page");
+	};
+	OO.inheritClass(PageAsOfRevision, View);
+	PageAsOfRevision.prototype.present = function(taskInfo) {
+		if (taskInfo.title && taskInfo.html) {
+			this.presentHTML(taskInfo.title, taskInfo.html);
+		} else {
+			WL.api.getRevision(
+				taskInfo.data['data']['rev_id'],
+				{
+					'rvprop': "content",
+					'rvparse': true
+				}
+			)
+				.done( function (doc) {
+					this.tasks[taskInfo.i].html = doc['*']; // Cache!
+					this.tasks[taskInfo.i].title = doc['page']['title']; // Cache!
+					this.presentPage(doc['page']['title'], doc['*']);
+				}.bind(this) )
+				.fail( function (doc) {
+					var error = $("<pre>").addClass("error");
+					this.$element.html(error.text(JSON.stringify(doc, null, 2)));
+				}.bind(this) );
+		}
+	};
+	PageAsOfRevision.prototype.presentPage = function(title, html) {
+		this.$element.html("");
+		this.$element.append(
+			$("<h1>").text(title)
+			         .attr('id', "firstHeading")
+			         .addClass("firstHeading")
+		);
+		this.$element.append(
+			$("<div>").html(html)
+			          .addClass("mw-body-content")
+			          .attr('id', "bodyContent")
+		);
+	};
+
+	var ParsedWikitext = function(taskListData) {
+		ParsedWikitext.super.call( this, taskListData );
+		this.$element.addClass(WL.config.prefix + "parsed-wikitext")
+		             .addClass("mw-body-content")
+		             .attr('id', "bodyContent");
+	};
+	OO.inheritClass(ParsedWikitext, View);
+	ParsedWikitext.prototype.present = function(taskInfo) {
+		if (taskInfo.html) {
+			this.presentHTML(taskInfo.html);
+		} else {
+			WL.api.wikitext2HTML(taskInfo.data['data']['wikitext'])
+				.done( function (html) {
+					this.tasks[taskInfo.i].html = html; // Cache!
+					this.presentHTML(html);
+				}.bind(this) )
+				.fail( function (doc) {
+					var error = $("<pre>").addClass("error");
+					this.$element.html(error.text(JSON.stringify(doc, null, 2)));
+				}.bind(this) );
+		}
+	};
+	ParsedWikitext.prototype.presentHTML = function(html) {
+		this.$element.html(html);
+	};
+
 	var WorksetCompleted = function () {
 		this.$element = $("<div>").addClass("completed");
 
@@ -159,6 +226,8 @@
 
 	WL.views = {
 		View: View,
-		DiffToPrevious: DiffToPrevious
+		DiffToPrevious: DiffToPrevious,
+		PageAsOfRevision: PageAsOfRevision,
+		ParsedWikitext: ParsedWikitext
 	};
 }(mediaWiki, jQuery, wikiLabels));

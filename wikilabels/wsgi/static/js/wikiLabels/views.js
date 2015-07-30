@@ -103,11 +103,22 @@
 		}
 	};
 	DiffToPrevious.prototype.presentDiff = function(diff){
+		// Get the direction (LTR/RTL) of the wiki
+		var inputs = document.getElementsByTagName("div");
+		var direction = 'ltr';
+		for (var i = 0; i < inputs.length; i++) {
+			if (inputs[i].getAttribute('id') == 'mw-content-text') {
+					direction = inputs[i].getAttribute('dir')
+			};
+		}
+
 		var diffLink,
 			title = WL.util.linkToTitle(diff.title).addClass("title"),
 			description = $("<div>").addClass("description"),
 			comment = $("<div>").addClass("comment"),
-			diffTable = $("<table>").addClass("diff");
+			diffTable = (direction == 'rtl' ?
+				$("<table>").addClass("diff diff-contentalign-right") :
+				$("<table>").addClass("diff diff-contentalign-left"));
 
 		this.$element.empty();
 

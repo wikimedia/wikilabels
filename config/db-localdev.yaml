@@ -1,4 +1,2 @@
-host: localhost
 user: wikilabels
-dbname: wikilabels
 password: wikilabels-admin

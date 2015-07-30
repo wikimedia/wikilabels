@@ -28,6 +28,7 @@ JS = ("js/oo.util.js",
       "js/wikiLabels/Workspace.js")
 
 MEDIAWIKI_STYLES = ("lib/mediaWiki/enwiki.vector.css",
+                    "lib/mediaWiki/enwiki.common.css",
                     "lib/mediaWiki/diffs.css",
                     "lib/oojs-ui/oojs-ui-mediawiki.css")
 LOCAL_STYLES = tuple()

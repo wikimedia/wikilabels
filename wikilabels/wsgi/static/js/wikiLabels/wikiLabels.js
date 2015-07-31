@@ -137,6 +137,24 @@
 					'\'$1\' not completed.  Submit anyway?': '\'$1\' не готовий.  Усе одно надіслати?',
 					'fullscreen': 'повний екран'
 				},
+				nl: {
+					'date-format': "%d-%m-%Y",
+					'Review': 'Beoordelen',
+					'Workset': 'Werkset',
+					'Save': 'Opslaan',
+					'request workset': 'werkset opvragen',
+					'connect to server': 'verbinden met server',
+					'Campaigns': 'Campagnes',
+					'Workset complete!': 'Werkset voltooid!',
+					'Submit label': 'Label verzenden',
+					'Request new workset': 'Nieuwe werkset opvragen',
+					'Diff for revision $1': 'Verschil voor bewerking $1',
+					'No difference': 'Geen verschil', // between revisions
+					'review': 'beoordelen', // 'review' a workset
+					'open': 'openen', // 'open' a workset
+					'\'$1\' not completed.  Submit anyway?': '\'$1\' niet voltooid.  Toch verzenden?',
+					'fullscreen': 'fullscreen'
+				},
 			}
 		}
 	};

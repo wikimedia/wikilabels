@@ -154,7 +154,7 @@
 					'open': 'openen', // 'open' a workset
 					'\'$1\' not completed.  Submit anyway?': '\'$1\' niet voltooid.  Toch verzenden?',
 					'fullscreen': 'fullscreen'
-				},
+				}
 			}
 		}
 	};

@@ -1,4 +1,4 @@
-<html>
+<html lang="en" dir="ltr" class="client-js ve-not-available">
   <head>
     <title>Labels home gadget</title>
     {{ script_tags|safe }}
@@ -10,31 +10,61 @@
       }
     </style>
   </head>
-  <body class="mw-body">
-    <div id="#bodyContent" class="mw-body-content">
-      <div id="wikilabels-home">
-        <div class="lead">
-          <p><strong class="selflink">Wiki-Labels</strong> is a <a href="/wiki/Human_computation" title="Human computation" class="mw-redirect">human computation</a> service for Wikipedia. In order perform difficult analyses and train intelligent wiki-tools (e.g. for <a href="#Detecting_vandalism">detecting vandalism</a> and <a href="#Assessing_the_quality_of_articles">assessing the quality of articles</a>), we need <a href="/wiki/Coding_(social_sciences)" title="Coding (social sciences)">labeled data</a> and lots of it. Wiki-Labels is a tool that makes it easy to collaboratively label wiki artifacts (like revisions) quickly and easily.</p>
-          <ul>
-          <li><a href="/wiki/Wikipedia:Labels/Documentation" title="Wikipedia:Labels/Documentation" class="mw-redirect">Documentation</a></li>
-          <li><a rel="nofollow" class="external text" href="https://github.com/halfak/Wiki-Labels">github repo</a></li>
-          </ul>
-        </div>
-        <div class="wikilabels-menu"
-             style=" ">
-          <div style="padding-top: 2em;">
-            <span style="font-size: 200%;">OMG button</span>
+  <body class="mediawiki ltr sitedir-ltr ns-4 ns-subject page-Wikipedia_Labels
+               skin-vector action-view webfonts-changed">
+    <div id="bodyContent" class="mw-body-content">
+      <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+        <div id="wikilabels-home">
+          <div class="lead">
+            <p>
+                <strong class="selflink">Wiki-Labels</strong> is a
+                <a href="/wiki/Human_computation"
+                   title="Human computation"
+                   class="mw-redirect">human computation</a>
+                service for Wikipedia. In order perform difficult analyses and
+                train intelligent wiki-tools (e.g. for
+                <a href="#Detecting_vandalism">detecting vandalism</a> and
+                <a href="#Assessing_the_quality_of_articles">
+                  assessing the quality of articles
+                </a>), we need
+                <a href="/wiki/Coding_(social_sciences)"
+                   title="Coding (social sciences)">labeled data</a>
+                and lots of it. Wiki-Labels is a tool that makes it easy to
+                collaboratively label wiki artifacts (like revisions) quickly
+                and easily.
+            </p>
+            <ul>
+              <li>
+                <a href="/wiki/Wikipedia:Labels/Documentation"
+                   title="Wikipedia:Labels/Documentation"
+                   class="mw-redirect">
+                  Documentation
+                </a>
+              </li>
+              <li>
+                <a rel="nofollow" class="external text"
+                   href="https://github.com/halfak/Wiki-Labels">
+                  github repo
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="wikilabels-menu"
+               style=" ">
+            <div style="padding-top: 2em;">
+              <span style="font-size: 200%;">OMG button</span>
+            </div>
+          </div>
+          <div class="wikilabels-workspace" style="clear:both;">
           </div>
         </div>
-        <div class="wikilabels-workspace" style="clear:both;">
-        </div>
-      </div>
-      <script>
-        wikiLabels.config.update( {
-          serverRoot: '{{ server_root|safe }}'
-        } );
-        home = new wikiLabels.Home($('#wikilabels-home'));
-      </script>
-    </div>
+        <script>
+          wikiLabels.config.update( {
+            serverRoot: '{{ server_root|safe }}'
+          } );
+          home = new wikiLabels.Home($('#wikilabels-home'));
+        </script>
+      </div> <!-- end mw-content-text -->
+    </div> <!-- end mw-content-text -->
   </body>
 </html>

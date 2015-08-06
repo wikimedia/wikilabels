@@ -139,7 +139,8 @@
 
 	var PageAsOfRevision = function(taskListData) {
 		PageAsOfRevision.super.call( this, taskListData );
-		this.$element.addClass(WL.config.prefix + "page");
+		this.$element.addClass(WL.config.prefix + "page-as-of-revision")
+		             .addClass('display-page-html');
 	};
 	OO.inheritClass(PageAsOfRevision, View);
 	PageAsOfRevision.prototype.present = function(taskInfo) {
@@ -181,8 +182,7 @@
 	var ParsedWikitext = function(taskListData) {
 		ParsedWikitext.super.call( this, taskListData );
 		this.$element.addClass(WL.config.prefix + "parsed-wikitext")
-		             .addClass("mw-body-content")
-		             .attr('id', "bodyContent");
+		             .addClass('display-page-html');
 	};
 	OO.inheritClass(ParsedWikitext, View);
 	ParsedWikitext.prototype.present = function(taskInfo) {

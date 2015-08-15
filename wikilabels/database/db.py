@@ -1,4 +1,5 @@
 import psycopg2
+import yaml
 from psycopg2.extras import RealDictCursor
 
 from .campaigns import Campaigns
@@ -23,8 +24,19 @@ class DB:
         return cursor
 
     @classmethod
-    def from_config(cls, dbname, user, password, host):
-        conn = psycopg2.connect(cursor_factory=RealDictCursor, dbname=dbname,
-                                user=user, password=password, host=host)
+    def from_params(cls, *args, **kwargs):
+        conn = psycopg2.connect(cursor_factory=RealDictCursor, *args, **kwargs)
 
         return cls(conn)
+
+    @classmethod
+    def from_config(cls, config):
+        # Copy config as kwargs
+        params = {k: v for k, v in config['database'].items()}
+
+        if 'creds' in params:
+            creds = yaml.load(open(params['creds']))
+            del params['creds']
+            params.update(creds)
+
+        return cls.from_params(**params)

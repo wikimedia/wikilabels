@@ -19,10 +19,7 @@ def configure(config):
     bp = Blueprint('wikilabels', __name__,
                    static_folder=os.path.join(directory, 'static'))
 
-    # FIXME: Should fix how config is handled
-    db_config_file = config['database']['config']
-    db_config = yaml.load(open(db_config_file))
-    db = DB.from_config(**db_config)
+    db = DB.from_config(config)
 
     form_directory = config['wikilabels']['form_directory']
     form_filenames = (os.path.join(form_directory, fn)

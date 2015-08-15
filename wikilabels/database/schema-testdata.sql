@@ -5,7 +5,11 @@ INSERT INTO campaign VALUES
   (2, 'Edit Type -- 2015 january sample', 'enwiki',
    'edit_type', 'DiffToPrevious', NOW(), 1, 10, True),
   (3, 'Qualidade das edições -- Amostra de 10k revisões de 2014', 'ptwiki',
-   'damaging_and_goodfaith', 'DiffToPrevious', NOW(), 1, 10, True);
+   'damaging_and_goodfaith', 'DiffToPrevious', NOW(), 1, 10, True),
+  (4, 'Draft notability', 'enwiki',
+   'draft_notability', 'PageAsOfRevision', NOW(), 1, 10, True),
+  (5, 'Draft notability (raw)', 'enwiki',
+   'draft_notability', 'ParsedWikitext', NOW(), 1, 10, True);
 
 
 TRUNCATE task CASCADE;
@@ -83,7 +87,16 @@ INSERT INTO task VALUES
   (72, 3, '{"rev_id": 41419711}'),
   (73, 3, '{"rev_id": 41321136}'),
   (74, 3, '{"rev_id": 41500050}'),
-  (75, 3, '{"rev_id": 41268947}');
+  (75, 3, '{"rev_id": 41268947}'),
+  (76, 4, '{"rev_id": 41388849}'),
+  (77, 4, '{"rev_id": 41339555}'),
+  (78, 4, '{"rev_id": 41278851}'),
+  (79, 4, '{"rev_id": 41416509}'),
+  (80, 4, '{"rev_id": 41419711}'),
+  (81, 4, '{"rev_id": 41321136}'),
+  (82, 4, '{"rev_id": 41500050}'),
+  (83, 4, '{"rev_id": 41268947}'),
+  (84, 5, '{"wikitext": "{{:WP:Sandbox}}"}');
 
 TRUNCATE workset;
 INSERT INTO workset VALUES

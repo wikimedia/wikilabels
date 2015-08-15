@@ -1,0 +1,73 @@
+name: draft_notability
+title: "<form-title>"
+
+fields:
+      
+  - class: "FieldLayout"
+    label: "<guideline-choice-label>"
+    fieldWidget:
+       name: "choose-guideline"
+       class: "RadioSelectWidget"
+       items:
+         - class: "RadioOptionWidget"
+           data: true
+           label: "<person-choice-label>"
+         - class: "RadioOptionWidget"
+           data: false
+           label: "<event-choice-label>"
+         - class: "RadioOptionWidget"
+           data: false
+           label: "<film-choice-label>"
+         - class: "RadioOptionWidget"
+           data: false
+           label: "<book-choice-label>"
+         - class: "RadioOptionWidget"
+           data: false
+           label: "<music-choice-label>"
+         - class: "RadioOptionWidget"
+           data: false
+           label: "<org-choice-label>"
+         - class: "RadioOptionWidget"
+           data: false
+           label: "<web-choice-label>"
+         - class: "RadioOptionWidget"
+           data: false
+           label: "<other-choice-label>"
+  - class: "FieldLayout"
+    align: right
+    classes: ['inline-field']
+    fieldWidget:
+      class: "TextInputWidget"
+      
+  - class: "FieldLayout"
+    label: "<notable-switch>"
+    fieldWidget:
+      name: "is-notable"
+      class: "RadioSelectWidget"
+      items:
+        - class: "RadioOptionWidget"
+          data: false
+          label: "<notable-yes-label>"
+        - class: "RadioOptionWidget"
+          data: true
+          label: "<notable-no-label>"
+      
+    
+i18n:
+  en:
+    form-title: Notability
+    damaging-label: "Damaging?"
+    damaging-true-label: "yes"
+    damaging-false-label: "no"
+    person-choice-label: "People"
+    event-choice-label: "Events"
+    film-choice-label: "Films"
+    book-choice-label: "Books"
+    org-choice-label: "Organizations and companies"
+    music-choice-label: "Music"
+    web-choice-label: "Web content"
+    other-choice-label: "Other"
+    guideline-choice-label: "Which of the following notability guidelines (if any) does this article topic fall under?"
+    notable-switch: "Is the topic notable under this guideline?"
+    notable-yes-label: "yes"
+    notable-no-label: "no"

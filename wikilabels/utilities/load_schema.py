@@ -30,7 +30,7 @@ def main(argv=None):
     args = docopt.docopt(__doc__, argv=argv)
     # This expects the database config file path
     db_config = yamlconf.load(open(args['<config>']))
-    db = DB.from_config(**db_config)
+    db = DB.from_params(**db_config)
     reload_test_data = args['--reload-test-data']
 
     run(db, reload_test_data)

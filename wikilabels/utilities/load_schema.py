@@ -18,7 +18,6 @@ import sys
 from distutils.util import strtobool
 
 import docopt
-
 import yamlconf
 
 from ..database import DB
@@ -29,8 +28,8 @@ logger = logging.getLogger("wikilabels.utilities.load_schema")
 def main(argv=None):
     args = docopt.docopt(__doc__, argv=argv)
     # This expects the database config file path
-    db_config = yamlconf.load(open(args['<config>']))
-    db = DB.from_params(**db_config)
+    config = yamlconf.load(open(args['<config>']))
+    db = DB.from_config(config)
     reload_test_data = args['--reload-test-data']
 
     run(db, reload_test_data)

@@ -1,4 +1,4 @@
-( function ( $, OO, CodeMirror, YAML, WL ) {
+( function ( $, OO, CodeMirror, jsyaml, WL ) {
 
 	var FormBuilder = function () {
 		this.$element = $( "<div>" ).addClass( WL.config.prefix + 'form-builder' );
@@ -75,7 +75,7 @@
 		}
 	};
 	ConfigEditor.prototype.json = function () {
-		return YAML.parse( this.text() );
+		return jsyaml.load( this.text() );
 	};
 
 	var FormPreview = function () {
@@ -177,4 +177,4 @@
 	};
 
 	WL.FormBuilder = FormBuilder;
-} )( jQuery, OO, CodeMirror, YAML, wikiLabels );
+} )( jQuery, OO, CodeMirror, jsyaml, wikiLabels );

@@ -7,11 +7,11 @@ from ..util import (build_script_tags, build_style_tags, read_cat,
 TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
 
 MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
-                  "lib/jquery/jquery.js",
+                  TOOLS_CDN + "jquery/2.1.3/jquery.js",
                   "lib/oojs/oojs.jquery.js",
                   "lib/oojs-ui/oojs-ui.js",
                   "lib/oojs-ui/oojs-ui-mediawiki.js")
-LOCAL_LIBS = ("lib/yamljs/yaml.js",
+LOCAL_LIBS = (TOOLS_CDN + "js-yaml/3.3.0/js-yaml.js",
               TOOLS_CDN + "codemirror/5.2.0/codemirror.js",
               TOOLS_CDN + "codemirror/5.2.0/mode/yaml/yaml.js")
 JS = ("js/oo.util.js",

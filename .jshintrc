@@ -31,7 +31,7 @@
 		"wikiLabels": true,
 		"OO": false,
 		"CodeMirror": false,
-		"YAML": false
+		"jsyaml": false
 	},
 
 	// Legacy (to be handled by jscs once supported)

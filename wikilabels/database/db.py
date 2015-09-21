@@ -1,3 +1,4 @@
+import logging
 from contextlib import contextmanager
 
 import psycopg2
@@ -9,6 +10,8 @@ from .campaigns import Campaigns
 from .labels import Labels
 from .tasks import Tasks
 from .worksets import Worksets
+
+logger = logging.getLogger(__name__)
 
 
 class DB:
@@ -30,7 +33,7 @@ class DB:
     @contextmanager
     def transaction(self):
         """Provides a transactional scope around a series of operations."""
-        conn = self.pool.getconn()
+        conn = self.get_good_connection()
         try:
             yield conn
             conn.commit()
@@ -39,6 +42,24 @@ class DB:
             raise
         finally:
             self.pool.putconn(conn)
+
+    def get_good_connection(self, retries=11):
+
+        # Try at most 10 times.
+        for i in range(retries):
+            try:
+                conn = self.pool.getconn()
+                cursor = conn.cursor()
+                cursor.execute("SELECT 1;")
+                rows = list(cursor)
+                if len(rows) == 1:
+                    return conn
+            except (psycopg2.InterfaceError, psycopg2.OperationalError):
+                logger.info("Discarding a useless connection.")
+                continue  # Try again
+
+        raise RuntimeError("No good database connections in the pool.")
+
 
     @classmethod
     def from_params(cls, *args, minconn=10, maxconn=20, **kwargs):

@@ -7,7 +7,8 @@ from .errors import NotFoundError
 class Tasks(Collection):
 
     def get(self, task_id):
-        with self.db.conn.cursor() as cursor:
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
             cursor.execute("""
                 SELECT
                     task.id as task_id,
@@ -27,7 +28,8 @@ class Tasks(Collection):
                 raise NotFoundError("task_id={0}".format(task_id))
 
     def for_workset(self, workset_id):
-        with self.db.conn.cursor() as cursor:
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
             cursor.execute("""
                 SELECT
                     task.id as task_id,
@@ -49,7 +51,8 @@ class Tasks(Collection):
             return self._group_task_labels(cursor)
 
     def for_campaign(self, campaign_id):
-        with self.db.conn.cursor() as cursor:
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
             cursor.execute("""
                 SELECT
                     task.id as task_id,
@@ -64,11 +67,11 @@ class Tasks(Collection):
                 ORDER BY task_id, timestamp
             """, {'campaign_id': campaign_id})
 
-
             return self._group_task_labels(cursor)
 
     def for_user(self, user_id, workset_id=None, campaign_id=None):
-        with self.db.conn.cursor() as cursor:
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
 
             conditions = ["workset.user_id = %(user_id)s"]
             if workset_id is not None:
@@ -99,7 +102,6 @@ class Tasks(Collection):
                   'campaign_id': campaign_id})
 
             return self._group_task_labels(cursor)
-
 
     def _group_task_labels(self, cursor):
         extract_key = lambda r:(r['task_id'], r['task_data'], r['campaign_id'])

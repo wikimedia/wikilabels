@@ -1,6 +1,9 @@
+from contextlib import contextmanager
+
 import psycopg2
 import yaml
 from psycopg2.extras import RealDictCursor
+from psycopg2.pool import ThreadedConnectionPool
 
 from .campaigns import Campaigns
 from .labels import Labels
@@ -9,8 +12,8 @@ from .worksets import Worksets
 
 
 class DB:
-    def __init__(self, conn):
-        self.conn = conn
+    def __init__(self, pool):
+        self.pool = pool
 
         self.campaigns = Campaigns(self)
         self.worksets = Worksets(self)
@@ -18,16 +21,33 @@ class DB:
         self.labels = Labels(self)
 
     def execute(self, sql):
-        cursor = self.conn.cursor()
-        cursor.execute(sql)
-        self.conn.commit()
-        return cursor
+        with self.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute(sql)
+            self.conn.commit()
+            return cursor
+
+    @contextmanager
+    def transaction(self):
+        """Provides a transactional scope around a series of operations."""
+        conn = self.pool.getconn()
+        try:
+            yield conn
+            conn.commit()
+        except:
+            conn.rollback()
+            raise
+        finally:
+            self.pool.putconn(conn)
 
     @classmethod
-    def from_params(cls, *args, **kwargs):
-        conn = psycopg2.connect(cursor_factory=RealDictCursor, *args, **kwargs)
+    def from_params(cls, *args, minconn=10, maxconn=20, **kwargs):
+        pool = ThreadedConnectionPool(*args, cursor_factory=RealDictCursor,
+                                      minconn=minconn,
+                                      maxconn=maxconn,
+                                      **kwargs)
 
-        return cls(conn)
+        return cls(pool)
 
     @classmethod
     def from_config(cls, config):

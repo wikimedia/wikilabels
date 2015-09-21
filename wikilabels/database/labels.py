@@ -15,36 +15,31 @@ class Labels(Collection):
             return self.update(task_id, user_id, data)
 
     def insert(self, task_id, user_id, data):
-        with self.db.conn.cursor() as cursor:
-            try:
-                cursor.execute("""
-                INSERT INTO label VALUES
-                  (%(task_id)s, %(user_id)s, NOW(), %(data)s)
-                RETURNING *
-                """, {'task_id': task_id, 'user_id': user_id, 'data': Json(data)})
-                self.db.conn.commit()
-            except Exception:
-                self.db.conn.rollback()
-                raise
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+
+            cursor.execute("""
+            INSERT INTO label VALUES
+              (%(task_id)s, %(user_id)s, NOW(), %(data)s)
+            RETURNING *
+            """, {'task_id': task_id, 'user_id': user_id, 'data': Json(data)})
+
             for row in cursor:
                 return row
 
     def update(self, task_id, user_id, data):
-        with self.db.conn.cursor() as cursor:
-            try:
-                cursor.execute("""
-                UPDATE label
-                SET
-                    data = %(data)s,
-                    timestamp = NOW()
-                WHERE
-                    task_id = %(task_id)s AND
-                    user_id = %(user_id)s
-                RETURNING *
-                """, {'task_id': task_id, 'user_id': user_id, 'data': Json(data)})
-                self.db.conn.commit()
-            except Exception:
-                self.db.conn.rollback()
-                raise
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("""
+            UPDATE label
+            SET
+                data = %(data)s,
+                timestamp = NOW()
+            WHERE
+                task_id = %(task_id)s AND
+                user_id = %(user_id)s
+            RETURNING *
+            """, {'task_id': task_id, 'user_id': user_id, 'data': Json(data)})
+
             for row in cursor:
                 return row

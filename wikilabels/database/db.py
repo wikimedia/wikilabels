@@ -54,7 +54,8 @@ class DB:
                 rows = list(cursor)
                 if len(rows) == 1:
                     return conn
-            except (psycopg2.InterfaceError, psycopg2.OperationalError):
+            except (psycopg2.InterfaceError, psycopg2.OperationalError,
+                    psycopg2.DatabaseError):
                 logger.info("Discarding a useless connection.")
                 continue  # Try again
 

@@ -172,7 +172,7 @@
 						'open': 'buka', // 'open' a workset
 						'\'$1\' not completed.  Submit anyway?': '\'$1\' belum selesai. Lanjut mengirimkan?',
 						'fullscreen': 'layar penuh'
-					},
+					}
 			}
 		}
 	};

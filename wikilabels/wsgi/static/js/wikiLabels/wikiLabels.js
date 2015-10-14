@@ -154,7 +154,25 @@
 					'open': 'openen', // 'open' a workset
 					'\'$1\' not completed.  Submit anyway?': '\'$1\' niet voltooid.  Toch verzenden?',
 					'fullscreen': 'fullscreen'
-				}
+				},
+				id: {
+						'date-format': "%d-%m-%Y",
+						'Review': 'Tinjau',
+						'Workset': 'Pekerjaan',
+						'Save': 'Simpan',
+						'request workset': 'minta pekerjaan',
+						'connect to server': 'sambung ke server',
+						'Campaigns': 'Kampanye',
+						'Workset complete!': 'Pekerjaan selesai!',
+						'Submit label': 'Kirim label',
+						'Request new workset': 'Minta pekerjaan baru',
+						'Diff for revision $1': 'Beda untuk revisi $1',
+						'No difference': 'Tidak ada perbedaan', // between revisions
+						'review': 'tinjau', // 'review' a workset
+						'open': 'buka', // 'open' a workset
+						'\'$1\' not completed.  Submit anyway?': '\'$1\' belum selesai. Lanjut mengirimkan?',
+						'fullscreen': 'layar penuh'
+					},
 			}
 		}
 	};

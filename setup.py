@@ -12,7 +12,7 @@ def requirements(fname):
 
 setup(
     name = "wikilabels",
-    version = "0.1.0", # Update in wikilabels/__init__.py
+    version = "0.1.1", # Update in wikilabels/__init__.py
     author = "Aaron Halfaker",
     author_email = "ahalfaker@wikimedia.org",
     description = "A generalized data labeling system for use in MediaWiki " + \

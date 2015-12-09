@@ -16,6 +16,7 @@ LOCAL_LIBS = (TOOLS_CDN + "js-yaml/3.3.0/js-yaml.js",
               TOOLS_CDN + "codemirror/5.2.0/codemirror.js",
               TOOLS_CDN + "codemirror/5.2.0/mode/yaml/yaml.js")
 JS = ("js/oo.util.js",
+      "js/oo.ui.SemanticOperationsSelector.js",
       "js/wikiLabels/wikiLabels.js",
       "js/wikiLabels/i18n.js",
       "js/wikiLabels/util.js",
@@ -24,7 +25,8 @@ JS = ("js/oo.util.js",
 
 MEDIAWIKI_STYLES = ("lib/oojs-ui/oojs-ui-mediawiki.css",)
 LOCAL_STYLES = (TOOLS_CDN + "codemirror/5.2.0/codemirror.css",)
-CSS = ("css/wikiLabels.css",
+CSS = ("css/oo.ui.SemanticOperationsSelector.css",
+       "css/wikiLabels.css",
        "css/form_builder.css",
        "css/form.css",
        "css/workspace.css")

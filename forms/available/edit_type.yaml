@@ -1,17 +1,40 @@
 name: edit_type
-title: "<form-title>"
 
 fields:
+  - class: "SemanticOperationsSelector"
+    name: "semantic_label"
+    meanings:
+      - 'Link Disambiguation'
+      - 'Fact Update'
+      - 'Formatting'
+      - 'Verifiability'
+      - 'Cleanup'
+      - 'Vandalism'
+      - 'Neutral Point of View'
+      - 'Clarification'
+      - 'Elaboration'
+      - 'Copy Editing'
+    objects:
+      - 'Wiki Link'
+      - 'Inter Wiki Link'
+      - 'External Link'
+      - 'Reference'
+      - 'Category'
+      - 'Header'
+      - 'Table'
+      - 'Image'
+      - 'Sentence'
+      - 'Word'
+    actions:
+      - 'Deletion'
+      - 'Insertion'
+      - 'Modification'
   - class: "FieldLayout"
-    label: "<kind-label>"
+    label: "<notes-label>"
     align: right
     fieldWidget:
-      name: "kind"
+      name: "notes"
       class: "TextInputWidget"
+
 i18n:
-  en:
-    form-title: Edit type
-    kind-label: "What type of edit is this?"
-  pt:
-    form-title: Tipo de edição
-    kind-label: "Qual o tipo desta edição?"
+  en: {}

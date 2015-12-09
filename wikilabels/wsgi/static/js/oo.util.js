@@ -8,17 +8,6 @@
 		}
 	};
 
-	OO.ui.getFieldsValues = function ( fieldMap ) {
-		var valueMap = {},
-			name;
-		for ( name in fieldMap ) {
-			if ( fieldMap.hasOwnProperty( name ) ) {
-				valueMap[ name ] = OO.ui.getWidgetValue( fieldMap[ name ] );
-			}
-		}
-		return valueMap;
-	};
-
 	OO.ui.instantiateFromParameters = function ( config, fieldMap ) {
 		var className = config[ 'class' ],
 			error, widget;
@@ -143,6 +132,12 @@
 			case OO.ui.ToggleButtonWidget:
 			case OO.ui.ToggleSwitchWidget:
 				return widget.getValue();
+			default:
+				if(widget.getData){
+					return widget.getData();
+				}else{
+					return null;
+				}
 		}
 	};
 

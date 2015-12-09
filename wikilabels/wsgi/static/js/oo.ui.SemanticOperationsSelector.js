@@ -25,6 +25,11 @@
     this.$element.append(this.$workspace);
   };
   OO.inheritClass( OO.ui.SemanticOperationsSelector, OO.ui.Widget );
+  OO.ui.SemanticOperationsSelector.prototype.getData = function(){
+    return {
+      "do something": null
+    };
+  };
   OO.ui.SemanticOperationsSelector.prototype.handleSemanticMeaningAdd = function(){
     var meaning = this.semanticMeanings.getData();
 

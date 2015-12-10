@@ -2,7 +2,8 @@ name: edit_type
 
 fields:
   - class: "SemanticOperationsSelector"
-    name: "semantic_label"
+    name: "semantic_labels"
+    meaningsLabel: "<semantic-labels-label>"
     meanings:
       - 'Link Disambiguation'
       - 'Fact Update'
@@ -37,4 +38,6 @@ fields:
       class: "TextInputWidget"
 
 i18n:
-  en: {}
+  en:
+    notes-label: "Notes"
+    semantic-labels-label: "Choose as semantic meaning"

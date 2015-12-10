@@ -26,9 +26,14 @@
   };
   OO.inheritClass( OO.ui.SemanticOperationsSelector, OO.ui.Widget );
   OO.ui.SemanticOperationsSelector.prototype.getData = function(){
-    return {
-      "do something": null
-    };
+    var valueMap = {}, sos, meaning;
+    for( meaning in this.semanticMap ){
+      if( this.semanticMap.hasOwnProperty(meaning) ){
+        sos = this.semanticMap[meaning];
+        valueMap[meaning] = sos.getData();
+      }
+    }
+    return valueMap;
   };
   OO.ui.SemanticOperationsSelector.prototype.handleSemanticMeaningAdd = function(){
     var meaning = this.semanticMeanings.getData();
@@ -62,14 +67,13 @@
    */
   OO.ui.SemanticMeaningSelector = function(opts){
     OO.ui.SemanticMeaningSelector.super.apply( this );
-
     var label = opts.label;
     var meanings = opts.meanings;
+    var items = [];
 
     this.$element = $("<div>").addClass("semantic-meaning-selector");
 
     // Menu elements
-    items = [];
     for(var i=0; i < meanings.length; i++){
       var meaning = meanings[i];
       items.push(
@@ -141,8 +145,21 @@
     this.$element.append(this.$workspace);
   };
   OO.inheritClass( OO.ui.SyntacticOperationsSelector, OO.ui.Widget );
+  OO.ui.SyntacticOperationsSelector.prototype.getData = function(){
+    var key, soa, values = [];
+    for( key in this.objectActionMap ) {
+      if( this.objectActionMap.hasOwnProperty( key ) ){
+        soa = this.objectActionMap[key];
+        values.push({
+          object: soa.object,
+          action: soa.action
+        });
+      }
+    }
+    return values;
+  };
   OO.ui.SyntacticOperationsSelector.prototype.handleObjectActionAdd = function(){
-    //TODO: check if we already have an instance of this object/action pair
+    //check if we already have an instance of this object/action pair
     // if we don't, add it to the workspace
     var objectAction = this.objectActions.getData();
     var key = objectAction.object + "-" + objectAction.action;
@@ -175,45 +192,43 @@
     OO.ui.ObjectActionSelector.super.apply( this );
     var objects = opts.objects;
     var actions = opts.actions;
-    var button_label = opts.button_label;
+    var objectItems = [];
+    var actionItems = [];
 
     this.$element = $("<div>").addClass("object-action-selector");
 
     // Object menu elements
-    object_items = [];
     for(var i=0; i < objects.length; i++){
       var object = objects[i];
-      object_items.push(
+      objectItems.push(
         new OO.ui.MenuOptionWidget({ data: object, label: object })
       );
     }
 
     this.objects = new OO.ui.DropdownWidget( {
       label: "objects",
-      menu: {items: object_items},
+      menu: {items: objectItems},
       classes: ['objects']
     } );
     this.$element.append(this.objects.$element);
 
     // Action menu elements
-    action_items = [];
     for(var j=0; j < actions.length; j++){
       var action = actions[j];
-      action_items.push(
+      actionItems.push(
         new OO.ui.MenuOptionWidget({ data: action, label: action })
       );
     }
 
     this.actions = new OO.ui.DropdownWidget( {
       label: "actions",
-      menu: {items: action_items},
+      menu: {items: actionItems},
       classes: ['actions']
     } );
     this.$element.append(this.actions.$element);
 
     // Add button
     this.button = new OO.ui.ButtonWidget( {
-        label: button_label,
         icon: 'add',
         flags: 'constructive',
         classes: ['add']

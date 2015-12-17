@@ -191,7 +191,7 @@
 				break;
 			default:
 				if(widget.setValue){
-					return widget.getValue(value);
+					return widget.setValue(value);
 				}else{
 					return null;
 				}

@@ -134,7 +134,7 @@
 				return widget.getValue();
 			default:
 				if(widget.getData){
-					return widget.getData();
+					return widget.getValue();
 				}else{
 					return null;
 				}
@@ -189,7 +189,13 @@
 			case OO.ui.ToggleSwitchWidget:
 				widget.setValue(ifundef(value, ""));
 				break;
-		}
+			default:
+				if(widget.setValue){
+					return widget.getValue(value);
+				}else{
+					return null;
+				}
+			}
 	};
 
 } )( jQuery, OO );

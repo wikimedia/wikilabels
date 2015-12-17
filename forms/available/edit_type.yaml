@@ -32,9 +32,11 @@ fields:
       - {"label": "<modification-label>", "value": "modification"}
   - class: "FieldLayout"
     label: "<notes-label>"
+    align: "top"
     fieldWidget:
       name: "notes"
       class: "TextInputWidget"
+      multiline: true
 
 i18n:
   en:
@@ -65,8 +67,8 @@ i18n:
     modification-label: Modification
   it:
     notes-label: Commenti
-    semantic-labels-label: Choose a semantic meaning
-    link-disamb-label: Collegamento disambiguazione
+    semantic-labels-label: Scegli un significato semantico
+    link-disambig-label: Collegamento disambiguazione
     fact-update-label: Fatto Aggiornamento
     formatting-label: Formattazione
     verifiability-label: Verificabilità

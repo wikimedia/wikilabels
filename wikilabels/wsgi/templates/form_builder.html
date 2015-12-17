@@ -19,13 +19,14 @@
     <h1>Form builder!</h1>
     <div class="info">
       Experiment with
-      <a href="https://en.wikipedia.org/wiki/WP:Revision coder">Revision coder</a>
+      <a href="https://meta.wikimedia.org/wiki/Wiki_labels">Wiki labels</a>
       form configurations editing the textbox below.  Click "preview" to
       review the changes and
-      <a href="https://en.wikipedia.org/wiki/WP:Revision coder/Request a form">request a form</a>
+      <a href="https://en.wikipedia.org/wiki/Wiki_labels#Request_a_form">request a form</a>
       when you are ready.
     </div>
     <textarea id="preload_and_delete_me">
+name: damaging
 title: "<form-title>"
 
 fields:
@@ -46,10 +47,11 @@ fields:
           label: "<damaging-false-label>"
   - class: "FieldLayout"
     label: "<notes-label>"
-    align: right
+    align: top
     fieldWidget:
       name: "notes"
       class: "TextInputWidget"
+      multiline: true
 
 i18n:
   en:

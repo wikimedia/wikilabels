@@ -1,17 +1,93 @@
 name: edit_type
-title: "<form-title>"
 
 fields:
+  - class: "SemanticOperationsSelector"
+    name: "semantic_labels"
+    meaningsLabel: "<semantic-labels-label>"
+    meanings:
+      - {"label": "<link-disambig-label>", "value": "link-disambig"}
+      - {"label": "<fact-update-label>", "value": "fact-update"}
+      - {"label": "<formatting-label>", "value": "formatting"}
+      - {"label": "<verifiability-label>", "value": "verifiability"}
+      - {"label": "<cleanup-label>", "value": "cleanup"}
+      - {"label": "<vandalism-label>", "value": "vandalism"}
+      - {"label": "<npov-label>", "value": "npov"}
+      - {"label": "<clarify-label>", "value": "clarify"}
+      - {"label": "<elaborate-label>", "value": "elaborate"}
+      - {"label": "<copy-edit-label>", "value": "copy-edit"}
+    objects:
+      - {"label": "<wikilink-label>", "value": "wikilink"}
+      - {"label": "<inter-wikilink-label>", "value": "inter-wikilink"}
+      - {"label": "<external-link-label>", "value": "external-link"}
+      - {"label": "<ref-label>", "value": "ref"}
+      - {"label": "<cat-label>", "value": "cat"}
+      - {"label": "<heading-label>", "value": "heading"}
+      - {"label": "<table-label>", "value": "table"}
+      - {"label": "<image-label>", "value": "image"}
+      - {"label": "<sentence-label>", "value": "sentence"}
+      - {"label": "<word-label>", "value": "word"}
+    actions:
+      - {"label": "<deletion-label>", "value": "deletion"}
+      - {"label": "<insertion-label>", "value": "insertion"}
+      - {"label": "<modification-label>", "value": "modification"}
   - class: "FieldLayout"
-    label: "<kind-label>"
-    align: right
+    label: "<notes-label>"
+    align: "top"
     fieldWidget:
-      name: "kind"
+      name: "notes"
       class: "TextInputWidget"
+      multiline: true
+
 i18n:
   en:
-    form-title: Edit type
-    kind-label: "What type of edit is this?"
-  pt:
-    form-title: Tipo de edição
-    kind-label: "Qual o tipo desta edição?"
+    notes-label: Notes
+    semantic-labels-label: Choose as semantic meaning
+    link-disambig-label: Link Disambiguation
+    fact-update-label: Fact Update
+    formatting-label: Formatting
+    verifiability-label: Verifiability
+    cleanup-label: Cleanup
+    vandalism-label: Vandalism
+    npov-label: Neutral Point of View
+    clarify-label: Clarification
+    elaborate-label: Elaboration
+    copy-edit-label: Copy Editing
+    wikilink-label: Wikilink
+    inter-wikilink-label: Inter Wikilink
+    external-link-label: External Link
+    ref-label: Reference
+    cat-label: Category
+    heading-label: Heading
+    table-label: Table
+    image-label: Image
+    sentence-label: Sentence
+    word-label: Word
+    deletion-label: Deletion
+    insertion-label: Insertion
+    modification-label: Modification
+  it:
+    notes-label: Commenti
+    semantic-labels-label: Scegli un significato semantico
+    link-disambig-label: Collegamento disambiguazione
+    fact-update-label: Fatto Aggiornamento
+    formatting-label: Formattazione
+    verifiability-label: Verificabilità
+    cleanup-label: Pulire
+    vandalism-label: Atti vandalici
+    npov-label: Neutralità
+    clarify-label: Precisazione
+    elaborate-label: Elaborazione
+    copy-edit-label: Copy Editing
+    wikilink-label: Wikilink
+    inter-wikilink-label: Inter Wikilink
+    external-link-label: Link esterno
+    ref-label: Citazione
+    cat-label: Categoria
+    heading-label: Intestazione
+    table-label: Tavola
+    image-label: Immagine
+    sentence-label: Frase
+    word-label: Parola
+    deletion-label: Cancellazione
+    insertion-label: Inserimento
+    modification-label: Modifica

@@ -96,7 +96,6 @@
 				fieldset.addItems( [ field ] );
 			}
 		}
-
 		return new Form( fieldset, fieldMap );
 	};
 

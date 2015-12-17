@@ -8,17 +8,6 @@
 		}
 	};
 
-	OO.ui.getFieldsValues = function ( fieldMap ) {
-		var valueMap = {},
-			name;
-		for ( name in fieldMap ) {
-			if ( fieldMap.hasOwnProperty( name ) ) {
-				valueMap[ name ] = OO.ui.getWidgetValue( fieldMap[ name ] );
-			}
-		}
-		return valueMap;
-	};
-
 	OO.ui.instantiateFromParameters = function ( config, fieldMap ) {
 		var className = config[ 'class' ],
 			error, widget;
@@ -143,6 +132,12 @@
 			case OO.ui.ToggleButtonWidget:
 			case OO.ui.ToggleSwitchWidget:
 				return widget.getValue();
+			default:
+				if(widget.getData){
+					return widget.getValue();
+				}else{
+					return null;
+				}
 		}
 	};
 
@@ -194,7 +189,13 @@
 			case OO.ui.ToggleSwitchWidget:
 				widget.setValue(ifundef(value, ""));
 				break;
-		}
+			default:
+				if(widget.setValue){
+					return widget.setValue(value);
+				}else{
+					return null;
+				}
+			}
 	};
 
 } )( jQuery, OO );

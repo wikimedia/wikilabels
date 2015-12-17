@@ -38,18 +38,18 @@
   OO.ui.SemanticOperationsSelector.prototype.handleSemanticMeaningAdd = function(){
     var meaning = this.semanticMeanings.getData();
 
-    if ( meaning === undefined ) {
+    if ( !meaning ) {
       // TODO: consider alerting
-      throw "No meaning selected";
-    }else if ( this.semanticMap[meaning] !== undefined ){
-      throw "Meaning " + meaning + " already selected";
+      alert("No meaning selected");
+    }else if ( this.semanticMap[meaning.value] !== undefined ){
+      alert("Meaning " + meaning.label + " already selected");
     }else{
       var operationsSelector = new OO.ui.SyntacticOperationsSelector({
-        meaning: meaning,
+        meaning: meaning.label,
         objects: this.objects,
         actions: this.actions
       });
-      this.semanticMap[meaning] = operationsSelector;
+      this.semanticMap[meaning.value] = operationsSelector;
       this.$workspace.append(operationsSelector.$element);
       operationsSelector.on('close', this.handleCloseSelector.bind(this));
     }
@@ -58,7 +58,7 @@
   };
   OO.ui.SemanticOperationsSelector.prototype.handleCloseSelector = function(sos){
     //remove the select from semanticMap
-    delete this.semanticMap[sos.meaning];
+    delete this.semanticMap[sos.meaning.value];
   };
 
   /**
@@ -77,7 +77,7 @@
     for(var i=0; i < meanings.length; i++){
       var meaning = meanings[i];
       items.push(
-        new OO.ui.MenuOptionWidget({ data: meaning, label: meaning })
+        new OO.ui.MenuOptionWidget({ data: meaning, label: meaning.label })
       );
     }
 
@@ -102,7 +102,11 @@
     this.emit('add');
   };
   OO.ui.SemanticMeaningSelector.prototype.getData = function(){
-    return this.dropdown.getMenu().getSelectedItem().getData();
+    if( this.dropdown.getMenu().getSelectedItem() ){
+      return this.dropdown.getMenu().getSelectedItem().getData();
+    }else{
+      return null
+    }
   };
   OO.ui.SemanticMeaningSelector.prototype.reset = function(){
     this.dropdown.getMenu().selectItem(); // This should deselect and reset
@@ -151,8 +155,8 @@
       if( this.objectActionMap.hasOwnProperty( key ) ){
         soa = this.objectActionMap[key];
         values.push({
-          object: soa.object,
-          action: soa.action
+          object: soa.object.value,
+          action: soa.action.value
         });
       }
     }
@@ -162,7 +166,7 @@
     //check if we already have an instance of this object/action pair
     // if we don't, add it to the workspace
     var objectAction = this.objectActions.getData();
-    var key = objectAction.object + "-" + objectAction.action;
+    var key = objectAction.object.value + "-" + objectAction.action.value;
     if(this.objectActionMap[key] === undefined){
       var data = this.objectActions.getData();
       var soa = new OO.ui.SyntacticObjectAction({
@@ -179,7 +183,7 @@
   };
   OO.ui.SyntacticOperationsSelector.prototype.handleObjectActionClose = function(soa){
     //remove from objectActionMap
-    var key = soa.object + "-" + soa.action;
+    var key = soa.object.value + "-" + soa.action.value;
     delete this.objectActionMap[key];
   };
   OO.ui.SyntacticOperationsSelector.prototype.handleCloserClick = function(){
@@ -190,10 +194,10 @@
 
   OO.ui.ObjectActionSelector = function(opts){
     OO.ui.ObjectActionSelector.super.apply( this );
-    var objects = opts.objects;
-    var actions = opts.actions;
-    var objectItems = [];
-    var actionItems = [];
+    var objects = opts.objects,
+        actions = opts.actions,
+        objectItems = [],
+        actionItems = [];
 
     this.$element = $("<div>").addClass("object-action-selector");
 
@@ -201,7 +205,7 @@
     for(var i=0; i < objects.length; i++){
       var object = objects[i];
       objectItems.push(
-        new OO.ui.MenuOptionWidget({ data: object, label: object })
+        new OO.ui.MenuOptionWidget({ data: object, label: object.label })
       );
     }
 
@@ -216,7 +220,7 @@
     for(var j=0; j < actions.length; j++){
       var action = actions[j];
       actionItems.push(
-        new OO.ui.MenuOptionWidget({ data: action, label: action })
+        new OO.ui.MenuOptionWidget({ data: action, label: action.label })
       );
     }
 
@@ -254,9 +258,9 @@
 
     this.$element = $("<div>").addClass("object-action");
 
-    this.$object = $("<div>").addClass("object").text(this.object);
+    this.$object = $("<div>").addClass("object").text(this.object.label);
     this.$element.append(this.$object);
-    this.$action = $("<div>").addClass("action").text(this.action);
+    this.$action = $("<div>").addClass("action").text(this.action.label);
     this.$element.append(this.$action);
 
     this.closer = new OO.ui.ButtonWidget({

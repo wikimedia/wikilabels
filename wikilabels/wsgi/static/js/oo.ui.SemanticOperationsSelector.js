@@ -103,9 +103,11 @@
     // Menu elements
     for(var i=0; i < meanings.length; i++){
       var meaning = meanings[i];
+      var $label = $('<span>').attr('title', meaning.description);
       this.meaningData[meaning.value] = meaning;
       items.push(
-        new OO.ui.MenuOptionWidget({ data: meaning, label: meaning.label })
+        new OO.ui.MenuOptionWidget({ data: meaning, $label: $label,
+                                     label: meaning.label})
       );
     }
 
@@ -169,6 +171,8 @@
 
     this.$title = $("<div>").addClass("title").text(this.meaning.label);
     this.$element.append(this.$title);
+    this.$description = $("<div>").addClass("description").text(this.meaning.description);
+    this.$element.append(this.$description);
 
     this.operationSelector = new OO.ui.OperationSelector({
       objects: objects,
@@ -273,9 +277,11 @@
     this.objectMap = {};
     for(var i=0; i < objects.length; i++){
       var object = objects[i];
+      var $objectLabel = $('<span>').attr('title', object.description);
       this.objectMap[object.value] = object;
       objectItems.push(
-        new OO.ui.MenuOptionWidget({ data: object, label: object.label })
+        new OO.ui.MenuOptionWidget({ data: object, $label: $objectLabel,
+                                     label: object.label })
       );
     }
 
@@ -290,9 +296,11 @@
     this.actionMap = {};
     for(var j=0; j < actions.length; j++){
       var action = actions[j];
+      var $actionLabel = $('<span>').attr('title', action.description);
       this.actionMap[action.value] = action;
       actionItems.push(
-        new OO.ui.MenuOptionWidget({ data: action, label: action.label })
+        new OO.ui.MenuOptionWidget({ data: action, $label: $actionLabel,
+                                     label: action.label})
       );
     }
 
@@ -311,8 +319,6 @@
     } );
     this.$element.append(this.button.$element);
     this.button.on('click', this.handleButtonClick.bind(this));
-
-
 
   };
   OO.inheritClass( OO.ui.OperationSelector, OO.ui.Widget );

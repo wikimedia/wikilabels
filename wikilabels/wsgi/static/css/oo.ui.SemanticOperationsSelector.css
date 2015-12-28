@@ -37,6 +37,10 @@ div.syntactic-operations-selector > .title {
   text-align: center;
   font-size: 1.2em;
   font-weight: bold;
+}
+div.syntactic-operations-selector > .description {
+  text-align: center;
+  font-style: italic;
   margin-bottom: 1ex;
 }
 div.syntactic-operations-selector > .closer {

@@ -5,31 +5,54 @@ fields:
     name: "semantic_labels"
     meaningsLabel: "<semantic-labels-label>"
     meanings:
-      - {"label": "<link-disambig-label>", "value": "link-disambig"}
-      - {"label": "<fact-update-label>", "value": "fact-update"}
-      - {"label": "<formatting-label>", "value": "formatting"}
-      - {"label": "<verifiability-label>", "value": "verifiability"}
-      - {"label": "<cleanup-label>", "value": "cleanup"}
-      - {"label": "<vandalism-label>", "value": "vandalism"}
-      - {"label": "<npov-label>", "value": "npov"}
-      - {"label": "<clarify-label>", "value": "clarify"}
-      - {"label": "<elaborate-label>", "value": "elaborate"}
-      - {"label": "<copy-edit-label>", "value": "copy-edit"}
+      - {"label": "<link-disambig-label>", "value": "link-disambig",
+         "description": "Fixes a link to point to the right target."}
+      - {"label": "<fact-update-label>", "value": "fact-update",
+         "description": "Updates a fact with new information."}
+      - {"label": "<formatting-label>", "value": "formatting",
+         "description": "Improves formatting of the page."}
+      - {"label": "<verifiability-label>", "value": "verifiability",
+         "description": "Addresses verifiability issues in the article."}
+      - {"label": "<cleanup-label>", "value": "cleanup",
+         "description": "Removes unnecessary whitespace or other stuff."}
+      - {"label": "<vandalism-label>", "value": "vandalism",
+         "description": "Purposefully causes damage to the article."}
+      - {"label": "<npov-label>", "value": "npov",
+         "description": "Changes the point of view that the article text assumes."}
+      - {"label": "<clarify-label>", "value": "clarify",
+         "description": "Clarifies meaning."}
+      - {"label": "<elaborate-label>", "value": "elaborate",
+         "description": "Adds meaning"}
+      - {"label": "<copy-edit-label>", "value": "copy-edit",
+         "description": "Minor gramatical or spelling fixes."}
     objects:
-      - {"label": "<wikilink-label>", "value": "wikilink"}
-      - {"label": "<inter-wikilink-label>", "value": "inter-wikilink"}
-      - {"label": "<external-link-label>", "value": "external-link"}
-      - {"label": "<ref-label>", "value": "ref"}
-      - {"label": "<cat-label>", "value": "cat"}
-      - {"label": "<heading-label>", "value": "heading"}
-      - {"label": "<table-label>", "value": "table"}
-      - {"label": "<image-label>", "value": "image"}
-      - {"label": "<sentence-label>", "value": "sentence"}
-      - {"label": "<word-label>", "value": "word"}
+      - {"label": "<wikilink-label>", "value": "wikilink",
+         "description": "An internal link to the wiki"}
+      - {"label": "<inter-wikilink-label>", "value": "inter-wikilink",
+         "description": "A link that goes between wikis"}
+      - {"label": "<external-link-label>", "value": "external-link",
+         "description": "A link to an external URL"}
+      - {"label": "<ref-label>", "value": "ref",
+         "description": "A reference or some reference material"}
+      - {"label": "<cat-label>", "value": "cat",
+         "description": "A category link or template used to categorize."}
+      - {"label": "<heading-label>", "value": "heading",
+         "description": "A heading or sub-heading."}
+      - {"label": "<table-label>", "value": "table",
+         "description": "A table or table data"}
+      - {"label": "<image-label>", "value": "image",
+         "description": "An image or other media"}
+      - {"label": "<sentence-label>", "value": "sentence",
+         "description": "A sentence or larger chunk of meaningful text"}
+      - {"label": "<word-label>", "value": "word",
+         "description": "Word or short phrase"}
     actions:
-      - {"label": "<deletion-label>", "value": "deletion"}
-      - {"label": "<insertion-label>", "value": "insertion"}
-      - {"label": "<modification-label>", "value": "modification"}
+      - {"label": "<deletion-label>", "value": "deletion",
+         "description": "Removed from the page"}
+      - {"label": "<insertion-label>", "value": "insertion",
+         "description": "Inserted into the page"}
+      - {"label": "<modification-label>", "value": "modification",
+         "description": "Changed within the page"}
   - class: "FieldLayout"
     label: "<notes-label>"
     align: "top"

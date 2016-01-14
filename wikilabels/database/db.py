@@ -27,7 +27,6 @@ class DB:
         with self.transaction() as transactor:
             cursor = transactor.cursor()
             cursor.execute(sql)
-            self.conn.commit()
             return cursor
 
     @contextmanager

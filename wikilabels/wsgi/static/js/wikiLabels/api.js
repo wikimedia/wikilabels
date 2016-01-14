@@ -14,6 +14,9 @@
 
 		ajaxPromise.done(function (doc, status, jqXHR) {
 			if (!doc.error) {
+				if (doc.warnings) {
+					console.warn(doc.warnings);
+				}
 				deferred.resolve(doc);
 			} else {
 				console.error(doc.error);
@@ -75,11 +78,17 @@
 		return deferred.promise();
 	};
 	API.prototype.diffTo = function(revId, diffToId){
-		var deferred = $.Deferred();
+		var tableRows, deferred = $.Deferred();
+
 
 		this.getRevision(diffToId, {'rvdiffto': revId})
 			.done(function(doc){
-				deferred.resolve(doc['diff']['*'] || "");
+				if( doc['diff'] ){
+					tableRows = doc['diff']['*'];
+				}else{
+					tableRows = "";
+				}
+				deferred.resolve(tableRows);
 			}.bind(this))
 			.fail(function(doc){
 				deferred.fail(doc);

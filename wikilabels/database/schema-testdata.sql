@@ -9,7 +9,9 @@ INSERT INTO campaign VALUES
   (4, 'Draft notability', 'enwiki',
    'draft_notability', 'PageAsOfRevision', NOW(), 1, 10, True),
   (5, 'Draft notability (raw)', 'enwiki',
-   'draft_notability', 'ParsedWikitext', NOW(), 1, 10, True);
+   'draft_notability', 'ParsedWikitext', NOW(), 1, 10, True),
+  (6, 'Edit Quality -- 2014 10k nlwiki', 'nlwiki',
+   'damaging_and_goodfaith', 'DiffToPrevious', NOW(), 1, 10, True);
 
 
 TRUNCATE task CASCADE;
@@ -96,7 +98,13 @@ INSERT INTO task VALUES
   (81, 4, '{"rev_id": 41321136}'),
   (82, 4, '{"rev_id": 41500050}'),
   (83, 4, '{"rev_id": 41268947}'),
-  (84, 5, '{"wikitext": "{{:WP:Sandbox}}"}');
+  (84, 5, '{"wikitext": "{{:WP:Sandbox}}"}'),
+  (85, 6, '{"rev_id": 44832303}'),
+  (86, 6, '{"rev_id": 44711434}'),
+  (87, 6, '{"rev_id": 43712057}'),
+  (88, 6, '{"rev_id": 44395673}');
+
+
 
 TRUNCATE workset;
 INSERT INTO workset VALUES

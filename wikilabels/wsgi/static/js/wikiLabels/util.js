@@ -53,7 +53,7 @@
 			var url = mw.config.get('wgServer') +
 								mw.config.get('wgArticlePath').replace("$1", "?diff=" + revId);
 
-			return $("<a>").attr('href', url).text(label || revId);
+			return $("<a>").attr('target', '_blank').attr('href', url).text(label || revId);
 		},
 		pathJoin: function (/* path parts */) {
 			var args = Array.prototype.slice.call(arguments);

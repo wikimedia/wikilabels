@@ -42,6 +42,7 @@ div.syntactic-operations-selector > .description {
   text-align: center;
   font-style: italic;
   margin-bottom: 1ex;
+  max-width: 23em;
 }
 div.syntactic-operations-selector > .closer {
   position: absolute;

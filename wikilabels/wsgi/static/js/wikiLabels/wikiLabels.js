@@ -115,6 +115,24 @@
 					'\'$1\' not completed.  Submit anyway?': '\'$1\' belum selesai. Lanjut mengirimkan?',
 					'fullscreen': 'layar penuh'
 				},
+				it: {
+					'date-format': "%d-%m-%Y",
+					'Review': 'Valuta',
+					'Workset': 'Workset',
+					'Save': 'Salva',
+					'request workset': 'Richiesta workset',
+					'connect to server': 'Connessione al server',
+					'Campaigns': 'Campagne',
+					'Workset complete!': 'Workset completo!',
+					'Submit label': 'Invia etichetta',
+					'Request new workset': 'Richiedi un nuovo workset',
+					'Diff for revision $1': 'Differenze per la modifica $1',
+					'No difference': 'Nessuna differenza', // between revisions
+					'review': 'Valuta', // 'review' a workset
+					'open': 'Apri', // 'open' a workset
+					'\'$1\' not completed.  Submit anyway?': '\'$1\' non completo. Inviare comunque?',
+					'fullscreen': 'Schermo intero'
+				},
 				ja: {
 					'date-format': "%Y年%m月%d日",
 					'Review': 'レビュー',

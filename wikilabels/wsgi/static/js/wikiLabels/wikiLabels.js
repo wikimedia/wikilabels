@@ -240,6 +240,24 @@
 					'open': 'відкрити', // 'open' a workset
 					'\'$1\' not completed.  Submit anyway?': '\'$1\' не готовий.  Усе одно надіслати?',
 					'fullscreen': 'повний екран'
+				},
+				ur: {
+					'date_format': "%Y-%m-%d",
+					'Review': 'نظر ثانی',
+					'Workset': 'مجموعہ کار',
+					'Save': 'محفوظ کریں',
+					'request workset': 'درخواست مجموعہ کار',
+					'connect to server': 'سرور سے مربوط کریں',
+					'Campaigns': 'مہمات',
+					'Workset complete!': 'مجموعہ کار مکمل!',
+					'Submit label': 'لیبل روانہ کریں',
+					'Request new workset': 'درخواست جدید مجموعہ کار',
+					'Diff for revision $1': 'تبدیلیاں برائے اعادہ $1',
+					'No difference': 'کوئی تبدیلی نہیں',
+					'review': 'نظر ثانی',
+					'open': 'کھولیں',
+					'\'$1\' not completed. Submit anyway?	\'$1\'': 'نامکمل۔ واقعی روانہ کریں؟',
+					'fullscreen': 'مکمل سکرین'
 				}
 			}
 		}

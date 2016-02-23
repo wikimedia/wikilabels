@@ -169,6 +169,24 @@
 					'\'$1\' not completed.  Submit anyway?': '\'$1\' niet voltooid.  Toch verzenden?',
 					'fullscreen': 'fullscreen'
 				},
+				pl: {
+					'date-format': "%Y-%m-%d",
+					'Review': 'Przejrzyj',
+					'Workset': 'Zestaw danych',
+					'Save': 'Zapisz',
+					'request workset': 'Pobierz zestaw danych',
+					'connect to server': 'podłącz się do serwera',
+					'Campaigns': 'Osiągnięcia',
+					'Workset complete!': 'Ukończono prace nad zestawem danych!',
+					'Submit label': 'Prześlij metkę',
+					'Request new workset': 'Pobierz nowy zestaw danych',
+					'Diff for revision $1': 'Diff dla edycji $1',
+					'No difference': 'Brak różnic', // between revisions
+					'review': 'przejrzyj', // 'review' a workset
+					'open': 'otwórz', // 'open' a workset
+					'\'$1\' not completed.  Submit anyway?': 'Nie zakończono prac nad \'$1\'. Przesłać mimo to?',
+					'fullscreen': 'pełny ekran'
+				},
 				pt: {
 					'date-format': "%d-%m-%Y",
 					'Review': 'Revisar',

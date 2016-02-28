@@ -151,6 +151,24 @@
 					'\'$1\' not completed.  Submit anyway?': '\'$1\'は完了してません。本当に送信しますか？',
 					'fullscreen': '全画面'
 				},
+				khw: {
+					'date-format': "%Y-%m-%d",
+					'Review': 'نظر ثانی',
+					'Workset': 'مجموعہ کار',
+					'Save': 'محفوظ کورے',
+					'request workset': 'درخواست مجموعہ کار',
+					'connect to server': 'سرورو سم کنیکٹ کورے',
+					'Campaigns': 'مہمات',
+					'Workset complete!': 'مجموعہ کار مکمل!',
+					'Submit label': 'لیبل روانہ کورے',
+					'Request new workset': 'درخواست جدید مجموعہ کار',
+					'Diff for revision $1': 'تبدیلیاں برائے اعادہ $1',
+					'No difference': 'کیہ تبدیلی نیکی',
+					'review': 'نظر ثانی',
+					'open': 'کھولاو کورے',
+					'\'$1\' not completed. Submit anyway?': '\'$1\' نامکمل۔ واقعی روانہ کورے؟',
+					'fullscreen': 'مکمل سکرین'
+				},
 				nl: {
 					'date-format': "%d-%m-%Y",
 					'Review': 'Beoordelen',
@@ -168,6 +186,24 @@
 					'open': 'openen', // 'open' a workset
 					'\'$1\' not completed.  Submit anyway?': '\'$1\' niet voltooid.  Toch verzenden?',
 					'fullscreen': 'fullscreen'
+				},
+				no: {
+					'date-format': "%Y-%m-%d",
+					'Review': 'Vurdering',
+					'Workset': 'Arbeidssett',
+					'Save': 'Lagre',
+					'request workset': 'be om arbeidssett',
+					'connect to server': 'koble til tjener',
+					'Campaigns': 'Kampanje',
+					'Workset complete!': 'Ferdigstil arbeidssett!',
+					'Submit label': 'Lagre etikett',
+					'Request new workset': 'Be om nytt arbeidssett',
+					'Diff for revision $1': 'Forskjell for revisjon $1',
+					'No difference': 'Ingen forskjell',
+					'review': 'vurdering',
+					'open': 'åpen',
+					'\'$1\' not completed. Submit anyway?': '\'$1\' er ikke ferdigstilt. Lagre likevel?',
+					'fullscreen': 'fullskjerm'
 				},
 				pl: {
 					'date-format': "%Y-%m-%d",
@@ -276,6 +312,60 @@
 					'open': 'کھولیں',
 					'\'$1\' not completed. Submit anyway?	\'$1\'': 'نامکمل۔ واقعی روانہ کریں؟',
 					'fullscreen': 'مکمل سکرین'
+				},
+				vi: {
+					'date-format': "%Y-%m-%d",
+					'Review': 'Kiểm tra lại',
+					'Workset': 'Gói công việc',
+					'Save': 'Lưu lại',
+					'request workset': 'yêu cầu gói công việc',
+					'connect to server': 'kết nối tới máy chủ',
+					'Campaigns': 'Chiến dịch',
+					'Workset complete!': 'Gói công việc đã hoàn tất!',
+					'Submit label': 'Gửi nhãn',
+					'Request new workset': 'Yêu cầu gói công việc mới',
+					'Diff for revision $1': 'Khác biệt của phiên bản $1',
+					'No difference': 'Không có sự khác biệt',
+					'review': 'kiểm tra lại',
+					'open': 'mở',
+					'\'$1\' not completed. Submit anyway?': '\'$1\' chưa hoàn tất. Bạn vẫn muốn gửi đi?',
+					'fullscreen': 'toàn màn hình'
+				},
+				'zh-hant': {
+					'date-format': "%Y-%m-%d",
+					'Review': '檢閱',
+					'Workset': '工作集',
+					'Save': '儲存',
+					'request workset': '要求工作集',
+					'connect to server': '連線至伺服器',
+					'Campaigns': 'Campaigns',
+					'Workset complete!': '工作集已完成！',
+					'Submit label': '送出標籤',
+					'Request new workset': '要求新工作集',
+					'Diff for revision $1': '版本$1的差異',
+					'No difference': '无差異',
+					'review': '檢閱',
+					'open': '開啟',
+					'\'$1\' not completed. Submit anyway?': '\'$1\' 未完成。確定送出？',
+					'fullscreen': '全螢幕'
+				},
+				'zh-hans': {
+					'date-format': "%Y-%m-%d",
+					'Review': '复核',
+					'Workset': '工作集',
+					'Save': '保存',
+					'request workset': '请求工作集',
+					'connect to server': '连接至服务器',
+					'Campaigns': '作战',
+					'Workset complete!': '工作集已完成！',
+					'Submit label': '提交标签',
+					'Request new workset': '请求新工作集',
+					'Diff for revision $1': '版本$1的差异',
+					'No difference': '无差异',
+					'review': '复核',
+					'open': '开启',
+					'\'$1\' not completed. Submit anyway?': '\'$1\' 未完成。确认提交？',
+					'fullscreen': '全屏'
 				}
 			}
 		}

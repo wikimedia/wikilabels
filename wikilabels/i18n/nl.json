@@ -1,0 +1,18 @@
+{
+    "'$1' not completed.  Submit anyway?": "'$1' niet voltooid.  Toch verzenden?",
+    "Campaigns": "Campagnes",
+    "Diff for revision $1": "Verschil voor bewerking $1",
+    "No difference": "Geen verschil",
+    "Request new workset": "Nieuwe werkset opvragen",
+    "Review": "Beoordelen",
+    "Save": "Opslaan",
+    "Submit label": "Label verzenden",
+    "Workset": "Werkset",
+    "Workset complete!": "Werkset voltooid!",
+    "connect to server": "verbinden met server",
+    "date-format": "%d-%m-%Y",
+    "fullscreen": "fullscreen",
+    "open": "openen",
+    "request workset": "werkset opvragen",
+    "review": "beoordelen"
+}

@@ -1,0 +1,18 @@
+{
+    "'$1' not completed.  Submit anyway?": "'$1' לא הושלם.  לשלוח בכל מקרה?",
+    "Campaigns": "מבצעים",
+    "Diff for revision $1": "הבדל גרסאות עבור $1",
+    "No difference": "אין הבדל",
+    "Request new workset": "בקשת רשימה טיפול חדשה",
+    "Review": "סקירה",
+    "Save": "שמירה",
+    "Submit label": "שליחת סיווג",
+    "Workset": "רשימת טיפול",
+    "Workset complete!": "רשימת הטיפול הושלמה!",
+    "connect to server": "התחברות לשרת",
+    "date-format": "%Y-%m-%d",
+    "fullscreen": "מסך מלא",
+    "open": "פתיחה",
+    "request workset": "בקשת רשימה לטיפול",
+    "review": "סקירה"
+}

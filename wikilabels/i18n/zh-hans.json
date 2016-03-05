@@ -1,0 +1,18 @@
+{
+    "'$1' not completed. Submit anyway?": "'$1' 未完成。确认提交？",
+    "Campaigns": "作战",
+    "Diff for revision $1": "版本$1的差异",
+    "No difference": "无差异",
+    "Request new workset": "请求新工作集",
+    "Review": "复核",
+    "Save": "保存",
+    "Submit label": "提交标签",
+    "Workset": "工作集",
+    "Workset complete!": "工作集已完成！",
+    "connect to server": "连接至服务器",
+    "date-format": "%Y-%m-%d",
+    "fullscreen": "全屏",
+    "open": "开启",
+    "request workset": "请求工作集",
+    "review": "复核"
+}

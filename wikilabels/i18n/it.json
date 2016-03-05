@@ -1,0 +1,18 @@
+{
+    "'$1' not completed.  Submit anyway?": "'$1' non completo. Inviare comunque?",
+    "Campaigns": "Campagne",
+    "Diff for revision $1": "Differenze per la modifica $1",
+    "No difference": "Nessuna differenza",
+    "Request new workset": "Richiedi un nuovo workset",
+    "Review": "Valuta",
+    "Save": "Salva",
+    "Submit label": "Invia etichetta",
+    "Workset": "Workset",
+    "Workset complete!": "Workset completo!",
+    "connect to server": "Connessione al server",
+    "date-format": "%d-%m-%Y",
+    "fullscreen": "Schermo intero",
+    "open": "Apri",
+    "request workset": "Richiesta workset",
+    "review": "Valuta"
+}

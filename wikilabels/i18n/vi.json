@@ -1,0 +1,18 @@
+{
+    "'$1' not completed. Submit anyway?": "'$1' chưa hoàn tất. Bạn vẫn muốn gửi đi?",
+    "Campaigns": "Chiến dịch",
+    "Diff for revision $1": "Khác biệt của phiên bản $1",
+    "No difference": "Không có sự khác biệt",
+    "Request new workset": "Yêu cầu gói công việc mới",
+    "Review": "Kiểm tra lại",
+    "Save": "Lưu lại",
+    "Submit label": "Gửi nhãn",
+    "Workset": "Gói công việc",
+    "Workset complete!": "Gói công việc đã hoàn tất!",
+    "connect to server": "kết nối tới máy chủ",
+    "date-format": "%Y-%m-%d",
+    "fullscreen": "toàn màn hình",
+    "open": "mở",
+    "request workset": "yêu cầu gói công việc",
+    "review": "kiểm tra lại"
+}

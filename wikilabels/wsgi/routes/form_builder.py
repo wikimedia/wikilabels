@@ -18,6 +18,7 @@ LOCAL_LIBS = (TOOLS_CDN + "js-yaml/3.3.0/js-yaml.js",
 JS = ("js/oo.util.js",
       "js/oo.ui.SemanticOperationsSelector.js",
       "js/wikiLabels/wikiLabels.js",
+      "js/wikiLabels/wikiLabels.messages.js"
       "js/wikiLabels/i18n.js",
       "js/wikiLabels/util.js",
       "js/wikiLabels/Form.js",

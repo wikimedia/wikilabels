@@ -4,7 +4,7 @@ from flask import Response, render_template, request, send_from_directory
 from ..util import (build_script_tags, build_style_tags, read_cat,
                     read_javascript)
 
-TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
+TOOLS_CDN = "https://tools-static.wmflabs.org/cdnjs/ajax/libs/"
 
 MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
                   TOOLS_CDN + "jquery/2.1.3/jquery.js",

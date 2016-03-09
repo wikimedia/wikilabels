@@ -1,4 +1,6 @@
+import json
 import os
+from collections import OrderedDict
 from functools import lru_cache, wraps
 from itertools import chain
 
@@ -76,6 +78,7 @@ def url_for(path, config):
                             config['wsgi']['application_root'],
                             path)
 
+
 def path_join(*path_parts):
     path_parts = [path for path in path_parts if len(path) > 0]
     if len(path_parts) == 0:
@@ -86,3 +89,27 @@ def path_join(*path_parts):
         return "/".join(chain([path_parts[0].rstrip("/")],
                               (path.strip("/") for path in path_parts[1:-1]),
                               [path_parts[-1].lstrip("/")]))
+
+
+def get_i18n_dir():
+    path = os.path.abspath(__file__)
+    path = os.path.dirname(path)
+    path = os.path.join(path, '../i18n/')
+    return path
+
+
+def i18n_dict():
+    i18n_dir = get_i18n_dir()
+    i18n = {}
+    for lang_file in os.listdir(i18n_dir):
+        f = open(os.path.join(i18n_dir, lang_file), 'r')
+        lang_i18n = json.load(f)
+        i18n[lang_file[:-5]] = OrderedDict(
+            sorted(lang_i18n.items(), key=lambda t: t[0]))
+
+    i18n = OrderedDict(sorted(i18n.items(), key=lambda t: t[0]))
+    return i18n
+
+def pretty_json(data):
+    return json.dumps(data, ensure_ascii=False, sort_keys=True,
+                      separators=(',', ': '), indent=8)

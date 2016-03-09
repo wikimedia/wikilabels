@@ -39,6 +39,11 @@ def configure(bp, config):
     def form_builder():
         script_tags = build_script_tags(MEDIAWIKI_LIBS + LOCAL_LIBS + JS,
                                         config)
+        # A nasty hack to use i18n messages
+        script_tags = script_tags.replace(
+            'static/js/wikiLabels/wikiLabels.messages.js',
+            'gadget/WikiLabels.messages.js')
+
         style_tags = build_style_tags(MEDIAWIKI_STYLES + LOCAL_STYLES + CSS,
                                       config)
         return render_template("form_builder.html",

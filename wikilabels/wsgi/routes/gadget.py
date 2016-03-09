@@ -1,8 +1,9 @@
 from flask import (Response, render_template, render_template_string, request,
                    send_from_directory)
 
-from ..util import (build_script_tags, build_style_tags, read_cat,
-                    read_javascript, url_for)
+from ..util import (build_script_tags, build_style_tags, i18n_dict,
+                    pretty_json, read_cat, read_javascript, static_file_path,
+                    url_for)
 
 TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
 
@@ -47,6 +48,11 @@ def configure(bp, config):
     def gadget():
         script_tags = build_script_tags(MEDIAWIKI_LIBS + LOCAL_LIBS + JS,
                                         config)
+
+        # A nasty hack to use i18n messages
+        script_tags = script_tags.replace(
+            'static/js/wikiLabels/wikiLabels.messages.js',
+            'gadget/WikiLabels.messages.js')
         style_tags = build_style_tags(MEDIAWIKI_STYLES + LOCAL_STYLES + CSS,
                                       config)
         return render_template("gadget.html",
@@ -66,6 +72,12 @@ def configure(bp, config):
 
         return Response(read_javascript(LOCAL_LIBS + JS, minify),
                         mimetype="application/javascript")
+
+    @bp.route("/gadget/WikiLabels.messages.js")
+    def gadget_i18n():
+        i18n_str = pretty_json(i18n_dict())
+        js = render_template("wikiLabels.messages.js", i18n=i18n_str)
+        return Response(js, mimetype="application/javascript")
 
     @bp.route("/gadget/loader.js")
     def gadget_loader():

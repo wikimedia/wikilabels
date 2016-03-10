@@ -77,7 +77,7 @@
 
 			for (i = 0; i < langChain.length; i++) {
 				lang = langChain[i];
-				if (config.i18n[lang] && config.i18n[lang][key]) {
+				if (config.i18n && config.i18n[lang] && config.i18n[lang][key]) {
 					return config.i18n[lang][key];
 				}
 			}

@@ -51,23 +51,3 @@ fields:
         - class: "RadioOptionWidget"
           data: true
           label: "<notable-no-label>"
-      
-    
-i18n:
-  en:
-    form-title: Notability
-    damaging-label: "Damaging?"
-    damaging-true-label: "yes"
-    damaging-false-label: "no"
-    person-choice-label: "People"
-    event-choice-label: "Events"
-    film-choice-label: "Films"
-    book-choice-label: "Books"
-    org-choice-label: "Organizations and companies"
-    music-choice-label: "Music"
-    web-choice-label: "Web content"
-    other-choice-label: "Other"
-    guideline-choice-label: "Which of the following notability guidelines (if any) does this article topic fall under?"
-    notable-switch: "Is the topic notable under this guideline?"
-    notable-yes-label: "yes"
-    notable-no-label: "no"

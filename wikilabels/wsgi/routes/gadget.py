@@ -1,8 +1,9 @@
 from flask import (Response, render_template, render_template_string, request,
                    send_from_directory)
 
-from ..util import (build_script_tags, build_style_tags, read_cat,
-                    read_javascript, url_for)
+from ..util import (app_path, build_script_tags, build_style_tags, i18n_dict,
+                    minify_js, pretty_json, read_cat, static_file_path,
+                    url_for)
 
 TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
 
@@ -40,12 +41,16 @@ CSS = ("css/oo.ui.SemanticOperationsSelector.css",
        "css/home.css",
        "css/views.css")
 
-def configure(bp, config):
 
+def configure(bp, config):
     @bp.route("/gadget/")
     def gadget():
         script_tags = build_script_tags(MEDIAWIKI_LIBS + LOCAL_LIBS + JS,
                                         config)
+        script_tags += '<script src="{0}"></script>' \
+                       .format(app_path('/gadget/WikiLabels.messages.js',
+                                        config))
+
         style_tags = build_style_tags(MEDIAWIKI_STYLES + LOCAL_STYLES + CSS,
                                       config)
         return render_template("gadget.html",
@@ -60,11 +65,20 @@ def configure(bp, config):
 
     @bp.route("/gadget/WikiLabels.js")
     def gadget_application():
+        i18n_str = pretty_json(i18n_dict())
+        response_text = read_cat(JS) + \
+            render_template("wikiLabels.messages.js", i18n=i18n_str)
 
-        minify = 'minify' in request.args
+        if 'minify' in request.args:
+            response_text = minify_js(response_text)
 
-        return Response(read_javascript(LOCAL_LIBS + JS, minify),
-                        mimetype="application/javascript")
+        return Response(response_text, mimetype="application/javascript")
+
+    @bp.route("/gadget/WikiLabels.messages.js")
+    def gadget_messages():
+        i18n_str = pretty_json(i18n_dict())
+        js = render_template("wikiLabels.messages.js", i18n=i18n_str)
+        return Response(js, mimetype="application/javascript")
 
     @bp.route("/gadget/loader.js")
     def gadget_loader():

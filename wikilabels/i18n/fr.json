@@ -1,0 +1,18 @@
+{
+    "'$1' not completed.  Submit anyway?": "'$1' incomplet.  Soumettre quand même ?",
+    "Campaigns": "Campagnes",
+    "Diff for revision $1": "Différence pour la révision $1",
+    "No difference": "Aucune différence",
+    "Request new workset": "Demander un nouvel ensemble de données",
+    "Review": "Relecture",
+    "Save": "Sauvegarder",
+    "Submit label": "Soumettre l'étiquette",
+    "Workset": "Ensemble de données",
+    "Workset complete!": "Ensemble de données terminé !",
+    "connect to server": "Connecter au serveur",
+    "date-format": "%d-%m-%Y",
+    "fullscreen": "Plein écran",
+    "open": "Ouvrir",
+    "request workset": "Demander l'ensemble de données",
+    "review": "Relecture"
+}

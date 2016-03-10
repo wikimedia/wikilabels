@@ -22,11 +22,19 @@ def configure(config):
     db = DB.from_config(config)
 
     form_directory = config['wikilabels']['form_directory']
+    form_i18n_directory = config['wikilabels']['form_i18n_directory']
     form_filenames = (os.path.join(form_directory, fn)
                       for fn in os.listdir(form_directory))
-    form_map = {d['name']: d for d in
-                (yaml.load(open(fn)) for fn in form_filenames)}
-
+    form_map = {}
+    for fn in form_filenames:
+        form_name = os.path.splitext(os.path.basename(fn))[0]
+        form_map[form_name] = yaml.load(open(fn))
+    for form_name in form_map:
+        i18n_dir = os.path.join(form_i18n_directory, form_name)
+        form_map[form_name]['i18n'] = (
+            {lang[:-5]: json.load(open(os.path.join(i18n_dir, lang)))
+                for lang in os.listdir(i18n_dir)}
+        )
     app = sessions.configure(app)
 
     oauth_config = yaml.load(open(config['oauth']['creds']))

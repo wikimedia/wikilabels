@@ -118,7 +118,6 @@
 
 		// Cache form
 		this.config = config;
-
 		// Load languages into language selector
 		for ( lang in config.i18n ) {
 			if ( config.i18n.hasOwnProperty( lang ) ) {
@@ -126,8 +125,7 @@
 			}
 		}
 		this.languageSelector.load( langs );
-
-		this.languageSelector.selectLang( langs[0] );
+		this.languageSelector.selectLang( langs[0] || null );
 	};
 	FormPreview.prototype.getLabelData = function () {
 		if ( this.form ) {
@@ -172,8 +170,12 @@
 		this.dropdown.getMenu().addItems( items );
 	};
 	LanguageSelector.prototype.selectLang = function ( lang ) {
-		var menu = this.dropdown.getMenu();
-		menu.selectItem( this.dropdown.getMenu().getItemFromData( lang ) );
+		if( lang !== null ) {
+			var menu = this.dropdown.getMenu();
+			menu.selectItem( this.dropdown.getMenu().getItemFromData( lang ) );
+		}else{
+			this.select.fire( null );
+		}
 	};
 
 	WL.FormBuilder = FormBuilder;

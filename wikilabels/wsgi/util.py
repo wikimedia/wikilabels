@@ -49,18 +49,21 @@ def read_javascript(static_paths, minify=False):
     else:
         return read_cat(static_paths)
 
+def minify_js(js_text):
+    return uglipyjs.compile(js_text)
+
 @lru_cache(128)
 def read_cat(static_paths):
     return "".join(open(static_file_path(path)).read()
                    for path in static_paths)
 
 def build_script_tags(static_paths, config):
-    return "".join('<script src="{0}"></script>'\
+    return "".join('<script src="{0}"></script>'
                    .format(static_path(path, config))
                    for path in static_paths)
 
 def build_style_tags(static_paths, config):
-    return "".join('<link rel="stylesheet" type="text/css" href="{0}" />'\
+    return "".join('<link rel="stylesheet" type="text/css" href="{0}" />'
                    .format(static_path(path, config))
                    for path in static_paths)
 

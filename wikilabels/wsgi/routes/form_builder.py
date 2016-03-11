@@ -1,8 +1,6 @@
-import uglipyjs
-from flask import Response, render_template, request, send_from_directory
+from flask import render_template, send_from_directory
 
-from ..util import (build_script_tags, build_style_tags, read_cat,
-                    read_javascript)
+from ..util import build_script_tags, build_style_tags, static_file_path
 
 TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
 
@@ -32,8 +30,8 @@ CSS = ("css/oo.ui.SemanticOperationsSelector.css",
        "css/form.css",
        "css/workspace.css")
 
-def configure(bp, config):
 
+def configure(bp, config):
 
     @bp.route("/form_builder/")
     def form_builder():
@@ -49,20 +47,6 @@ def configure(bp, config):
         return render_template("form_builder.html",
                                script_tags=script_tags,
                                style_tags=style_tags)
-
-
-    @bp.route("/form_builder/FormBuiler.css")
-    def form_builder_style():
-        return Response(read_cat(LOCAL_STYLES + CSS),
-                        mimetype="text/css")
-
-    @bp.route("/form_builder/FormBuilder.js")
-    def form_builder_application():
-
-        minify = 'minify' in request.args
-
-        return Response(read_javascript(LOCAL_LIBS + JS, minify),
-                        mimetype="application/javascript")
 
     @bp.route("/form_builder/themes/<path:path>")
     def form_builder_themes(path):

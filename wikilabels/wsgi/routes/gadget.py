@@ -66,7 +66,7 @@ def configure(bp, config):
     @bp.route("/gadget/WikiLabels.js")
     def gadget_application():
         i18n_str = pretty_json(i18n_dict())
-        response_text = read_cat(JS) + \
+        response_text = read_cat(LOCAL_LIBS + JS) + \
             render_template("wikiLabels.messages.js", i18n=i18n_str)
 
         if 'minify' in request.args:

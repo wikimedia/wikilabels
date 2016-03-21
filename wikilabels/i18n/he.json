@@ -1,6 +1,10 @@
 {
-	"@metadata": [],
-	"'$1' not completed.  Submit anyway?": "'$1' לא הושלם.  לשלוח בכל מקרה?",
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "'$1' לא הושלם. לשלוח בכל מקרה?",
 	"Campaigns": "מבצעים",
 	"Diff for revision $1": "הבדל גרסאות עבור $1",
 	"No difference": "אין הבדל",

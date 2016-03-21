@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "„$1“ не е довршено. Сепак да поднесам?",
+	"Campaigns": "Походи",
+	"Diff for revision $1": "Разлика за прераб. $1",
+	"No difference": "Нема разлика",
+	"Request new workset": "Побарај нов збир задачи",
+	"Review": "Провери",
+	"Save": "Зачувај",
+	"Submit label": "Поднеси натпис",
+	"Workset": "Збир задачи",
+	"Workset complete!": "Збирот задачи е завршен!",
+	"connect to server": "поврзи се со опслужувачот",
+	"date-format": "%Y-%m-%d",
+	"fullscreen": "цел екран",
+	"open": "отвори",
+	"request workset": "побарај збир задачи",
+	"review": "провери"
+}

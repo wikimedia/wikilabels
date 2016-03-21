@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aftabuzzaman"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "'$1' সম্পূর্ণ করা হয়নি। যাইহোক জমা দিবেন?",
+	"Campaigns": "প্রচারাভিযান",
+	"Diff for revision $1": "$1 সংস্করণের জন্য পার্থক্য",
+	"No difference": "কোন পার্থক্য নেই",
+	"Request new workset": "নতুন কাজের সেটের অনুরোধ করুন",
+	"Review": "পর্যালোচনা",
+	"Save": "সংরক্ষণ",
+	"Submit label": "লেভেল জমা দিন",
+	"Workset": "কাজের সেট",
+	"Workset complete!": "কাজের সেট সম্পূর্ণ!",
+	"connect to server": "সার্ভারের সাথে সংযোগ করুন",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "পূর্ণপর্দা",
+	"open": "খুলুন",
+	"request workset": "কাজের সেটের অনুরোধ করুন",
+	"review": "পর্যালোচনা"
+}

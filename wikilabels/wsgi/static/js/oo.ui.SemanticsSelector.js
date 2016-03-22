@@ -37,6 +37,7 @@
     return valueList;
   };
   OO.ui.SemanticsSelector.prototype.setValue = function(meanings){
+    meanings = meanings || []
     var meaningValue, sm;
     this.clear();
     for(var i=0; i < meanings.length; i++){

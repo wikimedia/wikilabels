@@ -17,6 +17,7 @@ LOCAL_LIBS = ("lib/date-format/date-format.js",
               "lib/strftime/strftime.js")
 JS = ("js/oo.util.js",
       "js/oo.ui.SemanticOperationsSelector.js",
+      "js/oo.ui.SemanticsSelector.js",
       "js/wikiLabels/wikiLabels.js",
       "js/wikiLabels/api.js",
       "js/wikiLabels/config.js",
@@ -35,6 +36,7 @@ MEDIAWIKI_STYLES = ("lib/mediaWiki/enwiki.vector.css",
                     "lib/oojs-ui/oojs-ui-mediawiki.css")
 LOCAL_STYLES = tuple()
 CSS = ("css/oo.ui.SemanticOperationsSelector.css",
+       "css/oo.ui.SemanticsSelector.css",
        "css/wikiLabels.css",
        "css/form.css",
        "css/workspace.css",

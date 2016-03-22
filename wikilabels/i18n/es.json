@@ -1,18 +1,23 @@
 {
-    "'$1' not completed.  Submit anyway?": "'$1' incompleto.  ¿Entrar de todas formas?",
-    "Campaigns": "Campañas",
-    "Diff for revision $1": "Revisar diferencia $1",
-    "No difference": "No hay diferencia",
-    "Request new workset": "Solicitar nuevo grupo de tareas",
-    "Review": "Revisar",
-    "Save": "Guardar",
-    "Submit label": "Entrar etiqueta",
-    "Workset": "Grupo",
-    "Workset complete!": "¡Grupo de tareas finalizado!",
-    "connect to server": "Conectar al servidor",
-    "date-format": "%d-%m-%Y",
-    "fullscreen": "Pantalla completa",
-    "open": "abrir",
-    "request workset": "Solicitar grupo de tareas",
-    "review": "revisar"
+	"@metadata": {
+		"authors": [
+			"Macofe"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "'$1' incompleto.  ¿Entrar de todas formas?",
+	"Campaigns": "Campañas",
+	"Diff for revision $1": "Revisar diferencia $1",
+	"No difference": "No hay diferencia",
+	"Request new workset": "Solicitar nuevo grupo de tareas",
+	"Review": "Revisar",
+	"Save": "Guardar",
+	"Submit label": "Enviar etiqueta",
+	"Workset": "Grupo",
+	"Workset complete!": "¡Grupo de tareas finalizado!",
+	"connect to server": "Conectar al servidor",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "Pantalla completa",
+	"open": "abrir",
+	"request workset": "Solicitar grupo de tareas",
+	"review": "Revisar"
 }

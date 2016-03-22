@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"WikiPhoenix"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "'$1' är inte slutförd. Skicka ändå?",
+	"Campaigns": "Kampanjer",
+	"No difference": "Ingen skillnad",
+	"Review": "Granska",
+	"Save": "Spara",
+	"Submit label": "Skicka etikett",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "helskärm",
+	"open": "öppna",
+	"review": "granska"
+}

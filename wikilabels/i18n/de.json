@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Metalhead64"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "„$1“ ist nicht vollständig. Trotzdem übermitteln?",
+	"Campaigns": "Kampagnen",
+	"Diff for revision $1": "Unterschied für die Version $1",
+	"No difference": "Kein Unterschied",
+	"Request new workset": "Neuen Arbeitssatz anfordern",
+	"Review": "Überprüfen",
+	"Save": "Speichern",
+	"Submit label": "Bezeichnung übermitteln",
+	"Workset": "Arbeitssatz",
+	"Workset complete!": "Arbeitssatz vollständig!",
+	"connect to server": "Verbinde zum Server",
+	"date-format": "%Y-%m-%d",
+	"fullscreen": "Vollbild",
+	"open": "offen",
+	"request workset": "Arbeitssatz anfordern",
+	"review": "überprüfen"
+}

@@ -240,6 +240,7 @@
   OO.ui.SyntacticOperationsSelector.prototype.addOperation = function(operation){
     //check if we already have an instance of this object/action pair
     // if we don't, add it to the workspace
+    if( !operation ) { return; }
     var key = operation.object.value + "-" + operation.action.value;
     if(this.operationMap[key] === undefined){
       var sop = new OO.ui.SyntacticOperation({

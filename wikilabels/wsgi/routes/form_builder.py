@@ -1,6 +1,7 @@
 from flask import render_template, send_from_directory
 
-from ..util import build_script_tags, build_style_tags, static_file_path
+from ..util import (app_path, build_script_tags, build_style_tags,
+                    static_file_path)
 
 TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
 
@@ -15,8 +16,8 @@ LOCAL_LIBS = (TOOLS_CDN + "js-yaml/3.3.0/js-yaml.js",
               TOOLS_CDN + "codemirror/5.2.0/mode/yaml/yaml.js")
 JS = ("js/oo.util.js",
       "js/oo.ui.SemanticOperationsSelector.js",
+      "js/oo.ui.SemanticsSelector.js",
       "js/wikiLabels/wikiLabels.js",
-      "js/wikiLabels/wikiLabels.messages.js"
       "js/wikiLabels/i18n.js",
       "js/wikiLabels/util.js",
       "js/wikiLabels/Form.js",
@@ -25,6 +26,7 @@ JS = ("js/oo.util.js",
 MEDIAWIKI_STYLES = ("lib/oojs-ui/oojs-ui-mediawiki.css",)
 LOCAL_STYLES = (TOOLS_CDN + "codemirror/5.2.0/codemirror.css",)
 CSS = ("css/oo.ui.SemanticOperationsSelector.css",
+       "css/oo.ui.SemanticsSelector.css",
        "css/wikiLabels.css",
        "css/form_builder.css",
        "css/form.css",
@@ -37,10 +39,10 @@ def configure(bp, config):
     def form_builder():
         script_tags = build_script_tags(MEDIAWIKI_LIBS + LOCAL_LIBS + JS,
                                         config)
-        # A nasty hack to use i18n messages
-        script_tags = script_tags.replace(
-            'static/js/wikiLabels/wikiLabels.messages.js',
-            'gadget/WikiLabels.messages.js')
+
+        script_tags += '<script src="{0}"></script>' \
+                       .format(app_path('/gadget/WikiLabels.messages.js',
+                                        config))
 
         style_tags = build_style_tags(MEDIAWIKI_STYLES + LOCAL_STYLES + CSS,
                                       config)

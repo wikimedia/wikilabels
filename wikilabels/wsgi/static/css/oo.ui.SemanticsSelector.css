@@ -1,0 +1,55 @@
+body {
+  min-height: 20em;
+}
+
+div.semantics-selector {
+}
+div.semantics-selector span.oo-ui-dropdownWidget-handle {
+  background: #fff;
+}
+
+div.semantic-meaning-selector {
+  white-space: nowrap;
+  text-align: center;
+}
+div.semantic-meaning-selector > .meanings {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  width: 20em;
+}
+div.semantic-meaning-selector > .add {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+}
+
+div.semantic-meaning {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid silver;
+  padding: 1em;
+  margin: 2ex 2ex 2ex;
+}
+div.semantic-meaning > .title {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-right: 1.75em;
+}
+div.semantic-meaning > .description {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 1ex;
+  max-width: 23em;
+}
+div.semantic-meaning > .closer {
+  position: absolute;
+  top: 0.75em;
+  right: 0.25em;
+  margin-right: 0px;
+}
+div.semantic-meaning > .closer a {
+  padding: 0px 1ex;
+}

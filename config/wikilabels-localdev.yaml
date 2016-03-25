@@ -4,8 +4,8 @@ wikilabels:
 
 wsgi:
   host: localhost:8080
-  application_root: "/labels"
-  url_prefix: "/labels"
+  application_root: ""
+  url_prefix: ""
 
 database:
   host: localhost

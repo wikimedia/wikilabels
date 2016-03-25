@@ -4,6 +4,46 @@
     return $("<div>").html(html).text();
   };
 
+  var Workspace = function(opts){
+    this.emptyMessage = opts.emptyMessage || "";
+    this.$element = $("<div>").addClass("workspace");
+    this.empty(true);
+  };
+  Workspace.prototype.empty = function(setEmpty){
+    if( setEmpty === undefined ){
+      return this.$element.hasClass('empty');
+    }else{
+      if( setEmpty ){
+        this.$element.addClass('empty');
+        this.$element.html(this.emptyMessage);
+        this.items = {};
+      }else{
+        this.$element.removeClass('empty');
+        this.$element.html("");
+      }
+    }
+
+  };
+  Workspace.prototype.add = function(name, $subElement){
+    if( this.empty() ){
+      this.empty(false);
+    }
+    this.$element.append($subElement);
+    this.items[name] = $subElement;
+  };
+  Workspace.prototype.remove = function(name){
+    var $subElement = this.items[name];
+    if( !$subElement ){
+      console.log("Sub element " + name + " not found -- can't be removed.");
+    } else {
+      $subElement.remove();
+      delete this.items[name];
+      if( Object.keys(this.items).length === 0){
+        this.empty(true);
+      }
+    }
+  };
+
   /**
    * Basically just a drop-down box and a button
    *
@@ -12,6 +52,7 @@
     OO.ui.SemanticsSelector.super.apply( this );
     var meaningsLabel = opts.meaningsLabel;
     var meanings = opts.meanings;
+    var emptyMessage = opts.emptyMessage;
 
     this.$element = $("<div>").addClass("semantics-selector");
 
@@ -23,8 +64,8 @@
     this.$element.append(this.meaningSelector.$element);
 
     this.semanticMap = {};
-    this.$workspace = $("<div>").addClass("workspace");
-    this.$element.append(this.$workspace);
+    this.workspace = new Workspace({emptyMessage: emptyMessage});
+    this.$element.append(this.workspace.$element);
   };
   OO.inheritClass( OO.ui.SemanticsSelector, OO.ui.Widget );
   OO.ui.SemanticsSelector.prototype.getValue = function(){
@@ -34,10 +75,14 @@
         valueList.push(meaning);
       }
     }
-    return valueList;
+    if ( valueList.length > 0 ){
+      return valueList;
+    }else{
+      return null;
+    }
   };
   OO.ui.SemanticsSelector.prototype.setValue = function(meanings){
-    meanings = meanings || []
+    meanings = meanings || [];
     var meaningValue, sm;
     this.clear();
     for(var i=0; i < meanings.length; i++){
@@ -57,7 +102,7 @@
     }else{
       var sm = new OO.ui.SemanticMeaning({meaning: meaning});
       this.semanticMap[meaning.value] = sm;
-      this.$workspace.append(sm.$element);
+      this.workspace.add(meaning.value, sm.$element);
       sm.on('close', this.handleCloseSelector.bind(this));
     }
 
@@ -69,7 +114,7 @@
   };
   OO.ui.SemanticsSelector.prototype.removeMeaning = function(sm){
     //remove the select from semanticMap
-    sm.$element.remove();
+    this.workspace.remove(sm.meaning.value);
     delete this.semanticMap[sm.meaning.value];
   };
   OO.ui.SemanticsSelector.prototype.clear = function(){

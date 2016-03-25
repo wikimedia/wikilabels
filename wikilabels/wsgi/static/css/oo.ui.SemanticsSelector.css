@@ -7,6 +7,18 @@ div.semantics-selector {
 div.semantics-selector span.oo-ui-dropdownWidget-handle {
   background: #fff;
 }
+div.semantics-selector > .workspace {
+  min-height: 2em;
+  padding: 1ex;
+}
+div.semantics-selector > .workspace.empty {
+  background: #ddd;
+  border: 1px solid #aaa;
+  text-align: center;
+  font-style: italic;
+  color: #555;
+  font-weight: bold;
+}
 
 div.semantic-meaning-selector {
   white-space: nowrap;

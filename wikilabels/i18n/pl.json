@@ -1,5 +1,9 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Mateon1"
+		]
+	},
 	"'$1' not completed.  Submit anyway?": "Nie zakończono prac nad '$1'. Przesłać mimo to?",
 	"Campaigns": "Osiągnięcia",
 	"Diff for revision $1": "Diff dla edycji $1",
@@ -10,10 +14,10 @@
 	"Submit label": "Prześlij metkę",
 	"Workset": "Zestaw danych",
 	"Workset complete!": "Ukończono prace nad zestawem danych!",
-	"connect to server": "podłącz się do serwera",
+	"connect to server": "połącz z serwerem",
 	"date-format": "%Y-%m-%d",
 	"fullscreen": "pełny ekran",
 	"open": "otwórz",
 	"request workset": "Pobierz zestaw danych",
-	"review": "przejrzyj"
+	"review": "Przejrzyj"
 }

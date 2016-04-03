@@ -2,13 +2,24 @@
 	"@metadata": {
 		"authors": [
 			"Maroen1990",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Ghassanmas"
 		]
 	},
+	"'$1' not completed.  Submit anyway?": "غير مكتمل. الاستمرار على أي حال؟",
 	"Campaigns": "الحملات",
+	"Diff for revision $1": "لمراجعة الفرق",
+	"No difference": "لا يوجد فرق",
+	"Request new workset": "طلب شريحة جديد من العينات",
 	"Review": "مراجعة",
 	"Save": "حفظ",
+	"Submit label": "أكد التعيين",
+	"Workset": "شريحة",
+	"Workset complete!": "الشريحة اكتملت !",
+	"connect to server": "اتصل مع خادم البيانات",
+	"date-format": "%d-%m-%Y",
 	"fullscreen": "ملء الشاشة",
 	"open": "افتح",
+	"request workset": "اطلب شريحة من العينات",
 	"review": "راجع"
 }

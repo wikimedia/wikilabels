@@ -1,18 +1,3 @@
 {
-    "'$1' not completed. Submit anyway?": "'$1' er ikke ferdigstilt. Lagre likevel?",
-    "Campaigns": "Kampanje",
-    "Diff for revision $1": "Forskjell for revisjon $1",
-    "No difference": "Ingen forskjell",
-    "Request new workset": "Be om nytt arbeidssett",
-    "Review": "Vurdering",
-    "Save": "Lagre",
-    "Submit label": "Lagre etikett",
-    "Workset": "Arbeidssett",
-    "Workset complete!": "Ferdigstil arbeidssett!",
-    "connect to server": "koble til tjener",
-    "date-format": "%Y-%m-%d",
-    "fullscreen": "fullskjerm",
-    "open": "åpen",
-    "request workset": "be om arbeidssett",
-    "review": "vurdering"
+	"@metadata": []
 }

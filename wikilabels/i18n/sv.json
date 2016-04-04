@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Josve05a"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "'$1' är inte slutförd. Skicka ändå?",
 	"Campaigns": "Kampanjer",
+	"Diff for revision $1": "Skillnad för revision $1",
 	"No difference": "Ingen skillnad",
 	"Review": "Granska",
 	"Save": "Spara",

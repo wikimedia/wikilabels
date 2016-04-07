@@ -42,7 +42,8 @@ def configure(bp, config, oauth):
         Completes the oauth handshake
         """
         if 'request_token' not in session:
-            return responses.forbidden("OAuth callback")
+            return responses.forbidden("OAuth callback failed.  " +
+                                       "Are cookies disabled?")
         else:
             access_token = oauth.complete(session['request_token'],
                                           str(request.query_string, 'ascii'))

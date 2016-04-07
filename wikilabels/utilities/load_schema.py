@@ -3,15 +3,16 @@ Initializes the database with a Wikilabels schema.
 
 Usage:
     load_schema -h | --help
-    load_schema <config> [--reload-test-data]
+    load_schema [--config=<path>] [--reload-test-data]
 
 Options:
     -h --help           Prints this documentation
-    <config>            Path to a database config file to use when connecting
-                        to the database
+    --config=<path>     Path to a config directory to use when connecting
+                        to the database [default: config/]
     --reload-test-data  Clears current data and loads test data into the
                         database if set.  This is useful for the dev_server.
 """
+import glob
 import logging
 import os
 import sys
@@ -22,13 +23,16 @@ import yamlconf
 
 from ..database import DB
 
-logger = logging.getLogger("wikilabels.utilities.load_schema")
+logger = logging.getLogger(__name__)
 
 
 def main(argv=None):
     args = docopt.docopt(__doc__, argv=argv)
     # This expects the database config file path
-    config = yamlconf.load(open(args['<config>']))
+
+    config_paths = os.path.join(args['--config'], "*.yaml")
+    config = yamlconf.load(*(open(p) for p in sorted(glob.glob(config_paths))))
+
     db = DB.from_config(config)
     reload_test_data = args['--reload-test-data']
 

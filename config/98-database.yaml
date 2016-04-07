@@ -1,0 +1,5 @@
+# These credentials are intended to be used when connecting to the local
+# database used during development.
+database:
+  user: wikilabels
+  password: wikilabels-admin

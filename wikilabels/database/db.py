@@ -75,9 +75,4 @@ class DB:
         # Copy config as kwargs
         params = {k: v for k, v in config['database'].items()}
 
-        if 'creds' in params:
-            creds = yaml.load(open(params['creds']))
-            del params['creds']
-            params.update(creds)
-
         return cls.from_params(**params)

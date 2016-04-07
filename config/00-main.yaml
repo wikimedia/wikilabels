@@ -10,8 +10,6 @@ wsgi:
 database:
   host: localhost
   dbname: wikilabels
-  creds: config/db-localdev.yaml
 
 oauth:
   mw_uri: https://www.mediawiki.org/w/index.php
-  creds: config/oauth-localdev.yaml

@@ -1,8 +1,7 @@
-# Wiki Labels (local dev) Credentials
-#
 # These creditials are intended to be used when testing the local, development
 # version of Wiki Labels.  Do not use these credentials in a production
 # environment.  They will redirect users to localhost:8080 expecting to find
 # Wiki Labels there.
-key: b321d4c978793c5e0143b743e384ad98
-secret: 8cad97660fa9db099e96277ebe3dd6eef89b8421
+oauth:
+  key: 0abd4acfa2c26880ea6347fa20fd934a
+  secret: aebfd32444c3166d98043caafaf1d00b2f4e08a6

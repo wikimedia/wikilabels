@@ -37,10 +37,8 @@ def configure(config):
         )
     app = sessions.configure(app)
 
-    oauth_config = yaml.load(open(config['oauth']['creds']))
-
-    consumer_token = mwoauth.ConsumerToken(oauth_config['key'],
-                                           oauth_config['secret'])
+    consumer_token = mwoauth.ConsumerToken(config['oauth']['key'],
+                                           config['oauth']['secret'])
 
     oauth = mwoauth.Handshaker(config['oauth']['mw_uri'], consumer_token)
 

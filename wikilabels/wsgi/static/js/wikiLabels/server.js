@@ -21,7 +21,7 @@
 				}
 			}.bind(this))
 			.fail(function (jqXHR, status, err) {
-				var errorData = { code: status, message: err };
+				var errorData = { code: jqXHR.status, status: status, message: err };
 				console.error(errorData);
 				deferred.reject(errorData);
 			}.bind(this));

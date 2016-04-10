@@ -1,6 +1,3 @@
-import psycopg2
-from psycopg2.extras import Json
-
 from .collection import Collection
 from .errors import IntegrityError, NotFoundError
 
@@ -94,7 +91,8 @@ class Worksets(Collection):
 
             rows = []
             for row in cursor:
-                if stats: row['stats'] = self.stats_for(row['id'])
+                if stats:
+                    row['stats'] = self.stats_for(row['id'])
                 rows.append(row)
 
             return rows
@@ -130,18 +128,18 @@ class Worksets(Collection):
             cursor = transactor.cursor()
             campaign = self.db.campaigns.get(campaign_id)
             if not campaign['active']:
-                raise IntegrityError("Campaign {0} not active." \
+                raise IntegrityError("Campaign {0} not active."
                                      .format(campaign_id))
 
             workset_id = self.open_workset_for_user(campaign_id, user_id)
             if workset_id is not None:
                 raise IntegrityError(("Incomplete workset_id={0} already " +
                                       "assigned to user_id={1}")
-                                      .format(workset_id, user_id))
+                                     .format(workset_id, user_id))
 
             if not self.db.campaigns.has_open_tasks(campaign_id, user_id):
                 raise IntegrityError(("No tasks available for user_id={0} " +
-                                      "in campaign_id={1}") \
+                                      "in campaign_id={1}")
                                      .format(user_id, campaign_id))
 
             # Create a new workset
@@ -214,8 +212,9 @@ class Worksets(Collection):
             """, {'workset_id': workset_id, 'user_id': user_id})
 
             if len(cursor.fetchall()) == 0:
-                raise IntegrityError("workset_id={0} does not belong to user_id={1}" \
-                                     .format(workset_id, user_id))
+                mssg = 'workset_id={0} does not belong to user_id={1}'
+                mssg = mssg.format(workset_id, user_id)
+                raise IntegrityError(mssg)
 
             # Clear incomplete assignements
             cursor.execute("""

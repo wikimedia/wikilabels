@@ -1,5 +1,4 @@
-from flask import (Response, render_template, render_template_string, request,
-                   send_from_directory)
+from flask import Response, render_template, request, send_from_directory
 
 from ..util import (app_path, build_script_tags, build_style_tags, i18n_dict,
                     minify_js, pretty_json, read_cat, static_file_path,

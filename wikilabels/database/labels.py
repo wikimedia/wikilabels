@@ -2,7 +2,6 @@ import psycopg2
 from psycopg2.extras import Json
 
 from .collection import Collection
-from .errors import NotFoundError
 
 
 class Labels(Collection):

@@ -1,12 +1,9 @@
-from flask import redirect, request, session
 from flask.ext.jsonpify import jsonify
 
-from .. import preprocessors, responses
+from .. import responses
 
 
 def configure(bp, config, form_map):
-
-
 
     @bp.route("/forms/", methods=["GET"])
     def forms_index():
@@ -21,7 +18,6 @@ def configure(bp, config, form_map):
         form_names.sort()
         return jsonify({'info': info,
                         'forms': form_names})
-
 
     @bp.route("/forms/<form_name>/", methods=['GET'])
     def get_form(form_name):

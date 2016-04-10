@@ -1,7 +1,7 @@
-from flask import redirect, request, session
+from flask import request
 from flask.ext.jsonpify import jsonify
 
-from .. import preprocessors, responses
+from .. import responses
 from ...database import NotFoundError
 
 
@@ -15,7 +15,6 @@ def configure(bp, config, db):
         info = "Welcome to the users module.  This module provides access " + \
                "to data via the lens of a user."
         return jsonify({'info': info, 'users': db.worksets.users()})
-
 
     @bp.route("/users/<int:user_id>/")
     def get_user(user_id):
@@ -36,7 +35,6 @@ def configure(bp, config, db):
             doc['tasks'] = db.tasks.for_user(user_id)
 
         return jsonify(doc)
-
 
     @bp.route("/users/<int:user_id>/<int:campaign_id>/")
     def get_user_campaign(user_id, campaign_id):

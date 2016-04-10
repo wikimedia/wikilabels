@@ -1,5 +1,4 @@
 from beaker.middleware import SessionMiddleware
-from flask import request
 from flask.sessions import SessionInterface
 
 
@@ -10,6 +9,7 @@ class BeakerSessionInterface(SessionInterface):
 
     def save_session(self, app, session, response):
         session.save()
+
 
 def configure(app):
 

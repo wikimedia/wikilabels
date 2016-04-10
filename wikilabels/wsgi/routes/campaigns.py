@@ -1,6 +1,6 @@
 import json
 
-from flask import redirect, request, session
+from flask import request, session
 from flask.ext.jsonpify import jsonify
 
 from .. import preprocessors, responses
@@ -15,10 +15,10 @@ def configure(bp, config, db):
         Returns a list of wikis that have active campaigns.
         """
         info = "Welcome to the campaigns module.  This module provides " + \
-               "access to data using a heirachical strategy: 'wikis' have " + \
-               "'campaigns', 'campaigns' have 'worksets' and 'worksets' " + \
-               "have 'tasks'.  The URL structure looks like this: /campaigns/" + \
-               "<wiki>/<campaign_id>/<workset_id>/<task_id>/."
+               "access to data using a heirachical strategy: 'wikis' " + \
+               "have 'campaigns', 'campaigns' have 'worksets' and " + \
+               "'worksets' have 'tasks'.  The URL structure looks like " + \
+               "this: /campaigns/<wiki>/<campaign_id>/<workset_id>/<task_id>/"
         return jsonify({'info': info,
                         'wikis': db.campaigns.wikis()})
 
@@ -99,7 +99,8 @@ def configure(bp, config, db):
 
         return jsonify(doc)
 
-    @bp.route("/campaigns/<wiki>/<int:campaign_id>/<int:workset_id>/", methods=["GET"])
+    @bp.route("/campaigns/<wiki>/<int:campaign_id>/<int:workset_id>/",
+              methods=["GET"])
     def get_workset(wiki, campaign_id, workset_id):
         """
         Gathers metadata for a particular workset
@@ -126,7 +127,8 @@ def configure(bp, config, db):
 
         return jsonify(doc)
 
-    @bp.route("/campaigns/<wiki>/<int:campaign_id>/<int:workset_id>/", methods=["DELETE"])
+    @bp.route("/campaigns/<wiki>/<int:campaign_id>/<int:workset_id>/",
+              methods=["DELETE"])
     @preprocessors.authenticated
     def abandon_workset(wiki, campaign_id, workset_id):
         """
@@ -135,17 +137,19 @@ def configure(bp, config, db):
         workset = db.worksets.get(workset_id)
 
         if workset['user_id'] != session['user']['id']:
-            return responses.forbidden(("workset_id={0} is owned by " +
-                                        "user_id={1}, but your user_id is {2}")\
-                                        .format(workset_id, workset['user_id'],
-                                                session['user']['id']))
+            mssg = ("workset_id={0} is owned by user_id={1}, but your "
+                    "user_id is {2}".format(
+                        workset_id,
+                        workset['user_id'],
+                        session['user']['id']))
+            return responses.forbidden(mssg)
 
         db.worksets.abandon(workset_id, session['user']['id'])
 
         return jsonify({'success': True})
 
-
-    @bp.route("/campaigns/<wiki>/<int:campaign_id>/<int:workset_id>/<int:task_id>/", methods=["GET"])
+    @bp.route("/campaigns/<wiki>/<int:campaign_id>/<int:workset_id>/"
+              "<int:task_id>/", methods=["GET"])
     def get_task(wiki, campaign_id, workset_id, task_id):
         """
         Gets a task label
@@ -176,8 +180,8 @@ def configure(bp, config, db):
 
         return jsonify(doc)
 
-    @bp.route("/campaigns/<wiki>/<int:campaign_id>/<int:workset_id>/<int:task_id>/",
-               methods=["PUT", "POST"])
+    @bp.route("/campaigns/<wiki>/<int:campaign_id>/<int:workset_id>/"
+              "<int:task_id>/", methods=["PUT", "POST"])
     @preprocessors.authenticated
     def label_task(wiki, campaign_id, workset_id, task_id, label=None):
         """
@@ -185,7 +189,9 @@ def configure(bp, config, db):
         """
         label = json.loads(label or request.form.get('label'))
 
-        doc = {'label': db.labels.upsert(task_id, session['user']['id'], label)}
+        doc = {
+            'label': db.labels.upsert(task_id, session['user']['id'], label)
+        }
 
         if 'campaign' in request.args:
             stats = request.args.get('campaign') == "stats"

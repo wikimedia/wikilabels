@@ -10,19 +10,24 @@ def error(status, code, message):
 
     return jsonify(error_doc), status
 
+
 def not_implemented(message=None):
     return error(501, 'not implemented',
                  message or "Route not implemented yet.")
 
+
 def bad_request(message):
     return error(400, 'bad request', message)
+
 
 def conflict(message):
     return error(409, 'conflict', message)
 
+
 def forbidden(message=None):
     return error(403, 'forbidden',
                  message or "This request requires authentication.")
+
 
 def not_found(message=None):
     return error(404, 'not found',

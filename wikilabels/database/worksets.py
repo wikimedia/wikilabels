@@ -152,6 +152,11 @@ class Worksets(Collection):
             """, {'campaign_id': campaign_id,
                   'user_id': user_id})
 
+            self.logger.info(
+                'Create new workset for {campaign} by {user}'.format(
+                    campaign=campaign_id,
+                    user=user_id))
+
             workset_id = cursor.fetchone()['id']
 
             # Assign tasks to the workset
@@ -176,6 +181,13 @@ class Worksets(Collection):
                   'workset_id': workset_id,
                   'user_id': user_id,
                   'tasks_per_assignment': campaign['tasks_per_assignment']})
+
+            self.logger.info(
+                'Assign tasks for the workset {workset} for campaign'
+                ' {campaign} by {user}'.format(
+                    campaign=campaign_id,
+                    workset=workset_id,
+                    user=user_id))
 
         return self.get(workset_id, stats)
 
@@ -221,5 +233,11 @@ class Worksets(Collection):
                             label.task_id IS NULL
                     )
             """, {'workset_id': workset_id, 'user_id': user_id})
+
+            self.logger.info(
+                'Clearing incomplete assignements for workset'
+                ' {workset} by {user}'.format(
+                    workset=workset_id,
+                    user=user_id))
 
         return self.get(workset_id)

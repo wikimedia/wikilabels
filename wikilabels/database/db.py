@@ -11,8 +11,6 @@ from .labels import Labels
 from .tasks import Tasks
 from .worksets import Worksets
 
-logger = logging.getLogger(__name__)
-
 
 class DB:
     def __init__(self, pool):
@@ -22,6 +20,7 @@ class DB:
         self.worksets = Worksets(self)
         self.tasks = Tasks(self)
         self.labels = Labels(self)
+        self.logger = logging.getLogger(__name__)
 
     def execute(self, sql):
         with self.transaction() as transactor:
@@ -55,7 +54,7 @@ class DB:
                     return conn
             except (psycopg2.InterfaceError, psycopg2.OperationalError,
                     psycopg2.DatabaseError):
-                logger.info("Discarding a useless connection.")
+                self.logger.info("Discarding a useless connection.")
                 continue  # Try again
 
         raise RuntimeError("No good database connections in the pool.")

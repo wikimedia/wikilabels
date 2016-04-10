@@ -23,7 +23,11 @@ class Labels(Collection):
               (%(task_id)s, %(user_id)s, NOW(), %(data)s)
             RETURNING *
             """, {'task_id': task_id, 'user_id': user_id, 'data': Json(data)})
-
+            self.logger.info(
+                'Insert {data} for {task} by {user}'.format(
+                    data=data,
+                    task=task_id,
+                    user=user_id))
             for row in cursor:
                 return row
 
@@ -40,6 +44,10 @@ class Labels(Collection):
                 user_id = %(user_id)s
             RETURNING *
             """, {'task_id': task_id, 'user_id': user_id, 'data': Json(data)})
-
+            self.logger.info(
+                'Update {data} for {task} by {user}'.format(
+                    data=data,
+                    task=task_id,
+                    user=user_id))
             for row in cursor:
                 return row

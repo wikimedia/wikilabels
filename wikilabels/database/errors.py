@@ -1,2 +1,8 @@
-class NotFoundError(RuntimeError): pass
-class IntegrityError(RuntimeError): pass
+
+
+class NotFoundError(RuntimeError):
+    pass
+
+
+class IntegrityError(RuntimeError):
+    pass

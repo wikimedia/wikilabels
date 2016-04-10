@@ -103,11 +103,15 @@ class Tasks(Collection):
 
             return self._group_task_labels(cursor)
 
+    @staticmethod
+    def extract_key(r):
+        return r['task_id'], r['task_data'], r['campaign_id']
+
     def _group_task_labels(self, cursor):
-        extract_key = lambda r:(r['task_id'], r['task_data'], r['campaign_id'])
 
         tasks = []
-        for (id, data, campaign_id), rows in groupby(cursor, key=extract_key):
+        for (id, data, campaign_id), rows in \
+                groupby(cursor, key=self.extract_key):
             labels = []
             for row in rows:
                 if row['label_data'] is not None:

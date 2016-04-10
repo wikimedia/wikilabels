@@ -27,6 +27,7 @@ def main(argv=None):
 
     run(rows, campaign_id)
 
+
 def run(rows, campaign_id):
     print("INSERT INTO task (campaign_id, data) VALUES")
     print(",\n".join("  ({0}, '{1}')".format(campaign_id, json.dumps(row))

@@ -23,7 +23,8 @@ class Campaigns(Collection):
 
             try:
                 doc = next(cursor)
-                if stats: doc['stats'] = self.stats_for(campaign_id)
+                if stats:
+                    doc['stats'] = self.stats_for(campaign_id)
                 return doc
             except StopIteration:
                 raise NotFoundError("campaign_id={0}".format(campaign_id))
@@ -51,8 +52,8 @@ class Campaigns(Collection):
     def has_open_tasks(self, campaign_id, user_id):
         with self.db.transaction() as transactor:
             cursor = transactor.cursor()
-            # Check if there are tasks to assign that haven't already been labeled
-            # by this user.
+            # Check if there are tasks to assign that haven't already been
+            # labeled by this user.
             cursor.execute("""
                 SELECT
                   task.id
@@ -122,7 +123,8 @@ class Campaigns(Collection):
 
             rows = []
             for row in cursor:
-                if stats: row['stats'] = self.stats_for(row['id'])
+                if stats:
+                    row['stats'] = self.stats_for(row['id'])
                 rows.append(row)
 
             return rows

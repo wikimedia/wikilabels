@@ -2,7 +2,6 @@ import logging
 from contextlib import contextmanager
 
 import psycopg2
-import yaml
 from psycopg2.extras import RealDictCursor
 from psycopg2.pool import ThreadedConnectionPool
 
@@ -59,7 +58,6 @@ class DB:
                 continue  # Try again
 
         raise RuntimeError("No good database connections in the pool.")
-
 
     @classmethod
     def from_params(cls, *args, minconn=10, maxconn=20, **kwargs):

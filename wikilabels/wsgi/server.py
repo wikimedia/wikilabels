@@ -3,9 +3,9 @@ import os
 
 import mwoauth
 import yaml
-from flask import Blueprint, Flask, request
+from flask import Blueprint, Flask
 
-from . import responses, routes, sessions
+from . import routes, sessions
 from ..database import DB
 
 

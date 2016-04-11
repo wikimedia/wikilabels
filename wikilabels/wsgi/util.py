@@ -7,14 +7,20 @@ from itertools import chain
 import uglipyjs
 from flask import current_app, request
 
+from .responses import bad_request
+
+
+class ParamError(Exception):
+    pass
+
 
 def read_param(request, param, default=None, type=str):
     try:
         value = request.args.get(param, request.form.get(param, default))
         return type(value.strip())
     except (ValueError, TypeError) as e:
-        error = errors.bad_request("Could not interpret {0}. {1}"
-                                   .format(param, str(e)))
+        error = bad_request("Could not interpret {0}. {1}"
+                            .format(param, str(e)))
         raise ParamError(error)
 
 

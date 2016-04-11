@@ -12,5 +12,10 @@
 	"Review": "Revisar",
 	"Save": "Salvar",
 	"Submit label": "Enviar rótulo",
-	"Workset": "Grupo"
+	"Workset": "Grupo",
+	"connect to server": "conectar ao servidor",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "tecla cheia",
+	"open": "abrir",
+	"review": "revisar"
 }

@@ -11,6 +11,17 @@ CREATE TABLE IF NOT EXISTS campaign (
   PRIMARY KEY(id)
 );
 
+DO $$
+BEGIN
+  IF NOT EXISTS (
+      SELECT 1 FROM pg_class c
+      JOIN   pg_namespace n ON n.oid = c.relnamespace
+      WHERE  c.relname = 'campaign_wiki'
+      AND    n.nspname = 'public' -- 'public' by default
+  )
+  THEN CREATE INDEX campaign_wiki ON campaign (wiki);
+END IF;
+END$$;
 
 CREATE TABLE IF NOT EXISTS task (
   id          SERIAL,

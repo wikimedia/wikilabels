@@ -8,10 +8,16 @@ class Labels(Collection):
 
     def upsert(self, task_id, user_id, data):
         user_id = int(user_id)
-        try:
-            return self.insert(task_id, user_id, data)
-        except psycopg2.IntegrityError:
-            return self.update(task_id, user_id, data)
+
+        # T130872#2203274
+        result = self.update(task_id, user_id, data)
+        if not result:
+            try:
+                return self.insert(task_id, user_id, data)
+            except psycopg2.IntegrityError:
+                return self.update(task_id, user_id, data)
+        else:
+            return result
 
     def insert(self, task_id, user_id, data):
         with self.db.transaction() as transactor:

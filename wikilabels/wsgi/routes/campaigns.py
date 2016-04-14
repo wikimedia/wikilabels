@@ -154,6 +154,9 @@ def configure(bp, config, db):
         """
         Gets a task label
         """
+        if 'abandon' in request.args:
+            return abandon_task(session['user']['id'], task_id, workset_id)
+
         if 'label' in request.args:
             return label_task(wiki, campaign_id, workset_id, task_id,
                               request.args['label'])
@@ -213,6 +216,15 @@ def configure(bp, config, db):
             except NotFoundError as e:
                 return responses.not_found(str(e))
 
+        return jsonify(doc)
+
+    @bp.route("/campaigns/<wiki>/<int:campaign_id>/<int:workset_id>/"
+              "<int:task_id>/", methods=["DELETE"])
+    @preprocessors.authenticated
+    def abandon_task(user_id, task_id, workset_id):
+        """Abandon a task with clearing data and remove it from workset."""
+        db.labels.clear_data(task_id, user_id, workset_id)
+        doc = db.worksets.abandon_task(workset_id, user_id, task_id)
         return jsonify(doc)
 
     return bp

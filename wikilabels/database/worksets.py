@@ -1,5 +1,9 @@
+import logging
+
 from .collection import Collection
 from .errors import IntegrityError, NotFoundError
+
+logger = logging.getLogger(__name__)
 
 
 class Worksets(Collection):
@@ -150,7 +154,7 @@ class Worksets(Collection):
             """, {'campaign_id': campaign_id,
                   'user_id': user_id})
 
-            self.logger.info(
+            logger.info(
                 'Create new workset for {campaign} by {user}'.format(
                     campaign=campaign_id,
                     user=user_id))
@@ -180,7 +184,7 @@ class Worksets(Collection):
                   'user_id': user_id,
                   'tasks_per_assignment': campaign['tasks_per_assignment']})
 
-            self.logger.info(
+            logger.info(
                 'Assign tasks for the workset {workset} for campaign'
                 ' {campaign} by {user}'.format(
                     campaign=campaign_id,
@@ -233,7 +237,7 @@ class Worksets(Collection):
                     )
             """, {'workset_id': workset_id, 'user_id': user_id})
 
-            self.logger.info(
+            logger.info(
                 'Clearing incomplete assignements for workset'
                 ' {workset} by {user}'.format(
                     workset=workset_id,

@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Liuxinyu970226",
-			"EpochFail"
+			"EpochFail",
+			"Ladsgroup"
 		]
 	},
+	"'$1' not completed.  Submit anyway?": "When the user tries to send a workset that is not completed yet.",
 	"Campaigns": "This is the header for a list of \"campaigns\".  Campaigns in WikiLabels are collections of items to be annotated.",
 	"Diff for revision $1": "This message is showed above an edit diff.  The $1 will be replaced with a link to the MediaWiki Special:Diff interface.",
 	"No difference": "This message is shown in place of an edit diff when no change was made to a page.  This happens with a no-op edit is saved.",
@@ -16,6 +18,8 @@
 	"Workset complete!": "This message will be displayed when a user has completed annotating all of the items in a workset.",
 	"connect to server": "This message will be displayed on a button that, when clicked, will initiate a connection with a server.",
 	"date-format": "This is a formatting string for a date.  See http://strftime.org/ for a reference for what the symbols mean.  \n\n* %Y - 4 digit year\n* %m - 2 digit month\n* %d - 2 digit day",
+	"fullscreen": "Going to screen-wide mode",
 	"open": "{{Identical|Open}}",
+	"request workset": "Asking a new working set to label from the server",
 	"review": "{{Identical|Review}}"
 }

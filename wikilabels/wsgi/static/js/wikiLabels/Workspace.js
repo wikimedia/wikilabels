@@ -32,6 +32,9 @@
 	Workspace.prototype.handleFormSubmission = function ( labelData ) {
 		this.saveLabel(labelData);
 	};
+	Workspace.prototype.handleFormAbandon = function () {
+		this.abandonLabel();
+	};
 	Workspace.prototype.handleTaskSelection = function (task) {
 		if (task) {
 			this.view.show(task.id);
@@ -101,6 +104,7 @@
 		this.form = form;
 		this.$container.append(form.$element);
 		this.form.submitted.add(this.handleFormSubmission.bind(this));
+		this.form.abandoned.add(this.handleFormAbandon.bind(this));
 
 		this.view = view;
 		this.$container.append(view.$element);
@@ -139,6 +143,38 @@
 					this.taskList.next();
 				}
 				$.removeSpinner( WL.config.prefix + 'submit-spinner' );
+			}.bind(this));
+
+	};
+	Workspace.prototype.abandonLabel = function () {
+		var fieldName,
+		    fieldsMissingValues,
+		    task = this.taskList.selectedTask;
+
+		if ( !task ) {
+			alert("Can't abandon task.  No task is selected!");
+		}
+
+		WL.server.abandonLabel(this.campaignId, this.worksetId, task.id, labelData)
+			.done( function (doc) {
+				var tasks, labels;
+				//task.label.load(doc['label']);
+
+				tasks = this.taskList.length();
+				labels = this.taskList.labeled();
+
+				// Let's assume it's saved
+				this.labelSaved.fire(this.campaignId, this.worksetId, tasks, labels);
+
+				if ( this.taskList.last() && this.taskList.complete() ) {
+					this.taskList.select(null);
+					this.form.clear();
+					this.form.hide();
+					this.view.showCompleted();
+				} else {
+					this.taskList.next();
+				}
+				$.removeSpinner( WL.config.prefix + 'abandon-spinner' );
 			}.bind(this));
 
 	};

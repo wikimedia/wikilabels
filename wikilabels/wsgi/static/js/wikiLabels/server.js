@@ -75,6 +75,12 @@
 		);
 	};
 
+	Server.prototype.abandonLabel = function (campaignId, worksetId, taskId) {
+		return this.request(
+			["campaigns", mw.config.get('wgDBname'), campaignId, worksetId, taskId],
+			{ abandon: "" }
+		);
+	};
 	WL.server = new Server();
 
 })(mediaWiki, jQuery, wikiLabels);

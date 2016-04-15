@@ -21,10 +21,24 @@
 		this.submitButton.on( 'click', this.handleSubmitClick.bind( this, this.submitButton.$element ) );
 
 		this.submitted = $.Callbacks();
+
+		this.abandonButton = new OO.ui.ButtonWidget( {
+			label: WL.i18n('Abandon'),
+			align: 'inline',
+			flags: [ 'primary', 'destructive' ]
+		} );
+		this.$controls.append( this.abandonButton.$element );
+		this.abandonButton.on( 'click', this.handleAbandonClick.bind( this, this.abandonButton.$element ) );
+
+		this.abandoned = $.Callbacks();
 	};
 	Form.prototype.handleSubmitClick = function ( button ) {
 		$( button ).injectSpinner( WL.config.prefix + 'submit-spinner' );
 		this.submit();
+	};
+	Form.prototype.handleAbandonClick = function ( button ) {
+		$( button ).injectSpinner( WL.config.prefix + 'abandon-spinner' );
+		this.abandon();
 	};
 	Form.prototype.getValues = function () {
 		var name, valueMap = {};
@@ -68,6 +82,9 @@
 		}
 
 		this.submitted.fire( labelData );
+	};
+	Form.prototype.abandon = function () {
+		this.abandoned.fire();
 	};
 	Form.fromConfig = function ( config, langChain ) {
 		var i, fieldset, fieldDoc, field, fieldMap,

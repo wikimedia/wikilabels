@@ -3,12 +3,13 @@
 		"authors": [
 			"Maroen1990",
 			"محمد أحمد عبد الفتاح",
-			"Ghassanmas"
+			"Ghassanmas",
+			"DRIHEM"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "غير مكتمل. الاستمرار على أي حال؟",
+	"'$1' not completed.  Submit anyway?": "'$1' غير مكتمل. أرسل على أي حال؟",
 	"Campaigns": "الحملات",
-	"Diff for revision $1": "لمراجعة الفرق بين النسختين",
+	"Diff for revision $1": "معرفة الإختلافات للمراجعة $1",
 	"No difference": "لا يوجد فرق",
 	"Request new workset": "طلب شريحة جديد من العينات",
 	"Review": "مراجعة",

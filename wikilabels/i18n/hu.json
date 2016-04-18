@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tgr",
+			"Wolf Rex"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "A(z) '$1' még nincs kész. Mégis elküldöd?",
+	"Campaigns": "Kampányok",
+	"Diff for revision $1": "Diff a $1 változatra",
+	"No difference": "Nincs különbség",
+	"Request new workset": "Új munkaadag lekérése",
+	"Review": "Átnézés",
+	"Save": "Mentés",
+	"Submit label": "Címke elküldése",
+	"Workset": "Munkaadag",
+	"Workset complete!": "A munkaadag kész!",
+	"connect to server": "csatlakozás a szerverhez",
+	"date-format": "%Y.%m.%d.",
+	"fullscreen": "teljes képernyő",
+	"open": "megnyitás",
+	"request workset": "munkaadag lekérése",
+	"review": "átnézés"
+}

@@ -60,8 +60,8 @@
 				view = new WL.views[doc['campaign']['view']](doc['tasks']);
 			} catch (err) {
 				console.error(err.stack);
-				alert('Could not load view "' + doc['campaign']['view'] + '": ' + err +
-				      '\nUsing simple task viewer.');
+				alert(WL.i18n('Could not load view "$1": '
+				 + '$2\nUsing simple task viewer.', [doc['campaign']['view'], err]));
 				view = new WL.views.View(doc['tasks']);
 			}
 
@@ -74,16 +74,16 @@
 					this.load(campaignId, worksetId, taskList, form, view);
 				} catch (err) {
 					console.error(err.stack);
-					alert(
-						'Could not load form "' + doc['campaign']['form'] + '": \n' + err
-					);
+					alert(WL.i18n(
+						'Could not load form "$1": \n$2', [doc['campaign']['form'], err]
+					));
 				}
 			}.bind(this));
 			formQuery.fail( function (errorDoc) {
-				alert(
-					'Could not load form "' + doc['campaign']['form'] + '": \n' +
-					JSON.stringify(errorDoc, null, 2)
-				);
+					alert(WL.i18n(
+						'Could not load form "$1": \n$2',
+						[doc['campaign']['form'], JSON.stringify(errorDoc, null, 2)]
+					));
 			}.bind(this) );
 		}.bind(this) );
 	};
@@ -117,7 +117,7 @@
 		    task = this.taskList.selectedTask;
 
 		if ( !task ) {
-			alert("Can't save label.  No task is selected!");
+			alert(WL.i18n("Can't save label. No task is selected!"));
 		}
 
 		WL.server.saveLabel(this.campaignId, this.worksetId, task.id, labelData)

@@ -235,7 +235,7 @@
 				this.updateButtonState();
 			}.bind(this) )
 			.fail( function (doc) {
-				alert("Could not load workset list: " + JSON.stringify(doc));
+				alert(WL.i18n("Could not load workset list: $1", [JSON.stringify(doc)]));
 			}.bind(this) );
 	};
 	Campaign.prototype.expand = function (expanded) {

@@ -12,16 +12,6 @@
 		this.$controls = $( '<div>' ).addClass( 'controls' );
 		this.$element.append( this.$controls );
 
-		this.submitButton = new OO.ui.ButtonWidget( {
-			label: WL.i18n('Save'),
-			align: 'inline',
-			flags: [ 'primary', 'progressive' ]
-		} );
-		this.$controls.append( this.submitButton.$element );
-		this.submitButton.on( 'click', this.handleSubmitClick.bind( this, this.submitButton.$element ) );
-
-		this.submitted = $.Callbacks();
-
 		this.abandonButton = new OO.ui.ButtonWidget( {
 			label: WL.i18n('Abandon'),
 			align: 'inline',
@@ -31,6 +21,16 @@
 		this.abandonButton.on( 'click', this.handleAbandonClick.bind( this, this.abandonButton.$element ) );
 
 		this.abandoned = $.Callbacks();
+
+		this.submitButton = new OO.ui.ButtonWidget( {
+			label: WL.i18n('Save'),
+			align: 'inline',
+			flags: [ 'primary', 'progressive' ]
+		} );
+		this.$controls.append( this.submitButton.$element );
+		this.submitButton.on( 'click', this.handleSubmitClick.bind( this, this.submitButton.$element ) );
+
+		this.submitted = $.Callbacks();
 	};
 	Form.prototype.handleSubmitClick = function ( button ) {
 		$( button ).injectSpinner( WL.config.prefix + 'submit-spinner' );

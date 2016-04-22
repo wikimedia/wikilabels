@@ -32,6 +32,9 @@
 	Workspace.prototype.handleFormSubmission = function ( labelData ) {
 		this.saveLabel(labelData);
 	};
+	Workspace.prototype.handleFormAbandon = function () {
+		this.abandonLabel();
+	};
 	Workspace.prototype.handleTaskSelection = function (task) {
 		if (task) {
 			this.view.show(task.id);
@@ -101,6 +104,7 @@
 		this.form = form;
 		this.$container.append(form.$element);
 		this.form.submitted.add(this.handleFormSubmission.bind(this));
+		this.form.abandoned.add(this.handleFormAbandon.bind(this));
 
 		this.view = view;
 		this.$container.append(view.$element);
@@ -139,6 +143,39 @@
 					this.taskList.next();
 				}
 				$.removeSpinner( WL.config.prefix + 'submit-spinner' );
+			}.bind(this));
+
+	};
+	Workspace.prototype.abandonLabel = function () {
+		var fieldName,
+		    fieldsMissingValues,
+		    task = this.taskList.selectedTask;
+
+		if ( !task ) {
+			alert("Can't abandon task.  No task is selected!");
+		}
+
+		WL.server.abandonLabel(this.campaignId, this.worksetId, task.id)
+			.done( function (doc) {
+				var tasks, labels;
+				// TODO: Fix API response
+				task.label.load({'data': true}, 'abandoned');
+
+				tasks = this.taskList.length();
+				labels = this.taskList.labeled();
+
+				// Let's assume it's saved
+				this.labelSaved.fire(this.campaignId, this.worksetId, tasks, labels);
+
+				if ( this.taskList.last() && this.taskList.complete() ) {
+					this.taskList.select(null);
+					this.form.clear();
+					this.form.hide();
+					this.view.showCompleted();
+				} else {
+					this.taskList.next();
+				}
+				$.removeSpinner( WL.config.prefix + 'abandon-spinner' );
 			}.bind(this));
 
 	};
@@ -317,20 +354,24 @@
 
 		this.load(labelData);
 	};
-	Label.prototype.load = function (labelData) {
+	Label.prototype.load = function (labelData, className) {
 		labelData = labelData || {};
 		this.timestamp = labelData['timestamp'];
 		this.data = labelData['data'];
-		this.complete(this.data !== undefined && this.data !== null);
+		this.complete(this.data !== undefined && this.data !== null, className);
 	};
-	Label.prototype.complete = function (completed) {
-		if ( completed === undefined) {
-			return this.$element.hasClass('completed');
+	Label.prototype.complete = function (completed, className) {
+		if ( className === undefined ) {
+			var className = 'completed';
+		}
+
+		if ( completed === undefined ) {
+			return this.$element.hasClass(className);
 		} else if ( completed ) {
-			this.$element.addClass('completed');
+			this.$element.addClass(className);
 			return this;
 		} else {
-			this.$element.removeClass('completed');
+			this.$element.removeClass(className);
 			return this;
 		}
 	};

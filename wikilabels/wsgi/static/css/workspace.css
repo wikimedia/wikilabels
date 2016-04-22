@@ -79,6 +79,9 @@ html[dir="rtl"] .wikilabels-workspace .task-list > .tasks {
 .wikilabels-workspace .task-list > .tasks .task > .label.completed {
   background: #7F7;
 }
+.wikilabels-workspace .task-list > .tasks .task > .label.abandoned {
+  background: #d11d13;
+}
 .wikilabels-workspace .task-list > .tasks .task.selected > .label {
   border: 2px solid #000;
 }

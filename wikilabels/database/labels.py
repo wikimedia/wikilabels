@@ -59,3 +59,21 @@ class Labels(Collection):
                     user=user_id))
             for row in cursor:
                 return row
+
+    def clear_data(self, task_id, user_id):
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("""
+            DELETE FROM label
+            WHERE
+                task_id = %(task_id)s AND
+                user_id = %(user_id)s
+            RETURNING *
+            """, {'task_id': task_id, 'user_id': user_id})
+            for row in cursor:
+                logger.info('{user_id} clearing label data {label_data}'
+                            'for task {task_id}.'.format(
+                                label_data=row['data'],
+                                task_id=task_id,
+                                user_id=user_id))
+                return row

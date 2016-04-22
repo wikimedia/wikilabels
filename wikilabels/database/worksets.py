@@ -244,3 +244,36 @@ class Worksets(Collection):
                     user=user_id))
 
         return self.get(workset_id)
+
+    def abandon_task(self, workset_id, user_id, task_id):
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+
+            # Check if this user owns this workset
+            cursor.execute("""
+                SELECT 1 FROM workset
+                WHERE id = %(workset_id)s AND
+                      user_id = %(user_id)s
+            """, {'workset_id': workset_id, 'user_id': user_id})
+
+            if len(cursor.fetchall()) == 0:
+                mssg = 'workset_id={0} does not belong to user_id={1}'
+                mssg = mssg.format(workset_id, user_id)
+                raise IntegrityError(mssg)
+
+            # Clear task
+            cursor.execute("""
+                DELETE FROM workset_task
+                WHERE
+                    workset_id = %(workset_id)s AND
+                    task_id = %(task_id)s
+            """, {'workset_id': workset_id, 'task_id': task_id})
+
+            logger.info(
+                'Clearing task {task_id} from workset'
+                ' {workset} for user {user}'.format(
+                    workset=workset_id,
+                    task_id=task_id,
+                    user=user_id))
+
+        return self.get(workset_id)

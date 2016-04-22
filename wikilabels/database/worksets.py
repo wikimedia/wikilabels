@@ -270,8 +270,8 @@ class Worksets(Collection):
             """, {'workset_id': workset_id, 'task_id': task_id})
 
             logger.info(
-                'Clearing {task_id} workset'
-                ' {workset} by {user}'.format(
+                'Clearing task {task_id} from workset'
+                ' {workset} for user {user}'.format(
                     workset=workset_id,
                     task_id=task_id,
                     user=user_id))

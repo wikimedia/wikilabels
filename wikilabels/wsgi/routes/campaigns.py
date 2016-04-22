@@ -223,8 +223,10 @@ def configure(bp, config, db):
     @preprocessors.authenticated
     def abandon_task(user_id, task_id, workset_id):
         """Abandon a task with clearing data and remove it from workset."""
-        db.labels.clear_data(task_id, user_id, workset_id)
-        doc = db.worksets.abandon_task(workset_id, user_id, task_id)
+        doc = db.labels.clear_data(task_id, user_id)
+        if not doc:
+            doc = {}
+        doc['workset'] = db.worksets.abandon_task(workset_id, user_id, task_id)
         return jsonify(doc)
 
     return bp

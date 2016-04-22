@@ -37,6 +37,10 @@
 		this.submit();
 	};
 	Form.prototype.handleAbandonClick = function ( button ) {
+		var confirmed = confirm(WL.i18n('Are you sure that you want to abandon this task?'));
+		if ( !confirmed ) {
+			return;
+		}
 		$( button ).injectSpinner( WL.config.prefix + 'abandon-spinner' );
 		this.abandon();
 	};

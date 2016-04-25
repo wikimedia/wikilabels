@@ -26,6 +26,7 @@ import os
 import yamlconf
 
 from ..database import DB
+from ..util import db_util
 
 logger = logging.getLogger(__name__)
 
@@ -48,14 +49,6 @@ def main(argv=None):
     run(wiki, name, dry, form_name, diff_type, workset_size, db)
 
 
-def run_query(db, query):
-    with db.transaction() as transactor:
-        cursor = transactor.cursor()
-        cursor.execute(query)
-        for row in cursor:
-            return row
-
-
 def run(wiki, name, dry, form_name, diff_type, workset_size, db):
     query = ("INSERT INTO campaign (name, wiki, form, view, created, "
              "labels_per_task, tasks_per_assignment, active) VALUES "
@@ -71,12 +64,12 @@ def run(wiki, name, dry, form_name, diff_type, workset_size, db):
     select_query = ("SELECT * FROM campaign WHERE name = `{name}`"
                     "and wiki = `{wiki}`")
     select_query = select_query.format(name=name, wiki=wiki)
-    if run_query(db, select_query):
+    if db_util.run_query(db, select_query):
         raise ValueError("A campaign named '{name}' in '{wiki}' already "
                          "exists, failing...".format(name=name, wiki=wiki))
     logger.info('Inserting a new campaign {name} in {wiki}'.format(
         name=name, wiki=wiki))
-    res = run_query(query)
+    res = db_util.run_query(query)
     if not res:
         raise RuntimeError('Could not make the campaign, please check '
                            'database logs')

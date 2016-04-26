@@ -29,7 +29,7 @@ import os
 import docopt
 import yamlconf
 
-from ..database import DB
+from ..database import DB, DuplicateNameError
 
 logger = logging.getLogger(__name__)
 
@@ -47,32 +47,27 @@ def main(argv=None):
     config = yamlconf.load(*(open(p) for p in
                              sorted(glob.glob(config_paths))))
     db = DB.from_config(config)
+    force = args['--force']
     run(db, wiki, name, form, view, labels_per_task, tasks_per_assignment,
         force)
 
 
 def run(db, wiki, name, form, view, labels_per_task, tasks_per_assignment,
         force):
-    query = ("INSERT INTO campaign (name, wiki, form, view, created, "
-             "labels_per_task, tasks_per_assignment, active) VALUES "
-             "(`{name}`, `{wiki}`, `{c_type}`, `{d_type}`, NOW(), 1, "
-             "{num}, True);")
-    query = query.format(name=name, wiki=wiki, c_type=form_name,
-                         d_type=diff_type, num=workset_size)
-    if dry:
-        print(query)
-        return
-    if not db:
-        raise RuntimeError('Database is not set, failing...')
 
-    if db.campaigns.get_campaign(name, wiki):
-        raise ValueError("A campaign named '{name}' in '{wiki}' already "
-                         "exists, failing...".format(name=name, wiki=wiki))
-    logger.info('Inserting a new campaign {name} in {wiki}'.format(
-        name=name, wiki=wiki))
-    res = db.campaigns.new_campaign(wiki, name, form_name, diff_type,
-                                    workset_size)
-    if not res:
-        raise RuntimeError('Could not make the campaign, please check '
-                           'database logs')
-    print(res)
+    if not force and db.campaigns.wiki_name_exists(wiki, name):
+        logger.error("Duplicate campaign: {1} already exists for {2}.  "
+                     .format(name, wiki) +
+                     "Use --force if this is expected.")
+        return
+
+    logger.info('Inserting a new campaign {name} in {wiki}'
+                .format(name=name, wiki=wiki))
+    row = db.campaigns.new_campaign(wiki, name, form, view, labels_per_task,
+                                    tasks_per_assignment)
+    if not row:
+        logger.error("Could not make the campaign, please check '
+                     "database logs")
+        return
+
+    print(row)

@@ -1,28 +1,30 @@
 """
-Creates an SQL loader script for a set of tasks by interpretting a TSV as JSON
-blobs.
+Inserts a set of tasks into a campaign
 
 Usage:
-    task_inserts -h | --help
-    task_inserts <campaign-id> [--dry] [--config=<path>]
+    load_tasks -h | --help
+    load_tasks <campaign-id> [--config=<path>]
+
+Arguments:
+    <campaign-id>  The campaign that the tasks should be associated with
 
 Options:
-    -h --help             Prints this documentation
-    <campaign-id>         The campaign that the tasks should be associated with
-    --dry                 Whether it returns the SQL script or directly injects
-                          to the database.
-    --config=<path>       Path to a config directory to use when connecting
-                          to the database [default: config/]
+    -h --help        Prints this documentation
+    --config=<path>  Path to a config directory to use when connecting
+                     to the database [default: config/]
 """
-import docopt
 import glob
 import json
+import logging
 import os
 import sys
+
+import docopt
 import yamlconf
 
-from ..database import DB
-from ..util import tsv
+from ..database import DB, NotFoundError
+
+logger = logging.getLogger(__name__)
 
 
 def main(argv=None):
@@ -30,27 +32,23 @@ def main(argv=None):
 
     campaign_id = int(args['<campaign-id>'])
 
-    rows = tsv.read(sys.stdin, header=True)
+    tasks = (json.loads(line) for line in sys.stdin)
 
-    dry = args['--dry']
-    db = None
-    if not dry:
-        config_paths = os.path.join(args['--config'], "*.yaml")
-        config = yamlconf.load(
-            *(open(p) for p in sorted(glob.glob(config_paths))))
-        db = DB.from_config(config)
-    run(rows, campaign_id, db, dry)
+    config_paths = os.path.join(args['--config'], "*.yaml")
+    config = yamlconf.load(
+        *(open(p) for p in sorted(glob.glob(config_paths))))
+    db = DB.from_config(config)
+    run(db, campaign_id, tasks)
 
 
-def run(rows, campaign_id, db, dry):
-    query = ("INSERT INTO task (campaign_id, data) VALUES"
-             ",\n".join("  ({0}, '{1}')".format(campaign_id, json.dumps(row))
-                        for row in rows))
+def run(db, campaign_id, tasks):
 
-    if dry:
-        print(query)
+    # Confirm that campaign exists
+    try:
+        db.campaigns.get(campaign_id)
+    except NotFoundError as e:
+        logger.error(e)
         return
-    if not db:
-        raise RuntimeError('Database is not set, failing...')
 
-    db.tasks.insert_tasks(rows, campaign_id)
+    # Load tasks into campaign
+    db.tasks.insert_tasks(tasks, campaign_id)

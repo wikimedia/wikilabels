@@ -6,7 +6,3 @@ class NotFoundError(RuntimeError):
 
 class IntegrityError(RuntimeError):
     pass
-
-
-class DuplicateNameError(RuntimeError):
-    pass

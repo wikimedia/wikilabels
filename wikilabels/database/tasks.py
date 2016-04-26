@@ -1,4 +1,3 @@
-import json
 from itertools import groupby
 
 from psycopg2.extras import Json

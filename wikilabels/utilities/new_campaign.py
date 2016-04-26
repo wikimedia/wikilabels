@@ -29,7 +29,7 @@ import os
 import docopt
 import yamlconf
 
-from ..database import DB, DuplicateNameError
+from ..database import DB
 
 logger = logging.getLogger(__name__)
 
@@ -66,7 +66,7 @@ def run(db, wiki, name, form, view, labels_per_task, tasks_per_assignment,
     row = db.campaigns.new_campaign(wiki, name, form, view, labels_per_task,
                                     tasks_per_assignment)
     if not row:
-        logger.error("Could not make the campaign, please check '
+        logger.error("Could not make the campaign, please check "
                      "database logs")
         return
 

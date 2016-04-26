@@ -63,8 +63,8 @@ def run(db, wiki, name, form, view, labels_per_task, tasks_per_assignment,
 
     logger.info('Inserting a new campaign {name} in {wiki}'
                 .format(name=name, wiki=wiki))
-    row = db.campaigns.new_campaign(wiki, name, form, view, labels_per_task,
-                                    tasks_per_assignment)
+    row = db.campaigns.create(wiki, name, form, view, labels_per_task,
+                              tasks_per_assignment, True)
     if not row:
         logger.error("Could not make the campaign, please check "
                      "database logs")

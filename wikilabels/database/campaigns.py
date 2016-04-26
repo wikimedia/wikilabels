@@ -3,6 +3,44 @@ from .errors import NotFoundError
 
 
 class Campaigns(Collection):
+    def create(self, wiki, name, form, view, labels_per_task,
+               tasks_per_assignment, active):
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("""
+                INSERT INTO campaign
+                INSERT INTO campaign
+                (name, wiki, form, view, labels_per_task,
+                 tasks_per_assignment, active)
+                VALUES (%(name)s, %(wiki)s, %(form)s, %(view)s,
+                        %(labels_per_task)s, %(tasks_per_assignment)s,
+                        %(active)s) RETURNING *
+            """, {'wiki': wiki,
+                  'name': name,
+                  'form': form,
+                  'view': view,
+                  'labels_per_task': labels_per_task,
+                  'tasks_per_assignment': tasks_per_assignment,
+                  'active': active})
+
+            row = next(cursor)
+            return row
+
+    def wiki_name_exists(self, wiki, name):
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("""
+                SELECT 1
+                FROM campaign
+                WHERE wiki = %(wiki)s AND name = %(name)s;
+            """, {'wiki': wiki, 'name': name})
+
+            try:
+                _ = next(cursor)
+                return True or _
+            except StopIteration:
+                return False
+
     def get(self, campaign_id, stats=False):
         with self.db.transaction() as transactor:
             cursor = transactor.cursor()
@@ -22,10 +60,10 @@ class Campaigns(Collection):
             """, {'campaign_id': campaign_id})
 
             try:
-                doc = next(cursor)
+                row = next(cursor)
                 if stats:
-                    doc['stats'] = self.stats_for(campaign_id)
-                return doc
+                    row['stats'] = self.stats_for(campaign_id)
+                return row
             except StopIteration:
                 raise NotFoundError("campaign_id={0}".format(campaign_id))
 

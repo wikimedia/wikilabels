@@ -1,4 +1,7 @@
+import json
 from itertools import groupby
+
+from psycopg2.extras import Json
 
 from .collection import Collection
 from .errors import NotFoundError
@@ -126,3 +129,13 @@ class Tasks(Collection):
                           'labels': labels})
 
         return tasks
+
+    def load(self, tasks, campaign_id):
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.executemany("""
+                INSERT INTO task (campaign_id, data)
+                VALUES (%(campaign_id)s, %(data)s)
+            """, ({'campaign_id': campaign_id, 'data': Json(task)}
+                  for task in tasks))
+            return True

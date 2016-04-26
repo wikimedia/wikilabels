@@ -4,7 +4,7 @@ Creates a new campaign
 Usage:
     new_campaign -h | --help
     new_campaign <wiki> <name> <form> <view> <labels-per-task>
-                 <tasks-per-assignment> [--config=<path>]
+                 <tasks-per-assignment> [--config=<path>] [--force]
 
 Arguments:
     <wiki>                  Wiki database id, for example fawiki, dewiki, etc.

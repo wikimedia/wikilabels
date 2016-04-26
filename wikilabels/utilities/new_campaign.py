@@ -3,30 +3,33 @@ Creates a new campaign
 
 Usage:
     new_campaign -h | --help
-    new_campaign <wiki> <name> [--dry] [--form-name=<str>] [--config=<path>]
-                 [--view=<str>] [--workset-size=<num>]
+    new_campaign <wiki> <name> <form> <view> <labels-per-task>
+                 <tasks-per-assignment> [--config=<path>]
+
+Arguments:
+    <wiki>                  Wiki database id, for example fawiki, dewiki, etc.
+    <name>                  Name of campaign, note that it will return error if
+                            you define a duplicate name.
+    <form>                  The name of the form
+    <view>                  The view for tasks
+    <labels-per-task>       The number times a task can be assigned to
+                            different labelers
+    <tasks-per-assignment>  The number of tasks assigned per workset
 
 Options:
-    -h --help             Prints this documentation
-    <wiki>                Wiki database id, for example fawiki, dewiki, etc.
-    <name>                Name of campaign, note that it will return error if
-                          you define a duplicate name.
-    --form-name=<str>     Name of the form [default: damaging_and_goodfaith]
-    --view=<str>          View mode of diffs [default: DiffToPrevious]
-    --workset-size=<num>  Size of a workset [default: 50]
-    --dry                 Whether it returns the SQL script or directly injects
-                          to the database.
-    --config=<path>       Path to a config directory to use when connecting
-                          to the database [default: config/]
+    -h --help               Prints this documentation
+    --config=<path>         Path to a config directory to use when connecting
+                            to the database [default: config/]
+    --force                 Ignore name clashes when creating the campaign
 """
-import docopt
 import glob
 import logging
 import os
+
+import docopt
 import yamlconf
 
 from ..database import DB
-from ..util import db_util
 
 logger = logging.getLogger(__name__)
 
@@ -36,20 +39,20 @@ def main(argv=None):
 
     wiki = args['<wiki>']
     name = args['<name>']
-    dry = args['--dry']
-    form_name = args['--form-name']
-    diff_type = args['--view']
-    workset_size = int(args['--workset-size'])
-    db = None
-    if not args['--dry']:
-        config_paths = os.path.join(args['--config'], "*.yaml")
-        config = yamlconf.load(
-            *(open(p) for p in sorted(glob.glob(config_paths))))
-        db = DB.from_config(config)
-    run(wiki, name, dry, form_name, diff_type, workset_size, db)
+    form = args['<form>']
+    view = args['<view>']
+    labels_per_task = args['<labels-per-task>']
+    tasks_per_assignment = args['<tasks-per-assignment>']
+    config_paths = os.path.join(args['--config'], "*.yaml")
+    config = yamlconf.load(*(open(p) for p in
+                             sorted(glob.glob(config_paths))))
+    db = DB.from_config(config)
+    run(db, wiki, name, form, view, labels_per_task, tasks_per_assignment,
+        force)
 
 
-def run(wiki, name, dry, form_name, diff_type, workset_size, db):
+def run(db, wiki, name, form, view, labels_per_task, tasks_per_assignment,
+        force):
     query = ("INSERT INTO campaign (name, wiki, form, view, created, "
              "labels_per_task, tasks_per_assignment, active) VALUES "
              "(`{name}`, `{wiki}`, `{c_type}`, `{d_type}`, NOW(), 1, "

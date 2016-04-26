@@ -344,7 +344,7 @@
 		}
 	};
 	Task.prototype.complete = function () {
-		return this.label.complete();
+		return this.label.isComplete();
 	};
 
 	var Label = function (labelData) {
@@ -362,7 +362,7 @@
 	};
 	Label.prototype.complete = function (completed, className) {
 		if ( className === undefined ) {
-			var className = 'completed';
+			className = 'completed';
 		}
 
 		if ( completed === undefined ) {
@@ -375,6 +375,16 @@
 			return this;
 		}
 	};
-
+	Label.prototype.isComplete = function(classNames) {
+		if ( classNames === undefined ) {
+			classNames = ['completed', 'abandoned'];
+		}
+		for ( var i in classNames ) {
+			if ( this.$element.hasClass( classNames[i] ) ) {
+				return true;
+			}
+		}
+		return false;
+	};
 	wikiLabels.Workspace = Workspace;
 })(mediaWiki, jQuery, OO, wikiLabels);

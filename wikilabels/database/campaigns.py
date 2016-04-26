@@ -140,3 +140,30 @@ class Campaigns(Collection):
             """)
 
             return [row['wiki'] for row in cursor]
+
+    def get_campaign(self, name, wiki):
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("""
+                SELECT *
+                FROM campaign
+                WHERE name = %(name)s
+                AND wiki = %(wiki)s
+            """, {'name': name, 'wiki': wiki})
+            for row in cursor:
+                return row
+
+    def new_campaign(self, wiki, name, form_name, diff_type, workset_size):
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("""
+                INSERT INTO campaign
+                (name, wiki, form, view, created, labels_per_task,
+                 tasks_per_assignment, active)
+                VALUES
+                (%(name)s, %(wiki)s, %(c_type)s, %(d_type)s, NOW(), 1,
+                 %(num)d, True)
+            """, {'name': name, 'wiki': wiki, 'c_type': form_name,
+                  'd_type': diff_type, 'num': workset_size})
+            for row in cursor:
+                return row

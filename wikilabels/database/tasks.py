@@ -1,3 +1,5 @@
+import json
+
 from itertools import groupby
 
 from .collection import Collection
@@ -126,3 +128,12 @@ class Tasks(Collection):
                           'labels': labels})
 
         return tasks
+
+    def insert_tasks(self, rows, campaign_id):
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("INSERT INTO task (campaign_id, data) VALUES"
+                           ",\n".join("  ({0}, '{1}')".format(
+                            campaign_id, json.dumps(row)) for row in rows))
+            for row in cursor:
+                return row

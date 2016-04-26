@@ -22,7 +22,7 @@ import sys
 import yamlconf
 
 from ..database import DB
-from ..util import tsv, db_util
+from ..util import tsv
 
 
 def main(argv=None):
@@ -45,11 +45,12 @@ def main(argv=None):
 def run(rows, campaign_id, db, dry):
     query = ("INSERT INTO task (campaign_id, data) VALUES"
              ",\n".join("  ({0}, '{1}')".format(campaign_id, json.dumps(row))
-                        for row in rows) + ";")
+                        for row in rows))
 
     if dry:
         print(query)
         return
     if not db:
         raise RuntimeError('Database is not set, failing...')
-    db_util.run_query(db, query)
+
+    db.tasks.insert_tasks(rows, campaign_id)

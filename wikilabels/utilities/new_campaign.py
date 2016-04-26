@@ -26,7 +26,6 @@ import os
 import yamlconf
 
 from ..database import DB
-from ..util import db_util
 
 logger = logging.getLogger(__name__)
 
@@ -61,15 +60,14 @@ def run(wiki, name, dry, form_name, diff_type, workset_size, db):
         return
     if not db:
         raise RuntimeError('Database is not set, failing...')
-    select_query = ("SELECT * FROM campaign WHERE name = `{name}`"
-                    "and wiki = `{wiki}`")
-    select_query = select_query.format(name=name, wiki=wiki)
-    if db_util.run_query(db, select_query):
+
+    if db.campaigns.get_campaign(name, wiki):
         raise ValueError("A campaign named '{name}' in '{wiki}' already "
                          "exists, failing...".format(name=name, wiki=wiki))
     logger.info('Inserting a new campaign {name} in {wiki}'.format(
         name=name, wiki=wiki))
-    res = db_util.run_query(query)
+    res = db.campaigns.new_campaign(wiki, name, form_name, diff_type,
+                                    workset_size)
     if not res:
         raise RuntimeError('Could not make the campaign, please check '
                            'database logs')

@@ -47,7 +47,7 @@
 					if (doc.query.badrevids) {
 						deferred.reject( {
 							code: "revision not found",
-							message: "Could not get metadata for rev_id=" + revId
+							message: WL.i18n( 'Could not get metadata for revision $1', revId)
 						} );
 						return;
 					}
@@ -67,7 +67,7 @@
 				} catch(err) {
 					deferred.reject( {
 						code: "api error",
-						message: "Could not parse MediaWiki API's response: " + err
+						message: WL.i18n( "Could not parse MediaWiki API's response") + ': ' + err
 					} );
 				}
 			}.bind(this))

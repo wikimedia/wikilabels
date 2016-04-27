@@ -15,6 +15,7 @@
 		this.abandonButton = new OO.ui.ButtonWidget( {
 			label: WL.i18n('Abandon'),
 			align: 'inline',
+			classes: ['abandon'],
 			flags: [ 'primary', 'destructive' ]
 		} );
 		this.$controls.append( this.abandonButton.$element );
@@ -25,6 +26,7 @@
 		this.submitButton = new OO.ui.ButtonWidget( {
 			label: WL.i18n('Save'),
 			align: 'inline',
+			classes: ['save'],
 			flags: [ 'primary', 'progressive' ]
 		} );
 		this.$controls.append( this.submitButton.$element );

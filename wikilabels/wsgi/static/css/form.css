@@ -47,6 +47,21 @@
   white-space: normal;
 }
 
-.wikilabels-form > .controls {
-  text-align: right;
+.wikilabels-form > .controls:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.wikilabels-form > .controls > .abandon{
+  display: block;
+  float: left;
+}
+
+.wikilabels-form > .controls > .save{
+  display: block;
+  float: right;
 }

@@ -9,12 +9,11 @@ class Campaigns(Collection):
             cursor = transactor.cursor()
             cursor.execute("""
                 INSERT INTO campaign
-                INSERT INTO campaign
                 (name, wiki, form, view, labels_per_task,
-                 tasks_per_assignment, active)
+                 tasks_per_assignment, active, created)
                 VALUES (%(name)s, %(wiki)s, %(form)s, %(view)s,
                         %(labels_per_task)s, %(tasks_per_assignment)s,
-                        %(active)s) RETURNING *
+                        %(active)s, NOW()) RETURNING *
             """, {'wiki': wiki,
                   'name': name,
                   'form': form,

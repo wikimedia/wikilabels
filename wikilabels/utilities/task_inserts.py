@@ -51,4 +51,4 @@ def run(db, campaign_id, tasks):
         return
 
     # Load tasks into campaign
-    db.tasks.insert_tasks(tasks, campaign_id)
+    db.tasks.load(tasks, campaign_id)

@@ -277,7 +277,7 @@
 
 		for (i = 0; i < this.tasks.length; i++) {
 			task = this.tasks[i];
-			labeledTasks += task.complete();
+			labeledTasks += task.isCompleted();
 		}
 		return labeledTasks;
 	};
@@ -285,7 +285,7 @@
 		var i, task;
 		for (i = 0; i < this.tasks.length; i++) {
 			task = this.tasks[i];
-			if (!task.complete()) {
+			if (!task.isCompleted()) {
 				return false;
 			}
 		}
@@ -343,8 +343,11 @@
 			return this;
 		}
 	};
-	Task.prototype.complete = function () {
-		return this.label.isDone();
+	Task.prototype.isCompleted = function () {
+		return this.label.isCompleted() || this.isAbandoned();
+	};
+	Task.prototype.isAbandoned = function () {
+		return this.label.$element.hasClass('abandoned');
 	};
 
 	var Label = function (labelData) {
@@ -373,8 +376,8 @@
 			return this;
 		}
 	};
-	Label.prototype.isDone = function(classNames) {
-		classNames = classNames || ['completed', 'abandoned'];
+	Label.prototype.isCompleted = function(classNames) {
+		classNames = classNames || ['completed'];
 		for ( var i in classNames ) {
 			if ( this.$element.hasClass( classNames[i] ) ) {
 				return true;

@@ -344,7 +344,7 @@
 		}
 	};
 	Task.prototype.complete = function () {
-		return this.label.isComplete();
+		return this.label.isDone();
 	};
 
 	var Label = function (labelData) {
@@ -361,9 +361,7 @@
 		this.complete(this.data !== undefined && this.data !== null, className);
 	};
 	Label.prototype.complete = function (completed, className) {
-		if ( className === undefined ) {
-			className = 'completed';
-		}
+		className = className || 'completed';
 
 		if ( completed === undefined ) {
 			return this.$element.hasClass(className);
@@ -375,10 +373,8 @@
 			return this;
 		}
 	};
-	Label.prototype.isComplete = function(classNames) {
-		if ( classNames === undefined ) {
-			classNames = ['completed', 'abandoned'];
-		}
+	Label.prototype.isDone = function(classNames) {
+		classNames = classNames || ['completed', 'abandoned'];
 		for ( var i in classNames ) {
 			if ( this.$element.hasClass( classNames[i] ) ) {
 				return true;

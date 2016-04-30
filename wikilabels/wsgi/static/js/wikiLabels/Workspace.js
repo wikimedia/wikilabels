@@ -277,7 +277,7 @@
 
 		for (i = 0; i < this.tasks.length; i++) {
 			task = this.tasks[i];
-			labeledTasks += task.complete();
+			labeledTasks += task.isCompleted();
 		}
 		return labeledTasks;
 	};
@@ -285,7 +285,7 @@
 		var i, task;
 		for (i = 0; i < this.tasks.length; i++) {
 			task = this.tasks[i];
-			if (!task.complete()) {
+			if (!task.isCompleted()) {
 				return false;
 			}
 		}
@@ -343,8 +343,11 @@
 			return this;
 		}
 	};
-	Task.prototype.complete = function () {
-		return this.label.complete();
+	Task.prototype.isCompleted = function () {
+		return this.label.isCompleted() || this.isAbandoned();
+	};
+	Task.prototype.isAbandoned = function () {
+		return this.label.$element.hasClass('abandoned');
 	};
 
 	var Label = function (labelData) {
@@ -361,9 +364,7 @@
 		this.complete(this.data !== undefined && this.data !== null, className);
 	};
 	Label.prototype.complete = function (completed, className) {
-		if ( className === undefined ) {
-			var className = 'completed';
-		}
+		className = className || 'completed';
 
 		if ( completed === undefined ) {
 			return this.$element.hasClass(className);
@@ -375,6 +376,14 @@
 			return this;
 		}
 	};
-
+	Label.prototype.isCompleted = function(classNames) {
+		classNames = classNames || ['completed'];
+		for ( var i in classNames ) {
+			if ( this.$element.hasClass( classNames[i] ) ) {
+				return true;
+			}
+		}
+		return false;
+	};
 	wikiLabels.Workspace = Workspace;
 })(mediaWiki, jQuery, OO, wikiLabels);

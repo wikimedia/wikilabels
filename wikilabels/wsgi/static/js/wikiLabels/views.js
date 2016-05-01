@@ -108,7 +108,7 @@
 			description = $("<div>").addClass("description"),
 			comment = $("<div>").addClass("comment"),
 			direction = $("#mw-content-text").attr("dir"),
-			diffTable = (direction == 'rtl' ?
+			diffTable = (direction === 'rtl' ?
 				$("<table>").addClass("diff diff-contentalign-right") :
 				$("<table>").addClass("diff diff-contentalign-left"));
 

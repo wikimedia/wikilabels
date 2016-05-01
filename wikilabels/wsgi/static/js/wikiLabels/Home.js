@@ -21,7 +21,7 @@
 			}
 		}
 		this.$element = $element;
-		WL.Home.instances.push(this)
+		WL.Home.instances.push(this);
 
 		this.$menu = this.$element.find("> .menu, > .wikilabels-menu");
 		if ( this.$menu === undefined || this.$menu.length !== 1 ) {

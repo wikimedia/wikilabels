@@ -1,7 +1,19 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
 	"'$1' not completed.  Submit anyway?": "'$1' non completo. Inviare comunque?",
+	"Abandon": "Abbandona",
+	"Are you sure that you want to abandon this task?": "Sei sicuro che vuoi abbandonare questa attività?",
 	"Campaigns": "Campagne",
+	"Can't save label. No task is selected!": "Impossibile salvare l'etichetta. Non è stata selezionata alcuna attività!",
+	"Could not get metadata for revision $1": "Impossibile ottenere i metadati per la versione $1",
+	"Could not load form \"$1\": \n$2": "Impossibile caricare il modulo \"$1\": \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Impossibile caricare la vista \"$1\": $2\nUtilizza il visualizzatore semplice dell'attività.",
+	"Could not load workset list: $1": "Impossibile caricare l'elenco workset: $1",
+	"Could not parse MediaWiki API's response": "Impossibile analizzare la risposta delle API MediaWiki",
 	"Diff for revision $1": "Differenze per la modifica $1",
 	"No difference": "Nessuna differenza",
 	"Request new workset": "Richiedi un nuovo workset",

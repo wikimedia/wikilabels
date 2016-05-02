@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Luk3"
+			"Luk3",
+			"Dianakc"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "'$1' não completado.  Enviar mesmo assim?",
@@ -15,7 +16,7 @@
 	"Workset": "Grupo",
 	"connect to server": "conectar ao servidor",
 	"date-format": "%d-%m-%Y",
-	"fullscreen": "tecla cheia",
+	"fullscreen": "tela cheia",
 	"open": "abrir",
 	"review": "revisar"
 }

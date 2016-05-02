@@ -1,11 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gomoko"
+			"Gomoko",
+			"Wladek92"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "'$1' incomplet.  Soumettre quand même ?",
+	"Abandon": "Abandonner",
+	"Are you sure that you want to abandon this task?": "Êtes-vous sûr de vouloir abandonner cette tâche ?",
 	"Campaigns": "Campagnes",
+	"Can't save label. No task is selected!": "Impossible d’enregistrer le libellé. Aucune tâche n’est sélectionnée !",
+	"Could not get metadata for revision $1": "Impossible d'obtenir les métadonnées pour la révision $1",
+	"Could not load form \"$1\": \n$2": "Impossible de charger le formulaire « $1 » : \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Impossible de charger la vue « $1 » : $2\nUtilisation de l’affichage de tâche simple.",
+	"Could not load workset list: $1": "Impossible de charger la liste de travaux : $1",
+	"Could not parse MediaWiki API's response": "Impossible d'analyser le réponse de l'API MediaWiki",
 	"Diff for revision $1": "Différence pour la révision $1",
 	"No difference": "Aucune différence",
 	"Request new workset": "Demander un nouvel ensemble de données",

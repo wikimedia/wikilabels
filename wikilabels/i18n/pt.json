@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"Gato Preto"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "'$1' não foi concluído. Submeter mesmo assim?",
+	"Abandon": "Abandonar",
+	"Are you sure that you want to abandon this task?": "Tem a certeza que deseja abandonar esta tarefa?",
 	"Campaigns": "Campanhas",
 	"Diff for revision $1": "Diferenças para a revisão $1",
 	"No difference": "Nenhuma diferença",

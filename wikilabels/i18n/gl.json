@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Banjo",
+			"Elisardojm"
+		]
+	},
+	"Abandon": "Abandonar",
+	"Are you sure that you want to abandon this task?": "Está seguro de querer abandonar esta tarefa?",
+	"Campaigns": "Campañas",
+	"Can't save label. No task is selected!": "Non se pode gardar a etiqueta. Non hai ningunha tarefa seleccionada.",
+	"Could not get metadata for revision $1": "Non se puideron obter os metadatos para a revisión $1",
+	"Could not load form \"$1\": \n$2": "Non se puido cargar o formulario \"$1\": \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Non se puido cargar a vista \"$1\": $2\nUtilízase o visor de tarefas simple.",
+	"Could not load workset list: $1": "Non se puido cargar a lista de traballo: $1",
+	"Could not parse MediaWiki API's response": "Non se puido analizar a resposta da API de MediaWiki",
+	"Diff for revision $1": "Diferenzas para a revisión $1",
+	"No difference": "Non hai diferenzas",
+	"Request new workset": "Solicitar novo grupo de tarefas",
+	"Review": "Revisar",
+	"Save": "Gardar",
+	"Submit label": "Enviar etiqueta",
+	"Workset": "Grupo de tarefas",
+	"Workset complete!": "Grupo de tarefas rematado!",
+	"connect to server": "Conectar ó servidor",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "pantalla completa",
+	"open": "abrir",
+	"request workset": "Solicitar grupo de tarefas",
+	"review": "revisar"
+}

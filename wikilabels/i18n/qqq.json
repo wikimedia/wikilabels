@@ -8,6 +8,7 @@
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "When the user tries to send a workset that is not completed yet.",
+	"Abandon": "{{Identical|Abandon}}",
 	"Campaigns": "This is the header for a list of \"campaigns\".  Campaigns in WikiLabels are collections of items to be annotated.",
 	"Diff for revision $1": "This message is showed above an edit diff.  The $1 will be replaced with a link to the MediaWiki Special:Diff interface. The text of the link is a number (the revision ID).",
 	"No difference": "This message is shown in place of an edit diff when no change was made to a page.  This happens with a no-op edit is saved.",

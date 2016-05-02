@@ -1,11 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mateon1"
+			"Mateon1",
+			"Chrumps"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "Nie zakończono prac nad '$1'. Przesłać mimo to?",
+	"Are you sure that you want to abandon this task?": "Czy na pewno chcesz zrezygnować z tego zadania?",
 	"Campaigns": "Osiągnięcia",
+	"Can't save label. No task is selected!": "Nie można zapisać etykiety. Nie wybrano żadnego zadania!",
 	"Diff for revision $1": "Diff dla edycji $1",
 	"No difference": "Brak różnic",
 	"Request new workset": "Pobierz nowy zestaw danych",

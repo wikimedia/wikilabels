@@ -6,7 +6,11 @@
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "'$1' är inte slutförd. Skicka ändå?",
+	"Abandon": "Överge",
+	"Are you sure that you want to abandon this task?": "Är du säker på att du vill lämna och ge upp denna uppgift?",
 	"Campaigns": "Kampanjer",
+	"Can't save label. No task is selected!": "Kan inte spara etiketten. Ingen uppgift är vald!",
+	"Could not load form \"$1\": \n$2": "Kunde inte ladda formulär \"$1\": \n$2",
 	"Diff for revision $1": "Skillnad för revision $1",
 	"No difference": "Ingen skillnad",
 	"Review": "Granska",

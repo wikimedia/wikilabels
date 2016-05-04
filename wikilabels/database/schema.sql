@@ -66,10 +66,10 @@ BEGIN
   IF NOT EXISTS (
       SELECT 1 FROM pg_class c
       JOIN   pg_namespace n ON n.oid = c.relnamespace
-      WHERE  c.relname = 'workset_user'
+      WHERE  c.relname = 'workset_user_campaign'
       AND    n.nspname = 'public' -- 'public' by default
   )
-  THEN CREATE INDEX workset_user ON workset (user_id);
+  THEN CREATE INDEX workset_user_campaign ON workset (user_id, campaign_id);
 END IF;
 END$$;
 

@@ -1,7 +1,6 @@
 import logging
 from contextlib import contextmanager
 
-import psycopg2
 from psycopg2.extras import RealDictCursor
 from psycopg2.pool import ThreadedConnectionPool
 
@@ -30,7 +29,7 @@ class DB:
     @contextmanager
     def transaction(self):
         """Provides a transactional scope around a series of operations."""
-        conn = self.get_good_connection()
+        conn = self.pool.getconn()
         try:
             yield conn
             conn.commit()
@@ -39,24 +38,6 @@ class DB:
             raise
         finally:
             self.pool.putconn(conn)
-
-    def get_good_connection(self, retries=11):
-
-        # Try at most 10 times.
-        for i in range(retries):
-            try:
-                conn = self.pool.getconn()
-                cursor = conn.cursor()
-                cursor.execute("SELECT 1;")
-                rows = list(cursor)
-                if len(rows) == 1:
-                    return conn
-            except (psycopg2.InterfaceError, psycopg2.OperationalError,
-                    psycopg2.DatabaseError):
-                self.logger.info("Discarding a useless connection.")
-                continue  # Try again
-
-        raise RuntimeError("No good database connections in the pool.")
 
     @classmethod
     def from_params(cls, *args, minconn=10, maxconn=20, **kwargs):

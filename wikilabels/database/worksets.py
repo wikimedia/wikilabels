@@ -1,4 +1,5 @@
 import logging
+import time
 
 from .collection import Collection
 from .errors import IntegrityError, NotFoundError
@@ -204,7 +205,7 @@ class Worksets(Collection):
 
             return [row['user_id'] for row in cursor]
 
-    def abandon(self, workset_id, user_id):
+    def abandon(self, workset_id, user_id, expires):
         with self.db.transaction() as transactor:
             cursor = transactor.cursor()
 
@@ -215,7 +216,7 @@ class Worksets(Collection):
                       user_id = %(user_id)s
             """, {'workset_id': workset_id, 'user_id': user_id})
 
-            if len(cursor.fetchall()) == 0:
+            if len(cursor.fetchall()) == 0 and expires < time.time():
                 mssg = 'workset_id={0} does not belong to user_id={1}'
                 mssg = mssg.format(workset_id, user_id)
                 raise IntegrityError(mssg)

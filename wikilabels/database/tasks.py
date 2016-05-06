@@ -138,3 +138,20 @@ class Tasks(Collection):
             """, ({'campaign_id': campaign_id, 'data': Json(task)}
                   for task in tasks))
             return True
+
+    def remove_expired_tasks(self):
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("""
+                DELETE FROM workset_task
+                USING workset_task as wt
+                JOIN workset ON
+                    workset.id = wt.workset_id
+                LEFT JOIN label ON
+                    label.task_id = wt.task_id
+                WHERE
+                    workset_task.workset_id = wt.workset_id AND
+                    workset_task.task_id = wt.task_id AND
+                    label.data is NULL AND
+                    workset.expires < NOW()
+                """)

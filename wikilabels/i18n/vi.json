@@ -1,7 +1,19 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Minh Nguyen"
+		]
+	},
 	"'$1' not completed.  Submit anyway?": "'$1' chưa hoàn tất. Bạn vẫn muốn gửi đi?",
+	"Abandon": "Bỏ rơi",
+	"Are you sure that you want to abandon this task?": "Bạn có chắc chắn muốn bỏ rơi việc làm này?",
 	"Campaigns": "Chiến dịch",
+	"Can't save label. No task is selected!": "Không thể lưu nhãn vì chưa chọn việc làm.",
+	"Could not get metadata for revision $1": "Không thể lấy siêu dữ liệu của phiên bản $1",
+	"Could not load form \"$1\": \n$2": "Không thể tải biểu mẫu “$1”: \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Không thể tải khung nhìn “$1”: $2\nSẽ sử dụng trình xem việc làm đơn giản.",
+	"Could not load workset list: $1": "Không thể tải danh sách bộ việc làm: $1",
+	"Could not parse MediaWiki API's response": "Không thể phân tích phản hồi của API MediaWiki",
 	"Diff for revision $1": "Khác biệt của phiên bản $1",
 	"No difference": "Không có sự khác biệt",
 	"Request new workset": "Yêu cầu gói công việc mới",

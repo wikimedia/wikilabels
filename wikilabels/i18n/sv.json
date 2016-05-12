@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"WikiPhoenix",
-			"Josve05a"
+			"Josve05a",
+			"Jopparn"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "'$1' är inte slutförd. Skicka ändå?",
@@ -10,7 +11,9 @@
 	"Are you sure that you want to abandon this task?": "Är du säker på att du vill lämna och ge upp denna uppgift?",
 	"Campaigns": "Kampanjer",
 	"Can't save label. No task is selected!": "Kan inte spara etiketten. Ingen uppgift är vald!",
+	"Could not get metadata for revision $1": "Kunde inte hämta metadata för version $1",
 	"Could not load form \"$1\": \n$2": "Kunde inte ladda formulär \"$1\": \n$2",
+	"Could not parse MediaWiki API's response": "Det gick inte att tolka MediaWiki API:ets svar",
 	"Diff for revision $1": "Skillnad för revision $1",
 	"No difference": "Ingen skillnad",
 	"Review": "Granska",

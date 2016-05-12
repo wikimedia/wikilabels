@@ -1,11 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Andibing"
+			"Andibing",
+			"Usandaru555"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "'$1' not completed.  Submit anyway?",
+	"Abandon": "ප්‍රතික්ෂේප කරනවා",
+	"Are you sure that you want to abandon this task?": "ඔබට මෙම කාර්ය ප්‍රතික්ශෙප කිරීමට අවශ්‍යද?",
 	"Campaigns": "Campaigns",
+	"Can't save label. No task is selected!": "ලේබලය සුරකින්න නොහැකිය. කාර්යක් තෝරාගෙන නැත!",
+	"Could not get metadata for revision $1": "Could not get metadata for revision $1",
+	"Could not load form \"$1\": \n$2": "Could not load form \"$1\": \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Could not load view \"$1\": $2\nUsing simple task viewer.",
+	"Could not load workset list: $1": "වැඩ සටහන් ලැයිස්තුව එකතු කරන්න නොහැකිය: $1",
+	"Could not parse MediaWiki API's response": "Could not parse MediaWiki API's response",
 	"Diff for revision $1": "Diff for revision $1",
 	"No difference": "No difference",
 	"Request new workset": "Request new workset",

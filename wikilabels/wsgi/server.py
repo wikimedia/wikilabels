@@ -4,6 +4,7 @@ import os
 import mwoauth
 import yaml
 from flask import Blueprint, Flask
+from flask.ext.cors import CORS
 
 from . import routes, sessions
 from ..database import DB
@@ -43,6 +44,7 @@ def configure(config):
     oauth = mwoauth.Handshaker(config['oauth']['mw_uri'], consumer_token)
 
     bp = routes.configure(config, bp, db, oauth, form_map)
+    CORS(bp, origins=config['wsgi'].get('cors_allowed', '*'))
     app.register_blueprint(bp, url_prefix=config['wsgi']['url_prefix'])
 
     return app

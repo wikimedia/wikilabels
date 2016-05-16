@@ -1,7 +1,16 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Alex Khimich"
+		]
+	},
 	"'$1' not completed.  Submit anyway?": "'$1' не готовий.  Усе одно надіслати?",
+	"Abandon": "Покинути",
+	"Are you sure that you want to abandon this task?": "Ви впевнені, що хочете відмовитися від цього завдання?",
 	"Campaigns": "Кампанії",
+	"Can't save label. No task is selected!": "Не можу зберегти мітку. Немає обраних завдань!",
+	"Could not get metadata for revision $1": "Не можу отримати метадані для перегляду $1",
+	"Could not load form \"$1\": \n$2": "Не може завантажити з «$1»: \n$2",
 	"Diff for revision $1": "Різниця для версії $1",
 	"No difference": "Немає різниці",
 	"Request new workset": "Запитати новий робочий набір",

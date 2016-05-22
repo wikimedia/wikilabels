@@ -53,8 +53,6 @@ def configure(bp, config, db):
         """
         Returns metadata for a campaign or assign a new workset
         """
-        if 'assign' in request.args:
-            return assign_workset(wiki, campaign_id)
 
         doc = {}
         if 'tasks' in request.args:
@@ -105,8 +103,6 @@ def configure(bp, config, db):
         """
         Gathers metadata for a particular workset
         """
-        if 'abandon' in request.args:
-            return abandon_workset(wiki, campaign_id, workset_id)
 
         doc = {}
         if 'campaign' in request.args:
@@ -154,12 +150,6 @@ def configure(bp, config, db):
         """
         Gets a task label
         """
-        if 'abandon' in request.args:
-            return abandon_task(session['user']['id'], task_id, workset_id)
-
-        if 'label' in request.args:
-            return label_task(wiki, campaign_id, workset_id, task_id,
-                              request.args['label'])
 
         doc = {}
         if 'campaign' in request.args:

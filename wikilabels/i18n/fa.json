@@ -1,12 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Reza1615"
+			"Reza1615",
+			"Ladsgroup"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "'$1' باز است. آیا مطمئنید؟",
 	"Abandon": "رها شده",
+	"Are you sure that you want to abandon this task?": "آیا مطمئن هستید که می‌خواهید این فعالیت را رها کنید؟",
 	"Campaigns": "کمپین‌ها",
+	"Can't save label. No task is selected!": "امکان ذخیره وجود ندارد. تسکی انتخاب نشده‌است.",
+	"Could not get metadata for revision $1": "امکان گرفتن اطلاعات ویرایش $1 وجود ندارد.",
+	"Could not load workset list: $1": "امکان بارگاری فهرست مجموعه کاری $1 وجود ندارد",
+	"Could not parse MediaWiki API's response": "نمی‌توان پاسخ API مدیاویکی را تجزیه کرد",
 	"Diff for revision $1": "تغییرات برای ویرایش $1",
 	"No difference": "بدون تغییر",
 	"Request new workset": "درخواست یک مجموعه جدید",

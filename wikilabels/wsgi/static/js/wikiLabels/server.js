@@ -1,13 +1,15 @@
 ( function (mw, $, WL) {
 
 	var Server = function () {};
-	Server.prototype.request = function (relPath, data) {
+	Server.prototype.request = function (relPath, data, method) {
 		var deferred = $.Deferred();
-
+		method = method || "GET";
 		$.ajax(
 			this.absPath.apply(this, relPath),
 			{
-				dataType: "jsonp",
+				dataType: "json",
+				method: method,
+				jsonp: false,
 				crossDomain: true,
 				data: data || {}
 			}
@@ -54,7 +56,8 @@
 	Server.prototype.assignWorkset = function (campaignId) {
 		return this.request(
 			["campaigns", mw.config.get('wgDBname'), campaignId],
-			{ assign: "", workset: "stats"}
+			{ workset: "stats"},
+			"POST"
 		);
 	};
 	Server.prototype.getWorkset = function (campaignId, worksetId) {
@@ -71,14 +74,16 @@
 	Server.prototype.saveLabel = function (campaignId, worksetId, taskId, labelData) {
 		return this.request(
 			["campaigns", mw.config.get('wgDBname'), campaignId, worksetId, taskId],
-			{ label: JSON.stringify(labelData) }
+			{ label: JSON.stringify(labelData) },
+			"POST"
 		);
 	};
 
 	Server.prototype.abandonLabel = function (campaignId, worksetId, taskId) {
 		return this.request(
 			["campaigns", mw.config.get('wgDBname'), campaignId, worksetId, taskId],
-			{ abandon: "" }
+			{},
+			"DELETE"
 		);
 	};
 	WL.server = new Server();

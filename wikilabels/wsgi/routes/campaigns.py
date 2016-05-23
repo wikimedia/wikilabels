@@ -211,8 +211,9 @@ def configure(bp, config, db):
     @bp.route("/campaigns/<wiki>/<int:campaign_id>/<int:workset_id>/"
               "<int:task_id>/", methods=["DELETE"])
     @preprocessors.authenticated
-    def abandon_task(user_id, task_id, workset_id):
+    def abandon_task(wiki, campaign_id, workset_id, task_id):
         """Abandon a task with clearing data and remove it from workset."""
+        user_id = session['user']['id']
         doc = db.labels.clear_data(task_id, user_id)
         if not doc:
             doc = {}

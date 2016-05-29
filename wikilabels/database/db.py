@@ -53,7 +53,7 @@ class DB:
     def from_config(cls, config):
         # Copy config as kwargs
         params = {k: v for k, v in config['database'].items()}
-        params['minconn'] = params.get('minconn', 10)
-        params['maxconn'] = params.get('maxconn', 20)
+        params['minconn'] = params.get('minconn', 1)
+        params['maxconn'] = params.get('maxconn', 5)
 
         return cls(**params)

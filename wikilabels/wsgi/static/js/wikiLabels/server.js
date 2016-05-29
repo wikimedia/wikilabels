@@ -11,6 +11,7 @@
 				method: method,
 				jsonp: false,
 				crossDomain: true,
+				xhrFields: {withCredentials: true},
 				data: data || {}
 			}
 		)

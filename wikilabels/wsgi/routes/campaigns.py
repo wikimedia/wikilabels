@@ -77,7 +77,7 @@ def configure(bp, config, db):
         """
         user_id = session['user']['id']
 
-        stats = request.args.get('workset') == "stats"
+        stats = request.form.get('workset') == "stats"
         try:
             doc = {'workset': db.worksets.assign(campaign_id, user_id, stats)}
         except IntegrityError as e:
@@ -85,14 +85,14 @@ def configure(bp, config, db):
         except NotFoundError as e:
             return responses.not_found(str(e))
 
-        if 'campaign' in request.args:
-            stats = request.args.get('campaign') == "stats"
+        if 'campaign' in request.form:
+            stats = request.form.get('campaign') == "stats"
             try:
                 doc['campaign'] = db.campaigns.get(campaign_id, stats)
             except NotFoundError as e:
                 return responses.not_found(str(e))
 
-        if 'tasks' in request.args:
+        if 'tasks' in request.form:
             doc['tasks'] = db.tasks.for_workset(doc['workset']['id'])
 
         return jsonify(doc)
@@ -186,21 +186,21 @@ def configure(bp, config, db):
             'label': db.labels.upsert(task_id, session['user']['id'], label)
         }
 
-        if 'campaign' in request.args:
-            stats = request.args.get('campaign') == "stats"
+        if 'campaign' in request.form:
+            stats = request.form.get('campaign') == "stats"
             try:
                 doc['campaign'] = db.campaigns.get(campaign_id, stats)
             except NotFoundError as e:
                 return responses.not_found(str(e))
 
-        if 'workset' in request.args:
-            stats = request.args.get('workset') == "stats"
+        if 'workset' in request.form:
+            stats = request.form.get('workset') == "stats"
             try:
                 doc['workset'] = db.worksets.get(workset_id, stats)
             except NotFoundError as e:
                 return responses.not_found(str(e))
 
-        if 'task' in request.args:
+        if 'task' in request.form:
             try:
                 doc['task'] = db.tasks.get(task_id)
             except NotFoundError as e:

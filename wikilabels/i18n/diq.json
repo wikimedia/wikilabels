@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kumkumuk",
+			"Marmase",
+			"Mirzali"
+		]
+	},
+	"Abandon": "Terk ke",
+	"Campaigns": "Qampanyay",
+	"Can't save label. No task is selected!": "Nişan qeyd nêbi. Teslağo nêweçineyeno",
+	"Diff for revision $1": "Seba revizyonê $1 rê Diff",
+	"No difference": "Ferk çıni yo",
+	"Request new workset": "Kumeya kardê newi bıwaz",
+	"Review": "çım ra raviyarne",
+	"Save": "Qeyd ke",
+	"Submit label": "Etiketi arz ke",
+	"Workset": "Kumeya kari",
+	"Workset complete!": "Kumeya kari bi temam",
+	"date-format": "%Y-%m-%d",
+	"fullscreen": "Tam ekran",
+	"open": "Ake",
+	"request workset": "Kumeya kari bıwaz",
+	"review": "Çımraraviyarnayış"
+}

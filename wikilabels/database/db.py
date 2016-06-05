@@ -11,6 +11,7 @@ from .worksets import Worksets
 
 logger = logging.getLogger(__name__)
 
+
 class DB:
     def __init__(self, *args, **kwargs):
         self.pool_params = (args, kwargs)

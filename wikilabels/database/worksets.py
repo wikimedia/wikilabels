@@ -169,14 +169,16 @@ class Worksets(Collection):
                   task.id AS task_id
                 FROM campaign
                 INNER JOIN task ON task.campaign_id = campaign.id
-                LEFT JOIN label ON
-                  label.task_id = task.id
+                LEFT JOIN workset_task ON
+                  workset_task.task_id = task.id
+                LEFT JOIN workset ON
+                  workset.id = workset_task.workset_id
                 WHERE campaign.id = %(campaign_id)s
                 GROUP BY task.id, campaign.labels_per_task
                 HAVING
-                  COUNT(label.task_id) < campaign.labels_per_task AND
-                  SUM((label.user_id IS NOT NULL AND
-                       label.user_id = %(user_id)s)::int) = 0
+                  COUNT(workset_task.task_id) < campaign.labels_per_task AND
+                  SUM((workset.user_id IS NOT NULL AND
+                       workset.user_id = %(user_id)s)::int) = 0
                 ORDER BY RANDOM()
                 LIMIT %(tasks_per_assignment)s
             """, {'campaign_id': campaign_id,

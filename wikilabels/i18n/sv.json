@@ -3,25 +3,32 @@
 		"authors": [
 			"WikiPhoenix",
 			"Josve05a",
-			"Jopparn"
+			"Jopparn",
+			"Johan"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "'$1' är inte slutförd. Skicka ändå?",
-	"Abandon": "Överge",
-	"Are you sure that you want to abandon this task?": "Är du säker på att du vill lämna och ge upp denna uppgift?",
+	"Abandon": "Slutför ej",
+	"Are you sure that you want to abandon this task?": "Är du säker på att du vill lämna denna uppgift utan att slutföra den?",
 	"Campaigns": "Kampanjer",
 	"Can't save label. No task is selected!": "Kan inte spara etiketten. Ingen uppgift är vald!",
 	"Could not get metadata for revision $1": "Kunde inte hämta metadata för version $1",
 	"Could not load form \"$1\": \n$2": "Kunde inte ladda formulär \"$1\": \n$2",
-	"Could not parse MediaWiki API's response": "Det gick inte att tolka MediaWiki API:ets svar",
-	"Diff for revision $1": "Skillnad för revision $1",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Kunde inte hämta vyn \"$1\": $2\nAnvänder enkel vy.",
+	"Could not load workset list: $1": "Kunde inte hämta uppsättning redigeringar: $1",
+	"Could not parse MediaWiki API's response": "Det gick inte att tolka MediaWiki-API:ets svar",
+	"Diff for revision $1": "Skillnad för ändring $1",
 	"No difference": "Ingen skillnad",
+	"Request new workset": "Begär ny uppstättning redigeringar",
 	"Review": "Granska",
 	"Save": "Spara",
 	"Submit label": "Skicka etikett",
+	"Workset": "Uppsättning redigeringar",
+	"Workset complete!": "Uppsättningen redigeringar genomgången!",
 	"connect to server": "anslut till server",
 	"date-format": "%d-%m-%Y",
 	"fullscreen": "helskärm",
 	"open": "öppna",
+	"request workset": "begär uppsättning redigeringar",
 	"review": "granska"
 }

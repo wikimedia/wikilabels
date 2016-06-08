@@ -3,7 +3,9 @@ This script provides access to a set of utilities for Wiki-Labels
 
 * dev_server -- Starts a development webserver on localhost
 * load_schema -- Loads the DB schema
-* task_inserts -- Converts a TSV to SQL insert statements for a set of tasks
+* new_campaign -- Creates a new campaign
+* task_inserts -- Inserts a set of tasks into a campaign
+* remove_expired_tasks -- Removes expired tasks from worksets
 
 Usage:
     wikilabels (-h | --help)

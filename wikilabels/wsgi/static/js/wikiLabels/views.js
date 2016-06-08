@@ -148,7 +148,7 @@
 	OO.inheritClass(PageAsOfRevision, View);
 	PageAsOfRevision.prototype.present = function(taskInfo) {
 		if (taskInfo.title && taskInfo.html) {
-			this.presentHTML(taskInfo.title, taskInfo.html);
+			this.presentPage(taskInfo.title, taskInfo.html);
 		} else {
 			WL.api.getRevision(
 				taskInfo.data['data']['rev_id'],

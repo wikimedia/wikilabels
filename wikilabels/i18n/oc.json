@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cedric31"
+		]
+	},
+	"Abandon": "Abandonar",
+	"Campaigns": "Campanhas",
+	"No difference": "Pas cap de diferéncia",
+	"Review": "Relectura",
+	"Save": "Enregistrar",
+	"Submit label": "Sometre l'etiqueta",
+	"Workset": "Grop",
+	"Workset complete!": "Ensemble de donadas acabat !",
+	"connect to server": "Connectar al servidor",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "Ecran plen",
+	"open": "dobrir",
+	"request workset": "Demandar l'ensemble de donadas",
+	"review": "Relectura"
+}

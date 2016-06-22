@@ -17,18 +17,15 @@
   text-align: middle;
   margin: 0px 1em;
   white-space: nowrap;
-  direction: rtl;
 }
 .wikilabels-form .inline-field > .oo-ui-fieldLayout-help {
   display: inline-block;
-  direction: ltr;
   float: none;
   white-space: normal;
 }
 .wikilabels-form .inline-field > .oo-ui-fieldLayout-body {
   display: inline-block;
   white-space: nowrap;
-  direction: ltr;
 }
 .wikilabels-form .inline-field > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
   display: inline-block;

@@ -11,6 +11,13 @@
 .wikilabels-form .fieldset > .oo-ui-fieldsetLayout > div > * {
   text-align: left;
 }
+/*
+Fix for RTL sites.
+This can be removed if this file is loaded using ResourceLoader and CSSJanus.
+*/
+.mw-content-rtl .wikilabels-form .fieldset > .oo-ui-fieldsetLayout > div > * {
+  text-align: right;
+}
 
 .wikilabels-form .inline-field {
   display: inline-block;

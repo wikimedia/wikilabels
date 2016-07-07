@@ -4,7 +4,8 @@
 			"WikiPhoenix",
 			"Josve05a",
 			"Jopparn",
-			"Johan"
+			"Johan",
+			"Ainali"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "'$1' är inte slutförd. Skicka ändå?",
@@ -19,16 +20,16 @@
 	"Could not parse MediaWiki API's response": "Det gick inte att tolka MediaWiki-API:ets svar",
 	"Diff for revision $1": "Skillnad för ändring $1",
 	"No difference": "Ingen skillnad",
-	"Request new workset": "Begär ny uppstättning redigeringar",
+	"Request new workset": "Begär en ny uppsättning",
 	"Review": "Granska",
 	"Save": "Spara",
 	"Submit label": "Skicka etikett",
-	"Workset": "Uppsättning redigeringar",
-	"Workset complete!": "Uppsättningen redigeringar genomgången!",
+	"Workset": "Uppsättning",
+	"Workset complete!": "Uppsättningen klar!",
 	"connect to server": "anslut till server",
-	"date-format": "%d-%m-%Y",
+	"date-format": "%Y-%m-%d",
 	"fullscreen": "helskärm",
 	"open": "öppna",
-	"request workset": "begär uppsättning redigeringar",
+	"request workset": "begär uppsättning",
 	"review": "granska"
 }

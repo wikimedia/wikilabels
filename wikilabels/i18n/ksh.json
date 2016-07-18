@@ -4,6 +4,20 @@
 			"Purodha"
 		]
 	},
+	"'$1' not completed.  Submit anyway?": "Dat Fäld „$1“ es nit ennjeföllt. Trozdämm loßscheke?",
+	"Abandon": "Ophühre!",
+	"Are you sure that you want to abandon this task?": "Wells De heh di Aufjahb verhaftesch nit mih han?",
+	"Campaigns": "Kampannje",
+	"Could not get metadata for revision $1": "Mer kunnte kein Metta-Dahte för de Väsjohn $1 krijje.",
+	"Could not load form \"$1\": \n$2": "Mer kunnte et Fommolaa „$1“ nit lahde:\n$2",
+	"Could not parse MediaWiki API's response": "Mer kunnte dem MehdijaWikki singe <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Application Programming Interface\">API</i> sing Antwoot nit verschtonn.",
+	"Diff for revision $1": "Ongerscheide för de Väsjohn $1",
+	"No difference": "Keine Ongerscheid",
+	"Review": "Jähjelässe",
+	"Save": "Faßhalde",
+	"connect to server": "en Verbendong mem ẞööver opnämme",
+	"date-format": "%Y-%m-%d",
+	"fullscreen": "op der janze Beldscherm jonn",
 	"open": "offe",
 	"review": "Jähjelässe"
 }

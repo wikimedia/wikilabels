@@ -4,15 +4,18 @@
 			"Robby"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "'$1' ass net ausgefëllt. Trotzdem späicheren?",
+	"'$1' not completed.  Submit anyway?": "D'Feld \"$1\" ass net ausgefëllt. Trotzdem späicheren?",
 	"Abandon": "Opginn",
 	"Are you sure that you want to abandon this task?": "Sidd Dir sécher datt Dir dës Aufgab wëllt opginn?",
+	"Campaigns": "Campagnen",
 	"Can't save label. No task is selected!": "Etikett konnt net gespäichert ginn. Et ass keng Aufgab erausgesicht!",
 	"Diff for revision $1": "Ënnerscheed fir d'Versioun $1",
 	"No difference": "Keen Ënnerscheed",
 	"Review": "Nokucken",
 	"Save": "Späicheren",
 	"connect to server": "mam Server verbannen",
+	"date-format": "%d.%m.%Y",
+	"fullscreen": "ganzen Ecran",
 	"open": "opmaachen",
 	"review": "Nokucken"
 }

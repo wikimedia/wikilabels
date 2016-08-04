@@ -1,7 +1,19 @@
 {
-	"@metadata": [],
-	"'$1' not completed.  Submit anyway?": "'$1' 未完成。確定送出？",
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "'$1' 未填入內容。確定送出？",
+	"Abandon": "放棄",
+	"Are you sure that you want to abandon this task?": "您確定您要放棄此項任務？",
 	"Campaigns": "Campaigns",
+	"Can't save label. No task is selected!": "因沒有選擇任務而無法儲存標籤！",
+	"Could not get metadata for revision $1": "無法獲取修訂版本$1的元數據",
+	"Could not load form \"$1\": \n$2": "無法從$1載入：$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "無法載入視圖「$1」：$2\n正使用簡易的任務瀏覽器",
+	"Could not load workset list: $1": "無法載入工作集合清單：$1",
+	"Could not parse MediaWiki API's response": "無法解析維基媒體API的回應內容",
 	"Diff for revision $1": "版本$1的差異",
 	"No difference": "无差異",
 	"Request new workset": "要求新工作集",

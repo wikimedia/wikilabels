@@ -1,16 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Alex Khimich"
+			"Alex Khimich",
+			"Piramidion"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "'$1' не готовий.  Усе одно надіслати?",
+	"'$1' not completed.  Submit anyway?": "Поле «$1» не заповнено. Все одно надіслати?",
 	"Abandon": "Покинути",
 	"Are you sure that you want to abandon this task?": "Ви впевнені, що хочете відмовитися від цього завдання?",
 	"Campaigns": "Кампанії",
 	"Can't save label. No task is selected!": "Не можу зберегти мітку. Немає обраних завдань!",
 	"Could not get metadata for revision $1": "Не можу отримати метадані для перегляду $1",
 	"Could not load form \"$1\": \n$2": "Не може завантажити з «$1»: \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Не вдалося завантажити перегляд «$1»: $2\nВикористовується простий переглядач завдань.",
+	"Could not load workset list: $1": "Не вдалося завантажити список робочих наборів: $1",
+	"Could not parse MediaWiki API's response": "Не вдалося обробити відповідь MediaWiki API",
 	"Diff for revision $1": "Різниця для версії $1",
 	"No difference": "Немає різниці",
 	"Request new workset": "Запитати новий робочий набір",

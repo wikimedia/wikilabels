@@ -24,7 +24,13 @@
 				}
 			}.bind(this))
 			.fail(function (jqXHR, status, err) {
-				var errorData = { code: jqXHR.status, status: status, message: err };
+				try {
+					var errorMessage = $.parseJSON(jqXHR.responseText).error.message;
+				}
+				catch(parseError) {
+					var errorMessage = "Unable to parse response";
+				}
+				var errorData = { code: jqXHR.status, status: status, message: errorMessage };
 				console.error(errorData);
 				deferred.reject(errorData);
 			}.bind(this));

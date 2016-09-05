@@ -4,11 +4,20 @@
 			"Maroen1990",
 			"محمد أحمد عبد الفتاح",
 			"Ghassanmas",
-			"DRIHEM"
+			"DRIHEM",
+			"Meno25"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "'$1' غير مكتمل. أرسل على أي حال؟",
+	"'$1' not completed.  Submit anyway?": "الخانة \"$1\" فارغة. أرسل على أي حال؟",
+	"Abandon": "هجر",
+	"Are you sure that you want to abandon this task?": "هل أنت متأكد من تخليك عن هذه المهمة؟",
 	"Campaigns": "الحملات",
+	"Can't save label. No task is selected!": "لا يمكن حفظ العلامة. لم تحدد أية مهمة بعد!",
+	"Could not get metadata for revision $1": "تعذر الحصول على البيانات الموصفية لمراجعة $1",
+	"Could not load form \"$1\": \n$2": "تعذر التحميل من \"$1\": $2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "تعذر تحميل عرض \"$1\": $2\nالانتقال إلى استخدام المشاهدة البسيطة للمهام.",
+	"Could not load workset list: $1": "تعذر تحميل قائمة مجموعة العمل:$1",
+	"Could not parse MediaWiki API's response": "تعذر تحليل استجابة واجهة تحليل التطبيقات لميدياويكي",
 	"Diff for revision $1": "معرفة الإختلافات للمراجعة $1",
 	"No difference": "لا يوجد فرق",
 	"Request new workset": "طلب شريحة جديد من العينات",

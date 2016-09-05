@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "Nun se rellenó'l campu «$1». ¿Unviar de toles maneres?",
+	"Abandon": "Abandonar",
+	"Are you sure that you want to abandon this task?": "¿Tas seguru de que quies abandonar esta xera?",
+	"Campaigns": "Campañes",
+	"Can't save label. No task is selected!": "Nun puede guardase la etiqueta. Nun hai nenguna xera seleicionada.",
+	"Could not get metadata for revision $1": "Nun pudieron llograse los metadatos pa la revisión $1",
+	"Could not load form \"$1\": \n$2": "Nun pudo cargase'l formulariu \"$1\": \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nun pudo cargase la vista «$1»: $2\nUtilízase'l visor de xeres simple.",
+	"Could not load workset list: $1": "Nun pudo cargase la llista de grupos de xeres: $1",
+	"Could not parse MediaWiki API's response": "Nun pudo analizase la respuesta de la API de MediaWiki",
+	"Diff for revision $1": "Diferencies de la revisión $1",
+	"No difference": "Nun hai diferencies",
+	"Request new workset": "Solicitar nuevu grupu de xeres",
+	"Review": "Revisar",
+	"Save": "Guardar",
+	"Submit label": "Unviar etiqueta",
+	"Workset": "Grupu de xeres",
+	"Workset complete!": "¡Grupu de xeres rematáu!",
+	"connect to server": "coneutar al sirvidor",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "pantalla completa",
+	"open": "abrir",
+	"request workset": "solicitar grupu de xeres",
+	"review": "revisar"
+}

@@ -8,7 +8,7 @@
 			"Ainali"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "'$1' är inte slutförd. Skicka ändå?",
+	"'$1' not completed.  Submit anyway?": "Fältet \"$1\" fylldes inte i. Skicka ändå?",
 	"Abandon": "Slutför ej",
 	"Are you sure that you want to abandon this task?": "Är du säker på att du vill lämna denna uppgift utan att slutföra den?",
 	"Campaigns": "Kampanjer",

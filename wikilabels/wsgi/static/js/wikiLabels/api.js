@@ -47,7 +47,7 @@
 					if (doc.query.badrevids) {
 						deferred.reject( {
 							code: "revision not found",
-							message: WL.i18n( 'Could not get metadata for revision $1', revId)
+							message: WL.i18n( 'Could not get metadata for revision $1', [revId])
 						} );
 						return;
 					}

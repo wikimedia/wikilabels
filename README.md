@@ -46,10 +46,6 @@ Copy-paste config/schema.sql into the command prompt.
 
 Optionally, you can also load sample data into the database by copy-pasting config/schema-testdata.sql into the command prompt
 
-### Installing javascript dependencies
-
-    $ npm install codemirror jquery oojs oojs-ui strftime yamljs
-
 ### Starting the dev server
 
     $ wikilabels dev_server --config config-localdev.yaml

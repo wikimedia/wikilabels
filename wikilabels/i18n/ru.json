@@ -1,7 +1,16 @@
 {
-	"@metadata": [],
-	"'$1' not completed.  Submit anyway?": "'$1' не готово.  Отправить всё равно?",
+	"@metadata": {
+		"authors": [
+			"Irus"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "Поле \"$1\" не была заполнена. В любом случае подавать?",
+	"Abandon": "Покинуть",
+	"Are you sure that you want to abandon this task?": "Вы уверены, что хотите отказаться от этого?",
 	"Campaigns": "Кампании",
+	"Can't save label. No task is selected!": "Не удается сохранить тег. Не указывайте любую задачу!",
+	"Could not get metadata for revision $1": "Не удалось получить метаданные для пересмотра $1",
+	"Could not load form \"$1\": \n$2": "Не может загрузить форма \"$1\":\n$2",
 	"Diff for revision $1": "Diff для ревизии $1",
 	"No difference": "Различий нет",
 	"Request new workset": "Запросить новый рабочий набор",

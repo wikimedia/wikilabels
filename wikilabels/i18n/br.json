@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gwenn-Ael"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "Ne oa ket leun ar vaezienn \"$1\". Kas en-dro ?",
+	"Abandon": "Dilezel",
+	"Are you sure that you want to abandon this task?": "Ha sur oc'h e fell deoc'h dilezel an trevell-mañ ?",
+	"Campaigns": "Koulzadoù",
+	"Can't save label. No task is selected!": "Ne c'haller ket enrollañ ar  skridennad  ! N'eus bet dibabet trevell ebet !",
+	"Could not get metadata for revision $1": "Ne c'haller ket kaout ar metaroadennoù evit an adwelet $1",
+	"Could not load form \"$1\": \n$2": "Ne c'haller ket kargañ ar furmskrid « $1 » : $2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Ne c'haller ket kargañ ar gwel « $1 » : $2.\nImplijout diskwel an trevell eeun.",
+	"Could not load workset list: $1": "Ne c'haller ket kargañ roll al labourioù : $1",
+	"Could not parse MediaWiki API's response": "Ne c'haller ket dielfennañ respont API MediaWiki",
+	"Diff for revision $1": "Diforc'h evit an adwelet : $1",
+	"No difference": "Disheñvelder ebet",
+	"Request new workset": "Goulenn un hollad roadennoù nevez",
+	"Review": "Adwelet",
+	"Save": "Enrollañ",
+	"Submit label": "Kas an tikedenn",
+	"Workset": "Hollad roadennoù",
+	"Workset complete!": "Hollad roadennoù echu !",
+	"connect to server": "Kevreañ ouzh ar servijer",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "skramm leun",
+	"open": "digeriñ",
+	"review": "adwelet"
+}

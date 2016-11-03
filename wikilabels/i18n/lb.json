@@ -11,6 +11,7 @@
 	"Can't save label. No task is selected!": "Etikett konnt net gespäichert ginn. Et ass keng Aufgab erausgesicht!",
 	"Could not get metadata for revision $1": "D'Metadate fir d'Versioun $1 goufen net fonnt",
 	"Could not load form \"$1\": \n$2": "De Formulaire \"$1\" konnt net geluede ginn:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "D'Vue \"$1\" konnt net geluede ginn: $2\nDe 'Simple task viewer' gouf benotzt.",
 	"Could not load workset list: $1": "D'Lëscht vun den Aarbechtssäz konnt net geluede ginn: $1",
 	"Could not parse MediaWiki API's response": "D'Äntwert vum MediaWiki-API konnt net geparst ginn.",
 	"Diff for revision $1": "Ënnerscheed fir d'Versioun $1",

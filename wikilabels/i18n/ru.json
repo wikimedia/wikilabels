@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Irus"
+			"Irus",
+			"MaxBioHazard"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "Поле \"$1\" не была заполнена. В любом случае подавать?",
@@ -13,7 +14,7 @@
 	"Could not load form \"$1\": \n$2": "Не может загрузить форма \"$1\":\n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Не может загрузить смотреть \"$1\": $2\nИспользуя простую задачу зрителя.",
 	"Could not load workset list: $1": "Не может загрузить наборе списка: $1",
-	"Could not parse MediaWiki API's response": "Не удалось обработать ответ для MediaWiki API-интерфейсы",
+	"Could not parse MediaWiki API's response": "Не удалось распарсить ответ MediaWiki API",
 	"Diff for revision $1": "Diff для ревизии $1",
 	"No difference": "Различий нет",
 	"Request new workset": "Запросить новый рабочий набор",

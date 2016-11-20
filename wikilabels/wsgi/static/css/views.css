@@ -38,7 +38,7 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 .wikilabels-diff-to-previous > .comment:before,
 .wikilabels-diff-to-previous > .comment:after {
   content: '"';
-  color: #333;
+  color: #222;
 }
 .wikilabels-diff-to-previous > .diff {
   text-align: left;
@@ -57,7 +57,7 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
   margin-top: 1em;
   font-weight: bold;
   font-style: italic;
-  color: #999;
+  color: #72777d;
 
 }
 .display-page-html {

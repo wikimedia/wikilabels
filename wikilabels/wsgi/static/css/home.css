@@ -22,14 +22,14 @@ float: right;
   text-align: center;
   width: auto;
   height: 20em;
-  border-left: 1px solid silver;
+  border-left: 1px solid #c8ccd1;
 }
 html[dir="rtl"] #wikilabels-home > .menu,
 html[dir="rtl"] #wikilabels-home > .wikilabels-menu {
   margin-left: 0em;
   border-left: 0px;
   margin-right: 26em;
-  border-right: 1px solid silver;
+  border-right: 1px solid #c8ccd1;
 }
 #wikilabels-home > .menu > .connector,
 #wikilabels-home > .wikilabels-menu > .connector {
@@ -47,7 +47,7 @@ html[dir="rtl"] #wikilabels-home > .wikilabels-menu {
   padding: .5ex;
 }
 #wikilabels-home .campaign-list > .container > .campaign {
-  background: #f6f6f6;
+  background: #f8f9fa;
   margin-bottom: .5ex;
   text-align: left;
   padding: .5ex;
@@ -90,7 +90,7 @@ html[dir="rtl"] #wikilabels-home .campaign-list > .container > .campaign {
 }
 
 #wikilabels-home .workset-list .workset {
-  background: #ddd;
+  background: #c8ccd1;
   padding: .5ex .5ex;
   padding-right: 1ex;
   cursor: pointer;
@@ -104,13 +104,13 @@ html[dir="rtl"] #wikilabels-home .workset-list .workset {
 #wikilabels-home .workset-list .workset:hover {
   background: #EEF;
   padding-right: .5ex;
-  border-right: .5ex solid #AAA;
+  border-right: .5ex solid #a2a9b1;
 }
 html[dir="rtl"] #wikilabels-home .workset-list .workset:hover {
   padding-right: 0ex;
   border-right: none;
   padding-left: .5ex;
-  border-left: .5ex solid #AAA;
+  border-left: .5ex solid #a2a9b1;
 }
 
 #wikilabels-home .workset-list .workset.selected {
@@ -148,7 +148,7 @@ html[dir="rtl"] #wikilabels-home .workset-list .workset > .progress {
   left: 0px;
   text-align: center;
   padding: .25em;
-  color: #666;
+  color: #72777d;
   letter-spacing: .1em;
   font-style: italic;
 }
@@ -178,9 +178,9 @@ html[dir="rtl"] #wikilabels-home .workset-list .workset > .controls{
 
 
 #wikilabels-home .workset-list .workset .progress  {
-  background: #EEE;
+  background: #eaecf0;
 }
 
 #wikilabels-home .workset-list .workset .progress > .oo-ui-progressBarWidget-bar {
-  background: #7F7;
+  background: #00af89;
 }

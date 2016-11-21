@@ -148,7 +148,7 @@ html[dir="rtl"] #wikilabels-home .workset-list .workset > .progress {
   left: 0px;
   text-align: center;
   padding: .25em;
-  color: #72777d;
+  color: #000;
   letter-spacing: .1em;
   font-style: italic;
 }
@@ -182,5 +182,5 @@ html[dir="rtl"] #wikilabels-home .workset-list .workset > .controls{
 }
 
 #wikilabels-home .workset-list .workset .progress > .oo-ui-progressBarWidget-bar {
-  background: #00af89;
+  background: #36c;
 }

@@ -34,7 +34,7 @@ html[dir="rtl"] .wikilabels-workspace > .wikilabels-menu {
 }
 
 .wikilabels-workspace .task-list {
-  background: #EEE;
+  background: #eaecf0;
   padding: 1ex 1em;
 }
 .wikilabels-workspace .task-list > .header {
@@ -51,7 +51,7 @@ html[dir="rtl"] .wikilabels-workspace .task-list > .header {
 
 .wikilabels-workspace .task-list > .tasks {
   margin-left: 8em;
-  background: #f6f6f6;
+  background: #f8f9fa;
   border: 1px solid silver;
 }
 html[dir="rtl"] .wikilabels-workspace .task-list > .tasks {
@@ -73,14 +73,14 @@ html[dir="rtl"] .wikilabels-workspace .task-list > .tasks {
   bottom: 0px;
   left: 0px;
   border: 1px solid #777;
-  background: #EEE;
+  background: #eaecf0;
   cursor: pointer;
 }
 .wikilabels-workspace .task-list > .tasks .task > .label.completed {
-  background: #7F7;
+  background: #00af89;
 }
 .wikilabels-workspace .task-list > .tasks .task > .label.abandoned {
-  background: #d11d13;
+  background: #d33;
 }
 .wikilabels-workspace .task-list > .tasks .task.selected > .label {
   border: 2px solid #000;

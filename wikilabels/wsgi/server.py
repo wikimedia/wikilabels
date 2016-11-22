@@ -1,11 +1,11 @@
 import json
 import os
 
+import flask_oojsui
+import mwoauth
 import yaml
 from flask import Blueprint, Flask
 from flask.ext.cors import CORS
-
-import mwoauth
 
 from . import routes, sessions
 from ..database import DB
@@ -48,5 +48,11 @@ def configure(config):
     CORS(bp, origins=config['wsgi'].get('cors_allowed', '*'),
          supports_credentials=True)
     app.register_blueprint(bp, url_prefix=config['wsgi']['url_prefix'])
+
+    # Configure OOJS-UI routes
+    oojsui_bp = flask_oojsui.build_static_blueprint(
+        'wikilabels-oojsui', __name__,
+        url_prefix=config['wsgi']['url_prefix'])
+    app.register_blueprint(oojsui_bp)
 
     return app

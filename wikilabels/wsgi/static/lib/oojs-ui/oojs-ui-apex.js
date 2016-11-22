@@ -1,13 +1,17 @@
 /*!
- * OOjs UI v0.9.7
+ * OOjs UI v0.18.0
  * https://www.mediawiki.org/wiki/OOjs_UI
  *
- * Copyright 2011–2015 OOjs Team and other contributors.
+ * Copyright 2011–2016 OOjs UI Team and other contributors.
  * Released under the MIT license
  * http://oojs.mit-license.org
  *
- * Date: 2015-04-03T21:10:22Z
+ * Date: 2016-11-22T10:17:46Z
  */
+( function ( OO ) {
+
+'use strict';
+
 /**
  * @class
  * @extends OO.ui.Theme
@@ -16,13 +20,24 @@
  */
 OO.ui.ApexTheme = function OoUiApexTheme() {
 	// Parent constructor
-	OO.ui.ApexTheme.super.call( this );
+	OO.ui.ApexTheme.parent.call( this );
 };
 
 /* Setup */
 
 OO.inheritClass( OO.ui.ApexTheme, OO.ui.Theme );
 
+/* Methods */
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ApexTheme.prototype.getDialogTransitionDuration = function () {
+	return 250;
+};
+
 /* Instantiation */
 
 OO.ui.theme = new OO.ui.ApexTheme();
+
+}( OO ) );

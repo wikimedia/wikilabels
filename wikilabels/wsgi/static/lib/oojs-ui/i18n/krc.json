@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Iltever"
+			"Iltever",
+			"Ernác"
 		]
 	},
 	"ooui-outline-control-move-down": "Элементни тюбюне кёчюр",
@@ -15,5 +16,7 @@
 	"ooui-dialog-process-error": "Не эсе да табсыз кетди",
 	"ooui-dialog-process-dismiss": "Джаб",
 	"ooui-dialog-process-retry": "Энтда сынаб кёр",
-	"ooui-dialog-process-continue": "Бардыр"
+	"ooui-dialog-process-continue": "Бардыр",
+	"ooui-selectfile-not-supported": "Файл сайлау тутулмайды",
+	"ooui-selectfile-placeholder": "Бир файл да сайланмагъанды"
 }

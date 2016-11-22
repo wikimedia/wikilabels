@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Avjoska",
-			"Pikne"
+			"Pikne",
+			"Suwa"
 		]
 	},
 	"ooui-outline-control-move-down": "Liiguta üksust allapoole",
@@ -14,7 +15,11 @@
 	"ooui-dialog-message-accept": "Sobib",
 	"ooui-dialog-message-reject": "Loobu",
 	"ooui-dialog-process-error": "Midagi läks valesti",
-	"ooui-dialog-process-dismiss": "Hülga",
+	"ooui-dialog-process-dismiss": "Sule",
 	"ooui-dialog-process-retry": "Proovi uuesti",
-	"ooui-dialog-process-continue": "Jätka"
+	"ooui-dialog-process-continue": "Jätka",
+	"ooui-selectfile-button-select": "Vali fail",
+	"ooui-selectfile-not-supported": "Faili valiku tugi puudub",
+	"ooui-selectfile-placeholder": "Faili ei ole valitud",
+	"ooui-selectfile-dragdrop-placeholder": "Lohista fail siia"
 }

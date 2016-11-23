@@ -8,9 +8,9 @@ TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
 MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
                   TOOLS_CDN + "jquery/2.1.3/jquery.js",
                   "lib/jquery-spinner/jquery.spinner.js",
-                  "lib/oojs/oojs.jquery.js",
-                  "lib/oojs-ui/oojs-ui.js",
-                  "lib/oojs-ui/oojs-ui-mediawiki.js")
+                  "/oojs-static/oojs.jquery.js",
+                  "/oojs-ui-static/oojs-ui.js",
+                  "/oojs-ui-static/oojs-ui-mediawiki.js")
 LOCAL_LIBS = (TOOLS_CDN + "js-yaml/3.3.0/js-yaml.js",
               TOOLS_CDN + "codemirror/5.2.0/codemirror.js",
               TOOLS_CDN + "codemirror/5.2.0/mode/yaml/yaml.js")
@@ -23,7 +23,7 @@ JS = ("js/oo.util.js",
       "js/wikiLabels/Form.js",
       "js/wikiLabels/FormBuilder.js")
 
-MEDIAWIKI_STYLES = ("lib/oojs-ui/oojs-ui-mediawiki.css",)
+MEDIAWIKI_STYLES = ("/oojs-ui-static/oojs-ui-mediawiki.css",)
 LOCAL_STYLES = (TOOLS_CDN + "codemirror/5.2.0/codemirror.css",)
 CSS = ("css/oo.ui.SemanticOperationsSelector.css",
        "css/oo.ui.SemanticsSelector.css",

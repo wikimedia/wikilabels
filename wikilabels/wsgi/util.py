@@ -88,6 +88,8 @@ def app_path(path, config):
 def static_path(path, config):
     if path[:4] == "http" or path[:2] == "//":
         return path
+    elif path[:1] == "/":
+        return app_path(path[1:], config)
     else:
         return app_path(path_join("static", path), config)
 

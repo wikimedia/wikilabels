@@ -1,7 +1,19 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Siebrand"
+		]
+	},
 	"'$1' not completed.  Submit anyway?": "'$1' niet voltooid.  Toch verzenden?",
+	"Abandon": "Verlaten",
+	"Are you sure that you want to abandon this task?": "Bent u zeker dat u wilt afzien van deze taak?",
 	"Campaigns": "Campagnes",
+	"Can't save label. No task is selected!": "Het label kan niet opgeslagen worden. Er is geen taak geselecteerd.",
+	"Could not get metadata for revision $1": "De metadata voor versie $1 konden niet opgehaald worden",
+	"Could not load form \"$1\": \n$2": "Het formulier \"$1\" kon niet geladen worden:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "De weergave \"$1\" kon niet geladen worden: $2\nHet eenvoudige taakoverzicht wordt gebruikt.",
+	"Could not load workset list: $1": "Het was niet mogelijk de werksetlijst te laden: $1",
+	"Could not parse MediaWiki API's response": "Het was niet mogelijk het antwoord van de API van MediaWiki te verwerken",
 	"Diff for revision $1": "Verschil voor bewerking $1",
 	"No difference": "Geen verschil",
 	"Request new workset": "Nieuwe werkset opvragen",

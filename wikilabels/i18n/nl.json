@@ -4,7 +4,7 @@
 			"Siebrand"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "'$1' niet voltooid.  Toch verzenden?",
+	"'$1' not completed.  Submit anyway?": "Het veld \"$1\" is niet ingevuld. Toch opslaan?",
 	"Abandon": "Verlaten",
 	"Are you sure that you want to abandon this task?": "Bent u zeker dat u wilt afzien van deze taak?",
 	"Campaigns": "Campagnes",
@@ -19,12 +19,12 @@
 	"Request new workset": "Nieuwe werkset opvragen",
 	"Review": "Beoordelen",
 	"Save": "Opslaan",
-	"Submit label": "Label verzenden",
+	"Submit label": "Label opslaan",
 	"Workset": "Werkset",
 	"Workset complete!": "Werkset voltooid!",
 	"connect to server": "verbinden met server",
 	"date-format": "%d-%m-%Y",
-	"fullscreen": "fullscreen",
+	"fullscreen": "volledig scherm",
 	"open": "openen",
 	"request workset": "werkset opvragen",
 	"review": "beoordelen"

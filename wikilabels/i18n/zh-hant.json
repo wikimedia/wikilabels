@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly"
+			"Kly",
+			"Arthur2e5"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "'$1' 未填入內容。確定送出？",
+	"'$1' not completed.  Submit anyway?": "「$1」未填入內容。確定送出？",
 	"Abandon": "放棄",
 	"Are you sure that you want to abandon this task?": "您確定您要放棄此項任務？",
-	"Campaigns": "Campaigns",
+	"Campaigns": "活動",
 	"Can't save label. No task is selected!": "因沒有選擇任務而無法儲存標籤！",
 	"Could not get metadata for revision $1": "無法獲取修訂版本$1的元數據",
 	"Could not load form \"$1\": \n$2": "無法從$1載入：$2",

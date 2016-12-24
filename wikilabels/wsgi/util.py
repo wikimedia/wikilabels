@@ -10,6 +10,19 @@ from flask import current_app, request
 from .responses import bad_request
 
 
+wiki_data = {
+    'enwiki': {
+        'db_name': 'enwiki',
+        'wiki_path': 'en.wikipedia.org',
+        'lang_code': 'en'
+    },
+    'fawiki': {
+        'db_name': 'fawiki',
+        'wiki_path': 'fa.wikipedia.org',
+        'lang_code': 'fa'
+    },
+}
+
 class ParamError(Exception):
     pass
 
@@ -135,3 +148,8 @@ def i18n_dict():
 def pretty_json(data):
     return json.dumps(data, ensure_ascii=False, sort_keys=True,
                       separators=(',', ': '), indent=8)
+
+def get_wiki_config(wiki):
+    if wiki not in wiki_data:
+        return None
+    return wiki_data[wiki]

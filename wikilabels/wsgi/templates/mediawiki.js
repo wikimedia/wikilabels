@@ -6,11 +6,11 @@
 
 	var Config = function () {
 		this.obj = {
-		'wgDBname': 'enwiki',
-		'wgServer': '//en.wikipedia.org',
+		'wgDBname': '{{ db_name|safe }}',
+		'wgServer': '//{{ wiki_path|safe }}',
 		'wgArticlePath': '/wiki/$1',
 		'wgScriptPath': '/w',
-		'wgUserLanguage': 'en'
+		'wgUserLanguage': '{{ lang_code|safe }}'
 		};
 	};
 	Config.prototype.get = function(key){
@@ -19,7 +19,7 @@
 
 	var util = {
 		wikiScript: function(){return "/w/api.php";},
-		getUrl: function(title){return "//en.wikipedia.org/wiki/" + title;}
+		getUrl: function(title){return "//{{ wiki_path|safe }}/wiki/" + title;}
 	};
 
 	window.mediaWiki = {
@@ -27,6 +27,6 @@
 		msg: function (key) {throw 'msg not implemented';},
 		config: new Config(),
 		util: util,
-		language: {getFallbackLanguageChain: function(){return ['en', 'pt'];}}
+		language: {getFallbackLanguageChain: function(){return ['{{ lang_code|safe }}', 'en'];}}
 	};
 })();

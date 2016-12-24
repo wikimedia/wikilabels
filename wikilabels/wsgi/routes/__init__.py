@@ -4,6 +4,7 @@ from . import form_builder
 from . import forms
 from . import gadget
 from . import users
+from . import ui
 
 
 def configure(config, bp, db, oauth, form_map):
@@ -20,5 +21,6 @@ def configure(config, bp, db, oauth, form_map):
     bp = forms.configure(bp, config, form_map)
     bp = form_builder.configure(bp, config)
     bp = gadget.configure(bp, config)
+    bp = ui.configure(bp, config)
 
     return bp

@@ -1,3 +1,5 @@
+from flask import render_template
+
 from . import auth
 from . import campaigns
 from . import form_builder
@@ -11,9 +13,7 @@ def configure(config, bp, db, oauth, form_map):
 
     @bp.route("/")
     def index():
-        return "Welcome to the index page of the Wiki labels flask app. " + \
-               "There are 5 top-level paths: auth, campaigns, users, " + \
-               "forms and form_builder."
+        return render_template("home.html")
 
     bp = auth.configure(bp, config, oauth)
     bp = campaigns.configure(bp, config, db)

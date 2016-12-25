@@ -1,8 +1,9 @@
 from flask import Response, render_template, request, send_from_directory
 
+from .. import responses
 from ..util import (app_path, build_script_tags, build_style_tags, i18n_dict,
                     minify_js, pretty_json, read_cat, static_file_path,
-                    url_for, get_wiki_config)
+                    url_for)
 
 TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
 
@@ -45,9 +46,10 @@ CSS = ("css/oo.ui.SemanticOperationsSelector.css",
 def configure(bp, config):
     @bp.route("/gadget/")
     def gadget():
-        enwiki_lib = ["lib/mediaWiki/mediaWiki.js"]
-        script_tags = build_script_tags(enwiki_lib + MEDIAWIKI_LIBS + LOCAL_LIBS + JS,
-                                        config)
+        enwiki_lib = tuple(["lib/mediaWiki/mediaWiki.js"])
+        script_tags = build_script_tags(
+            enwiki_lib + MEDIAWIKI_LIBS + LOCAL_LIBS + JS,
+            config)
         script_tags += '<script src="{0}"></script>' \
                        .format(app_path('/gadget/WikiLabels.messages.js',
                                         config))
@@ -103,10 +105,9 @@ def configure(bp, config):
 
     @bp.route("/gadget/<wiki>/mediawiki.js")
     def gadget_wiki(wiki):
-        wiki_config = get_wiki_config(wiki)
-        if not wiki_config:
+        if wiki not in config['wikis']:
             return responses.not_found('Wiki config not found')
-        js = render_template("mediawiki.js", **wiki_config)
+        js = render_template("mediawiki.js", **config['wikis'][wiki])
         return Response(js, mimetype="application/javascript")
 
     return bp

@@ -1,0 +1,52 @@
+<html lang="{{ lang_code|safe }}" dir="{{ dir if dir != None else 'ltr' }}" class="client-js ve-not-available">
+  <head>
+    <title>Labels home gadget</title>
+    <link rel="stylesheet" type="text/css" href="https://{{ wiki_path|safe }}/w/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css" />
+    <link rel="stylesheet" type="text/css" href="https://{{ wiki_path|safe }}/w/index.php?title=MediaWiki:Vector.css&action=raw&ctype=text/css" />
+    {{ script_tags|safe }}
+    {{ style_tags|safe }}
+    <style>
+      body {
+        background: #fff;
+        margin: 0px 2em;
+      }
+    </style>
+  </head>
+  <body class="mediawiki ltr sitedir-ltr ns-4 ns-subject page-Wikipedia_Labels
+               skin-vector action-view webfonts-changed">
+    <style type="text/css">
+    html {
+      background: #eaecf0;
+    }
+    body {
+      max-width: 50em;
+      margin: 0px auto;
+      padding: 1em 2em;
+      background: #fff;
+    }
+    </style>
+    <div id="bodyContent" class="mw-body-content">
+      <div id="mw-content-text" lang="{{ lang_code|safe }}" dir="{{ dir if dir != None else 'ltr' }}" class="mw-content-{{ dir if dir != None else 'ltr' }}">
+        <div id="wikilabels-home">
+          <div class="lead">
+               <!-- Fill this later -->
+          </div>
+          <div class="wikilabels-menu"
+               style=" ">
+            <div style="padding-top: 2em;">
+              <span style="font-size: 200%;">Please enable javascript, otherwise it doesn't work</span>
+            </div>
+          </div>
+          <div class="wikilabels-workspace" style="clear:both;">
+          </div>
+        </div>
+        <script>
+          wikiLabels.config.update( {
+            serverRoot: '{{ server_root|safe }}'
+          } );
+          home = new wikiLabels.Home($('#wikilabels-home'));
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

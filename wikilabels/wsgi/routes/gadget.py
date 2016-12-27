@@ -81,6 +81,8 @@ def configure(bp, config):
     def gadget_messages():
         i18n_str = pretty_json(i18n_dict())
         js = render_template("wikiLabels.messages.js", i18n=i18n_str)
+        if 'minify' in request.args:
+            js = minify_js(js)
         return Response(js, mimetype="application/javascript")
 
     @bp.route("/gadget/loader.js")
@@ -96,6 +98,8 @@ def configure(bp, config):
 
         js = render_template("loader.js", css_path=css_path, js_path=js_path,
                              server_root=url_for("", config))
+        if 'minify' in request.args:
+            js = minify_js(js)
         return Response(js, mimetype="application/javascript")
 
     @bp.route("/gadget/themes/<path:path>")

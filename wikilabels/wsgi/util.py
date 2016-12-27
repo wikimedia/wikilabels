@@ -58,7 +58,7 @@ def read_javascript(static_paths, minify=False):
     else:
         return read_cat(static_paths)
 
-
+@lru_cache(128)
 def minify_js(js_text):
     return uglipyjs.compile(js_text)
 

@@ -13,3 +13,14 @@ database:
 
 oauth:
   mw_uri: https://www.mediawiki.org/w/index.php
+
+wikis:
+  testwiki:
+    db_name: 'testwiki'
+    wiki_path: 'test.wikipedia.org'
+    lang_code: 'en'
+  fawiki:
+    db_name: 'fawiki'
+    wiki_path: 'fa.wikipedia.org'
+    lang_code: 'fa'
+    dir: rtl

@@ -1,13 +1,13 @@
 from flask import Response, render_template, request, send_from_directory
 
+from .. import responses
 from ..util import (app_path, build_script_tags, build_style_tags, i18n_dict,
                     minify_js, pretty_json, read_cat, static_file_path,
                     url_for)
 
 TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
 
-MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
-                  TOOLS_CDN + "jquery/2.1.3/jquery.js",
+MEDIAWIKI_LIBS = (TOOLS_CDN + "jquery/2.1.3/jquery.js",
                   "lib/jquery-spinner/jquery.spinner.js",
                   "/oojs-static/oojs.jquery.js",
                   "/oojs-ui-static/oojs-ui.js",
@@ -46,8 +46,10 @@ CSS = ("css/oo.ui.SemanticOperationsSelector.css",
 def configure(bp, config):
     @bp.route("/gadget/")
     def gadget():
-        script_tags = build_script_tags(MEDIAWIKI_LIBS + LOCAL_LIBS + JS,
-                                        config)
+        enwiki_lib = tuple(["lib/mediaWiki/mediaWiki.js"])
+        script_tags = build_script_tags(
+            enwiki_lib + MEDIAWIKI_LIBS + LOCAL_LIBS + JS,
+            config)
         script_tags += '<script src="{0}"></script>' \
                        .format(app_path('/gadget/WikiLabels.messages.js',
                                         config))
@@ -100,5 +102,12 @@ def configure(bp, config):
     def gadget_themes(path):
         return send_from_directory(static_file_path("lib/oojs-ui/themes"),
                                    path)
+
+    @bp.route("/gadget/<wiki>/mediawiki.js")
+    def gadget_wiki(wiki):
+        if wiki not in config['wikis']:
+            return responses.not_found('Wiki config not found')
+        js = render_template("mediawiki.js", **config['wikis'][wiki])
+        return Response(js, mimetype="application/javascript")
 
     return bp

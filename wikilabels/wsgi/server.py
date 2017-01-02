@@ -6,6 +6,9 @@ import mwoauth
 import yaml
 from flask import Blueprint, Flask
 from flask.ext.cors import CORS
+from flask_assets import Environment, Bundle
+from jsmin import jsmin  # noqa
+from cssmin import cssmin  # noqa
 
 from . import routes, sessions
 from ..database import DB
@@ -49,10 +52,47 @@ def configure(config):
          supports_credentials=True)
     app.register_blueprint(bp, url_prefix=config['wsgi']['url_prefix'])
 
+    # Bundle and minify static assets
+    assets = Environment(app)
+    js_assets = [
+        "lib/date-format/date-format.js",
+        "lib/strftime/strftime.js",
+        "js/oo.util.js",
+        "js/oo.ui.SemanticOperationsSelector.js",
+        "js/oo.ui.SemanticsSelector.js",
+        "js/wikiLabels/wikiLabels.js",
+        "js/wikiLabels/api.js",
+        "js/wikiLabels/config.js",
+        "js/wikiLabels/Form.js",
+        "js/wikiLabels/Home.js",
+        "js/wikiLabels/i18n.js",
+        "js/wikiLabels/server.js",
+        "js/wikiLabels/user.js",
+        "js/wikiLabels/util.js",
+        "js/wikiLabels/views.js",
+        "js/wikiLabels/Workspace.js"]
+    js_assets = ['../wsgi/static/' + i for i in js_assets]
+    js = Bundle(*js_assets,
+                filters='jsmin', output='gadget/packed.js')
+    assets.register('js_all', js)
+
+    css_assets = [
+        "css/oo.ui.SemanticOperationsSelector.css",
+        "css/oo.ui.SemanticsSelector.css",
+        "css/wikiLabels.css",
+        "css/form.css",
+        "css/workspace.css",
+        "css/home.css",
+        "css/views.css"
+    ]
+    css_assets = ['../wsgi/static/' + i for i in css_assets]
+    css = Bundle(*css_assets,
+                 filters='cssmin', output='gadget/packed.css')
+    assets.register('css_all', css)
+
     # Configure OOJS-UI routes
     oojsui_bp = flask_oojsui.build_static_blueprint(
         'wikilabels-oojsui', __name__,
         url_prefix=config['wsgi']['url_prefix'])
     app.register_blueprint(oojsui_bp)
-
     return app

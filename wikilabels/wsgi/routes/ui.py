@@ -2,8 +2,7 @@ from flask import render_template
 
 from .. import responses
 from ..util import app_path, build_script_tags, build_style_tags, url_for
-from .gadget import (MEDIAWIKI_LIBS, LOCAL_LIBS, JS, MEDIAWIKI_STYLES, CSS,
-                     LOCAL_STYLES)
+from .gadget import MEDIAWIKI_LIBS, MEDIAWIKI_STYLES
 
 
 def configure(bp, config):
@@ -20,13 +19,10 @@ def configure(bp, config):
         script_tags = '<script src="{0}"></script>' \
             .format(app_path('/gadget/' + wiki + '/mediawiki.js',
                     config))
-        script_tags += build_script_tags(MEDIAWIKI_LIBS + LOCAL_LIBS + JS,
+        script_tags += build_script_tags(MEDIAWIKI_LIBS,
                                          config)
-        script_tags += '<script src="{0}"></script>' \
-                       .format(app_path('/gadget/WikiLabels.messages.js',
-                                        config))
 
-        style_tags = build_style_tags(MEDIAWIKI_STYLES + LOCAL_STYLES + CSS,
+        style_tags = build_style_tags(MEDIAWIKI_STYLES,
                                       config)
         return render_template("ui_wiki.html",
                                script_tags=script_tags,

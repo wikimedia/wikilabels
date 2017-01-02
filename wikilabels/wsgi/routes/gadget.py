@@ -10,8 +10,8 @@ TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
 MEDIAWIKI_LIBS = (TOOLS_CDN + "jquery/2.1.3/jquery.js",
                   "lib/jquery-spinner/jquery.spinner.js",
                   "/oojs-static/oojs.jquery.js",
-                  "/oojs-ui-static/oojs-ui.js",
-                  "/oojs-ui-static/oojs-ui-mediawiki.js")
+                  "/oojs-ui-static/oojs-ui.min.js",
+                  "/oojs-ui-static/oojs-ui-mediawiki.min.js")
 LOCAL_LIBS = ("lib/date-format/date-format.js",
               "lib/strftime/strftime.js")
 JS = ("js/oo.util.js",
@@ -32,7 +32,7 @@ JS = ("js/oo.util.js",
 MEDIAWIKI_STYLES = ("lib/mediaWiki/enwiki.vector.css",
                     "lib/mediaWiki/enwiki.common.css",
                     "lib/mediaWiki/diffs.css",
-                    "/oojs-ui-static/oojs-ui-mediawiki.css")
+                    "/oojs-ui-static/oojs-ui-mediawiki.min.css")
 LOCAL_STYLES = tuple()
 CSS = ("css/oo.ui.SemanticOperationsSelector.css",
        "css/oo.ui.SemanticsSelector.css",

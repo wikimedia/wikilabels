@@ -102,7 +102,7 @@ html[dir="rtl"] #wikilabels-home .workset-list .workset {
 }
 
 #wikilabels-home .workset-list .workset:hover {
-  background: #EEF;
+  background: #eaf3ff;
   padding-right: .5ex;
   border-right: .5ex solid #a2a9b1;
 }
@@ -114,7 +114,7 @@ html[dir="rtl"] #wikilabels-home .workset-list .workset:hover {
 }
 
 #wikilabels-home .workset-list .workset.selected {
-  background: #EEF;
+  background: #eaf3ff;
   padding-right: .5ex;
   border-right: .5ex solid black;
 }

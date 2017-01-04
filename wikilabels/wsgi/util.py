@@ -5,7 +5,7 @@ from functools import lru_cache, wraps
 from itertools import chain
 
 import uglipyjs
-from flask import current_app, request
+from flask import current_app, render_template, request
 
 from .responses import bad_request
 
@@ -59,6 +59,7 @@ def read_javascript(static_paths, minify=False):
         return read_cat(static_paths)
 
 
+@lru_cache(128)
 def minify_js(js_text):
     return uglipyjs.compile(js_text)
 

@@ -8,6 +8,9 @@ datasets/
 __pycache__/
 *.py[cod]
 *~
+*.webassets-cache
+packed.js
+packed.css
 
 # C extensions
 *.so

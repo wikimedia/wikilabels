@@ -1,51 +1,23 @@
 from flask import render_template, send_from_directory
 
-from ..util import (app_path, build_script_tags, build_style_tags,
-                    static_file_path)
+from .. import assets, preprocessors
+from ..util import build_script_tags, build_style_tags, static_file_path
 
-TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
+LOCAL_LIBS = (assets.TOOLS_CDN + "js-yaml/3.3.0/js-yaml.js",
+              assets.TOOLS_CDN + "codemirror/5.2.0/codemirror.js",
+              assets.TOOLS_CDN + "codemirror/5.2.0/mode/yaml/yaml.js",
+              "js/wikiLabels/FormBuilder.js")
 
-MEDIAWIKI_LIBS = ("lib/mediaWiki/mediaWiki.js",
-                  TOOLS_CDN + "jquery/2.1.3/jquery.js",
-                  "lib/jquery-spinner/jquery.spinner.js",
-                  "/oojs-static/oojs.jquery.js",
-                  "/oojs-ui-static/oojs-ui.js",
-                  "/oojs-ui-static/oojs-ui-mediawiki.js")
-LOCAL_LIBS = (TOOLS_CDN + "js-yaml/3.3.0/js-yaml.js",
-              TOOLS_CDN + "codemirror/5.2.0/codemirror.js",
-              TOOLS_CDN + "codemirror/5.2.0/mode/yaml/yaml.js")
-JS = ("js/oo.util.js",
-      "js/oo.ui.SemanticOperationsSelector.js",
-      "js/oo.ui.SemanticsSelector.js",
-      "js/wikiLabels/wikiLabels.js",
-      "js/wikiLabels/i18n.js",
-      "js/wikiLabels/util.js",
-      "js/wikiLabels/Form.js",
-      "js/wikiLabels/FormBuilder.js")
-
-MEDIAWIKI_STYLES = ("/oojs-ui-static/oojs-ui-mediawiki.css",)
-LOCAL_STYLES = (TOOLS_CDN + "codemirror/5.2.0/codemirror.css",)
-CSS = ("css/oo.ui.SemanticOperationsSelector.css",
-       "css/oo.ui.SemanticsSelector.css",
-       "css/wikiLabels.css",
-       "css/form_builder.css",
-       "css/form.css",
-       "css/workspace.css")
+LOCAL_CSS = (assets.TOOLS_CDN + "codemirror/5.2.0/codemirror.css",)
 
 
 def configure(bp, config):
 
     @bp.route("/form_builder/")
+    @preprocessors.debuggable
     def form_builder():
-        script_tags = build_script_tags(MEDIAWIKI_LIBS + LOCAL_LIBS + JS,
-                                        config)
-
-        script_tags += '<script src="{0}"></script>' \
-                       .format(app_path('/gadget/WikiLabels.messages.js',
-                                        config))
-
-        style_tags = build_style_tags(MEDIAWIKI_STYLES + LOCAL_STYLES + CSS,
-                                      config)
+        script_tags = build_script_tags(assets.LIB_JS + LOCAL_LIBS, config)
+        style_tags = build_style_tags(assets.LIB_CSS + LOCAL_CSS, config)
         return render_template("form_builder.html",
                                script_tags=script_tags,
                                style_tags=style_tags)

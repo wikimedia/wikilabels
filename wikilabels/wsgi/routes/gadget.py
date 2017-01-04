@@ -1,61 +1,17 @@
 from flask import Response, render_template, request, send_from_directory
 
-from .. import responses
+from .. import assets, preprocessors, responses
 from ..util import (app_path, build_script_tags, build_style_tags, i18n_dict,
                     minify_js, pretty_json, read_cat, static_file_path,
                     url_for)
 
-TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"
-
-MEDIAWIKI_LIBS = (TOOLS_CDN + "jquery/2.1.3/jquery.js",
-                  "lib/jquery-spinner/jquery.spinner.js",
-                  "/oojs-static/oojs.jquery.js",
-                  "/oojs-ui-static/oojs-ui.min.js",
-                  "/oojs-ui-static/oojs-ui-mediawiki.min.js")
-LOCAL_LIBS = ("lib/date-format/date-format.js",
-              "lib/strftime/strftime.js")
-JS = ("js/oo.util.js",
-      "js/oo.ui.SemanticOperationsSelector.js",
-      "js/oo.ui.SemanticsSelector.js",
-      "js/wikiLabels/wikiLabels.js",
-      "js/wikiLabels/api.js",
-      "js/wikiLabels/config.js",
-      "js/wikiLabels/Form.js",
-      "js/wikiLabels/Home.js",
-      "js/wikiLabels/i18n.js",
-      "js/wikiLabels/server.js",
-      "js/wikiLabels/user.js",
-      "js/wikiLabels/util.js",
-      "js/wikiLabels/views.js",
-      "js/wikiLabels/Workspace.js")
-
-MEDIAWIKI_STYLES = ("lib/mediaWiki/enwiki.vector.css",
-                    "lib/mediaWiki/enwiki.common.css",
-                    "lib/mediaWiki/diffs.css",
-                    "/oojs-ui-static/oojs-ui-mediawiki.min.css")
-LOCAL_STYLES = tuple()
-CSS = ("css/oo.ui.SemanticOperationsSelector.css",
-       "css/oo.ui.SemanticsSelector.css",
-       "css/wikiLabels.css",
-       "css/form.css",
-       "css/workspace.css",
-       "css/home.css",
-       "css/views.css")
-
 
 def configure(bp, config):
     @bp.route("/gadget/")
+    @preprocessors.debuggable
     def gadget():
-        enwiki_lib = tuple(["lib/mediaWiki/mediaWiki.js"])
-        script_tags = build_script_tags(
-            enwiki_lib + MEDIAWIKI_LIBS + LOCAL_LIBS + JS,
-            config)
-        script_tags += '<script src="{0}"></script>' \
-                       .format(app_path('/gadget/WikiLabels.messages.js',
-                                        config))
-
-        style_tags = build_style_tags(MEDIAWIKI_STYLES + LOCAL_STYLES + CSS,
-                                      config)
+        script_tags = build_script_tags(assets.LIB_JS, config)
+        style_tags = build_style_tags(assets.LIB_CSS, config)
         return render_template("gadget.html",
                                script_tags=script_tags,
                                style_tags=style_tags,
@@ -63,13 +19,13 @@ def configure(bp, config):
 
     @bp.route("/gadget/WikiLabels.css")
     def gadget_style():
-        return Response(read_cat(LOCAL_STYLES + CSS),
+        return Response(read_cat(assets.CSS),
                         mimetype="text/css")
 
     @bp.route("/gadget/WikiLabels.js")
     def gadget_application():
         i18n_str = pretty_json(i18n_dict())
-        response_text = read_cat(LOCAL_LIBS + JS) + \
+        response_text = read_cat(assets.JS) + \
             render_template("wikiLabels.messages.js", i18n=i18n_str)
 
         if 'minify' in request.args:

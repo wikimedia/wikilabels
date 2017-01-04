@@ -5,7 +5,7 @@ from functools import lru_cache, wraps
 from itertools import chain
 
 import uglipyjs
-from flask import current_app, request
+from flask import current_app, render_template, request
 
 from .responses import bad_request
 

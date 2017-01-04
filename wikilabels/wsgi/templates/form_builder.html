@@ -1,8 +1,16 @@
 <html>
   <head>
     <title>Form Builder</title>
+    <script type="text/javascript" src="/gadget/mediawikiwiki/mediawiki.js"></script>
     {{ script_tags|safe }}
+    {% assets "js_all" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+        <script type="text/javascript" src="/gadget/WikiLabels.messages.js"></script>
     {{ style_tags|safe }}
+    {% assets "css_all" %}
+        <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
+    {% endassets %}
     <style>
       body {
         max-width: 51em;

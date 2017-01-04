@@ -1,11 +1,11 @@
-( function (mw, $, WL) {
+( function ($, WL) {
 
 	var API = function () {};
 	API.prototype.request = function (data) {
 		data['format'] = "json";
 		var deferred = $.Deferred(),
 		    ajaxPromise = $.ajax(
-			mw.config.get('wgServer') + mw.util.wikiScript( 'api' ),
+			"//" + WL.mediawiki.host + "/w/api.php",
 			{
 				dataType: "jsonp",
 				data: data
@@ -168,8 +168,25 @@
 
 		return deferred.promise();
 	};
+	API.prototype.getSiteInfo = function(){
+		var params = {
+				action: "query",
+				meta: "siteinfo",
+				siprop: "general",
+				formatversion: 2
+			},
+			deferred = $.Deferred();
 
+		this.request(params)
+			.done(function(doc){
+				deferred.resolve(doc.query.general);
+			}.bind(this))
+			.fail(function(doc){
+				deferred.reject(doc);
+			}.bind(this));
 
+		return deferred.promise();
+	}
 
 	wikiLabels.api = new API();
-})(mediaWiki, jQuery, wikiLabels);
+})(jQuery, wikiLabels);

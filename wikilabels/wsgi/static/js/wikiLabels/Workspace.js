@@ -1,4 +1,4 @@
-( function (mw, $, OO, WL) {
+( function ($, OO, WL) {
 	var Workspace = function ($element) {
 		if ( $element === undefined || $element.length === 0 ) {
 			throw '$element must be a defined element';
@@ -73,7 +73,7 @@
 			formQuery = WL.server.getForm(doc['campaign']['form']);
 			formQuery.done( function (formDoc) {
 				try {
-					form = WL.Form.fromConfig(formDoc['form'], mw.language.getFallbackLanguageChain());
+					form = WL.Form.fromConfig(formDoc['form'], WL.mediawiki.fallbackChain);
 					this.load(campaignId, worksetId, taskList, form, view);
 				} catch (err) {
 					console.error(err.stack);
@@ -386,4 +386,4 @@
 		return false;
 	};
 	wikiLabels.Workspace = Workspace;
-})(mediaWiki, jQuery, OO, wikiLabels);
+})(jQuery, OO, wikiLabels);

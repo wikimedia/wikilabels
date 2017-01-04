@@ -15,7 +15,8 @@ def configure(bp, config):
         return render_template("gadget.html",
                                script_tags=script_tags,
                                style_tags=style_tags,
-                               server_root=url_for("", config))
+                               server_root=url_for("", config),
+                               mw_host="en.wikipedia.org")
 
     @bp.route("/gadget/WikiLabels.css")
     def gadget_style():

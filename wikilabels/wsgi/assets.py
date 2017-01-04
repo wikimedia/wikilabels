@@ -9,15 +9,17 @@ JS = ("lib/date-format/date-format.js",
       "js/oo.ui.SemanticOperationsSelector.js",
       "js/oo.ui.SemanticsSelector.js",
       "js/wikiLabels/wikiLabels.js",
+      "js/wikiLabels/util.js",
       "js/wikiLabels/api.js",
       "js/wikiLabels/config.js",
       "js/wikiLabels/Form.js",
+      "js/wikiLabels/Labeler.js",
       "js/wikiLabels/Home.js",
       "js/wikiLabels/i18n.js",
       "js/wikiLabels/server.js",
       "js/wikiLabels/user.js",
-      "js/wikiLabels/util.js",
       "js/wikiLabels/views.js",
+      "js/wikiLabels/mediawiki.js",
       "js/wikiLabels/Workspace.js")
 
 CSS = ("css/oo.ui.SemanticOperationsSelector.css",
@@ -26,6 +28,7 @@ CSS = ("css/oo.ui.SemanticOperationsSelector.css",
        "css/form.css",
        "css/workspace.css",
        "css/home.css",
+       "css/labeler.css",
        "css/views.css")
 
 TOOLS_CDN = "//tools-static.wmflabs.org/cdnjs/ajax/libs/"

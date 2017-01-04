@@ -1,4 +1,4 @@
-( function (mw, $, WL) {
+( function ($, WL) {
 
 	var View = function (taskListData) {
 		this.$element = $("<div>").addClass(WL.config.prefix + "view");
@@ -233,4 +233,4 @@
 		PageAsOfRevision: PageAsOfRevision,
 		ParsedWikitext: ParsedWikitext
 	};
-}(mediaWiki, jQuery, wikiLabels));
+}(jQuery, wikiLabels));

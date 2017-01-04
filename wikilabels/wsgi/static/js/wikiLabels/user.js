@@ -1,16 +1,18 @@
-( function (mw, $, WL) {
+( function ($, WL) {
 
 	var User = function () {
 		this.id = null;
 		$(window).focus(this.handleRefocus.bind(this));
 
 		this.statusChanged = $.Callbacks();
+
+		this.updateStatus();
 	};
 	User.prototype.handleRefocus = function (e) {
 		this.updateStatus();
 	};
 	User.prototype.updateStatus = function () {
-		var oldId = this.id;
+		var oldId = this.id, deferred = $.Deferred();
 
 		WL.server.whoami()
 			.done(function(doc){
@@ -19,10 +21,14 @@
 					console.log("Setting user_id to " + this.id);
 					this.statusChanged.fire();
 				}
+				deferred.resolve(true);
 			}.bind(this))
 			.fail(function(doc){
 				this.id = null;
+				deferred.reject(false);
 			}.bind(this));
+
+		return deferred.promise();
 	};
 	User.prototype.initiateOAuth = function () {
 		var oauthWindow = window.open(
@@ -39,4 +45,4 @@
 
 	WL.user = new User();
 
-})(mediaWiki, jQuery, wikiLabels);
+})(jQuery, wikiLabels);

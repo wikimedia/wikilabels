@@ -1,4 +1,4 @@
-( function (mw, $, WL) {
+( function ($, WL) {
 	WL.util = {
 		applyTranslation: function ( value, lookup ) {
 			var str, arr, transArray, i, obj, transObj, key;
@@ -45,13 +45,12 @@
 			}
 		},
 		linkToTitle: function (title, label) {
-			var url = mw.util.getUrl( title );
+			var url = WL.mediawiki.urlToTitle( title );
 
 			return $("<a>").attr('href', url).text(label || title);
 		},
 		linkToDiff: function (revId, label) {
-			var url = mw.config.get('wgServer') +
-								mw.config.get('wgArticlePath').replace("$1", "?diff=" + revId);
+			var url = WL.mediawiki.urlToDiff( revId );
 
 			return $("<a>").attr('target', '_blank').attr('href', url).text(label || revId);
 		},
@@ -81,4 +80,4 @@
 			return newParts.join("/") || (newParts.length ? "/" : ".");
 		}
 	};
-})(mediaWiki, jQuery, wikiLabels);
+})(jQuery, wikiLabels);

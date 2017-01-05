@@ -1,4 +1,4 @@
-( function (mw, WL) {
+( function (WL) {
 
 	var format = function (str, args) {
 
@@ -9,11 +9,9 @@
 	};
 
 	var i18n = function (key, args) {
-		var i, lang,
-		    langChain = mw.language.getFallbackLanguageChain();
 
-		for (i = 0; i < langChain.length; i++) {
-			lang = langChain[i];
+		for (i = 0; i < WL.mediawiki.fallbackChain.length; i++) {
+			lang = WL.mediawiki.fallbackChain[i];
 
 			if (WL.config.messages[lang] && WL.config.messages[lang][key]) {
 				return format(WL.config.messages[lang][key], args);
@@ -24,4 +22,4 @@
 
 	WL.i18n = i18n;
 
-})(mediaWiki, wikiLabels);
+})(wikiLabels);

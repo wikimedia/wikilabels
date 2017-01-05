@@ -21,6 +21,6 @@ def configure(config, bp, db, oauth, form_map):
     bp = forms.configure(bp, config, form_map)
     bp = form_builder.configure(bp, config)
     bp = gadget.configure(bp, config)
-    bp = ui.configure(bp, config)
+    bp = ui.configure(bp, config, db)
 
     return bp

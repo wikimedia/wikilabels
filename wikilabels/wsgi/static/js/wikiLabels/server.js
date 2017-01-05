@@ -1,4 +1,4 @@
-( function (mw, $, WL) {
+( function ($, WL) {
 
 	var Server = function () {};
 	Server.prototype.request = function (relPath, data, method) {
@@ -46,7 +46,7 @@
 
 	Server.prototype.getCampaigns = function () {
 		return this.request(
-			["campaigns", mw.config.get('wgDBname')]
+			["campaigns", WL.mediawiki.dbname]
 		);
 	};
 	Server.prototype.whoami = function () {
@@ -62,14 +62,14 @@
 	};
 	Server.prototype.assignWorkset = function (campaignId) {
 		return this.request(
-			["campaigns", mw.config.get('wgDBname'), campaignId],
+			["campaigns", WL.mediawiki.dbname, campaignId],
 			{ workset: "stats"},
 			"POST"
 		);
 	};
 	Server.prototype.getWorkset = function (campaignId, worksetId) {
 		return this.request(
-			["campaigns", mw.config.get('wgDBname'), campaignId, worksetId],
+			["campaigns", WL.mediawiki.dbname, campaignId, worksetId],
 			{ tasks: "", campaign: "" }
 		);
 	};
@@ -80,7 +80,7 @@
 	};
 	Server.prototype.saveLabel = function (campaignId, worksetId, taskId, labelData) {
 		return this.request(
-			["campaigns", mw.config.get('wgDBname'), campaignId, worksetId, taskId],
+			["campaigns", WL.mediawiki.dbname, campaignId, worksetId, taskId],
 			{ label: JSON.stringify(labelData) },
 			"POST"
 		);
@@ -88,11 +88,11 @@
 
 	Server.prototype.abandonLabel = function (campaignId, worksetId, taskId) {
 		return this.request(
-			["campaigns", mw.config.get('wgDBname'), campaignId, worksetId, taskId],
+			["campaigns", WL.mediawiki.dbname, campaignId, worksetId, taskId],
 			{},
 			"DELETE"
 		);
 	};
 	WL.server = new Server();
 
-})(mediaWiki, jQuery, wikiLabels);
+})(jQuery, wikiLabels);

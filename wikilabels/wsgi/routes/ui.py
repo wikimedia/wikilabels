@@ -1,8 +1,8 @@
-from flask import render_template
+from flask import render_template, request
 
 from .. import assets, preprocessors
 from ...util import wikimedia
-from ..util import app_path, build_script_tags, build_style_tags, url_for
+from ..util import app_path, build_script_tags, build_style_tags
 
 
 def configure(bp, config, db):
@@ -22,7 +22,7 @@ def configure(bp, config, db):
         return render_template("ui_wiki.html",
                                script_tags=script_tags,
                                style_tags=style_tags,
-                               server_root=url_for("", config),
+                               url_root=request.url_root,
                                mw_host=wikimedia.host_from_dbname(wiki))
 
     return bp

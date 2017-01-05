@@ -3,7 +3,6 @@ wikilabels:
   form_i18n_directory: forms/i18n
 
 wsgi:
-  host: localhost:8080
   application_root: ""
   url_prefix: ""
 

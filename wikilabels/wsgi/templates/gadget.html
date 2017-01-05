@@ -32,7 +32,7 @@
         </div>
         <script>
           wikiLabels.config.update( {
-            serverRoot: '{{ server_root|safe }}'
+            serverRoot: '{{ url_root|safe }}'
           } );
           wikiLabels.home = new wikiLabels.Home('{{ mw_host|safe }}');
         </script>

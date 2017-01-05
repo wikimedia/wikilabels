@@ -1,7 +1,6 @@
 <html lang="en" dir="ltr" class="client-js ve-not-available">
   <head>
     <title>Labels home gadget</title>
-    <script type="text/javascript" src="/gadget/mediawikiwiki/mediawiki.js"></script>
     <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css" />
     <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/index.php?title=MediaWiki:Vector.css&action=raw&ctype=text/css" />
     {{ script_tags|safe }}
@@ -33,7 +32,7 @@
         </div>
         <script>
           wikiLabels.config.update( {
-            serverRoot: '{{ server_root|safe }}'
+            serverRoot: '{{ url_root|safe }}'
           } );
           wikiLabels.home = new wikiLabels.Home('{{ mw_host|safe }}');
         </script>

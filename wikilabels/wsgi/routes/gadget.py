@@ -1,9 +1,8 @@
-from flask import Response, render_template, request, send_from_directory
+from flask import Response, render_template, request
 
-from .. import assets, preprocessors, responses
-from ..util import (app_path, build_script_tags, build_style_tags, i18n_dict,
-                    minify_js, pretty_json, read_cat, static_file_path,
-                    url_for)
+from .. import assets, preprocessors
+from ..util import (build_script_tags, build_style_tags, i18n_dict, minify_js,
+                    pretty_json, read_cat, url_for)
 
 
 def configure(bp, config):
@@ -15,7 +14,7 @@ def configure(bp, config):
         return render_template("gadget.html",
                                script_tags=script_tags,
                                style_tags=style_tags,
-                               server_root=url_for("", config),
+                               url_root=request.url_root,
                                mw_host="en.wikipedia.org")
 
     @bp.route("/gadget/WikiLabels.css")
@@ -50,25 +49,13 @@ def configure(bp, config):
             css_path = prefix + "WikiLabels.css"
             js_path = prefix + "WikiLabels.js"
         else:
-            css_path = url_for("/gadget/WikiLabels.css", config)
-            js_path = url_for("/gadget/WikiLabels.js", config)
+            css_path = url_for("/gadget/WikiLabels.css")
+            js_path = url_for("/gadget/WikiLabels.js")
 
         js = render_template("loader.js", css_path=css_path, js_path=js_path,
-                             server_root=url_for("", config))
+                             url_root=request.url_root)
         if 'minify' in request.args:
             js = minify_js(js)
-        return Response(js, mimetype="application/javascript")
-
-    @bp.route("/gadget/themes/<path:path>")
-    def gadget_themes(path):
-        return send_from_directory(static_file_path("lib/oojs-ui/themes"),
-                                   path)
-
-    @bp.route("/gadget/<wiki>/mediawiki.js")
-    def gadget_wiki(wiki):
-        if wiki not in config['wikis']:
-            return responses.not_found('Wiki config not found')
-        js = render_template("mediawiki.js", **config['wikis'][wiki])
         return Response(js, mimetype="application/javascript")
 
     return bp

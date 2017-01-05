@@ -5,7 +5,7 @@ from functools import lru_cache, wraps
 from itertools import chain
 
 import uglipyjs
-from flask import current_app, render_template, request
+from flask import current_app, request
 
 from .responses import bad_request
 
@@ -95,10 +95,8 @@ def static_path(path, config):
         return app_path(path_join("static", path), config)
 
 
-def url_for(path, config):
-    return "//" + path_join(config['wsgi']['host'],
-                            config['wsgi']['application_root'],
-                            path)
+def url_for(path):
+    return path_join(request.url_root, path)
 
 
 def path_join(*path_parts):

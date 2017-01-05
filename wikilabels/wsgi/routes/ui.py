@@ -16,10 +16,7 @@ def configure(bp, config, db):
     @bp.route("/ui/<wiki>/")
     @preprocessors.debuggable
     def ui_wiki(wiki):
-        script_tags = '<script src="{0}"></script>' \
-            .format(app_path('/gadget/' + wiki + '/mediawiki.js',
-                    config))
-        script_tags += build_script_tags(assets.LIB_JS, config)
+        script_tags = build_script_tags(assets.LIB_JS, config)
         style_tags = build_style_tags(assets.LIB_CSS, config)
 
         return render_template("ui_wiki.html",

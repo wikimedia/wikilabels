@@ -64,11 +64,4 @@ def configure(bp, config):
         return send_from_directory(static_file_path("lib/oojs-ui/themes"),
                                    path)
 
-    @bp.route("/gadget/<wiki>/mediawiki.js")
-    def gadget_wiki(wiki):
-        if wiki not in config['wikis']:
-            return responses.not_found('Wiki config not found')
-        js = render_template("mediawiki.js", **config['wikis'][wiki])
-        return Response(js, mimetype="application/javascript")
-
     return bp

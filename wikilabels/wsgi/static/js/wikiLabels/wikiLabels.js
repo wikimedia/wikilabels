@@ -4,7 +4,7 @@
 	}
 	window.wikiLabels = {
 		config: {
-			serverRoot: "//ores.wmflabs.org/labels",
+			serverRoot: "",
 			prefix: "wikilabels-"
 		}
 	};

@@ -54,15 +54,10 @@ def configure(bp, config, oauth):
 
         # Store user info in session
         session['user'] = {'id': identity['sub']}
-
-        # Return window closing script.
-        return """
-        <html>
-            <head>
-                <script>window.close()</script>
-            </head>
-        </html>
-        """
+        url = request.url_root + 'ui/'
+        content = '<meta http-equiv="refresh" content="0; url=' + url + '" />'
+        # Return to ui page
+        return content
 
     @bp.route("/auth/logout/")
     @preprocessors.authenticated

@@ -20,7 +20,7 @@
 		this.dbname = doc.wikiid;
 		this.lang = doc.lang;
 		this.fallbackChain = [doc.lang];
-		for(var i = 0; i < doc.fallback.lengh; i++){
+		for(var i = 0; i < doc.fallback.length; i++){
 			var fallback = doc.fallback[i];
 			this.fallbackChain.push(fallback.code);
 		}

@@ -2,27 +2,27 @@
 
 	var Home = function (host) {
 		WL.user.updateStatus()
-			.done(function(){
+			.done(function() {
 				WL.mediawiki.initialize(host)
-					.done(function(){
+					.done(function() {
 						$('html').attr('lang', wikiLabels.mediawiki.lang);
 						$('#mw-content-text').attr('lang', wikiLabels.mediawiki.lang);
-						if(wikiLabels.mediawiki.rtl){
+						if (wikiLabels.mediawiki.rtl) {
 							$('html').attr('dir', 'rtl');
 							$('#mw-content-text').attr('dir', 'rtl');
 							$('#mw-content-text').addClass('mw-content-rtl');
-						}else{
+						} else {
 							$('html').attr('dir', 'ltr');
 							$('#mw-content-text').attr('dir', 'ltr');
 							$('#mw-content-text').addClass('mw-content-ltr');
 						}
 						wikiLabels.labeler = new wikiLabels.Labeler($('#wikilabels-labeler'));
 					} )
-					.fail(function(doc){
+					.fail(function(doc) {
 						alert(JSON.stringify(doc));
 					} );
 			} )
-			.fail(function(){
+			.fail(function() {
 				window.location = WL.server.absPath("auth", "initiate");
 			} );
 	}

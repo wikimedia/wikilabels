@@ -2,31 +2,32 @@
 	"@metadata": {
 		"authors": [
 			"Liuxinyu970226",
-			"Arthur2e5"
+			"Arthur2e5",
+			"Shizhao"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "字段“$1”未填满。是否仍要提交？",
+	"'$1' not completed.  Submit anyway?": "字段“$1”未填。是否仍要提交？",
 	"Abandon": "放弃",
 	"Are you sure that you want to abandon this task?": "您确定要放弃此任务么？",
 	"Campaigns": "活动",
-	"Can't save label. No task is selected!": "不能保存标签。没有选择任务！",
+	"Can't save label. No task is selected!": "不能保存标记。没有选择任务！",
 	"Could not get metadata for revision $1": "不能获取修订版本$1的元数据",
 	"Could not load form \"$1\": \n$2": "不能从“$1”加载：\n$2",
-	"Could not load view \"$1\": $2\nUsing simple task viewer.": "不能加载视图“$1”：$2\n正在使用简易任务浏览器。",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "不能加载视图“$1”：$2\n正在使用简易任务查看器。",
 	"Could not load workset list: $1": "不能加载工作集列表：$1",
 	"Could not parse MediaWiki API's response": "不能解析MediaWiki API的响应",
 	"Diff for revision $1": "版本$1的差异",
 	"No difference": "无差异",
 	"Request new workset": "请求新工作集",
-	"Review": "复核",
+	"Review": "复查",
 	"Save": "保存",
-	"Submit label": "提交标签",
+	"Submit label": "提交标记",
 	"Workset": "工作集",
 	"Workset complete!": "工作集已完成！",
 	"connect to server": "连接至服务器",
 	"date-format": "%Y-%m-%d",
 	"fullscreen": "全屏",
-	"open": "开启",
+	"open": "打开",
 	"request workset": "请求工作集",
-	"review": "复核"
+	"review": "复查"
 }

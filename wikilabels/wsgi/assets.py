@@ -39,8 +39,6 @@ LIB_JS = (TOOLS_CDN + "jquery/2.1.3/jquery.js",
 
 LIB_CSS = (TOOLS_CDN + "codemirror/5.2.0/codemirror.css",
            "/oojs-ui-static/oojs-ui-mediawiki.min.css",
-           "lib/mediaWiki/enwiki.vector.css",
-           "lib/mediaWiki/enwiki.common.css",
            "lib/mediaWiki/diffs.css")
 
 

@@ -1,8 +1,6 @@
 <html class="client-js ve-not-available">
   <head>
     <title>Labels home gadget</title>
-    <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css" />
-    <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/index.php?title=MediaWiki:Vector.css&action=raw&ctype=text/css" />
     {{ script_tags|safe }}
     {% assets "js_all" %}
         <script type="text/javascript" src="{{ ASSET_URL }}"></script>
@@ -12,6 +10,8 @@
     {% assets "css_all" %}
         <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
     {% endassets %}
+    <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css" />
+    <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/index.php?title=MediaWiki:Vector.css&action=raw&ctype=text/css" />
     <style>
       body {
         background: #fff;

@@ -10,8 +10,7 @@
     {% assets "css_all" %}
         <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
     {% endassets %}
-    <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css" />
-    <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/index.php?title=MediaWiki:Vector.css&action=raw&ctype=text/css" />
+    <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/load.php?debug=false&lang={{ lang_code|safe }}&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&only=styles&skin=vector" />
     <style>
       body {
         background: #fff;

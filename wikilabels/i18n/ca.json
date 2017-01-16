@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gerardduenas"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "El camp \"$1\" no és ple. Voleu enviar de totes maneres?",
+	"Abandon": "Abandona",
+	"Are you sure that you want to abandon this task?": "Esteu segurs que voleu abandonar aquesta tasca?",
+	"Campaigns": "Campanyes",
+	"Can't save label. No task is selected!": "No es pot desar l'etiqueta. No s'ha seleccionat cap tasca",
+	"Could not get metadata for revision $1": "No s'ha pogut obtenir les metadades de la revisió $1",
+	"Could not load form \"$1\": \n$2": "No s'ha pogut carregar \"$1\":\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "No s'ha pogut carregar el visor \"$1\": $2\nUsant visor de tasques simple",
+	"Could not load workset list: $1": "No s'ha pogut carregar la llista de lots de tasques: $1",
+	"Could not parse MediaWiki API's response": "No s'ha pogut llegir la resposta de l'API de MediaWiki",
+	"Diff for revision $1": "Diferències de la revisió $1",
+	"No difference": "Sense diferències",
+	"Request new workset": "Demana un lot de tasques nou",
+	"Review": "Revisa",
+	"Save": "Desa",
+	"Submit label": "Envia l'etiqueta",
+	"Workset": "Lot de tasques",
+	"Workset complete!": "Tasca completada!",
+	"connect to server": "Connecta't al servidor",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "Pantalla completa",
+	"open": "Obre",
+	"request workset": "Demana un lot de tasques",
+	"review": "revisa"
+}

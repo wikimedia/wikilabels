@@ -1,16 +1,17 @@
 <html>
   <head>
     <title>Form Builder</title>
-    <script type="text/javascript" src="/gadget/mediawikiwiki/mediawiki.js"></script>
     {{ script_tags|safe }}
     {% assets "js_all" %}
         <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
         <script type="text/javascript" src="/gadget/WikiLabels.messages.js"></script>
+        <script src="/static/js/wikiLabels/FormBuilder.js"></script>
     {{ style_tags|safe }}
     {% assets "css_all" %}
         <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
     {% endassets %}
+    <link rel="stylesheet" type="text/css" href="https://en.wikipedia.org/w/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&only=styles&skin=vector" />
     <style>
       body {
         max-width: 51em;
@@ -33,7 +34,7 @@
       <a href="https://en.wikipedia.org/wiki/Wiki_labels#Request_a_form">request a form</a>
       when you are ready.
     </div>
-    <textarea id="preload_and_delete_me">
+    <textarea id="preload_and_delete_me" rows="15">
 name: damaging
 title: "<form-title>"
 

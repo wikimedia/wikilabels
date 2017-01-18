@@ -1,4 +1,6 @@
-from flask import render_template
+from flask import render_template, send_from_directory
+
+import os
 
 from . import auth
 from . import campaigns
@@ -14,6 +16,12 @@ def configure(config, bp, db, oauth, form_map):
     @bp.route("/")
     def index():
         return render_template("home.html")
+
+    # Add icon
+    @bp.route('/favicon.ico')
+    def favicon():
+        return send_from_directory(os.path.join(bp.root_path, 'static'),
+                                   'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
     bp = auth.configure(bp, config, oauth)
     bp = campaigns.configure(bp, config, db)

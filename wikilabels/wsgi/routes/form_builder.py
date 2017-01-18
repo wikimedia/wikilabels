@@ -5,8 +5,7 @@ from ..util import build_script_tags, build_style_tags, static_file_path
 
 LOCAL_LIBS = (assets.TOOLS_CDN + "js-yaml/3.3.0/js-yaml.js",
               assets.TOOLS_CDN + "codemirror/5.2.0/codemirror.js",
-              assets.TOOLS_CDN + "codemirror/5.2.0/mode/yaml/yaml.js",
-              "js/wikiLabels/FormBuilder.js")
+              assets.TOOLS_CDN + "codemirror/5.2.0/mode/yaml/yaml.js")
 
 LOCAL_CSS = (assets.TOOLS_CDN + "codemirror/5.2.0/codemirror.css",)
 

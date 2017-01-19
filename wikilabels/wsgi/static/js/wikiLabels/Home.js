@@ -1,6 +1,7 @@
 ( function ($, WL) {
 
 	var Home = function (host) {
+		WL.user = new WL.User();
 		WL.user.updateStatus()
 			.done(function() {
 				WL.mediawiki.initialize(host)

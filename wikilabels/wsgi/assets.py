@@ -17,7 +17,7 @@ JS = ("lib/date-format/date-format.js",
       "js/wikiLabels/Home.js",
       "js/wikiLabels/i18n.js",
       "js/wikiLabels/server.js",
-      "js/wikiLabels/user.js",
+      "js/wikiLabels/User.js",
       "js/wikiLabels/views.js",
       "js/wikiLabels/mediawiki.js",
       "js/wikiLabels/Workspace.js")

@@ -43,6 +43,6 @@
 		return this.id !== null;
 	};
 
-	WL.user = new User();
+	WL.User = User;
 
 })(jQuery, wikiLabels);

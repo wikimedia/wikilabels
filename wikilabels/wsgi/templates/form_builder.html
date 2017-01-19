@@ -7,6 +7,7 @@
     {% endassets %}
         <script type="text/javascript" src="/gadget/WikiLabels.messages.js"></script>
         <script src="/static/js/wikiLabels/FormBuilder.js"></script>
+        <script src="/static/js/wikiLabels/FormBuilderHome.js"></script>
     {{ style_tags|safe }}
     {% assets "css_all" %}
         <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
@@ -74,10 +75,7 @@ i18n:
     goodfaith-false-label: "no"
 </textarea>
     <script>
-      var formBuilder = new wikiLabels.FormBuilder()
-      formBuilder.configEditor.text($("#preload_and_delete_me").val());
-      $("#preload_and_delete_me").remove()
-      $('body').append(formBuilder.$element)
+      wikiLabels.formBuilder = new wikiLabels.FormBuilderHome('{{ mw_host|safe }}')
     </script>
   </body>
 </html>

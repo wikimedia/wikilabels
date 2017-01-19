@@ -94,18 +94,7 @@
 	};
 	Form.fromConfig = function ( config, langChain ) {
 		var i, fieldset, fieldDoc, field, fieldMap,
-		    i18n = function ( key ) {
-			var i, lang;
-			langChain = WL.util.oneOrMany(langChain);
-
-			for (i = 0; i < langChain.length; i++) {
-				lang = langChain[i];
-				if (config.i18n && config.i18n[lang] && config.i18n[lang][key]) {
-					return config.i18n[lang][key];
-				}
-			}
-			return "<" + key + ">";
-		};
+		    i18n = new WL.I18N(config.i18n, WL.util.oneOrMany(langChain));
 
 		// Create a new fieldset & load the translated fields
 		fieldset = new OO.ui.FieldsetLayout( {
@@ -114,7 +103,8 @@
 		fieldMap = {};
 		for ( i in config.fields ) {
 			if ( config.fields.hasOwnProperty( i ) ) {
-				fieldDoc = WL.util.applyTranslation( config.fields[i], i18n );
+				fieldDoc = WL.util.applyTranslation(
+					config.fields[i], i18n.get.bind(i18n) );
 				field = OO.ui.instantiateFromParameters( fieldDoc, fieldMap );
 				fieldset.addItems( [ field ] );
 			}

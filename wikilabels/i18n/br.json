@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gwenn-Ael"
+			"Gwenn-Ael",
+			"Fulup"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "Ne oa ket leun ar vaezienn \"$1\". Kas en-dro ?",
@@ -26,5 +27,6 @@
 	"date-format": "%d-%m-%Y",
 	"fullscreen": "skramm leun",
 	"open": "digeriñ",
+	"request workset": "Goulenn ur strobad trevelloù",
 	"review": "adwelet"
 }

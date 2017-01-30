@@ -4,7 +4,7 @@
 			"Bjankuloski06"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "„$1“ не е довршено. Сепак да поднесам?",
+	"'$1' not completed.  Submit anyway?": "Полето „$1“ не е пополнето. Сепак да поднесам?",
 	"Abandon": "Напушти",
 	"Are you sure that you want to abandon this task?": "Дали сигурно сакате да ја напуштите задачава?",
 	"Campaigns": "Походи",
@@ -19,6 +19,7 @@
 	"Request new workset": "Побарај нов збир задачи",
 	"Review": "Провери",
 	"Save": "Зачувај",
+	"License": "Сите натписи ќе бидат објавени јавно, и тоа под условите на лиценцата CC0 -- Јавна сопственост",
 	"Submit label": "Поднеси натпис",
 	"Workset": "Збир задачи",
 	"Workset complete!": "Збирот задачи е завршен!",

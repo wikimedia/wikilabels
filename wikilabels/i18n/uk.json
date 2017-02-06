@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Alex Khimich",
-			"Piramidion"
+			"Piramidion",
+			"AS"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "Поле «$1» не заповнено. Все одно надіслати?",
@@ -20,6 +21,7 @@
 	"Request new workset": "Запитати новий робочий набір",
 	"Review": "Перевірка",
 	"Save": "Зберегти",
+	"License": "Усі надані мітки будуть опубліковані та ліцензовані на умовах CC0 -- Public Domain",
 	"Submit label": "Надіслати мітку",
 	"Workset": "Робочий набір",
 	"Workset complete!": "Робочий набір готовий!",

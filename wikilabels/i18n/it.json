@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"Selven"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "'$1' non completo. Inviare comunque?",
+	"'$1' not completed.  Submit anyway?": "Il campo '$1' non è stato inserito. Inviare comunque?",
 	"Abandon": "Abbandona",
 	"Are you sure that you want to abandon this task?": "Sei sicuro che vuoi abbandonare questa attività?",
 	"Campaigns": "Campagne",
@@ -19,6 +20,7 @@
 	"Request new workset": "Richiedi un nuovo workset",
 	"Review": "Valuta",
 	"Save": "Salva",
+	"License": "Ogni etichetta inviata sarà rilasciata pubblicamente e concessa in licenza in base ai termini della licenza CC0 -- Dominio Pubblico",
 	"Submit label": "Invia etichetta",
 	"Workset": "Workset",
 	"Workset complete!": "Workset completo!",

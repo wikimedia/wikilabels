@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Andrei Stroe"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "Câmpul \"$1\" nu a fost completat. Trimiteți oricum?",
+	"Abandon": "Renunță",
+	"Are you sure that you want to abandon this task?": "Sunteți sigur că doriți să renunțați la acest task?",
+	"Campaigns": "Campanii",
+	"Can't save label. No task is selected!": "Eticheta nu se poate salva. Nu s-a selectat niciun task!",
+	"Could not get metadata for revision $1": "Nu s-au putut obține metadatele pentru revizia $1",
+	"Could not load form \"$1\": \n$2": "Nu s-a putut încărca formularul \"$1\":\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nu s-a putut încărca vizualizarea \"$1\": $2.\nRecurg la vizualizatorul simplu de taskuri.",
+	"Could not load workset list: $1": "Nu am putut încărca obiectul de lucru: $1",
+	"Could not parse MediaWiki API's response": "Nu am putut parsa răspunsul API-ului MediaWiki",
+	"Diff for revision $1": "Diff pentru revizia $1",
+	"No difference": "Nicio diferență",
+	"Request new workset": "Cereți un obiect de lucru nou",
+	"Review": "Revizuire",
+	"Save": "Salvează",
+	"License": "Orice etichete furnizate vor fi publicate sub licența CC0 -- domeniu public",
+	"Submit label": "Trimite eticheta",
+	"Workset": "Obiect de lucru",
+	"Workset complete!": "Obiect de lucru terminat!",
+	"connect to server": "conectare la server",
+	"date-format": "%d.%m.%Y",
+	"fullscreen": "fullscreen",
+	"open": "deschide",
+	"request workset": "cere obiect de lucru",
+	"review": "revizuire"
+}

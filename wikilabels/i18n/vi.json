@@ -4,7 +4,7 @@
 			"Minh Nguyen"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "'$1' chưa hoàn tất. Bạn vẫn muốn gửi đi?",
+	"'$1' not completed.  Submit anyway?": "Trường “$1” chưa hoàn tất. Bạn vẫn muốn gửi đi?",
 	"Abandon": "Bỏ rơi",
 	"Are you sure that you want to abandon this task?": "Bạn có chắc chắn muốn bỏ rơi việc làm này?",
 	"Campaigns": "Chiến dịch",
@@ -19,6 +19,7 @@
 	"Request new workset": "Yêu cầu gói công việc mới",
 	"Review": "Kiểm tra lại",
 	"Save": "Lưu lại",
+	"License": "Nhãn nào được cung cấp sẽ được phát hành công khai theo giấy phép CC0 – phạm vi công cộng",
 	"Submit label": "Gửi nhãn",
 	"Workset": "Gói công việc",
 	"Workset complete!": "Gói công việc đã hoàn tất!",

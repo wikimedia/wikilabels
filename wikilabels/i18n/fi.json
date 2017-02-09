@@ -1,14 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mikahama"
+			"Mikahama",
+			"Pyscowicz"
 		]
 	},
+	"Are you sure that you want to abandon this task?": "Oletko varma, että haluat hylätä tämän tehtävän?",
 	"Campaigns": "Kampanjat",
 	"Review": "Tarkasta",
 	"Save": "Tallenna",
 	"Submit label": "Lähetä etiketti",
 	"connect to server": "yhdistä palvelimeen",
 	"fullscreen": "koko näyttö",
+	"open": "avoin",
 	"review": "Tarkasta"
 }

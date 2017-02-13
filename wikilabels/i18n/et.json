@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cumbril"
+			"Cumbril",
+			"Pikne"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "Väli \"$1\" jäi täitmata. Kas lisan sellele vaatamata?",
@@ -24,9 +25,9 @@
 	"Workset": "Töökomplekt",
 	"Workset complete!": "Töökomplekt valmis!",
 	"connect to server": "ühenda serveriga",
-	"date-format": "%Y.%m.%d",
+	"date-format": "%d.%m.%Y",
 	"fullscreen": "täisekraan",
 	"open": "ava",
-	"request workset": "telli töökomplekt",
+	"request workset": "Telli töökomplekt",
 	"review": "vaata üle"
 }

@@ -3,7 +3,8 @@
 		"authors": [
 			"Kumkumuk",
 			"Marmase",
-			"Mirzali"
+			"Mirzali",
+			"Gırd"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "$1 pır niya.  Fına zi wa bırışi yo?",
@@ -14,7 +15,7 @@
 	"Could not get metadata for revision $1": "Revizyonê $1  metdatay nêgeriyay",
 	"Could not load form \"$1\": \n$2": "$2 \"$1\"  ra ber nêbı",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Bar nêbi \"$1\": $2\nBasit wezife mocner bıasne",
-	"Could not load workset list: $1": "Listeya gurenayışi bar nêbi:$1",
+	"Could not load workset list: $1": "Lista gırwenayışi bar nêbi:$1",
 	"Could not parse MediaWiki API's response": "Cewaba MediaWiki API'y nêagozneyê",
 	"Diff for revision $1": "Seba revizyonê $1 rê Diff",
 	"No difference": "Ferk çıni yo",

@@ -42,9 +42,9 @@ Switch to `wikilabels` user to load schema
     $ sudo su wikilabels
     $ psql
 
-Copy-paste config/schema.sql into the command prompt.
+Copy-paste `wikilabels/database/schema.sql` into the command prompt.
 
-Optionally, you can also load sample data into the database by copy-pasting config/schema-testdata.sql into the command prompt
+Optionally, you can also load sample data into the database by copy-pasting `wikilabels/database/schema-testdata.sql` into the command prompt
 
 ### Starting the dev server
 

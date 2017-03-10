@@ -29,6 +29,8 @@
 
 			delete config.fieldWidget;
 			widget = new OO.ui.FieldLayout( widget, config );
+		} else if ( className === 'HtmlSnippet' ) {
+			widget = new OO.ui.HtmlSnippet( config.content );
 		} else {
 			widget = new OO.ui[className]( config );
 			if ( config.name !== undefined ) {
@@ -43,6 +45,12 @@
 			error = false;
 		fieldMap = fieldMap || {};
 
+		if ( config.help && config.help.class) {
+			config.help = OO.ui.instantiateFromParameters( config.help, fieldMap )
+		}
+		if ( config.label && config.label.class ) {
+			config.label = OO.ui.instantiateFromParameters( config.label, fieldMap )
+		}
 		if ( config.items ) {
 			newItems = [];
 			$.each( config.items, function ( index, item ) {
@@ -58,7 +66,6 @@
 
 			config.items = newItems;
 		}
-
 		if ( config.fieldWidget ) {
 			config.fieldWidget = OO.ui.instantiateFromParameters( config.fieldWidget,
 			fieldMap );

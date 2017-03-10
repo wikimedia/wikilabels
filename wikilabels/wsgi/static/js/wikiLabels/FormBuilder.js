@@ -17,6 +17,7 @@
 			config = this.configEditor.json();
 			this.formPreview.load( config );
 		} catch(err) {
+			console.error(err)
 			alert(err);
 		}
 	};

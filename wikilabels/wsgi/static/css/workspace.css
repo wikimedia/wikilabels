@@ -34,9 +34,16 @@ html[dir="rtl"] .wikilabels-workspace > .wikilabels-menu {
   line-height: .9em;
 }
 
+.wikilabels-workspace > .wikilabels-menu > .fullscreen > a {
+  margin-top: 0px;
+  min-height: 1em;
+  padding: .25em 1em;
+}
+
 .wikilabels-workspace .task-list {
   background: #eaecf0;
   padding: 1ex 1em;
+  margin-top: 2em;
 }
 .wikilabels-workspace .task-list > .header {
   width: 6em;

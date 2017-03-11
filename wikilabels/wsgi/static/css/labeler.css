@@ -60,7 +60,9 @@ html[dir="rtl"] #wikilabels-labeler .campaign-list > .container > .campaign {
 }
 #wikilabels-labeler .campaign-list .campaign > .expander > a {
   padding: .5ex;
-  width: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  min-height: 1.5em;
 }
 #wikilabels-labeler .campaign-list .campaign > .expander .oo-ui-labelElement-label {
   line-height: .9em;
@@ -165,6 +167,8 @@ html[dir="rtl"] #wikilabels-labeler .workset-list .workset > .controls{
 #wikilabels-labeler .workset-list .workset .button > a {
   display: inline-block;
   margin-top: 0px;
+  min-height: 1em;
+  padding: .25em 1em;
 }
 #wikilabels-labeler .workset-list .workset .button .oo-ui-labelElement-label {
   font-size: 90%;

@@ -23,6 +23,7 @@ def configure(bp, config, db):
                                script_tags=script_tags,
                                style_tags=style_tags,
                                url_root=request.url_root,
-                               mw_host=wikimedia.host_from_dbname(wiki))
+                               mw_host=wikimedia.host_from_dbname(wiki),
+                               extra_modules=wikimedia.get_extra_modules(wiki))
 
     return bp

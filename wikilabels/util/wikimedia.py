@@ -38,3 +38,18 @@ def host_from_dbname(dbname):
             match = regex.match(dbname)
             if match is not None:
                 return apply_rule(match)
+
+
+def get_extra_modules(dbname):
+    if dbname == 'wikidatawiki':
+        modules = [
+           'ext.gadget.MainLangFirst',
+           'ext.wikidata-org.badges',
+           'ext.wikimediaBadges',
+           'jquery.wikibase.statementview.RankSelector.styles',
+           'jquery.wikibase.toolbar.styles',
+           'jquery.wikibase.toolbarbutton.styles',
+           'wikibase.common',
+        ]
+        return '%7C'.join(modules) + '%7C'
+    return ''

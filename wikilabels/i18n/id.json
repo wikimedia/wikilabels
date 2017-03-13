@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Rachmat.Wahidi",
-			"Arifin.wijaya"
+			"Arifin.wijaya",
+			"Hidayatsrf"
 		]
 	},
 	"'$1' not completed.  Submit anyway?": "Kolom '$1' belum diisi. Lanjut mengirimkan?",
@@ -20,6 +21,7 @@
 	"Request new workset": "Minta pekerjaan baru",
 	"Review": "Tinjau",
 	"Save": "Simpan",
+	"License": "Semua label yang disediakan akan dilepaskan secara publik dan dilisensikan dibawah lisensi Domain Publik - CC0",
 	"Submit label": "Kirim label",
 	"Workset": "Pekerjaan",
 	"Workset complete!": "Pekerjaan selesai!",

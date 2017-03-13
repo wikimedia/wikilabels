@@ -2,17 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"Tgr",
-			"Wolf Rex"
+			"Wolf Rex",
+			"Tacsipacsi"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "A(z) „$1” még nincs kész. Mégis elküldöd?",
+	"'$1' not completed.  Submit anyway?": "A(z) „$1” mező még nincs kitöltve. Mégis elküldöd?",
 	"Abandon": "Kihagyás",
 	"Are you sure that you want to abandon this task?": "Biztosan ki akarod hagyni ezt a feladatot?",
 	"Campaigns": "Kampányok",
 	"Can't save label. No task is selected!": "Nem tudom elmenteni az osztályozást, egyik feladat sincs kiválasztva!",
 	"Could not get metadata for revision $1": "Nem sikerült lekérni a(z) $1 lapváltozat metaadatait",
-	"Could not load form \"$1\": \n$2": "Nem sikerült betölteni a(z) \"$1\" űrlapot:\n$2",
-	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nem sikerült betölteni a(z) \"$1\" nézetet: $2\nAz egyszerű feladatnézőt használom helyette.",
+	"Could not load form \"$1\": \n$2": "Nem sikerült betölteni a(z) „$1” űrlapot:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nem sikerült betölteni a(z) „$1” nézetet: $2\nAz egyszerű feladatnézőt használom helyette.",
 	"Could not load workset list: $1": "Nem sikerült betölteni a munkahalmaz-listát: $1",
 	"Could not parse MediaWiki API's response": "Nem sikerült értelmezni a MediaWiki API válaszát",
 	"Diff for revision $1": "Diff a $1 változatra",
@@ -20,6 +21,7 @@
 	"Request new workset": "Új munkaadag lekérése",
 	"Review": "Átnézés",
 	"Save": "Mentés",
+	"License": "Minden itt megadott címke nyilvánosan elérhető lesz a CC0 – Közkincs nyilatkozat licenc alatt",
 	"Submit label": "Címke elküldése",
 	"Workset": "Munkaadag",
 	"Workset complete!": "A munkaadag kész!",

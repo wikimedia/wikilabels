@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Irus",
-			"MaxBioHazard"
+			"MaxBioHazard",
+			"Nitch"
 		]
 	},
-	"'$1' not completed.  Submit anyway?": "Поле \"$1\" не была заполнена. В любом случае подавать?",
+	"'$1' not completed.  Submit anyway?": "Поле \"$1\" не было заполнено. В любом случае подавать?",
 	"Abandon": "Покинуть",
 	"Are you sure that you want to abandon this task?": "Вы уверены, что хотите отказаться от этого?",
 	"Campaigns": "Кампании",
@@ -20,6 +21,7 @@
 	"Request new workset": "Запросить новый рабочий набор",
 	"Review": "Проверка",
 	"Save": "Сохранить",
+	"License": "Любые надписи будут опубликованы и лицензированы в соответствии с условиями СС0 -- общедоступности",
 	"Submit label": "Отправить пометку",
 	"Workset": "Рабочий набор",
 	"Workset complete!": "Рабочий набор готов!",

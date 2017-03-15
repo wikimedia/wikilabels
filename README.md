@@ -47,8 +47,9 @@ Copy-paste `wikilabels/database/schema.sql` into the command prompt.
 Optionally, you can also load sample data into the database by copy-pasting `wikilabels/database/schema-testdata.sql` into the command prompt
 
 ### Starting the dev server
+Run the following command in the base repository (e.g. wikilabels-master).
 
-    $ wikilabels dev_server --config config-localdev.yaml
+    $ wikilabels dev_server
 
 ## Gadget
 

@@ -73,4 +73,4 @@ Run the following command in the base repository (e.g. wikilabels-master).
 This will import a live copy of the javascript.
 
 ## See also
-* [meta:Wiki labels](https://meta.wikimedia.org/wiki/Wiki labels)
+* [meta:Wiki labels](https://meta.wikimedia.org/wiki/Wikilabels)

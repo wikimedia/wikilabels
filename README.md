@@ -51,9 +51,9 @@ Optionally, you can also load sample data into the database by copy-pasting conf
     $ npm install codemirror jquery oojs oojs-ui strftime yamljs
 
 ### Starting the dev server
-Run the following command on the main WikiLabels directory (e.g. wikilabels-master).
+Run the following command in the base repository (e.g. wikilabels-master).
 
-    $ wikilabels dev_server --config [The path to a directory containing config files (default: config/)]
+    $ wikilabels dev_server
 
 ## Gadget
 

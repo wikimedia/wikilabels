@@ -6,11 +6,12 @@
         <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
         <script type="text/javascript" src="/gadget/WikiLabels.messages.js"></script>
+        <script async="" src="https://{{ mw_host|safe }}/w/load.php?debug=false&amp;lang={{ lang_code|safe }}&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
     {{ style_tags|safe }}
     {% assets "css_all" %}
         <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
     {% endassets %}
-    <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/load.php?debug=false&lang={{ lang_code|safe }}&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&only=styles&skin=vector" />
+    <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/load.php?debug=false&lang={{ lang_code|safe }}&modules={{ extra_modules|safe }}mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&only=styles&skin=vector" />
     <style>
       body {
         background: #fff;

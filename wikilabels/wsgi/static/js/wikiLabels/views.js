@@ -1,4 +1,4 @@
-( function (mw, $, WL) {
+( function ($, WL) {
 
 	var View = function (taskListData) {
 		this.$element = $("<div>").addClass(WL.config.prefix + "view");
@@ -139,7 +139,39 @@
 			);
 		}
 	};
-
+		
+	var PrintablePageAsOfRevision = function(taskListData) {
+		PrintablePageAsOfRevision.super.call( this, taskListData );
+		this.$element.addClass(WL.config.prefix + "printable-page-as-of-revision")
+		             .addClass('display-page-html');
+	};
+	OO.inheritClass(PrintablePageAsOfRevision, View);
+	PrintablePageAsOfRevision.prototype.present = function(taskInfo) {
+		if (taskInfo.title && taskInfo.html) {
+			this.presentPage(taskInfo.data['data']['rev_id']); 
+		} else {
+			WL.api.getRevision(
+				taskInfo.data['data']['rev_id'],
+				{
+					'rvprop': "content",
+					'rvparse': true
+				}
+			)
+				.done( function () {
+					this.tasks[taskInfo.i].revision = taskInfo.data['data']['rev_id']; // Cache!
+					this.presentPage(taskInfo.data['data']['rev_id']);
+				}.bind(this) )
+				.fail( function (doc) {
+					var error = $("<pre>").addClass("error");
+					this.$element.html(error.text(JSON.stringify(doc, null, 2)));
+				}.bind(this) );
+		}
+	};
+	PrintablePageAsOfRevision.prototype.presentPage = function(revision_id) {
+		this.$element.html("<iframe width= '100%' height='100%' src=" + "'" + "https://www.wikidata.org/wiki/?oldid=" + revision_id + "&printable=yes" + "'" + "/>");
+	};
+	
+	
 	var PageAsOfRevision = function(taskListData) {
 		PageAsOfRevision.super.call( this, taskListData );
 		this.$element.addClass(WL.config.prefix + "page-as-of-revision")
@@ -148,7 +180,7 @@
 	OO.inheritClass(PageAsOfRevision, View);
 	PageAsOfRevision.prototype.present = function(taskInfo) {
 		if (taskInfo.title && taskInfo.html) {
-			this.presentHTML(taskInfo.title, taskInfo.html);
+			this.presentPage(taskInfo.title, taskInfo.html);
 		} else {
 			WL.api.getRevision(
 				taskInfo.data['data']['rev_id'],
@@ -181,6 +213,7 @@
 			          .attr('id', "bodyContent")
 		);
 	};
+	
 
 	var ParsedWikitext = function(taskListData) {
 		ParsedWikitext.super.call( this, taskListData );
@@ -231,6 +264,8 @@
 		View: View,
 		DiffToPrevious: DiffToPrevious,
 		PageAsOfRevision: PageAsOfRevision,
-		ParsedWikitext: ParsedWikitext
+		ParsedWikitext: ParsedWikitext,
+		PrintablePageAsOfRevision: PrintablePageAsOfRevision
 	};
-}(mediaWiki, jQuery, wikiLabels));
+
+}(jQuery, wikiLabels));

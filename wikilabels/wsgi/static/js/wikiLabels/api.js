@@ -1,13 +1,16 @@
 ( function ($, WL) {
 
 	var API = function () {};
-	API.prototype.request = function (data) {
-		data['format'] = "json";
+	API.prototype.request = function (data, o) {
+		o = o || {}
+		var path = o.path || "/w/api.php";
+		var dataType = o.dataType || "jsonp";
+		data['format'] = o.format || "json";
 		var deferred = $.Deferred(),
 		    ajaxPromise = $.ajax(
-			"//" + WL.mediawiki.host + "/w/api.php",
+			"//" + WL.mediawiki.host + path,
 			{
-				dataType: "jsonp",
+				dataType: dataType,
 				data: data
 			}
 		);
@@ -183,6 +186,28 @@
 			}.bind(this))
 			.fail(function(doc){
 				deferred.reject(doc);
+			}.bind(this));
+
+		return deferred.promise();
+	}
+	API.prototype.getPrintableHtml = function(revId){
+		var params = {
+				oldid: revId,
+				printable: "yes"
+			},
+			deferred = $.Deferred(),
+			options = {
+				path: "/w/index.php",
+				dataType: "html",
+				format: "html"
+			};
+
+		this.request(params, options)
+			.done(function(html){
+				deferred.resolve(html);
+			}.bind(this))
+			.fail(function(html){
+				deferred.reject(html);
 			}.bind(this));
 
 		return deferred.promise();

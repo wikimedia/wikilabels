@@ -37,6 +37,15 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 .mw-content-rtl .wikilabels-form .inline-field .oo-ui-checkboxInputWidget [type=checkbox]+span{
   right: 0px;
 }
+.mw-content-rtl .wikilabels-form .oo-ui-buttonSelectWidget .oo-ui-buttonOptionWidget:first-child .oo-ui-buttonElement-button {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    margin-right: 0
+}
+.mw-content-rtl .wikilabels-form .oo-ui-buttonSelectWidget .oo-ui-buttonOptionWidget:last-child .oo-ui-buttonElement-button {
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px
+}
 .wikilabels-form .inline-field > .oo-ui-fieldLayout-body {
   display: inline-block;
   white-space: nowrap;

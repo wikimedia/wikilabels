@@ -194,10 +194,9 @@
 			taskInfo.data.data.rev_id + "&printable=yes");
 	};
 	PrintablePageAsOfRevision.prototype.presentPage = function(src) {
+		var iframe = $("<iframe>").attr("src", src), limit = 10;
 		this.$element.html("");
-		this.$element.append(
-			$("<iframe>").attr("src", src)
-		);
+		this.$element.append( iframe );
 	};
 
 

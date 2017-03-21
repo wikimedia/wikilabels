@@ -71,7 +71,7 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 .wikilabels-printable-page-as-of-revision iframe {
   border-width: 0px;
   width: 100%;
-  height: 100%;
+  height: 120%;
 }
 .wikilabels-printable-page-as-of-revision iframe #contentSub {
   display: none;

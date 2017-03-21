@@ -190,28 +190,6 @@
 
 		return deferred.promise();
 	}
-	API.prototype.getPrintableHtml = function(revId){
-		var params = {
-				oldid: revId,
-				printable: "yes"
-			},
-			deferred = $.Deferred(),
-			options = {
-				path: "/w/index.php",
-				dataType: "html",
-				format: "html"
-			};
-
-		this.request(params, options)
-			.done(function(html){
-				deferred.resolve(html);
-			}.bind(this))
-			.fail(function(html){
-				deferred.reject(html);
-			}.bind(this));
-
-		return deferred.promise();
-	}
 
 	wikiLabels.api = new API();
 })(jQuery, wikiLabels);

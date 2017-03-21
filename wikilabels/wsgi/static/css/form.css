@@ -31,6 +31,12 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
   white-space: normal;
   margin-left: 0px !important;
 }
+.mw-content-rtl .wikilabels-form .inline-field .oo-ui-fieldLayout-help {
+  margin-right: 0px !important;
+}
+.mw-content-rtl .wikilabels-form .inline-field .oo-ui-checkboxInputWidget [type=checkbox]+span{
+  right: 0px;
+}
 .wikilabels-form .inline-field > .oo-ui-fieldLayout-body {
   display: inline-block;
   white-space: nowrap;

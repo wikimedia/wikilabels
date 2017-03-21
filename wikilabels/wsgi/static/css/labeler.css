@@ -22,13 +22,6 @@ float: right;
   border-left: 1px solid #c8ccd1;
   border-right: 1px solid #c8ccd1;
 }
-html[dir="rtl"] #wikilabels-labeler > .menu,
-html[dir="rtl"] #wikilabels-labeler > .wikilabels-menu {
-  margin-left: 0em;
-  border-left: 0px;
-  margin-right: 26em;
-  border-right: 1px solid #c8ccd1;
-}
 #wikilabels-labeler > .menu > .connector,
 #wikilabels-labeler > .wikilabels-menu > .connector {
   font-size: 200%;

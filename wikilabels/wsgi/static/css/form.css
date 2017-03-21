@@ -25,10 +25,11 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
   margin: 0px 1em;
   white-space: nowrap;
 }
-.wikilabels-form .inline-field > .oo-ui-fieldLayout-help {
+.wikilabels-form .inline-field .oo-ui-fieldLayout-help {
   display: inline-block;
   float: none;
   white-space: normal;
+  margin-left: 0px !important;
 }
 .wikilabels-form .inline-field > .oo-ui-fieldLayout-body {
   display: inline-block;

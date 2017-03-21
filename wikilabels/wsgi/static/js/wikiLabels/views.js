@@ -182,6 +182,25 @@
 		);
 	};
 
+	var PrintablePageAsOfRevision = function(taskListData) {
+		PrintablePageAsOfRevision.super.call( this, taskListData );
+		this.$element.addClass(WL.config.prefix + "printable-page-as-of-revision")
+		             .addClass('display-page-html');
+	};
+	OO.inheritClass(PrintablePageAsOfRevision, View);
+	PrintablePageAsOfRevision.prototype.present = function(taskInfo) {
+		this.presentPage(
+			"//" + WL.mediawiki.host + "/w/index.php?oldid=" +
+			taskInfo.data.data.rev_id + "&printable=yes");
+	};
+	PrintablePageAsOfRevision.prototype.presentPage = function(src) {
+		var iframe = $("<iframe>").attr("src", src), limit = 10;
+		this.$element.html("");
+		this.$element.append( iframe );
+	};
+
+
+
 	var ParsedWikitext = function(taskListData) {
 		ParsedWikitext.super.call( this, taskListData );
 		this.$element.addClass(WL.config.prefix + "parsed-wikitext")
@@ -231,6 +250,7 @@
 		View: View,
 		DiffToPrevious: DiffToPrevious,
 		PageAsOfRevision: PageAsOfRevision,
+		PrintablePageAsOfRevision: PrintablePageAsOfRevision,
 		ParsedWikitext: ParsedWikitext
 	};
 }(jQuery, wikiLabels));

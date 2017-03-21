@@ -1,13 +1,16 @@
 ( function ($, WL) {
 
 	var API = function () {};
-	API.prototype.request = function (data) {
-		data['format'] = "json";
+	API.prototype.request = function (data, o) {
+		o = o || {}
+		var path = o.path || "/w/api.php";
+		var dataType = o.dataType || "jsonp";
+		data['format'] = o.format || "json";
 		var deferred = $.Deferred(),
 		    ajaxPromise = $.ajax(
-			"//" + WL.mediawiki.host + "/w/api.php",
+			"//" + WL.mediawiki.host + path,
 			{
-				dataType: "jsonp",
+				dataType: dataType,
 				data: data
 			}
 		);

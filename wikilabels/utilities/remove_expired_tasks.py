@@ -34,4 +34,4 @@ def main(argv=None):
 
 def run(db):
 
-    db.tasks.remove_expired_tasks()
+    print(db.tasks.remove_expired_tasks(), " assignments removed.")

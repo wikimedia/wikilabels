@@ -144,14 +144,16 @@ class Tasks(Collection):
             cursor = transactor.cursor()
             cursor.execute("""
                 DELETE FROM workset_task
-                USING workset_task as wt
-                JOIN workset ON
-                    workset.id = wt.workset_id
-                LEFT JOIN label ON
-                    label.task_id = wt.task_id
+                USING workset_task AS wt
+                JOIN workset AS w ON
+                    w.id = wt.workset_id
+                LEFT JOIN label AS l ON
+                    l.task_id = wt.task_id AND
+                    l.user_id = w.user_id
                 WHERE
-                    workset_task.workset_id = wt.workset_id AND
                     workset_task.task_id = wt.task_id AND
-                    label.data is NULL AND
-                    workset.expires < NOW()
+                    workset_task.workset_id = wt.workset_id AND
+                    l.data is NULL AND
+                    w.expires < NOW()
                 """)
+            return cursor.rowcount

@@ -2,19 +2,34 @@
 	"@metadata": {
 		"authors": [
 			"Mikahama",
-			"Pyscowicz"
+			"Pyscowicz",
+			"4shadoww",
+			"Stryn"
 		]
 	},
+	"'$1' not completed.  Submit anyway?": "Kenttä \"$1\" on tyhjä. Haluatko jatkaa silti?",
 	"Abandon": "Hylkää",
 	"Are you sure that you want to abandon this task?": "Oletko varma, että haluat hylätä tämän tehtävän?",
 	"Campaigns": "Kampanjat",
+	"Can't save label. No task is selected!": "Etikettiä ei voida tallentaa. Tehtävää ei valittu!",
+	"Could not get metadata for revision $1": "Ei saatu haettua metadataa muutokselle $1",
+	"Could not load form \"$1\": \n$2": "Ei voitu ladata lomaketta \"$1\": \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Ei voitu tarkastella \"$1\": $2\nYksinkertaisella tehtävien tarkastelijalla.",
+	"Could not load workset list: $1": "Ei voitu ladata työarkki listaa: $1",
+	"Could not parse MediaWiki API's response": "Ei voitu jäsentää MediaWiki API vastausta",
+	"Diff for revision $1": "Eroavaisuus versioon $1",
 	"No difference": "Ei eroavaisuutta",
+	"Request new workset": "Pyydä uutta työarkkia",
 	"Review": "Tarkasta",
 	"Save": "Tallenna",
+	"License": "Kaikki etiketit tullaan julkaisemaan ja lisensoimaan CC0 -- Public Domain ehtojen mukaisesti",
 	"Submit label": "Lähetä etiketti",
 	"Workset": "Työarkki",
+	"Workset complete!": "Työarkki valmis!",
 	"connect to server": "yhdistä palvelimeen",
+	"date-format": "%d-%m-%Y",
 	"fullscreen": "koko näyttö",
 	"open": "avoin",
+	"request workset": "pyydä työarkkia",
 	"review": "Tarkasta"
 }

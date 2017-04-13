@@ -82,7 +82,7 @@
 		// TODO: This is hacky.  Constraints should be specified in the form config
 		for ( fieldName in labelData ) {
 			if (labelData.hasOwnProperty(fieldName) && labelData[fieldName] === null) {
-				if (!confirm(WL.i18n("'$1' not completed.  Submit anyway?", [fieldName]))) {
+				if (!confirm(WL.i18n("'$1' not completed. Submit anyway?", [fieldName]))) {
 					return;
 				}
 			}

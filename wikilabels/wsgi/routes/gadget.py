@@ -1,8 +1,9 @@
 from flask import Response, render_template, request
 
 from .. import assets, preprocessors
-from ..util import (build_script_tags, build_style_tags, i18n_dict, minify_js,
-                    pretty_json, read_cat, url_for)
+from ..util import (build_maintenance_notice, build_script_tags,
+                    build_style_tags, i18n_dict, minify_js, pretty_json,
+                    read_cat, url_for)
 
 
 def configure(bp, config):
@@ -11,11 +12,13 @@ def configure(bp, config):
     def gadget():
         script_tags = build_script_tags(assets.LIB_JS, config)
         style_tags = build_style_tags(assets.LIB_CSS, config)
-        return render_template("gadget.html",
-                               script_tags=script_tags,
-                               style_tags=style_tags,
-                               url_root=request.url_root,
-                               mw_host="en.wikipedia.org")
+        return render_template(
+            "gadget.html",
+            script_tags=script_tags,
+            style_tags=style_tags,
+            url_root=request.url_root,
+            mw_host="en.wikipedia.org",
+            maintenance_notice=build_maintenance_notice(request, config))
 
     @bp.route("/gadget/WikiLabels.css")
     def gadget_style():

@@ -23,6 +23,7 @@
 	"date-format": "This is a formatting string for a date.  See http://strftime.org/ for a reference for what the symbols mean.  \n\n* %Y - 4 digit year\n* %m - 2 digit month\n* %d - 2 digit day",
 	"fullscreen": "Going to screen-wide mode",
 	"open": "{{Identical|Open}}",
-	"request workset": "Asking a new working set to label from the server",
-	"review": "{{Identical|Review}}"
+	"request workset": "Asking for a new working set to label from the server",
+	"review": "{{Identical|Review}}",
+	"maintenance notice": "A notice about the system going down.  First argument is a date.  The second arguement is a URL with more information."
 }

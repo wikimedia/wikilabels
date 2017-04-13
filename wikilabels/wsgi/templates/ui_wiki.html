@@ -32,6 +32,12 @@
       background: #fff;
     }
     </style>
+    {% if maintenance_notice is not none %}
+      <div class="maintenance_notice">
+        {{maintenance_notice|safe}}
+      </div>
+    {% else %}
+    {%endif %}
     <div id="bodyContent" class="mw-body-content">
       <div id="mw-content-text" lang="{{ lang_code|safe }}" dir="{{ dir if dir != None else 'ltr' }}" class="mw-content-{{ dir if dir != None else 'ltr' }}">
         <div id="wikilabels-labeler">

@@ -21,6 +21,12 @@
   </head>
   <body class="mediawiki ltr sitedir-ltr ns-4 ns-subject page-Wikipedia_Labels
                skin-vector action-view webfonts-changed">
+    {% if maintenance_notice is not none %}
+      <div class="maintenance_notice">
+        {{maintenance_notice|safe}}
+      </div>
+    {% else %}
+    {%endif %}
     <div id="bodyContent" class="mw-body-content">
       <div id="mw-content-text">
         <div id="wikilabels-labeler">

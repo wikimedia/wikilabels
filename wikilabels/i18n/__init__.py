@@ -8,7 +8,7 @@ directory_path = os.path.dirname(__file__)
 MESSAGES = {}
 for filename in glob.glob(os.path.join(directory_path, "*.json")):
     lang_code = os.path.basename(filename).split(".")[0]
-    file_loc = os.path.join(directory_path, filename)
+    file_loc = os.path.join(directory_path, os.path.basename(filename))
     MESSAGES[lang_code] = json.load(open(file_loc))
 
 

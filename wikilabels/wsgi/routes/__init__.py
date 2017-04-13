@@ -1,4 +1,4 @@
-from flask import render_template, send_from_directory
+from flask import render_template, send_from_directory, request
 
 import os
 
@@ -10,19 +10,23 @@ from . import gadget
 from . import versions
 from . import users
 from . import ui
+from .. import util
 
 
 def configure(config, bp, db, oauth, form_map):
 
     @bp.route("/")
     def index():
-        return render_template("home.html")
+        return render_template(
+            "home.html",
+            maintenance_notice=util.build_maintenance_notice(request, config))
 
     # Add icon
     @bp.route('/favicon.ico')
     def favicon():
-        return send_from_directory(os.path.join(bp.root_path, 'static'),
-                                   'favicon.ico', mimetype='image/vnd.microsoft.icon')
+        return send_from_directory(
+            os.path.join(bp.root_path, 'static'),
+            'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
     bp = auth.configure(bp, config, oauth)
     bp = campaigns.configure(bp, config, db)

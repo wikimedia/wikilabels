@@ -24,5 +24,6 @@
 	"fullscreen": "fullscreen",
 	"open": "open",
 	"request workset": "request workset",
-	"review": "review"
+	"review": "review",
+	"maintenance notice": "Wiki labels is going down for maintenance on $1.  See $2 for more information."
 }

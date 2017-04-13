@@ -27,6 +27,7 @@ CSS = ("css/oo.ui.SemanticOperationsSelector.css",
        "css/wikiLabels.css",
        "css/form.css",
        "css/workspace.css",
+       "css/common.css",
        "css/home.css",
        "css/labeler.css",
        "css/views.css")

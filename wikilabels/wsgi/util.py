@@ -7,6 +7,7 @@ from itertools import chain
 import uglipyjs
 from flask import current_app, request
 
+from ..i18n import i18n
 from .responses import bad_request
 
 
@@ -134,3 +135,13 @@ def i18n_dict():
 def pretty_json(data):
     return json.dumps(data, ensure_ascii=False, sort_keys=True,
                       separators=(',', ': '), indent=8)
+
+
+def build_maintenance_notice(request, config):
+    accept_header = request.headers.get('Accept-Language', "en;q=0")
+    accept_langs = accept_header.split(";")[0].split(",")
+    if 'maintenance_notice' in config['wikilabels']:
+        notice = config['wikilabels']['maintenance_notice']
+        ahref = '<a href="{0}">{0}</a>'.format(notice['url'])
+        return i18n("maintenance notice", accept_langs,
+                    [notice['date'], ahref])

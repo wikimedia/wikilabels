@@ -1,3 +1,4 @@
+import glob
 import json
 import os
 from collections import OrderedDict
@@ -122,10 +123,11 @@ def get_i18n_dir():
 def i18n_dict():
     i18n_dir = get_i18n_dir()
     i18n = {}
-    for lang_file in os.listdir(i18n_dir):
-        f = open(os.path.join(i18n_dir, lang_file), 'r')
+    for lang_file_path in glob.glob(os.path.join(i18n_dir, "*.json")):
+        f = open(lang_file_path, 'r')
         lang_i18n = json.load(f)
-        i18n[lang_file[:-5]] = OrderedDict(
+        filename = os.path.basename(lang_file_path)
+        i18n[filename[:-5]] = OrderedDict(
             sorted(lang_i18n.items(), key=lambda t: t[0]))
 
     i18n = OrderedDict(sorted(i18n.items(), key=lambda t: t[0]))

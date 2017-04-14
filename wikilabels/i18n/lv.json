@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Papuass"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Lauks \"$1\" nebija aizpildīts. Vienalga iesniegt?",
+	"Abandon": "Pamest",
+	"Are you sure that you want to abandon this task?": "Vai tiešām vēlies pamest šo uzdevumu?",
+	"Campaigns": "Kampaņas",
+	"Can't save label. No task is selected!": "Nevar saglabāt iezīmi. Nav izvēlēts uzdevums!",
+	"Could not get metadata for revision $1": "Nevarēja iegūt metadatus versijai $1",
+	"Could not load form \"$1\": \n$2": "Nevarēja ielādēt formu \"$1\":\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nevarēja ielādēt skatu \"$1\": $2\nIzmanto vienkāršo uzdevumu skatītāju.",
+	"Could not load workset list: $1": "Nevarēja ielādēt uzdevumu komplekta sarakstu: $1",
+	"Could not parse MediaWiki API's response": "Nevarēja apstrādāt MediaWiki API atbildi",
+	"Diff for revision $1": "Atšķirība versijai $1",
+	"No difference": "Nav atšķirību",
+	"Request new workset": "Pieprasīt jaunu uzdevumu komplektu",
+	"Review": "Pārskatīt",
+	"Save": "Saglabāt",
+	"License": "Visas iesniegtās atzīmes tiks publiskotas un licencētas saskaņā ar CC0 licenci (sabiedrības lietošanā)",
+	"Submit label": "Iesniegt iezīmi",
+	"Workset": "Uzdevumu komplekts",
+	"Workset complete!": "Uzdevumu komplekts pabeigts!",
+	"connect to server": "pievienoties serverim",
+	"date-format": "%d.%m.%Y.",
+	"fullscreen": "pilnekrāna režīms",
+	"open": "atvērt",
+	"request workset": "pieprasīt uzdevumu komplektu",
+	"review": "pārskatīt"
+}

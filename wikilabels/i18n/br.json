@@ -5,7 +5,7 @@
 			"Fulup"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "Ne oa ket leun ar vaezienn \"$1\". Kas en-dro ?",
+	"'$1' not completed. Submit anyway?": "N'eo ket bet leuniet ar vaezienn \"$1\". Kas memes tra ?",
 	"Abandon": "Dilezel",
 	"Are you sure that you want to abandon this task?": "Ha sur oc'h e fell deoc'h dilezel an trevell-mañ ?",
 	"Campaigns": "Koulzadoù",
@@ -29,5 +29,6 @@
 	"fullscreen": "skramm leun",
 	"open": "digeriñ",
 	"request workset": "Goulenn ur strobad trevelloù",
-	"review": "adwelet"
+	"review": "adwelet",
+	"maintenance notice": "D'an $1 e vo klozet tikedennoù ar wiki, amzer d'ober un taol kempenn. Gwelet $2 evit gouzout hiroc'h."
 }

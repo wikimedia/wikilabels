@@ -30,5 +30,6 @@
 	"fullscreen": "全屏",
 	"open": "打开",
 	"request workset": "请求工作集",
-	"review": "复查"
+	"review": "复查",
+	"maintenance notice": "Wiki labels将于$1因维护目的而下线。参见$2以获取更多信息。"
 }

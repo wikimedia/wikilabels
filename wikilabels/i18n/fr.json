@@ -29,5 +29,6 @@
 	"fullscreen": "Plein écran",
 	"open": "ouvrir",
 	"request workset": "Demander l'ensemble de données",
-	"review": "Relecture"
+	"review": "Relecture",
+	"maintenance notice": "Les libellés Wiki seront arrêtés pour maintenance le $1. Voyez $2 pour plus d’information."
 }

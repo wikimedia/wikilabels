@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Arianit"
+		]
+	},
+	"Abandon": "Lëre",
+	"Are you sure that you want to abandon this task?": "A jeni i sigurt se dëshironi të lëni këtë detyrë?",
+	"Campaigns": "Fushatat",
+	"Can't save label. No task is selected!": "Nuk mund të ruhet etiketa. Nuk është zgjedhura detyra!",
+	"Could not get metadata for revision $1": "Nuk mund të merreshin meta të dhënat për versionin $1",
+	"Could not load form \"$1\": \n$2": "Nuk mund të ngarkohej formulari \"$1\":\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nuk mund të ngarkohet pamja \"$1\": $2\nPo përdorët shikuesi i thjeshtë i detyrave.",
+	"Could not load workset list: $1": "Nuk mund të ngarkohej lista e detyrave: $1",
+	"Could not parse MediaWiki API's response": "Nuk mund të interpretohej përgjigja e API-së së MedaWiki-t",
+	"Diff for revision $1": "Ndryshimi për versionin $1",
+	"No difference": "Nuk ka ndryshim",
+	"Request new workset": "Kërko punë të re",
+	"Review": "Rishikim",
+	"Save": "Ruaj",
+	"License": "Çfarëdo etikete që jepet do të dal në publik dhe licencohet nën termet e CC0 -- Domen Publik",
+	"Submit label": "Dorëzo etiketën",
+	"Workset": "Puna",
+	"Workset complete!": "Puna u krye!",
+	"connect to server": "lidhu me shërbyesin",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "gjithë ekrani",
+	"open": "hap",
+	"request workset": "kërko detyrën",
+	"review": "rishiko"
+}

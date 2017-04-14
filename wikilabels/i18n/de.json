@@ -28,5 +28,6 @@
 	"fullscreen": "Vollbild",
 	"open": "offen",
 	"request workset": "Arbeitssatz anfordern",
-	"review": "überprüfen"
+	"review": "überprüfen",
+	"maintenance notice": "Wikilabels geht zur Wartung offline am $1. Siehe $2 für weitere Informationen."
 }

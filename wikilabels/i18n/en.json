@@ -5,7 +5,7 @@
 	"Are you sure that you want to abandon this task?": "Are you sure that you want to abandon this task?",
 	"Campaigns": "Campaigns",
 	"Can't save label. No task is selected!": "Can't save label. No task is selected!",
-	"Could not get metadata for revision $1": "Could not get metadata for revision $1",
+	"Could not get metadata for revision $1": "Could not get metadata for revision $1. By clicking on \"Abandon\" button, skip this task",
 	"Could not load form \"$1\": \n$2": "Could not load form \"$1\": \n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Could not load view \"$1\": $2\nUsing simple task viewer.",
 	"Could not load workset list: $1": "Could not load workset list: $1",

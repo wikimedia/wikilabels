@@ -13,14 +13,14 @@
 	"Abandon": "Hylkää",
 	"Are you sure that you want to abandon this task?": "Oletko varma, että haluat hylätä tämän tehtävän?",
 	"Campaigns": "Kampanjat",
-	"Can't save label. No task is selected!": "Etikettiä ei voida tallentaa. Tehtävää ei valittu!",
+	"Can't save label. No task is selected!": "Etikettiä ei voida tallentaa. Tehtävää ei ole valittu!",
 	"Could not get metadata for revision $1": "Ei saatu haettua metadataa muutokselle $1",
 	"Could not load form \"$1\": \n$2": "Ei voitu ladata lomaketta \"$1\": \n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Ei voitu tarkastella \"$1\": $2\nYksinkertaisella tehtävien tarkastelijalla.",
 	"Could not load workset list: $1": "Ei voitu ladata tehtäväaineistolistaa: $1",
-	"Could not parse MediaWiki API's response": "Ei voitu jäsentää MediaWiki API vastausta",
+	"Could not parse MediaWiki API's response": "Ei voitu jäsentää MediaWiki APIn vastausta",
 	"Diff for revision $1": "Ero versioon $1",
-	"No difference": "Ei mitään eroa",
+	"No difference": "Ei eroavaisuutta",
 	"Request new workset": "Pyydä uutta tehtäväaineistoa",
 	"Review": "Tarkasta",
 	"Save": "Tallenna",
@@ -33,5 +33,6 @@
 	"fullscreen": "koko näyttö",
 	"open": "avoin",
 	"request workset": "pyydä tehtäväaineistoa",
-	"review": "tarkasta"
+	"review": "Tarkasta",
+	"maintenance notice": "Wiki labels on pois käytöstä $1 huoltotöiden takia. Katso sivulta $2 lisätietoja."
 }

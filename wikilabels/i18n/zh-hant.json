@@ -2,15 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Kly",
-			"Arthur2e5"
+			"Arthur2e5",
+			"LNDDYL"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "「$1」未填入內容。確定送出？",
+	"'$1' not completed. Submit anyway?": "欄位「$1」未填入內容。確定送出？",
 	"Abandon": "放棄",
 	"Are you sure that you want to abandon this task?": "您確定您要放棄此項任務？",
 	"Campaigns": "活動",
 	"Can't save label. No task is selected!": "因沒有選擇任務而無法儲存標籤！",
-	"Could not get metadata for revision $1": "無法獲取修訂版本$1的元數據",
+	"Could not get metadata for revision $1": "無法取得修訂版本$1的中繼資料",
 	"Could not load form \"$1\": \n$2": "無法從$1載入：$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "無法載入視圖「$1」：$2\n正使用簡易的任務瀏覽器",
 	"Could not load workset list: $1": "無法載入工作集合清單：$1",
@@ -29,5 +30,6 @@
 	"fullscreen": "全螢幕",
 	"open": "開啟",
 	"request workset": "要求工作集",
-	"review": "檢閱"
+	"review": "檢閱",
+	"maintenance notice": "於$1 Wiki labels 將因維護緣故而停止。查看 $2 來獲得更多訊息。"
 }

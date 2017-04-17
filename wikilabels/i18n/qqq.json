@@ -5,7 +5,8 @@
 			"EpochFail",
 			"Ladsgroup",
 			"Tgr",
-			"Purodha"
+			"Purodha",
+			"Amire80"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "When the user tries to send an assessment of a diff in which not all form fields were filled. $1 is the name of the field, such as \"Damaging\" or \"Good faith\".",
@@ -25,5 +26,5 @@
 	"open": "{{Identical|Open}}",
 	"request workset": "Asking for a new working set to label from the server",
 	"review": "{{Identical|Review}}",
-	"maintenance notice": "A notice about the system going down.  First argument is a date.  The second arguement is a URL with more information."
+	"maintenance notice": "A notice about the system going down. Parameters:\n* $1: date.\n* $2: a URL with more information."
 }

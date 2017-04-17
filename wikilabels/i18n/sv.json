@@ -32,5 +32,6 @@
 	"fullscreen": "helskärm",
 	"open": "öppna",
 	"request workset": "begär uppsättning",
-	"review": "granska"
+	"review": "granska",
+	"maintenance notice": "Wikietiketter är nere för underhåll den $1. Se $2 för mer information."
 }

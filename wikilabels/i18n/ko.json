@@ -11,7 +11,7 @@
 	"Are you sure that you want to abandon this task?": "이 작업을 정말로 포기하겠습니까?",
 	"Campaigns": "캠페인",
 	"Can't save label. No task is selected!": "레이블을 저장할 수 없습니다. 작업이 선택되지 않았습니다!",
-	"Could not get metadata for revision $1": "판 $1의 메타데이터를 가져오지 못했습니다",
+	"Could not get metadata for revision $1": "판 $1의 메타데이터를 가져오지 못했습니다. '버리기' 버튼을 클릭하여 이 작업을 건너뛰십시오",
 	"Could not load form \"$1\": \n$2": "\"$1\" 양식을 불러올 수 없습니다: \n$2",
 	"Could not parse MediaWiki API's response": "미디어위키 API의 응답의 구문을 분석하지 못했습니다",
 	"Diff for revision $1": "판 $1의 차이",

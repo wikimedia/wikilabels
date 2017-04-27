@@ -10,7 +10,7 @@
 	"Are you sure that you want to abandon this task?": "আপনি কী এই কৃত্য বর্জন করার ব্যপারে নিশ্চিত?",
 	"Campaigns": "প্রচারাভিযান",
 	"Can't save label. No task is selected!": "লেবেল সংরক্ষণ করা যায়নি। কোনও কৃত্য নির্বাচন করা হয়নি!",
-	"Could not get metadata for revision $1": "$1 পুনর্বিবেচনার জন্য মেটাউপাত্ত পাওয়া যায়নি",
+	"Could not get metadata for revision $1": "$1 পুনর্বিবেচনার জন্য মেটাউপাত্ত পাওয়া যায়নি। \"বর্জন\" বোতাম ক্লিক করার দ্বারা, এই কার্যটি এড়িয়ে যান",
 	"Could not load form \"$1\": \n$2": "ফর্ম \"$1\" লোড করা যায়নি:\n$2",
 	"Could not load workset list: $1": "কর্মধার্যের তালিকা লোড করা যায়নি:$1",
 	"Could not parse MediaWiki API's response": "মিডিয়াউইকি এপিআই প্রতিক্রিয়া পদান্বয় করা যায়নি",

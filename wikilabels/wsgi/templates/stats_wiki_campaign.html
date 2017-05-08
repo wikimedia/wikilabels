@@ -1,0 +1,66 @@
+<html lang="en" dir="ltr" class="client-js ve-not-available">
+  <head>
+    <title>Wikilabels user interface index</title>
+    {{ script_tags|safe }}
+    {% assets "js_all" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+    {{ style_tags|safe }}
+    {% assets "css_all" %}
+        <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
+    {% endassets %}
+    <link rel="stylesheet" type="text/css" href="https://en.wikipedia.org/w/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&only=styles&skin=vector" />
+    <script type="text/javascript">
+$(document).ready( function() {
+    console.log( $( '.campaign' ) );
+    $( '.campaign' ).each( function() {
+    console.log( 'wow' );
+    var done = parseInt($(this).find('.labels').html());
+    var neededs = parseInt($(this).find('.neededs').html());
+    var percent = Math.round( parseInt( done * 100) / neededs );
+    var progressBar = new OO.ui.ProgressBarWidget( {
+        progress: percent
+    } );
+    var fieldset = new OO.ui.FieldLayout( progressBar, {label: 'Progress (' + percent +'% done, ' + ( neededs - done ) + ' labels left):', align: 'top'});
+    $( this ).css('padding-bottom', '2.25em')
+$( this ).append( fieldset.$element ) }) });
+</script>
+    <style>
+      body {
+        background: #fff;
+        margin: 0px 2em;
+      }
+    </style>
+    <meta name="description" content="List of available campaigns for labeling in {{wiki|safe}}"/>
+  </head>
+  <body class="mediawiki ltr sitedir-ltr ns-4 ns-subject page-Wikipedia_Labels
+               skin-vector action-view webfonts-changed">
+    <style type="text/css">
+    html {
+      background: #eaecf0;
+    }
+    body {
+      max-width: 50em;
+      margin: 0px auto;
+      padding: 1em 2em;
+      background: #fff;
+    }
+    </style>
+    {% if maintenance_notice is not none %}
+      <div class="maintenance_notice">
+        {{maintenance_notice|safe}}
+      </div>
+    {% else %}
+    {%endif %}
+    <div id="bodyContent" class="mw-body-content">
+      <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+        <div id="wikilabels-home">
+          <div class="lead">
+                <h2>Campaign "{{ campaign['name'] }}" in {{ wiki }}</h2>
+                <span class="campaign"><a href="/stats/{{ wiki }}/{{campaign['id']}}">{{ campaign["name"] }}</a><ul class="stats"><li>Labels done: <span class="labels">{{ campaign["stats"]["labels"] }}</span></li><li>Labels needed: <span class="neededs">{{ campaign["stats"]["tasks"] * campaign["labels_per_task"] }}</span></li><li>Unique labelers: <span class="labelers">{{ campaign["stats"]["coders"] }}</span></li></ul></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

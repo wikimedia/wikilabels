@@ -12,11 +12,11 @@
     <link rel="stylesheet" type="text/css" href="https://en.wikipedia.org/w/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&only=styles&skin=vector" />
     <script type="text/javascript">
 $(document).ready( function() {
-    console.log( $( '.campaign' ) );
+    var data = {{ campaign['stats'] | tojson }};
+    var labels_per_task = {{ campaign['labels_per_task'] }}
     $( '.campaign' ).each( function() {
-    console.log( 'wow' );
-    var done = parseInt($(this).find('.labels').html());
-    var neededs = parseInt($(this).find('.neededs').html());
+    var done = data.labels;
+    var neededs = data.tasks * labels_per_task;
     var percent = Math.round( parseInt( done * 100) / neededs );
     var progressBar = new OO.ui.ProgressBarWidget( {
         progress: percent
@@ -57,7 +57,7 @@ $( this ).append( fieldset.$element ) }) });
         <div id="wikilabels-home">
           <div class="lead">
                 <h2>Campaign "{{ campaign['name'] }}" in {{ wiki }}</h2>
-                <span class="campaign"><a href="/stats/{{ wiki }}/{{campaign['id']}}">{{ campaign["name"] }}</a><ul class="stats"><li>Labels done: <span class="labels">{{ campaign["stats"]["labels"] }}</span></li><li>Labels needed: <span class="neededs">{{ campaign["stats"]["tasks"] * campaign["labels_per_task"] }}</span></li><li>Unique labelers: <span class="labelers">{{ campaign["stats"]["coders"] }}</span></li></ul></span>
+                <span class="campaign"><ul><li>Labels done: {{ campaign["stats"]["labels"] }}</li><li>Labels needed: {{ campaign["stats"]["tasks"] * campaign["labels_per_task"] }}</li><li>Unique labelers: {{ campaign["stats"]["coders"] }}</li></ul></span>
           </div>
         </div>
       </div>

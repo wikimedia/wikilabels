@@ -12,18 +12,20 @@
     <link rel="stylesheet" type="text/css" href="https://en.wikipedia.org/w/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&only=styles&skin=vector" />
     <script type="text/javascript">
 $(document).ready( function() {
-    console.log( $( '.campaign' ) );
-    $( '.campaign' ).each( function() {
-    console.log( 'wow' );
-    var done = parseInt($(this).find('.labels').html());
-    var neededs = parseInt($(this).find('.neededs').html());
-    var percent = Math.round( parseInt( done * 100) / neededs );
-    var progressBar = new OO.ui.ProgressBarWidget( {
-        progress: percent
-    } );
-    var fieldset = new OO.ui.FieldLayout( progressBar, {label: 'Progress (' + percent +'% done, ' + ( neededs - done ) + ' labels left):', align: 'top'});
-    $( this ).css('padding-bottom', '2.25em')
-$( this ).append( fieldset.$element ) }) });
+    var data = {{ campaigns | tojson }};
+    for (i = 0; i < data.length; i++) {
+        var element = $( ".campaign[data-id='" + data[i].id + "']" );
+        var done = data[i].stats.labels;
+        var neededs = data[i].stats.tasks * data[i].labels_per_task;
+        var percent = Math.round( parseInt( done * 100) / neededs );
+        var progressBar = new OO.ui.ProgressBarWidget( {
+            progress: percent
+        } );
+        var fieldset = new OO.ui.FieldLayout( progressBar, {label: 'Progress (' + percent +'% done, ' + ( neededs - done ) + ' labels left):', align: 'top'});
+        element.css('padding-bottom', '2.25em');
+        element.append( fieldset.$element );
+    }
+} );
 </script>
     <style>
       body {
@@ -59,7 +61,7 @@ $( this ).append( fieldset.$element ) }) });
                 <h2>Available campaigns</h2>
                 <ul>
                {% for campaign in campaigns %}
-                    <li class="campaign"><a href="/stats/{{ wiki }}/{{campaign['id']}}">{{ campaign["name"] }}</a><ul class="stats"><li>Labels done: <span class="labels">{{ campaign["stats"]["labels"] }}</span></li><li>Labels needed: <span class="neededs">{{ campaign["stats"]["tasks"] * campaign["labels_per_task"] }}</span></li><li>Unique labelers: <span class="labelers">{{ campaign["stats"]["coders"] }}</span></li></ul></li>
+                    <li class="campaign" data-id="{{ campaign["id"] }}"><a href="/stats/{{ wiki }}/{{campaign['id']}}">{{ campaign["name"] }}</a><ul class="stats"><li>Labels done: <span class="labels">{{ campaign["stats"]["labels"] }}</span></li><li>Labels needed: <span class="neededs">{{ campaign["stats"]["tasks"] * campaign["labels_per_task"] }}</span></li><li>Unique labelers: <span class="labelers">{{ campaign["stats"]["coders"] }}</span></li></ul></li>
                {% endfor %}
                 </ul>
           </div>

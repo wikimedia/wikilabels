@@ -1,0 +1,49 @@
+<html lang="en" dir="ltr" class="client-js ve-not-available">
+  <head>
+    <title>Wikilabels user interface index</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/oojs-ui-static/oojs-ui-mediawiki.css" />
+    <link rel="stylesheet" type="text/css" href="https://en.wikipedia.org/w/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&only=styles&skin=vector" />
+    <style>
+      body {
+        background: #fff;
+        margin: 0px 2em;
+      }
+    </style>
+    <meta name="description" content="List of available wikis for labeling"/>
+  </head>
+  <body class="mediawiki ltr sitedir-ltr ns-4 ns-subject page-Wikipedia_Labels
+               skin-vector action-view webfonts-changed">
+    <style type="text/css">
+    html {
+      background: #eaecf0;
+    }
+    body {
+      max-width: 50em;
+      margin: 0px auto;
+      padding: 1em 2em;
+      background: #fff;
+    }
+    </style>
+    {% if maintenance_notice is not none %}
+      <div class="maintenance_notice">
+        {{maintenance_notice|safe}}
+      </div>
+    {% else %}
+    {%endif %}
+    <div id="bodyContent" class="mw-body-content">
+      <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+        <div id="wikilabels-home">
+          <div class="lead">
+                <h2>Available wikis</h2>
+                <ul>
+               {% for wiki in wikis %}
+                    <li><a href="/stats/{{ wiki }}">{{ wiki }}</a></li>
+               {% endfor %}
+                </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

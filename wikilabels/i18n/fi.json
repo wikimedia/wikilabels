@@ -14,7 +14,7 @@
 	"Are you sure that you want to abandon this task?": "Oletko varma, että haluat hylätä tämän tehtävän?",
 	"Campaigns": "Kampanjat",
 	"Can't save label. No task is selected!": "Etikettiä ei voida tallentaa. Tehtävää ei ole valittu!",
-	"Could not get metadata for revision $1": "Ei saatu haettua metadataa muutokselle $1",
+	"Could not get metadata for revision $1": "Ei saatu haettua metadataa muutokselle $1. Voit ohittaa tämän näytteen painamalla \"Hylkää\" nappia.",
 	"Could not load form \"$1\": \n$2": "Ei voitu ladata lomaketta \"$1\": \n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Ei voitu tarkastella \"$1\": $2\nYksinkertaisella tehtävien tarkastelijalla.",
 	"Could not load workset list: $1": "Ei voitu ladata tehtäväaineistolistaa: $1",

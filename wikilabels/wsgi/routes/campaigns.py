@@ -82,7 +82,7 @@ def configure(bp, config, db):
         try:
             doc = {'workset': db.worksets.assign(campaign_id, user_id, stats)}
         except IntegrityError as e:
-            return responses.conflict(str(e))
+            return responses.conflict(stre(e)) + "Please try again or check campaign status" + url_for(stats_wiki")))
         except NotFoundError as e:
             return responses.not_found(str(e))
 

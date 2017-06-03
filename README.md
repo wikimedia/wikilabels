@@ -51,22 +51,5 @@ Run the following command in the base repository (e.g. wikilabels-master).
 
     $ wikilabels dev_server
 
-## Gadget
-
-1. Go to one of the js subpages of your user page. You can choose a page such as these:
-  * [meta:User:`<Name>`/global.js](https://meta.wikimedia.org/wiki/Special:MyPage/global.js), which will be loaded in all wikis, in all skins
-  * [meta:User:`<Name>`/common.js](https://meta.wikimedia.org/wiki/Special:MyPage/common.js), which will be loaded only on Meta-wiki, in all skins
-  * [meta:User:`<Name>`/vector.js](https://meta.wikimedia.org/wiki/Special:MyPage/vector.js), which will be loaded only on Meta-wiki, in the vector skin
-2. Copy the following to the page you have chosen:
-
-  ```javascript
-  // [[File:User:EpochFail/WikiLabels.js]] (workaround for [[phab:T35355]])
-  mw.loader.load( '//labels.wmflabs.org/gadget/loader.js' );
-  ```
-
-3. Clear the cache of your browser.
-
-This will import a live copy of the javascript.
-
 ## See also
 * [meta:Wiki labels](https://meta.wikimedia.org/wiki/Wiki_labels)

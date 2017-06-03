@@ -78,11 +78,11 @@ def configure(bp, config, db):
         user_id = session['user']['id']
 
         stats = request.form.get('workset') == "stats"
-        flask.url_for('stats_wiki', wiki-wiki)
+        url_for('stats_wiki', wiki-wiki)
         try:
             doc = {'workset': db.worksets.assign(campaign_id, user_id, stats)}
         except IntegrityError as e:
-            return responses.conflict(stre(e)) + "Please try again or check campaign status" + url_for(stats_wiki")))
+            return responses.conflict(stre(e)) + "Please try again or check campaign status" + url_for("stats_wiki")))
         except NotFoundError as e:
             return responses.not_found(str(e))
 

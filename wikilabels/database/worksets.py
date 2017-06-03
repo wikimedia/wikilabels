@@ -143,7 +143,7 @@ class Worksets(Collection):
 
             if not self.db.campaigns.has_open_tasks(campaign_id, user_id):
                 raise IntegrityError(("No tasks available for user_id={0} " +
-                                      "in campaign_id={1}")
+                                      "in campaign_id={1}. Please try again or check campaign status at http://www.labels.wmflabs.org/status/")
                                      .format(user_id, campaign_id))
 
             # Create a new workset

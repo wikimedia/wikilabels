@@ -1,6 +1,6 @@
 import json
 
-from flask import request, session
+from flask import request, session, url_for
 from flask.ext.jsonpify import jsonify
 
 from .. import preprocessors, responses
@@ -81,7 +81,10 @@ def configure(bp, config, db):
         try:
             doc = {'workset': db.worksets.assign(campaign_id, user_id, stats)}
         except IntegrityError as e:
-            return responses.conflict(str(e))
+            return responses.conflict(
+                str(e) +
+                "Please try again or check campaign status " +
+                url_for("stats_wiki", wiki=wiki))
         except NotFoundError as e:
             return responses.not_found(str(e))
 

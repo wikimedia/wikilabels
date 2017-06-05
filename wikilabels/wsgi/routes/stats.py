@@ -1,6 +1,6 @@
 from flask import render_template, request
 
-from .. import assets, preprocessors
+from .. import assets, preprocessors, responses
 from ...util import wikimedia
 from ..util import (build_maintenance_notice, build_script_tags,
                     build_style_tags)
@@ -35,7 +35,7 @@ def configure(bp, config, db):
             if campaign['id'] == id:
                 break
         else:
-            return 'Foooo'
+            return responses.not_found()
         return render_template(
             "stats_wiki_campaign.html",
             wiki=wiki,

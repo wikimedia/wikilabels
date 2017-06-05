@@ -1,8 +1,9 @@
 .wikilabels-form {
   background: #f8f9fa;
   border: 2px solid #c8ccd1;
-  border-radius: 2px;
-  padding: 1em;
+  padding: 1em 1em 1em;
+  margin-top: 1em;
+  border-bottom: 0px;
 }
 
 .wikilabels-form .fieldset > .oo-ui-fieldsetLayout > div {

@@ -3,7 +3,9 @@ python:
   - "3.5"
 # command to install dependencies
 
-install: "pip install -r requirements.txt"
+install: 
+- "pip install -r requirements.txt"
+- python setup.py install
 script: 
 -cd wiki-ai/wikilabels
 -wikilabels dev_server

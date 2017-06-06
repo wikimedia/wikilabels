@@ -1,4 +1,5 @@
 import json
+import time
 
 from flask import request, session, url_for
 from flask.ext.jsonpify import jsonify
@@ -135,7 +136,8 @@ def configure(bp, config, db):
         """
         workset = db.worksets.get(workset_id)
 
-        if workset['user_id'] != session['user']['id']:
+        if (workset['user_id'] != session['user']['id'] and
+                workset['expires'] < time.time()):
             mssg = ("workset_id={0} is owned by user_id={1}, but your "
                     "user_id is {2}".format(
                         workset_id,
@@ -143,7 +145,7 @@ def configure(bp, config, db):
                         session['user']['id']))
             return responses.forbidden(mssg)
 
-        db.worksets.abandon(workset_id, session['user']['id'])
+        db.worksets.abandon(workset_id, session['user']['id'], workset['expires'])
 
         return jsonify({'success': True})
 

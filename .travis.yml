@@ -4,4 +4,6 @@ python:
 # command to install dependencies
 
 install: "pip install -r requirements.txt"
-script: wikilabels dev_server
+script: 
+-cd wiki-ai/wikilabels
+-wikilabels dev_server

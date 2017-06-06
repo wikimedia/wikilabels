@@ -5,10 +5,7 @@ MediaWiki and a flask server for the gadget to converse with.
 
 
 ## Server
-The flask server is intended to be hosted by a web server, but a dev server can
-be started locally with
-
-    wikilabels dev_server
+The flask server is intended to be hosted by a web server, but if toy wish you can run a dev server (see Dev server section for details)
 
 ### Installation
 

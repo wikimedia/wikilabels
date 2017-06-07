@@ -1,4 +1,7 @@
-.wikilables-view {
+.wikilabels-view {
+  border: 2px solid #c8ccd1;
+  border-top: 0px;
+  padding-top: 1em;
 }
 .wikilabels-view > .completed {
   margin-top: 1em;
@@ -12,7 +15,6 @@
 .wikilabels-diff-to-previous {
   background: #fff;
   text-align: center;
-  margin-top: 1em;
 }
 .wikilabels-diff-to-previous > .error {
   text-align: left;

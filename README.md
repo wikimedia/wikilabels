@@ -5,10 +5,7 @@ MediaWiki and a flask server for the gadget to converse with.
 
 
 ## Server
-The flask server is intended to be hosted by a web server, but a dev server can
-be started locally with
-
-    wikilabels dev_server
+The flask server is intended to be hosted by a web server, but if you wish you can run a dev server (see Dev server section for details)
 
 ### Installation
 
@@ -50,6 +47,7 @@ Optionally, you can also load sample data into the database by copy-pasting `wik
 Run the following command in the base repository (e.g. wikilabels-master).
 
     $ wikilabels dev_server
-
+## Reporting Bugs
+To report a bug, please use [Phabricator](https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?projects=Wikilabels)
 ## See also
 * [meta:Wiki labels](https://meta.wikimedia.org/wiki/Wiki_labels)

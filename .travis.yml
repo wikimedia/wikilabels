@@ -7,7 +7,7 @@ python:
 install: 
   # apt-get packages
   - sudo apt-get install postgresql-server-dev-all 
-  -sudo apt-get install postgresql 
+  - sudo apt-get install postgresql 
   - sudo apt-get install libffi-dev 
   - sudo apt-get install npm 
   - sudo apt-get install g++ 

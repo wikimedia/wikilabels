@@ -16,6 +16,5 @@ script:
 - postgres=# CREATE DATABASE wikilabels;
 - postgres=# GRANT ALL PRIVILEGES ON DATABASE wikilabels to wikilabels;
 - postgres=# \q 
-- exit
 - sleep(15) 
 - pkill -f "wikilabels dev_server"

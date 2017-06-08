@@ -8,4 +8,4 @@ install:
 - python setup.py install
 script: 
 - wikilabels dev_server &
-- pkill dev_server
+- pkill -f "wikilabels  dev_server"

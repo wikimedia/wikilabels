@@ -1,4 +1,5 @@
 language: python
+sudo: true
 python:
   - "3.5"
 # command to install dependencies
@@ -8,4 +9,13 @@ install:
 - python setup.py install
 script: 
 - wikilabels dev_server &
-- pkill -f "wikilabels dev_server"
+- sudo useradd wikilabels
+- sudo su postgres
+- psql
+postgres=# CREATE USER wikilabels WITH PASSWORD 'something secure';
+postgres=# CREATE DATABASE wikilabels;
+postgres=# GRANT ALL PRIVILEGES ON DATABASE wikilabels to wikilabels;
+postgres=# \q 
+exit
+- sleep(15) 
+-pkill -f "wikilabels dev_server"

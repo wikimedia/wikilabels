@@ -5,13 +5,15 @@ python:
 # command to install dependencies
 
 install: 
-- sudo apt-get install postgresql-server-dev-all 
-  sudo apt-get install postgresql 
+  # apt-get packages
+  - sudo apt-get install postgresql-server-dev-all 
+  -sudo apt-get install postgresql 
   - sudo apt-get install libffi-dev 
   - sudo apt-get install npm 
   - sudo apt-get install g++ 
   - sudo apt-get install python3-dev 
   - sudo apt-get install libmemcached-dev
+#pip and python installs
 - "pip install -r requirements.txt"
 - python setup.py install
 script: 

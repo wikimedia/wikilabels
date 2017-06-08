@@ -8,7 +8,7 @@
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Pole „$1” nie zostało wypełnione. Przesłać mimo to?",
-	"Abandon": "Porzuć",
+	"Abandon": "Pomiń",
 	"Are you sure that you want to abandon this task?": "Czy na pewno chcesz zrezygnować z tego zadania?",
 	"Campaigns": "Osiągnięcia",
 	"Can't save label. No task is selected!": "Nie można zapisać etykiety. Nie wybrano żadnego zadania!",
@@ -25,7 +25,8 @@
 	"Workset complete!": "Ukończono prace nad zestawem danych!",
 	"connect to server": "połącz z serwerem",
 	"date-format": "%Y-%m-%d",
-	"fullscreen": "pełny ekran",
+	"fullscreen": "Pełny ekran",
+	"exit fullscreen": "Wyjdź z trybu pełnoekranowego",
 	"open": "otwórz",
 	"request workset": "Pobierz zestaw danych",
 	"review": "Przejrzyj"

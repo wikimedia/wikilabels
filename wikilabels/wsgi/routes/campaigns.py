@@ -84,7 +84,7 @@ def configure(bp, config, db):
             return responses.conflict(
                 str(e) +
                 "Please try again or check campaign status " +
-                url_for("stats_wiki", wiki=wiki))
+                url_for("wikilabels.stats_wiki", wiki=wiki))
         except NotFoundError as e:
             return responses.not_found(str(e))
 

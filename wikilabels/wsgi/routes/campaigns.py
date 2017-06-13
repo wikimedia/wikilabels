@@ -83,7 +83,7 @@ def configure(bp, config, db):
         except IntegrityError as e:
             return responses.conflict(
                 str(e) +
-                "Please try again or check campaign status " +
+                " Please try again or check campaign status " +
                 url_for("wikilabels.stats_wiki", wiki=wiki))
         except NotFoundError as e:
             return responses.not_found(str(e))

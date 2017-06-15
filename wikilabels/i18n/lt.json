@@ -6,17 +6,18 @@
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Laukelis „$1“ nebuvo užpildytas.  Vistiek siųsti?",
-	"Abandon": "Apleisti",
+	"Abandon": "Praleisti",
 	"Are you sure that you want to abandon this task?": "Ar tikrai norite apleisti šią užduotį?",
 	"Campaigns": "Kampanijos",
 	"Could not load form \"$1\": \n$2": "Nepavyko įkelti iš „$1“:\n$2",
 	"No difference": "Jokio skirtumo",
 	"Review": "Apžvalga",
-	"Save": "Išsaugoti",
+	"Save": "Išsaugoti ir kitas",
 	"Submit label": "Pateikti etiketę",
 	"connect to server": "prisijungti prie serverio",
 	"date-format": "%Y-%m-%d",
-	"fullscreen": "pilnas ekranas",
+	"fullscreen": "Pilnas ekranas",
+	"exit fullscreen": "Išeiti iš viso ekrano režimo",
 	"open": "atvira",
 	"review": "Apžvalga"
 }

@@ -9,7 +9,7 @@
 	"Are you sure that you want to abandon this task?": "Bist du sicher, dass du diese Aufgabe abbrechen möchtest?",
 	"Campaigns": "Kampagnen",
 	"Can't save label. No task is selected!": "Bezeichnung konnte nicht gespeichert werden. Keine Aufgabe ausgewählt!",
-	"Could not get metadata for revision $1": "Die Metadaten für die Version $1 konnten nicht abgerufen werden. Durch das Klicken auf die Schaltfläche „Abbrechen“ kann diese Aufgabe übersprungen werden.",
+	"Could not get metadata for revision $1": "Die Metadaten für die Version $1 konnten nicht abgerufen werden. Durch das Klicken auf die Schaltfläche „Überspringen“ kann diese Aufgabe übersprungen werden.",
 	"Could not load form \"$1\": \n$2": "Formular „$1“ konnte nicht geladen werden:\n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Ansicht „$1“ konnte nicht geladen werden: $2\nEs wird der einfache Aufgabenbetrachter verwendet.",
 	"Could not load workset list: $1": "Arbeitssatzliste konnte nicht geladen werden: $1",

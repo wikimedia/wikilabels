@@ -5,7 +5,7 @@
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Lauks \"$1\" nebija aizpildīts. Vienalga iesniegt?",
-	"Abandon": "Pamest",
+	"Abandon": "Izlaist",
 	"Are you sure that you want to abandon this task?": "Vai tiešām vēlies pamest šo uzdevumu?",
 	"Campaigns": "Kampaņas",
 	"Can't save label. No task is selected!": "Nevar saglabāt iezīmi. Nav izvēlēts uzdevums!",
@@ -25,7 +25,7 @@
 	"Workset complete!": "Uzdevumu komplekts pabeigts!",
 	"connect to server": "pievienoties serverim",
 	"date-format": "%d.%m.%Y.",
-	"fullscreen": "pilnekrāna režīms",
+	"fullscreen": "Pilnekrāna režīms",
 	"open": "atvērt",
 	"request workset": "pieprasīt uzdevumu komplektu",
 	"review": "pārskatīt"

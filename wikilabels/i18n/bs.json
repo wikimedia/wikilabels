@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Srdjan m"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Polje \"$1\" nije popunjeno. Da ipak pošaljem?",
+	"Abandon": "Preskoči",
+	"Are you sure that you want to abandon this task?": "Jeste li sigurni da želite napustiti zadatak?",
+	"Can't save label. No task is selected!": "Ne mogu sačuvati oznaku. Niste izabrali zadatak!",
+	"Could not load form \"$1\": \n$2": "Ne mogu učitati obrazac \"$1\": \n$2",
+	"Diff for revision $1": "Razl. za izmjenu $1",
+	"No difference": "Nema razlike",
+	"Request new workset": "Zatraži novi zbir zadataka",
+	"Review": "Pregledaj",
+	"Save": "Sačuvaj i sljedeće",
+	"fullscreen": "Cijeli ekran",
+	"exit fullscreen": "Izađi iz cijelog ekrana",
+	"open": "otvori"
+}

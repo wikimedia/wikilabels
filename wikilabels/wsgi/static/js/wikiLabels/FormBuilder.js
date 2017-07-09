@@ -1,7 +1,7 @@
 ( function ( $, OO, CodeMirror, jsyaml, WL ) {
 
 	var FormBuilder = function () {
-		this.$element = $( "<div>" ).addClass( WL.config.prefix + 'form-builder' );
+		this.$element = $( '<div>' ).addClass( WL.config.prefix + 'form-builder' );
 
 		this.configEditor = new ConfigEditor();
 		this.$element.append( this.configEditor.$element );
@@ -13,12 +13,12 @@
 	};
 	FormBuilder.prototype.handleConfigEditorSubmit = function ( codeEditor ) {
 		var config;
-		try{
+		try {
 			config = this.configEditor.json();
 			this.formPreview.load( config );
-		} catch(err) {
-			console.error(err)
-			alert(err);
+		} catch ( err ) {
+			console.error( err );
+			alert( err );
 		}
 	};
 	FormBuilder.prototype.handleFormPreviewSubmit = function ( codeEditor ) {
@@ -27,10 +27,10 @@
 
 	var ConfigEditor = function () {
 
-		this.$element = $( "<div>" ).addClass( 'config-editor' );
+		this.$element = $( '<div>' ).addClass( 'config-editor' );
 
 		this.codeMirror = new CodeMirror(
-		this.$element[0],
+			this.$element[ 0 ],
 			{
 				mode: 'yaml',
 				lineNumbers: true,
@@ -46,7 +46,7 @@
 			}
 		} );
 
-		this.$controls = $( "<div>" ).addClass( 'controls' );
+		this.$controls = $( '<div>' ).addClass( 'controls' );
 		this.$element.append( this.$controls );
 
 		this.previewButton = new OO.ui.ButtonWidget( {
@@ -80,15 +80,15 @@
 	};
 
 	var FormPreview = function () {
-		this.$element = $( "<div>" ).addClass( 'form-preview' );
+		this.$element = $( '<div>' ).addClass( 'form-preview' );
 		this.config = null;
 		this.form = null;
 
 		this.languageSelector = new LanguageSelector();
-		this.$element.append(this.languageSelector.$element);
+		this.$element.append( this.languageSelector.$element );
 		this.languageSelector.select.add( this.handleLanguageSelection.bind( this ) );
 
-		this.$formContainer = $( "<div>" ).addClass( 'form-container' );
+		this.$formContainer = $( '<div>' ).addClass( 'form-container' );
 		this.$element.append( this.$formContainer );
 
 		// Events
@@ -108,7 +108,7 @@
 		this.$formContainer.append( this.form.$element );
 
 		// Register submit event
-		this.form.submitted.add(this.handleFormSubmission.bind(this));
+		this.form.submitted.add( this.handleFormSubmission.bind( this ) );
 	};
 	FormPreview.prototype.handleFormSubmission = function () {
 		this.submitted.fire();
@@ -126,7 +126,7 @@
 			}
 		}
 		this.languageSelector.load( langs );
-		this.languageSelector.selectLang( langs[0] || null );
+		this.languageSelector.selectLang( langs[ 0 ] || null );
 	};
 	FormPreview.prototype.getLabelData = function () {
 		if ( this.form ) {
@@ -138,7 +138,7 @@
 
 	var LanguageSelector = function () {
 		var layout;
-		this.$element = $( "<div>" ).addClass( 'language-selector' );
+		this.$element = $( '<div>' ).addClass( 'language-selector' );
 		this.dropdown = new OO.ui.DropdownWidget( {
 			menu: { items: [] }
 		} );
@@ -163,7 +163,7 @@
 
 		for ( i in langs ) {
 			if ( langs.hasOwnProperty( i ) ) {
-				lang = langs[i];
+				lang = langs[ i ];
 				items.push( new OO.ui.MenuOptionWidget( { label: lang, data: lang } ) );
 			}
 		}
@@ -171,13 +171,13 @@
 		this.dropdown.getMenu().addItems( items );
 	};
 	LanguageSelector.prototype.selectLang = function ( lang ) {
-		if( lang !== null ) {
+		if ( lang !== null ) {
 			var menu = this.dropdown.getMenu();
 			menu.selectItem( this.dropdown.getMenu().getItemFromData( lang ) );
-		}else{
+		} else {
 			this.select.fire( null );
 		}
 	};
 
 	WL.FormBuilder = FormBuilder;
-} )( jQuery, OO, CodeMirror, jsyaml, wikiLabels );
+}( jQuery, OO, CodeMirror, jsyaml, wikiLabels ) );

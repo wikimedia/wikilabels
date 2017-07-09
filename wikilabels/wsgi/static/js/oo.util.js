@@ -9,11 +9,11 @@
 	};
 
 	OO.ui.instantiateFromParameters = function ( config, fieldMap ) {
-		var className = config[ 'class' ],
+		var className = config.class,
 			error, widget;
 		fieldMap = fieldMap || {};
 
-		if ( typeof OO.ui[className] === 'undefined' ) {
+		if ( typeof OO.ui[ className ] === 'undefined' ) {
 			throw 'Unable to load OO.ui.' + className;
 		}
 
@@ -32,9 +32,9 @@
 		} else if ( className === 'HtmlSnippet' ) {
 			widget = new OO.ui.HtmlSnippet( config.content );
 		} else {
-			widget = new OO.ui[className]( config );
+			widget = new OO.ui[ className ]( config );
 			if ( config.name !== undefined ) {
-				fieldMap[config.name] = widget;
+				fieldMap[ config.name ] = widget;
 			}
 		}
 		return widget;
@@ -45,11 +45,11 @@
 			error = false;
 		fieldMap = fieldMap || {};
 
-		if ( config.help && config.help.class) {
-			config.help = OO.ui.instantiateFromParameters( config.help, fieldMap )
+		if ( config.help && config.help.class ) {
+			config.help = OO.ui.instantiateFromParameters( config.help, fieldMap );
 		}
 		if ( config.label && config.label.class ) {
-			config.label = OO.ui.instantiateFromParameters( config.label, fieldMap )
+			config.label = OO.ui.instantiateFromParameters( config.label, fieldMap );
 		}
 		if ( config.items ) {
 			newItems = [];
@@ -68,12 +68,12 @@
 		}
 		if ( config.fieldWidget ) {
 			config.fieldWidget = OO.ui.instantiateFromParameters( config.fieldWidget,
-			fieldMap );
+				fieldMap );
 		}
 
 		$.each( config, function ( name, value ) {
 			if ( String( name ).substr( 0, 1 ) === '$' ) {
-				config[name] = $( value );
+				config[ name ] = $( value );
 			} else if ( typeof value === 'object' && $.isPlainObject( value ) ) {
 				OO.ui.preprocessConfig( value, fieldMap );
 			}
@@ -85,7 +85,7 @@
 	};
 
 	OO.ui.getWidgetValue = function ( widget ) {
-		switch ( widget.constructor ){
+		switch ( widget.constructor ) {
 			case OO.ui.ActionWidget:
 			case OO.ui.ButtonGroupWidget:
 			case OO.ui.ButtonWidget:
@@ -140,16 +140,16 @@
 			case OO.ui.ToggleSwitchWidget:
 				return widget.getValue();
 			default:
-				if(widget.getData){
+				if ( widget.getData ) {
 					return widget.getValue();
-				}else{
+				} else {
 					return null;
 				}
 		}
 	};
 
 	OO.ui.setWidgetValue = function ( widget, value ) {
-		switch ( widget.constructor ){
+		switch ( widget.constructor ) {
 			case OO.ui.ActionWidget:
 			case OO.ui.ButtonGroupWidget:
 			case OO.ui.ButtonWidget:
@@ -167,42 +167,42 @@
 			case OO.ui.PopupWidget:
 			case OO.ui.ProgressBarWidget:
 			case OO.ui.RadioOptionWidget:
-				widget.setData(value);
+				widget.setData( value );
 				break;
 			case OO.ui.ButtonOptionWidget:
 			case OO.ui.CheckboxInputWidget:
-				widget.setSelected(value);
+				widget.setSelected( value );
 				break;
 			case OO.ui.RadioSelectWidget:
-				widget.selectItem( widget.getItemFromData(value) );
+				widget.selectItem( widget.getItemFromData( value ) );
 				break;
 			case OO.ui.ButtonInputWidget:
 			case OO.ui.DropdownInputWidget:
 			case OO.ui.RadioInputWidget:
-				widget.setData(value);
+				widget.setData( value );
 				break;
 			case OO.ui.MenuSelectWidget:
 			case OO.ui.ButtonSelectWidget:
-				widget.selectItem( widget.getItemFromData(value) );
+				widget.selectItem( widget.getItemFromData( value ) );
 				break;
 			case OO.ui.ComboboxInputWidget:
-				widget.getMenu().selectItem( widget.getMenu().getItemFromData(value) );
+				widget.getMenu().selectItem( widget.getMenu().getItemFromData( value ) );
 				break;
 			case OO.ui.SearchWidget:
-				widget.getQuery().setValue(value);
+				widget.getQuery().setValue( value );
 				break;
 			case OO.ui.TextInputWidget:
 			case OO.ui.ToggleButtonWidget:
 			case OO.ui.ToggleSwitchWidget:
-				widget.setValue(ifundef(value, ""));
+				widget.setValue( ifundef( value, '' ) );
 				break;
 			default:
-				if(widget.setValue){
-					return widget.setValue(value);
-				}else{
+				if ( widget.setValue ) {
+					return widget.setValue( value );
+				} else {
 					return null;
 				}
-			}
+		}
 	};
 
-} )( jQuery, OO );
+}( jQuery, OO ) );

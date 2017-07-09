@@ -1,41 +1,41 @@
-( function ($, WL) {
+( function ( $, WL ) {
 
 	var User = function () {
 		this.id = null;
-		$(window).focus(this.handleRefocus.bind(this));
+		$( window ).focus( this.handleRefocus.bind( this ) );
 
 		this.statusChanged = $.Callbacks();
 
 		this.updateStatus();
 	};
-	User.prototype.handleRefocus = function (e) {
+	User.prototype.handleRefocus = function ( e ) {
 		this.updateStatus();
 	};
 	User.prototype.updateStatus = function () {
 		var oldId = this.id, deferred = $.Deferred();
 
 		WL.server.whoami()
-			.done(function(doc){
-				this.id = doc['user']['id'];
+			.done( function ( doc ) {
+				this.id = doc.user.id;
 				if ( oldId !== this.id ) {
-					console.log("Setting user_id to " + this.id);
+					console.log( 'Setting user_id to ' + this.id );
 					this.statusChanged.fire();
 				}
-				deferred.resolve(true);
-			}.bind(this))
-			.fail(function(doc){
+				deferred.resolve( true );
+			}.bind( this ) )
+			.fail( function ( doc ) {
 				this.id = null;
-				deferred.reject(false);
-			}.bind(this));
+				deferred.reject( false );
+			}.bind( this ) );
 
 		return deferred.promise();
 	};
 	User.prototype.initiateOAuth = function () {
 		var oauthWindow = window.open(
-			WL.server.absPath("auth", "initiate"), "OAuth",
+			WL.server.absPath( 'auth', 'initiate' ), 'OAuth',
 			'height=768,width=1024'
 		);
-		if (window.focus) {
+		if ( window.focus ) {
 			oauthWindow.focus();
 		}
 	};
@@ -45,4 +45,4 @@
 
 	WL.User = User;
 
-})(jQuery, wikiLabels);
+}( jQuery, wikiLabels ) );

@@ -2,7 +2,7 @@
 	"@metadata": [],
 	"'$1' not completed. Submit anyway?": "The field \"$1\" was not filled.  Submit anyway?",
 	"Abandon": "Skip",
-	"Are you sure that you want to abandon this task?": "Are you sure that you want to abandon this task?",
+	"Are you sure that you want to abandon this task?": "Are you sure you want to skip to the next task?",
 	"Campaigns": "Campaigns",
 	"Can't save label. No task is selected!": "Can't save label. No task is selected!",
 	"Could not get metadata for revision $1": "Could not get metadata for revision $1. By clicking on \"Skip\" button, skip this task",

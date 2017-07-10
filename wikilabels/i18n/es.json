@@ -12,7 +12,7 @@
 	"Are you sure that you want to abandon this task?": "¿Confirmas que quieres abandonar esta tarea?",
 	"Campaigns": "Campañas",
 	"Can't save label. No task is selected!": "No se puede guardar la etiqueta. No hay ninguna tarea seleccionada.",
-	"Could not get metadata for revision $1": "No se pudieron obtener los metadatos de la revisión $1. Para omitir este paso, pulsa en «Abandonar»",
+	"Could not get metadata for revision $1": "No se pudieron obtener los metadatos de la revisión $1. Para omitir este paso, pulsa en el botón «Omitir»",
 	"Could not load form \"$1\": \n$2": "No se pudo cargar el formulario «$1»: \n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "No se pudo cargar la vista «$1»: $2\nSe utiliza el visor de tareas sencillo.",
 	"Could not load workset list: $1": "No se pudo cargar la lista de planes de trabajo: $1",

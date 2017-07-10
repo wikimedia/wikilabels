@@ -1,11 +1,11 @@
-(function($){
-	if (window.wikiLabels) {
-		throw "wikiLabels is already defined!  Exiting.";
+( function ( $ ) {
+	if ( window.wikiLabels ) {
+		throw 'wikiLabels is already defined!  Exiting.';
 	}
 	window.wikiLabels = {
 		config: {
-			serverRoot: "",
-			prefix: "wikilabels-"
+			serverRoot: '',
+			prefix: 'wikilabels-'
 		}
 	};
-})(jQuery);
+}( jQuery ) );

@@ -1,7 +1,7 @@
-(function(mw, $){
-	$(function(){
+( function ( mw, $ ) {
+	$( function () {
 		// Check if we should try to load Wiki Labels
-		if($('#wikilabels-home').length){
+		if ( $( '#wikilabels-home' ).length ) {
 			mw.loader.load( '{{ css_path|safe }}', 'text/css' );
 			mw.loader.using(
 				[
@@ -13,18 +13,18 @@
 					'mediawiki.util',
 					'mediawiki.language'
 				],
-				function(){
+				function () {
 					$.getScript(
 						'{{ js_path|safe }}',
-						function(){
+						function () {
 							wikiLabels.config.update( {
 								serverRoot: '{{ server_root|safe }}'
 							} );
-							wikiLabels.home = new wikiLabels.Home($('#wikilabels-home'));
+							wikiLabels.home = new wikiLabels.Home( $( '#wikilabels-home' ) );
 						}
 					);
 				}
 			);
 		}
-	});
-}(mediaWiki, jQuery));
+	} );
+}( mediaWiki, jQuery ) );

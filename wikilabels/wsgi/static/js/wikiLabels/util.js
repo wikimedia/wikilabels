@@ -1,4 +1,4 @@
-( function ($, WL) {
+( function ( $, WL ) {
 	WL.util = {
 		applyTranslation: function ( value, lookup ) {
 			var str, arr, transArray, i, obj, transObj, key;
@@ -17,8 +17,8 @@
 				arr = value;
 				transArray = [];
 				for ( i in arr ) {
-					if ( arr.hasOwnProperty(i) ) {
-						transArray.push( WL.util.applyTranslation( arr[i], lookup ) );
+					if ( arr.hasOwnProperty( i ) ) {
+						transArray.push( WL.util.applyTranslation( arr[ i ], lookup ) );
 					}
 				}
 				return transArray;
@@ -28,7 +28,7 @@
 				transObj = {};
 				for ( key in obj ) {
 					if ( obj.hasOwnProperty( key ) ) {
-						transObj[ key ] = WL.util.applyTranslation( obj[key], lookup );
+						transObj[ key ] = WL.util.applyTranslation( obj[ key ], lookup );
 					}
 				}
 				return transObj;
@@ -37,47 +37,47 @@
 				return value;
 			}
 		},
-		oneOrMany: function (val) {
-			if ($.isArray(val)) {
+		oneOrMany: function ( val ) {
+			if ( $.isArray( val ) ) {
 				return val;
 			} else {
-				return [val];
+				return [ val ];
 			}
 		},
-		linkToTitle: function (title, label) {
+		linkToTitle: function ( title, label ) {
 			var url = WL.mediawiki.urlToTitle( title );
 
-			return $("<a>").attr('href', url).text(label || title);
+			return $( '<a>' ).attr( 'href', url ).text( label || title );
 		},
-		linkToDiff: function (revId, label) {
+		linkToDiff: function ( revId, label ) {
 			var url = WL.mediawiki.urlToDiff( revId );
 
-			return $("<a>").attr('target', '_blank').attr('href', url).text(label || revId);
+			return $( '<a>' ).attr( 'target', '_blank' ).attr( 'href', url ).text( label || revId );
 		},
-		pathJoin: function (/* path parts */) {
-			var args = Array.prototype.slice.call(arguments);
+		pathJoin: function ( /* path parts */ ) {
+			var args = Array.prototype.slice.call( arguments );
 
 			// Split the inputs into a list of path commands.
 			var parts = [];
-			for (var i = 0, l = args.length; i < l; i++) {
-				parts = parts.concat(String(args[i]).split("/"));
+			for ( var i = 0, l = args.length; i < l; i++ ) {
+				parts = parts.concat( String( args[ i ] ).split( '/' ) );
 			}
 			// Interpret the path commands to get the new resolved path.
 			var newParts = [];
-			for (i = 0, l = parts.length; i < l; i++) {
-				var part = parts[i];
+			for ( i = 0, l = parts.length; i < l; i++ ) {
+				var part = parts[ i ];
 				// Remove leading and trailing slashes
 				// Also remove "." segments
-				if (!part || part === ".") continue;
+				if ( !part || part === '.' ) { continue; }
 				// Interpret ".." to pop the last segment
-				if (part === "..") newParts.pop();
+				if ( part === '..' ) { newParts.pop(); }
 				// Push new path segments.
-				else newParts.push(part);
+				else { newParts.push( part ); }
 			}
 			// Preserve the initial slash if there was one.
-			if (parts[0] === "") newParts.unshift("");
+			if ( parts[ 0 ] === '' ) { newParts.unshift( '' ); }
 			// Turn back into a single string path.
-			return newParts.join("/") || (newParts.length ? "/" : ".");
+			return newParts.join( '/' ) || ( newParts.length ? '/' : '.' );
 		}
 	};
-})(jQuery, wikiLabels);
+}( jQuery, wikiLabels ) );

@@ -1,8 +1,9 @@
 ( function ( $, WL ) {
 
-	var API = function () {}, path = '', dataType = '', deferred = $.Deferred();
+	var API = function () {}
 	API.prototype.request = function ( data, o ) {
 		o = o || {};
+		var path = '', dataType = '', deferred = $.Deferred();
 		path = o.path || '/w/api.php';
 		dataType = o.dataType || 'jsonp';
 		data.format = o.format || 'json';

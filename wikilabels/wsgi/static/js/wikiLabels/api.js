@@ -1,21 +1,19 @@
 ( function ( $, WL ) {
 
-	var API = function () {};
+	var API = function () {}
 	API.prototype.request = function ( data, o ) {
 		o = o || {};
-		var path = o.path || '/w/api.php';
-		var dataType = o.dataType || 'jsonp';
+		var path = '', dataType = '', deferred = $.Deferred();
+		path = o.path || '/w/api.php';
+		dataType = o.dataType || 'jsonp';
 		data.format = o.format || 'json';
-		var deferred = $.Deferred(),
-		    ajaxPromise = $.ajax(
-				'//' + WL.mediawiki.host + path,
-				{
-					dataType: dataType,
-					data: data
-				}
-			);
-
-		ajaxPromise.done( function ( doc, status, jqXHR ) {
+		$.ajax(
+			'//' + WL.mediawiki.host + path,
+			{
+				dataType: dataType,
+				data: data
+			}
+		).done( function ( doc, status, jqXHR ) {
 			if ( !doc.error ) {
 				if ( doc.warnings ) {
 					console.warn( doc.warnings );
@@ -25,9 +23,7 @@
 				console.error( doc.error );
 				deferred.reject( doc.error );
 			}
-		} );
-
-		ajaxPromise.fail( function ( jqXHR, status, err ) {
+		} ).fail( function ( jqXHR, status, err ) {
 			var errorData = { code: status, message: err };
 			console.error( errorData );
 			deferred.reject( errorData );

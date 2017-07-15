@@ -1,7 +1,9 @@
 ( function ( $, OO, WL ) {
-	var Workspace = function ( $element ) {
+	var Label, Task, Workspace, TaskList;
+
+	Workspace = function ( $element ) {
 		if ( $element === undefined || $element.length === 0 ) {
-			throw '$element must be a defined element';
+			throw Error( '$element must be a defined element' );
 		}
 		this.$element = $element;
 		this.$element.hide();
@@ -51,7 +53,7 @@
 	};
 	Workspace.prototype.loadWorkset = function ( campaignId, worksetId ) {
 		var taskList, form, view,
-		    query = WL.server.getWorkset( campaignId, worksetId );
+			query = WL.server.getWorkset( campaignId, worksetId );
 		this.clear();
 		this.$element.show();
 		query.done( function ( doc ) {
@@ -65,7 +67,7 @@
 			} catch ( err ) {
 				console.error( err.stack );
 				alert( WL.i18n( 'Could not load view "$1": ' +
-				 '$2\nUsing simple task viewer.', [ doc.campaign.view, err ] ) );
+					'$2\nUsing simple task viewer.', [ doc.campaign.view, err ] ) );
 				view = new WL.views.View( doc.tasks );
 			}
 
@@ -117,9 +119,7 @@
 		this.view.show( firstTask.id );
 	};
 	Workspace.prototype.saveLabel = function ( labelData ) {
-		var fieldName,
-		    fieldsMissingValues,
-		    task = this.taskList.selectedTask;
+		var task = this.taskList.selectedTask;
 
 		if ( !task ) {
 			alert( WL.i18n( 'Can\'t save label. No task is selected!' ) );
@@ -148,9 +148,7 @@
 
 	};
 	Workspace.prototype.abandonLabel = function () {
-		var fieldName,
-		    fieldsMissingValues,
-		    task = this.taskList.selectedTask;
+		var task = this.taskList.selectedTask;
 
 		if ( !task ) {
 			alert( 'Can\'t abandon task.  No task is selected!' );
@@ -198,7 +196,7 @@
 		this.fullscreenToggle.setDisabled( true );
 	};
 
-	var TaskList = function ( taskListData ) {
+	TaskList = function ( taskListData ) {
 		this.$element = $( '<div>' ).addClass( 'task-list' );
 
 		this.$header = $( '<div>' ).addClass( 'header' ).text( WL.i18n( 'Workset' ) );
@@ -246,7 +244,7 @@
 	};
 	TaskList.prototype.selectByIndex = function ( index ) {
 		if ( index >= this.tasks.length ) {
-			throw 'Could not select task. Index ' + index + ' out of bounds.';
+			throw Error( 'Could not select task. Index ' + index + ' out of bounds.' );
 		}
 		this.select( this.tasks[ index ] );
 		return this.tasks[ index ];
@@ -254,7 +252,7 @@
 	TaskList.prototype.shift = function ( delta ) {
 		var newI;
 		if ( !this.selectedTask ) {
-			throw 'No task assigned.  Can\'t shift().';
+			throw Error( 'No task assigned.  Can\'t shift().' );
 		}
 		newI = ( this.selectedTask.i + delta ) % this.tasks.length;
 		this.select( this.tasks[ newI ] );
@@ -269,12 +267,12 @@
 		if ( this.selectedTask ) {
 			return this.selectedTask.i === this.tasks.length - 1;
 		} else {
-			throw 'No task selected';
+			throw Error( 'No task selected' );
 		}
 	};
 	TaskList.prototype.labeled = function () {
 		var i, task,
-		    labeledTasks = 0;
+			labeledTasks = 0;
 
 		for ( i = 0; i < this.tasks.length; i++ ) {
 			task = this.tasks[ i ];
@@ -296,7 +294,7 @@
 		return this.tasks.length;
 	};
 
-	var Task = function ( i, taskData ) {
+	Task = function ( i, taskData ) {
 		this.$element = $( '<td>' ).addClass( 'task' );
 		this.$element.click( this.handleClick.bind( this ) );
 
@@ -306,7 +304,7 @@
 
 		this.load( taskData );
 	};
-	Task.prototype.handleClick = function ( e ) {
+	Task.prototype.handleClick = function () {
 		if ( !this.disable() ) {
 			this.activated.fire( this );
 		}
@@ -351,7 +349,7 @@
 		return this.label.$element.hasClass( 'abandoned' );
 	};
 
-	var Label = function ( labelData ) {
+	Label = function ( labelData ) {
 		this.$element = $( '<div>' ).addClass( 'label' );
 		this.timestamp = null;
 		this.data = null;
@@ -378,8 +376,10 @@
 		}
 	};
 	Label.prototype.isCompleted = function ( classNames ) {
+		var i;
+
 		classNames = classNames || [ 'completed' ];
-		for ( var i in classNames ) {
+		for ( i in classNames ) {
 			if ( this.$element.hasClass( classNames[ i ] ) ) {
 				return true;
 			}

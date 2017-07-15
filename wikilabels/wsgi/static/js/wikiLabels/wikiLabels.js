@@ -1,6 +1,6 @@
-( function ( $ ) {
+( function () {
 	if ( window.wikiLabels ) {
-		throw 'wikiLabels is already defined!  Exiting.';
+		throw Error( 'wikiLabels is already defined!  Exiting.' );
 	}
 	window.wikiLabels = {
 		config: {
@@ -8,4 +8,4 @@
 			prefix: 'wikilabels-'
 		}
 	};
-}( jQuery ) );
+}() );

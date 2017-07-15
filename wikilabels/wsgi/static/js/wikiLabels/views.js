@@ -1,6 +1,9 @@
 ( function ( $, WL ) {
+	var View, DiffToPrevious, PageAsOfRevision,
+		PrintablePageAsOfRevision, ParsedWikitext,
+		WorksetCompleted;
 
-	var View = function ( taskListData ) {
+	View = function ( taskListData ) {
 		this.$element = $( '<div>' ).addClass( WL.config.prefix + 'view' );
 
 		this.taskMap = null;
@@ -30,7 +33,7 @@
 	};
 	View.prototype.show = function ( taskId ) {
 		if ( this.taskMap[ taskId ] === undefined ) {
-			throw 'Could not find data for task_id=' + taskId;
+			throw Error( 'Could not find data for task_id=' + taskId );
 		} else {
 			this.select( this.tasks[ this.taskMap[ taskId ] ] );
 		}
@@ -52,7 +55,7 @@
 		this.$element.html( this.worksetCompleted.$element );
 	};
 
-	var DiffToPrevious = function ( taskListData ) {
+	DiffToPrevious = function ( taskListData ) {
 		DiffToPrevious.super.call( this, taskListData );
 		this.$element.addClass( WL.config.prefix + 'diff-to-previous' );
 	};
@@ -108,7 +111,7 @@
 			description = $( '<div>' ).addClass( 'description' ),
 			comment = $( '<div>' ).addClass( 'comment' ),
 			direction = $( '#mw-content-text' ).attr( 'dir' ),
-			diffTable = ( direction == 'rtl' ?
+			diffTable = ( direction === 'rtl' ?
 				$( '<table>' ).addClass( 'diff diff-contentalign-right' ) :
 				$( '<table>' ).addClass( 'diff diff-contentalign-left' ) );
 
@@ -134,15 +137,15 @@
 		} else {
 			this.$element.append(
 				$( '<div>' ).addClass( 'no-difference' )
-				          .text( WL.i18n( 'No difference' ) )
+					.text( WL.i18n( 'No difference' ) )
 			);
 		}
 	};
 
-	var PageAsOfRevision = function ( taskListData ) {
+	PageAsOfRevision = function ( taskListData ) {
 		PageAsOfRevision.super.call( this, taskListData );
 		this.$element.addClass( WL.config.prefix + 'page-as-of-revision' )
-		             .addClass( 'display-page-html' );
+			.addClass( 'display-page-html' );
 	};
 	OO.inheritClass( PageAsOfRevision, View );
 	PageAsOfRevision.prototype.present = function ( taskInfo ) {
@@ -171,20 +174,20 @@
 		this.$element.html( '' );
 		this.$element.append(
 			$( '<h1>' ).text( title )
-			         .attr( 'id', 'firstHeading' )
-			         .addClass( 'firstHeading' )
+				.attr( 'id', 'firstHeading' )
+				.addClass( 'firstHeading' )
 		);
 		this.$element.append(
 			$( '<div>' ).html( html )
-			          .addClass( 'mw-body-content' )
-			          .attr( 'id', 'bodyContent' )
+				.addClass( 'mw-body-content' )
+				.attr( 'id', 'bodyContent' )
 		);
 	};
 
-	var PrintablePageAsOfRevision = function ( taskListData ) {
+	PrintablePageAsOfRevision = function ( taskListData ) {
 		PrintablePageAsOfRevision.super.call( this, taskListData );
 		this.$element.addClass( WL.config.prefix + 'printable-page-as-of-revision' )
-		             .addClass( 'display-page-html' );
+			.addClass( 'display-page-html' );
 	};
 	OO.inheritClass( PrintablePageAsOfRevision, View );
 	PrintablePageAsOfRevision.prototype.present = function ( taskInfo ) {
@@ -198,10 +201,10 @@
 		this.$element.append( iframe );
 	};
 
-	var ParsedWikitext = function ( taskListData ) {
+	ParsedWikitext = function ( taskListData ) {
 		ParsedWikitext.super.call( this, taskListData );
 		this.$element.addClass( WL.config.prefix + 'parsed-wikitext' )
-		             .addClass( 'display-page-html' );
+			.addClass( 'display-page-html' );
 	};
 	OO.inheritClass( ParsedWikitext, View );
 	ParsedWikitext.prototype.present = function ( taskInfo ) {
@@ -223,11 +226,11 @@
 		this.$element.html( html );
 	};
 
-	var WorksetCompleted = function () {
+	WorksetCompleted = function () {
 		this.$element = $( '<div>' ).addClass( 'completed' );
 
 		this.$message = $( '<div>' ).addClass( 'message' )
-		                          .text( WL.i18n( 'Workset complete!' ) );
+			.text( WL.i18n( 'Workset complete!' ) );
 		this.$element.append( this.$message );
 
 		this.newWorkset = new OO.ui.ButtonWidget( {

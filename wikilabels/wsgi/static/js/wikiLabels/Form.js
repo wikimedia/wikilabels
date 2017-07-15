@@ -61,7 +61,7 @@
 		valueMap = valueMap || {};
 		for ( name in this.fieldMap ) {
 			if ( this.fieldMap.hasOwnProperty( name ) ) {
-				 OO.ui.setWidgetValue( this.fieldMap[ name ], valueMap[ name ] );
+				OO.ui.setWidgetValue( this.fieldMap[ name ], valueMap[ name ] );
 			}
 		}
 		return valueMap;
@@ -76,8 +76,7 @@
 		this.$element.show();
 	};
 	Form.prototype.submit = function () {
-		var fieldName,
-		    labelData = this.getValues();
+		var fieldName, labelData = this.getValues();
 
 		// TODO: This is hacky.  Constraints should be specified in the form config
 		for ( fieldName in labelData ) {
@@ -95,7 +94,7 @@
 	};
 	Form.fromConfig = function ( config, langChain ) {
 		var i, fieldset, fieldDoc, field, fieldMap,
-		    i18n = new WL.I18N( config.i18n, WL.util.oneOrMany( langChain ) );
+			i18n = new WL.I18N( config.i18n, WL.util.oneOrMany( langChain ) );
 
 		// Create a new fieldset & load the translated fields
 		fieldset = new OO.ui.FieldsetLayout( {

@@ -8,7 +8,8 @@
     "mediaWiki": false,
     "OO": false,
     "require": false,
-    "util": false
+    "util": false,
+    "wikiLabels": false
 	},
   "rules": {
     "array-bracket-spacing": [ "error", "always" ],
@@ -31,12 +32,13 @@
     "linebreak-style": [ "error", "unix" ],
     "new-cap": [ "error", { "newIsCap": true, "capIsNew": false, "properties": true } ],
     "new-parens": "error",
-    "no-alert": "error",
+    "no-alert": "off",
     "no-array-constructor": "error",
     "no-bitwise": "error",
     "no-caller": "error",
     "no-catch-shadow": "error",
     "no-constant-condition": [ "error", { "checkLoops": false } ],
+    "no-console": "off",
     "no-empty": [ "error", { "allowEmptyCatch": true } ],
     "no-eval": "error",
     "no-extend-native": "error",

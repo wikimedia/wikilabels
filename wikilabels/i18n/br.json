@@ -6,7 +6,7 @@
 		]
 	},
 	"'$1' not completed. Submit anyway?": "N'eo ket bet leuniet ar vaezienn \"$1\". Kas memes tra ?",
-	"Abandon": "Dilezel",
+	"Abandon": "Lezel a-gostez",
 	"Are you sure that you want to abandon this task?": "Ha sur oc'h e fell deoc'h dilezel an trevell-mañ ?",
 	"Campaigns": "Koulzadoù",
 	"Can't save label. No task is selected!": "Ne c'haller ket enrollañ ar  skridennad  ! N'eus bet dibabet trevell ebet !",
@@ -26,7 +26,8 @@
 	"Workset complete!": "Hollad roadennoù echu !",
 	"connect to server": "Kevreañ ouzh ar servijer",
 	"date-format": "%d-%m-%Y",
-	"fullscreen": "skramm leun",
+	"fullscreen": "Skramm leun",
+	"exit fullscreen": "Kuitaat ar skramm leun",
 	"open": "digeriñ",
 	"request workset": "Goulenn ur strobad trevelloù",
 	"review": "adwelet",

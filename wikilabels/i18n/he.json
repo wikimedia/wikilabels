@@ -6,7 +6,7 @@
 	},
 	"'$1' not completed. Submit anyway?": "השדה \"$1\" לא מולא. לשלוח בכל־זאת?",
 	"Abandon": "לדלג",
-	"Are you sure that you want to abandon this task?": "האם להפסיק את המשימה הזאת?",
+	"Are you sure that you want to abandon this task?": "האם ברצונך באמת לדלג למשימה הבאה?",
 	"Campaigns": "מבצעים",
 	"Can't save label. No task is selected!": "אי־אפשר לשמור תווית. לא נבחרה משימה!",
 	"Could not get metadata for revision $1": "לא היה אפשר לקבל מטא־נתונים עבור גרסה $1. לחיצה על \"לדלג\" תדלג על המשימה הזאת",

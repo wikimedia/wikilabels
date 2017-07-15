@@ -7,7 +7,7 @@
 	},
 	"'$1' not completed. Submit anyway?": "Il campo \"$1\" non è stato compilato. Inviare comunque?",
 	"Abandon": "Salta",
-	"Are you sure that you want to abandon this task?": "Sei sicuro che vuoi abbandonare questa attività?",
+	"Are you sure that you want to abandon this task?": "Sei sicuro che vuoi passare alla prossima attività?",
 	"Campaigns": "Campagne",
 	"Can't save label. No task is selected!": "Impossibile salvare l'etichetta. Non è stata selezionata alcuna attività!",
 	"Could not get metadata for revision $1": "Impossibile ottenere i metadati per la versione $1. Cliccando sul pulsante \"Salta\", salterai questa attività",

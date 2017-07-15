@@ -1,18 +1,20 @@
 ( function ( $, OO, WL ) {
+	var Labeler, Connector, CampaignList, Campaign, WorksetList, Workset;
 
 	/**
 	 * Labeler
 	 *
 	 */
-	var Labeler = function ( $element ) {
+	Labeler = function ( $element ) {
+		var i, instance;
 		if ( $element === undefined || $element.length === 0 ) {
-			throw '$element must be a defined element';
+			throw Error( '$element must be a defined element' );
 		}
 		if ( WL.Labeler.instances ) {
-			for ( var i = 0; i < WL.Labeler.instances.length; i++ ) {
-				var instance = WL.Labeler.instances[ i ];
+			for ( i = 0; i < WL.Labeler.instances.length; i++ ) {
+				instance = WL.Labeler.instances[ i ];
 				if ( instance.$element.is( $html_element ) ) {
-					throw 'Labeler is already loaded on top of ' + $element.attr( 'id' );
+					throw Error( 'Labeler is already loaded on top of ' + $element.attr( 'id' ) );
 				}
 			}
 		}
@@ -22,7 +24,7 @@
 
 		this.$menu = $( '#' + WL.config.prefix + 'labeler > .wikilabels-menu' );
 		if ( this.$menu === undefined || this.$menu.length !== 1 ) {
-			throw '#' + WL.config.prefix + 'labeler > .wikilabels-menu must be a single defined element';
+			throw Error( '#' + WL.config.prefix + 'labeler > .wikilabels-menu must be a single defined element' );
 		}
 
 		this.campaignList = new CampaignList();
@@ -73,7 +75,7 @@
 	 *
 	 *
 	 */
-	var Connector = function () {
+	Connector = function () {
 		this.$element = $( '<div>' ).addClass( 'connector' );
 
 		this.button = new OO.ui.ButtonWidget( {
@@ -83,7 +85,7 @@
 		this.$element.append( this.button.$element );
 		this.button.on( 'click', this.handleButtonClick.bind( this ) );
 	};
-	Connector.prototype.handleButtonClick = function ( e ) {
+	Connector.prototype.handleButtonClick = function () {
 		WL.user.initiateOAuth();
 	};
 
@@ -91,7 +93,7 @@
 	 * Campaign List Widget
 	 *
 	 */
-	var CampaignList = function () {
+	CampaignList = function () {
 		this.$element = $( '<div>' ).addClass( 'campaign-list' );
 
 		this.$header = $( '<h2>' ).text( WL.i18n( 'Campaigns' ) );
@@ -153,7 +155,7 @@
 	 * Campaign Widget
 	 *
 	 */
-	var Campaign = function ( campaignData ) {
+	Campaign = function ( campaignData ) {
 		this.$element = $( '<div>' ).addClass( 'campaign' );
 
 		this.expander = new OO.ui.ToggleButtonWidget( {
@@ -188,7 +190,7 @@
 	Campaign.prototype.handleExpanderChange = function ( expanded ) {
 		this.expand( expanded );
 	};
-	Campaign.prototype.handleNewButtonClick = function ( e ) {
+	Campaign.prototype.handleNewButtonClick = function () {
 		this.assignNewWorkset();
 	};
 	Campaign.prototype.handleWorksetActivation = function ( workset ) {
@@ -213,8 +215,6 @@
 		}
 	};
 	Campaign.prototype.load = function ( campaignData ) {
-		var query;
-
 		this.id = campaignData.id;
 		this.$name.text( campaignData.name );
 
@@ -253,7 +253,7 @@
 	 * Workset List Widget
 	 *
 	 */
-	var WorksetList = function () {
+	WorksetList = function () {
 		this.$element = $( '<div>' ).addClass( 'workset-list' );
 
 		this.$container = $( '<div>' ).addClass( 'container' );
@@ -297,7 +297,7 @@
 	 * Workset Widget
 	 *
 	 */
-	var Workset = function ( worksetData ) {
+	Workset = function ( worksetData ) {
 		this.$element = $( '<div>' ).addClass( 'workset' );
 		this.$element.click( this.handleClick.bind( this ) );
 
@@ -332,10 +332,10 @@
 
 		this.load( worksetData );
 	};
-	Workset.prototype.handleClick = function ( e ) {
+	Workset.prototype.handleClick = function () {
 		this.activated.fire( this );
 	};
-	Workset.prototype.handleButtonClick = function ( e ) {
+	Workset.prototype.handleButtonClick = function () {
 		this.activated.fire( this );
 	};
 	Workset.prototype.load = function ( worksetData ) {
@@ -361,7 +361,7 @@
 	};
 	Workset.prototype.formatProgress = function ( tasks, labeled ) {
 		return ( new Date( this.created * 1000 ) ).format( WL.i18n( 'date-format' ) ) + '  ' +
-		       '(' + String( labeled ) + '/' + String( tasks ) + ')';
+			'(' + String( labeled ) + '/' + String( tasks ) + ')';
 	};
 	Workset.prototype.select = function ( selected ) {
 		if ( selected === undefined ) {

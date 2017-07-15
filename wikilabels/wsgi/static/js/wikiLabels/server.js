@@ -14,31 +14,30 @@
 				xhrFields: { withCredentials: true },
 				data: data || {}
 			}
-		)
-			.done( function ( doc, status, jqXHR ) {
-				if ( !doc.error ) {
-					deferred.resolve( doc );
-				} else {
-					console.error( doc.error );
-					deferred.reject( doc.error );
-				}
-			} )
-			.fail( function ( jqXHR, status, err ) {
-				try {
-					var errorMessage = $.parseJSON( jqXHR.responseText ).error.message;
-				} catch ( parseError ) {
-					var errorMessage = 'Unable to parse response';
-				}
-				var errorData = { code: jqXHR.status, status: status, message: errorMessage };
-				console.error( errorData );
-				deferred.reject( errorData );
-			} );
+		).done( function ( doc, status, jqXHR ) {
+			if ( !doc.error ) {
+				deferred.resolve( doc );
+			} else {
+				console.error( doc.error );
+				deferred.reject( doc.error );
+			}
+		} ).fail( function ( jqXHR, status, err ) {
+			var errorMessage, errorData;
+			try {
+				errorMessage = $.parseJSON( jqXHR.responseText ).error.message;
+			} catch ( parseError ) {
+				errorMessage = 'Unable to parse response';
+			}
+			errorData = { code: jqXHR.status, status: status, message: errorMessage };
+			console.error( errorData );
+			deferred.reject( errorData );
+		} );
 
 		return deferred.promise();
 	};
 	Server.prototype.absPath = function ( /* relative path parts */ ) {
-		var serverRoot = WL.config.serverRoot,
-		    relPath = WL.util.pathJoin.apply( this, Array.prototype.slice.call( arguments ) );
+		var serverRoot = WL.config.serverRoot, relPath;
+		relPath = WL.util.pathJoin.apply( this, Array.prototype.slice.call( arguments ) );
 
 		return serverRoot.replace( /\/+$/g, '' ) + '/' + relPath.replace( /^\/+/g, '' ) + '/';
 	};

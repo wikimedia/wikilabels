@@ -5,13 +5,12 @@
 	};
 
 	/**
-   * Basically just a drop-down box and a button
-   *
-   */
+	 * Basically just a drop-down box and a button
+	 *
+	 */
 	OO.ui.SemanticOperationsSelector = function ( opts ) {
+		var meaningsLabel = opts.meaningsLabel, meanings = opts.meanings;
 		OO.ui.SemanticOperationsSelector.super.apply( this );
-		var meaningsLabel = opts.meaningsLabel;
-		var meanings = opts.meanings;
 		this.objects = opts.objects;
 		this.actions = opts.actions;
 
@@ -40,7 +39,7 @@
 		return valueMap;
 	};
 	OO.ui.SemanticOperationsSelector.prototype.setValue = function ( meanings ) {
-		var meaningValue, meaning, sos;
+		var meaningValue, meaning;
 		this.clear();
 		for ( meaningValue in meanings ) {
 			if ( meanings.hasOwnProperty( meaningValue ) ) {
@@ -53,6 +52,8 @@
 		this.addMeaning( this.meaningSelector.getSelected() );
 	};
 	OO.ui.SemanticOperationsSelector.prototype.addMeaning = function ( meaning, operations ) {
+		var sos;
+
 		operations = operations || [];
 		if ( !meaning ) {
 			// TODO: consider alerting
@@ -60,7 +61,7 @@
 		} else if ( this.semanticMap[ meaning.value ] !== undefined ) {
 			alert( 'Meaning ' + meaning.label + ' already selected' );
 		} else {
-			var sos = new OO.ui.SyntacticOperationsSelector( {
+			sos = new OO.ui.SyntacticOperationsSelector( {
 				meaning: meaning,
 				objects: this.objects,
 				actions: this.actions,
@@ -83,7 +84,8 @@
 		delete this.semanticMap[ sos.meaning.value ];
 	};
 	OO.ui.SemanticOperationsSelector.prototype.clear = function () {
-		for ( var meaningValue in this.semanticMap ) {
+		var meaningValue;
+		for ( meaningValue in this.semanticMap ) {
 			if ( this.semanticMap.hasOwnProperty( meaningValue ) ) {
 				this.removeMeaning( this.semanticMap[ meaningValue ] );
 			}
@@ -92,22 +94,25 @@
 	};
 
 	/**
-   * Basically just a drop-down box and a button
-   *
-   */
+	 * Basically just a drop-down box and a button
+	 *
+	 */
 	OO.ui.SemanticMeaningSelector = function ( opts ) {
-		OO.ui.SemanticMeaningSelector.super.apply( this );
 		var label = opts.label,
 			meanings = opts.meanings,
-			items = [];
+			items = [],
+			i,
+			meaning,
+			$label;
+		OO.ui.SemanticMeaningSelector.super.apply( this );
 		this.meaningData = {};
 
 		this.$element = $( '<div>' ).addClass( 'semantic-meaning-selector' );
 
 		// Menu elements
-		for ( var i = 0; i < meanings.length; i++ ) {
-			var meaning = meanings[ i ];
-			var $label = $( '<span>' ).attr( 'title', html2text( meaning.description ) );
+		for ( i = 0; i < meanings.length; i++ ) {
+			meaning = meanings[ i ];
+			$label = $( '<span>' ).attr( 'title', html2text( meaning.description ) );
 			this.meaningData[ meaning.value ] = meaning;
 			items.push(
 				new OO.ui.MenuOptionWidget( { data: meaning, $label: $label,
@@ -150,16 +155,19 @@
 	};
 
 	/**
-   * Contains a semantic meaning -- allows the selection of syntactic
-   * operations
-   *
-   */
+	 * Contains a semantic meaning -- allows the selection of syntactic
+	 * operations
+	 *
+	 */
 	OO.ui.SyntacticOperationsSelector = function ( opts ) {
+		var objects = opts.objects,
+			actions = opts.actions,
+			operations = opts.operations,
+			operationValue,
+			operation,
+			i;
 		OO.ui.SyntacticOperationsSelector.super.apply( this );
 		this.meaning = opts.meaning;
-		var objects = opts.objects;
-		var actions = opts.actions;
-		var operations = opts.operations;
 		this.operationMap = {};
 
 		this.$element = $( '<div>' ).addClass( 'syntactic-operations-selector' );
@@ -188,9 +196,9 @@
 		this.$workspace = $( '<div>' ).addClass( 'workspace' );
 		this.$element.append( this.$workspace );
 
-		for ( var i = 0; i < operations.length; i++ ) {
-			var operationValue = operations[ i ];
-			var operation = this.operationSelector.getDataFor( operationValue );
+		for ( i = 0; i < operations.length; i++ ) {
+			operationValue = operations[ i ];
+			operation = this.operationSelector.getDataFor( operationValue );
 			this.addOperation( operation );
 		}
 	};
@@ -238,12 +246,13 @@
 		}
 	};
 	OO.ui.SyntacticOperationsSelector.prototype.addOperation = function ( operation ) {
+		var key, sop;
 		// check if we already have an instance of this object/action pair
 		// if we don't, add it to the workspace
 		if ( !operation ) { return; }
-		var key = operation.object.value + '-' + operation.action.value;
+		key = operation.object.value + '-' + operation.action.value;
 		if ( this.operationMap[ key ] === undefined ) {
-			var sop = new OO.ui.SyntacticOperation( {
+			sop = new OO.ui.SyntacticOperation( {
 				object: operation.object,
 				action: operation.action
 			} );
@@ -270,19 +279,24 @@
 	};
 
 	OO.ui.OperationSelector = function ( opts ) {
-		OO.ui.OperationSelector.super.apply( this );
 		var objects = opts.objects,
 			actions = opts.actions,
 			objectItems = [],
-			actionItems = [];
+			actionItems = [],
+			i,
+			object,
+			$objectLabel,
+			action,
+			$actionLabel;
+		OO.ui.OperationSelector.super.apply( this );
 
 		this.$element = $( '<div>' ).addClass( 'object-action-selector' );
 
 		// Object menu elements
 		this.objectMap = {};
-		for ( var i = 0; i < objects.length; i++ ) {
-			var object = objects[ i ];
-			var $objectLabel = $( '<span>' ).attr( 'title', html2text( object.description ) );
+		for ( i = 0; i < objects.length; i++ ) {
+			object = objects[ i ];
+			$objectLabel = $( '<span>' ).attr( 'title', html2text( object.description ) );
 			this.objectMap[ object.value ] = object;
 			objectItems.push(
 				new OO.ui.MenuOptionWidget( { data: object, $label: $objectLabel,
@@ -299,9 +313,9 @@
 
 		// Action menu elements
 		this.actionMap = {};
-		for ( var j = 0; j < actions.length; j++ ) {
-			var action = actions[ j ];
-			var $actionLabel = $( '<span>' ).attr( 'title', html2text( action.description ) );
+		for ( i = 0; i < actions.length; i++ ) {
+			action = actions[ i ];
+			$actionLabel = $( '<span>' ).attr( 'title', html2text( action.description ) );
 			this.actionMap[ action.value ] = action;
 			actionItems.push(
 				new OO.ui.MenuOptionWidget( { data: action, $label: $actionLabel,

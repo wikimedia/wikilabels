@@ -55,24 +55,26 @@
 			return $( '<a>' ).attr( 'target', '_blank' ).attr( 'href', url ).text( label || revId );
 		},
 		pathJoin: function ( /* path parts */ ) {
-			var args = Array.prototype.slice.call( arguments );
+			var i = 0, part, parts = [], newParts = [], args = Array.prototype.slice.call( arguments );
 
 			// Split the inputs into a list of path commands.
-			var parts = [];
-			for ( var i = 0, l = args.length; i < l; i++ ) {
+			for ( i = 0, args.length; i < args.length; i++ ) {
 				parts = parts.concat( String( args[ i ] ).split( '/' ) );
 			}
 			// Interpret the path commands to get the new resolved path.
-			var newParts = [];
-			for ( i = 0, l = parts.length; i < l; i++ ) {
-				var part = parts[ i ];
+			for ( i = 0, parts.length; i < parts.length; i++ ) {
+				part = parts[ i ];
 				// Remove leading and trailing slashes
 				// Also remove "." segments
 				if ( !part || part === '.' ) { continue; }
 				// Interpret ".." to pop the last segment
-				if ( part === '..' ) { newParts.pop(); }
-				// Push new path segments.
-				else { newParts.push( part ); }
+				if ( part === '..' ) {
+					newParts.pop();
+				} else {
+					// Push new path segments.
+					newParts.push( part );
+				}
+
 			}
 			// Preserve the initial slash if there was one.
 			if ( parts[ 0 ] === '' ) { newParts.unshift( '' ); }

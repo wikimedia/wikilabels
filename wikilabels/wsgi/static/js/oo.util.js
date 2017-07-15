@@ -14,7 +14,7 @@
 		fieldMap = fieldMap || {};
 
 		if ( typeof OO.ui[ className ] === 'undefined' ) {
-			throw 'Unable to load OO.ui.' + className;
+			throw Error( 'Unable to load OO.ui.' + className );
 		}
 
 		error = OO.ui.preprocessConfig( config, fieldMap );
@@ -113,7 +113,6 @@
 				} else {
 					return null;
 				}
-				break;
 			case OO.ui.ButtonInputWidget:
 			case OO.ui.DropdownInputWidget:
 			case OO.ui.RadioInputWidget:
@@ -125,14 +124,12 @@
 				} else {
 					return null;
 				}
-				break;
 			case OO.ui.ComboboxInputWidget:
 				if ( widget.getMenu().getSelectedItem() ) {
 					return widget.getMenu().getSelectedItem().getData();
 				} else {
 					return null;
 				}
-				break;
 			case OO.ui.SearchWidget:
 				return widget.getQuery().getValue();
 			case OO.ui.TextInputWidget:

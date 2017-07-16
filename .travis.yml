@@ -9,7 +9,6 @@ install:
   - python setup.py install
   - pip install codecov
  - pip install pytest-cov
-
 script: 
   - timeout --preserve-status 8s wikilabels dev_server
 - py.test --cov=./

@@ -8,10 +8,10 @@ install:
   - "pip install -r requirements.txt"
   - python setup.py install
   - pip install codecov
-  pip install pytest-cov
+ -pip install pytest-cov
 
 script: 
   - timeout --preserve-status 8s wikilabels dev_server
-  py.test --cov=./
+- py.test --cov=./
 after_success:
 - codecov

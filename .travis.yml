@@ -14,3 +14,4 @@ python:
 - py.test --cov=./
 after_success:
 - codecov
+- sleep 1

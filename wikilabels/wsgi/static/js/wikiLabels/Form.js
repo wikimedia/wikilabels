@@ -1,6 +1,7 @@
 ( function ( $, OO, WL ) {
 
 	var Form = function ( fieldset, fieldMap ) {
+		var licenseDir = $( 'html' ).attr( 'dir' ) === 'ltr' ? 'right' : 'left';
 		this.fieldMap = fieldMap;
 
 		this.$element = $( '<div>' ).addClass( WL.config.prefix + 'form' );
@@ -11,7 +12,6 @@
 		this.$controls = $( '<div>' ).addClass( 'controls' );
 		this.$element.append( this.$controls );
 
-		var licenseDir = $( 'html' ).attr( 'dir' ) === 'ltr' ? 'right' : 'left';
 		this.$element.append( '<div id="license" align=' + licenseDir + '><small>' + WL.i18n( 'License' ) + '</small></div>' );
 		this.abandonButton = new OO.ui.ButtonWidget( {
 			label: WL.i18n( 'Abandon' ),

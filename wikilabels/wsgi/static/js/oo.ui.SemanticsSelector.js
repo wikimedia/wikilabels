@@ -1,10 +1,12 @@
 ( function ( $, OO ) {
 
-	var html2text = function ( html ) {
+	var html2text, Workspace;
+
+	html2text = function ( html ) {
 		return $( '<div>' ).html( html ).text();
 	};
 
-	var Workspace = function ( opts ) {
+	Workspace = function ( opts ) {
 		this.emptyMessage = opts.emptyMessage || '';
 		this.$element = $( '<div>' ).addClass( 'workspace' );
 		this.empty( true );
@@ -45,14 +47,12 @@
 	};
 
 	/**
-   * Basically just a drop-down box and a button
-   *
-   */
+	 * Basically just a drop-down box and a button
+	 *
+	 */
 	OO.ui.SemanticsSelector = function ( opts ) {
+		var meaningsLabel = opts.meaningsLabel, meanings = opts.meanings, emptyMessage = opts.emptyMessage;
 		OO.ui.SemanticsSelector.super.apply( this );
-		var meaningsLabel = opts.meaningsLabel;
-		var meanings = opts.meanings;
-		var emptyMessage = opts.emptyMessage;
 
 		this.$element = $( '<div>' ).addClass( 'semantics-selector' );
 
@@ -82,10 +82,10 @@
 		}
 	};
 	OO.ui.SemanticsSelector.prototype.setValue = function ( meanings ) {
+		var sm, i;
 		meanings = meanings || [];
-		var meaningValue, sm;
 		this.clear();
-		for ( var i = 0; i < meanings.length; i++ ) {
+		for ( i = 0; i < meanings.length; i++ ) {
 			sm = this.meaningSelector.getDataFor( meanings[ i ] );
 			this.addMeaning( sm );
 		}
@@ -94,13 +94,15 @@
 		this.addMeaning( this.meaningSelector.getSelected() );
 	};
 	OO.ui.SemanticsSelector.prototype.addMeaning = function ( meaning ) {
+		var sm;
+
 		if ( !meaning ) {
 			// TODO: consider alerting
 			alert( 'No meaning selected' );
 		} else if ( this.semanticMap[ meaning.value ] !== undefined ) {
 			alert( 'Meaning ' + meaning.label + ' already selected' );
 		} else {
-			var sm = new OO.ui.SemanticMeaning( { meaning: meaning } );
+			sm = new OO.ui.SemanticMeaning( { meaning: meaning } );
 			this.semanticMap[ meaning.value ] = sm;
 			this.workspace.add( meaning.value, sm.$element );
 			sm.on( 'close', this.handleCloseSelector.bind( this ) );
@@ -118,7 +120,8 @@
 		delete this.semanticMap[ sm.meaning.value ];
 	};
 	OO.ui.SemanticsSelector.prototype.clear = function () {
-		for ( var meaningValue in this.semanticMap ) {
+		var meaningValue;
+		for ( meaningValue in this.semanticMap ) {
 			if ( this.semanticMap.hasOwnProperty( meaningValue ) ) {
 				this.removeMeaning( this.semanticMap[ meaningValue ] );
 			}
@@ -127,22 +130,25 @@
 	};
 
 	/**
-   * Basically just a drop-down box and a button
-   *
-   */
+	 * Basically just a drop-down box and a button
+	 *
+	 */
 	OO.ui.SemanticMeaningSelector = function ( opts ) {
-		OO.ui.SemanticMeaningSelector.super.apply( this );
 		var label = opts.label,
 			meanings = opts.meanings,
-			items = [];
+			items = [],
+			meaning,
+			$label,
+			i;
+		OO.ui.SemanticMeaningSelector.super.apply( this );
 		this.meaningData = {};
 
 		this.$element = $( '<div>' ).addClass( 'semantic-meaning-selector' );
 
 		// Menu elements
-		for ( var i = 0; i < meanings.length; i++ ) {
-			var meaning = meanings[ i ];
-			var $label = $( '<span>' ).attr( 'title', html2text( meaning.description ) );
+		for ( i = 0; i < meanings.length; i++ ) {
+			meaning = meanings[ i ];
+			$label = $( '<span>' ).attr( 'title', html2text( meaning.description ) );
 			this.meaningData[ meaning.value ] = meaning;
 			items.push(
 				new OO.ui.MenuOptionWidget( { data: meaning, $label: $label,
@@ -185,9 +191,9 @@
 	};
 
 	/**
-   * Contains a semantic meaning
-   *
-   */
+	 * Contains a semantic meaning
+	 *
+	 */
 	OO.ui.SemanticMeaning = function ( opts ) {
 		OO.ui.SemanticMeaning.super.apply( this );
 		this.meaning = opts.meaning;

@@ -1,6 +1,7 @@
 ( function ( WL ) {
+	var format, I18N, i18n;
 
-	var format = function ( str, args ) {
+	format = function ( str, args ) {
 
 		return str.replace(
 			/\$[0-9]+/,
@@ -8,13 +9,13 @@
 		);
 	};
 
-	var I18N = function ( messages, langChain ) {
+	I18N = function ( messages, langChain ) {
 		this.messages = messages;
 		this.langChain = langChain;
 	};
 	I18N.prototype.get = function ( key, args ) {
 		var messages = this.messages || WL.config.messages,
-		    langChain = this.langChain || WL.mediawiki.fallbackChain;
+			langChain = this.langChain || WL.mediawiki.fallbackChain, i, lang;
 
 		for ( i = 0; i < langChain.length; i++ ) {
 			lang = langChain[ i ];
@@ -27,8 +28,7 @@
 	};
 
 	WL.I18N = I18N;
-
-	var i18n = new WL.I18N();
+	i18n = new WL.I18N();
 	WL.i18n = i18n.get.bind( i18n );
 
 }( wikiLabels ) );

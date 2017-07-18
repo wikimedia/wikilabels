@@ -1,6 +1,8 @@
 ( function ( $, OO, CodeMirror, jsyaml, WL ) {
 
-	var FormBuilder = function () {
+	var FormBuilder, ConfigEditor, FormPreview, LanguageSelector;
+
+	FormBuilder = function () {
 		this.$element = $( '<div>' ).addClass( WL.config.prefix + 'form-builder' );
 
 		this.configEditor = new ConfigEditor();
@@ -11,7 +13,7 @@
 		this.$element.append( this.formPreview.$element );
 		this.formPreview.submitted.add( this.handleFormPreviewSubmit.bind( this ) );
 	};
-	FormBuilder.prototype.handleConfigEditorSubmit = function ( codeEditor ) {
+	FormBuilder.prototype.handleConfigEditorSubmit = function () {
 		var config;
 		try {
 			config = this.configEditor.json();
@@ -21,11 +23,11 @@
 			alert( err );
 		}
 	};
-	FormBuilder.prototype.handleFormPreviewSubmit = function ( codeEditor ) {
+	FormBuilder.prototype.handleFormPreviewSubmit = function () {
 		alert( 'Label data: ' + JSON.stringify( this.formPreview.getLabelData() ) );
 	};
 
-	var ConfigEditor = function () {
+	ConfigEditor = function () {
 
 		this.$element = $( '<div>' ).addClass( 'config-editor' );
 
@@ -79,7 +81,7 @@
 		return jsyaml.load( this.text() );
 	};
 
-	var FormPreview = function () {
+	FormPreview = function () {
 		this.$element = $( '<div>' ).addClass( 'form-preview' );
 		this.config = null;
 		this.form = null;
@@ -94,7 +96,7 @@
 		// Events
 		this.submitted = $.Callbacks();
 	};
-	FormPreview.prototype.handleSubmitButtonClick = function ( e ) {
+	FormPreview.prototype.handleSubmitButtonClick = function () {
 		this.submit.fire();
 	};
 	FormPreview.prototype.handleLanguageSelection = function ( lang ) {
@@ -136,7 +138,7 @@
 		}
 	};
 
-	var LanguageSelector = function () {
+	LanguageSelector = function () {
 		var layout;
 		this.$element = $( '<div>' ).addClass( 'language-selector' );
 		this.dropdown = new OO.ui.DropdownWidget( {
@@ -171,8 +173,10 @@
 		this.dropdown.getMenu().addItems( items );
 	};
 	LanguageSelector.prototype.selectLang = function ( lang ) {
+		var menu;
+
 		if ( lang !== null ) {
-			var menu = this.dropdown.getMenu();
+			menu = this.dropdown.getMenu();
 			menu.selectItem( this.dropdown.getMenu().getItemFromData( lang ) );
 		} else {
 			this.select.fire( null );

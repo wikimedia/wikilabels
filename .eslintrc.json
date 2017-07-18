@@ -5,6 +5,8 @@
     "jquery": true
 	},
   "globals": {
+    "CodeMirror": false,
+    "jsyaml": false,
     "mediaWiki": false,
     "OO": false,
     "require": false,

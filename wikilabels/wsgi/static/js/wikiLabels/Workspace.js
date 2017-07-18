@@ -44,7 +44,7 @@
 			this.form.show();
 		}
 	};
-	Workspace.prototype.handleFullscreenChange = function ( e ) {
+	Workspace.prototype.handleFullscreenChange = function () {
 		this.fullscreenToggle.setLabel( this.fullscreenToggle.getValue() ? WL.i18n( 'exit fullscreen' ) : WL.i18n( 'fullscreen' ) );
 		this.fullscreen( this.fullscreenToggle.getValue() );
 	};

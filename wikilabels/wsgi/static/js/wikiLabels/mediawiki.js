@@ -17,11 +17,12 @@
 		return deferred.promise();
 	};
 	MediaWiki.prototype.initializeFromDoc = function ( doc ) {
+		var fallback, i;
 		this.dbname = doc.wikiid;
 		this.lang = doc.lang;
 		this.fallbackChain = [ doc.lang ];
-		for ( var i = 0; i < doc.fallback.length; i++ ) {
-			var fallback = doc.fallback[ i ];
+		for ( i = 0; i < doc.fallback.length; i++ ) {
+			fallback = doc.fallback[ i ];
 			this.fallbackChain.push( fallback.code );
 		}
 

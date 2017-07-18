@@ -1,9 +1,9 @@
 ( function ( $, WL ) {
 
-	var API = function () {}
+	var API = function () {};
 	API.prototype.request = function ( data, o ) {
-		o = o || {};
 		var path = '', dataType = '', deferred = $.Deferred();
+		o = o || {};
 		path = o.path || '/w/api.php';
 		dataType = o.dataType || 'jsonp';
 		data.format = o.format || 'json';
@@ -144,7 +144,6 @@
 			'</tr>';
 	};
 	API.prototype.wikitext2HTML = function ( wikitext, title ) {
-		title = title || 'CURRENT PAGE';
 		var params = {
 				action: 'parse',
 				prop: 'text',
@@ -154,6 +153,7 @@
 			},
 			deferred = $.Deferred();
 
+		title = title || 'CURRENT PAGE';
 		this.request( params )
 			.done( function ( doc ) {
 				deferred.resolve(

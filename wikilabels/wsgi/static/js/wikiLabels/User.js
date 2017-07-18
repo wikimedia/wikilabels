@@ -8,7 +8,7 @@
 
 		this.updateStatus();
 	};
-	User.prototype.handleRefocus = function ( e ) {
+	User.prototype.handleRefocus = function () {
 		this.updateStatus();
 	};
 	User.prototype.updateStatus = function () {

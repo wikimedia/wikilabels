@@ -14,14 +14,14 @@
 				xhrFields: { withCredentials: true },
 				data: data || {}
 			}
-		).done( function ( doc, status, jqXHR ) {
+		).done( function ( doc ) {
 			if ( !doc.error ) {
 				deferred.resolve( doc );
 			} else {
 				console.error( doc.error );
 				deferred.reject( doc.error );
 			}
-		} ).fail( function ( jqXHR, status, err ) {
+		} ).fail( function ( jqXHR, status ) {
 			var errorMessage, errorData;
 			try {
 				errorMessage = $.parseJSON( jqXHR.responseText ).error.message;

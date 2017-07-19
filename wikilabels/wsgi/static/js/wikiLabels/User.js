@@ -23,7 +23,7 @@
 				}
 				deferred.resolve( true );
 			}.bind( this ) )
-			.fail( function ( doc ) {
+			.fail( function () {
 				this.id = null;
 				deferred.reject( false );
 			}.bind( this ) );

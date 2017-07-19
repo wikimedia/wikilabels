@@ -99,7 +99,7 @@
 				// Recurse!
 				this.preCacheDiffs( index + 1 );
 			}.bind( this ) );
-			query.fail( function ( doc ) {
+			query.fail( function () {
 				// Recurse!
 				this.preCacheDiffs( index + 1 );
 			}.bind( this ) );
@@ -196,7 +196,7 @@
 			taskInfo.data.data.rev_id + '&printable=yes' );
 	};
 	PrintablePageAsOfRevision.prototype.presentPage = function ( src ) {
-		var iframe = $( '<iframe>' ).attr( 'src', src ), limit = 10;
+		var iframe = $( '<iframe>' ).attr( 'src', src );
 		this.$element.html( '' );
 		this.$element.append( iframe );
 	};

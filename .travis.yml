@@ -2,10 +2,15 @@ language: python
 dist: trusty
 python:
   - "3.5"
-# command to install dependencies
 
+before_install:
+  - npm install -g eslint
+
+# command to install dependencies
 install: 
-  - "pip install -r requirements.txt"
+  - pip install -r requirements.txt
   - python setup.py install
+
 script: 
   - timeout --preserve-status 8s wikilabels dev_server
+  - eslint .

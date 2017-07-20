@@ -155,7 +155,7 @@
 		}
 
 		WL.server.abandonLabel( this.campaignId, this.worksetId, task.id )
-			.done( function ( doc ) {
+			.done( function () {
 				var tasks, labels;
 				// TODO: Fix API response
 				task.label.load( { data: true }, 'abandoned' );

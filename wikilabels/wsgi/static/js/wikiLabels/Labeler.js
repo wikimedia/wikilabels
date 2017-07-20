@@ -6,14 +6,14 @@
 	 *
 	 */
 	Labeler = function ( $element ) {
-		var i, instance;
+		var i, instance, labelerBaseID = '#' + WL.config.prefix + 'labeler';
 		if ( $element === undefined || $element.length === 0 ) {
 			throw Error( '$element must be a defined element' );
 		}
 		if ( WL.Labeler.instances ) {
 			for ( i = 0; i < WL.Labeler.instances.length; i++ ) {
 				instance = WL.Labeler.instances[ i ];
-				if ( instance.$element.is( $html_element ) ) {
+				if ( instance.$element.is( labelerBaseID ) ) {
 					throw Error( 'Labeler is already loaded on top of ' + $element.attr( 'id' ) );
 				}
 			}
@@ -22,7 +22,7 @@
 		this.$element = $element;
 		WL.Labeler.instances.push( this );
 
-		this.$menu = $( '#' + WL.config.prefix + 'labeler > .wikilabels-menu' );
+		this.$menu = $( labelerBaseID + ' > .wikilabels-menu' );
 		if ( this.$menu === undefined || this.$menu.length !== 1 ) {
 			throw Error( '#' + WL.config.prefix + 'labeler > .wikilabels-menu must be a single defined element' );
 		}
@@ -120,7 +120,7 @@
 	CampaignList.prototype.load = function () {
 		var query;
 		if ( !WL.user.authenticated() ) {
-			throw 'Cannot load campaign list when user is not authenticated.';
+			throw Error( 'Cannot load campaign list when user is not authenticated.' );
 		}
 		this.clear();
 		query = WL.server.getCampaigns();

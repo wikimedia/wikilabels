@@ -13,7 +13,7 @@
 				dataType: dataType,
 				data: data
 			}
-		).done( function ( doc, status, jqXHR ) {
+		).done( function ( doc ) {
 			if ( !doc.error ) {
 				if ( doc.warnings ) {
 					console.warn( doc.warnings );

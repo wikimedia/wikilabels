@@ -1,67 +1,65 @@
 body {
-  min-height: 20em;
+	min-height: 20em;
 }
 
-div.semantics-selector {
-}
 div.semantics-selector span.oo-ui-dropdownWidget-handle {
-  background: #fff;
+	background: #fff;
 }
 div.semantics-selector > .workspace {
-  min-height: 2em;
-  padding: 1ex;
+	min-height: 2em;
+	padding: 1ex;
 }
 div.semantics-selector > .workspace.empty {
-  background: #ddd;
-  border: 1px solid #aaa;
-  text-align: center;
-  font-style: italic;
-  color: #555;
-  font-weight: bold;
+	background: #ddd;
+	border: 1px solid #aaa;
+	text-align: center;
+	font-style: italic;
+	color: #555;
+	font-weight: bold;
 }
 
 div.semantic-meaning-selector {
-  white-space: nowrap;
-  text-align: center;
+	white-space: nowrap;
+	text-align: center;
 }
 div.semantic-meaning-selector > .meanings {
-  display: inline-block;
-  vertical-align: middle;
-  text-align: left;
-  width: 20em;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left;
+	width: 20em;
 }
 div.semantic-meaning-selector > .add {
-  display: inline-block;
-  vertical-align: middle;
-  text-align: left;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left;
 }
 
 div.semantic-meaning {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  border: 1px solid silver;
-  padding: 1em;
-  margin: 2ex 2ex 2ex;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid #c8ccd1;
+	padding: 1em;
+	margin: 2ex 2ex 2ex;
 }
 div.semantic-meaning > .title {
-  text-align: center;
-  font-size: 1.2em;
-  font-weight: bold;
-  padding-right: 1.75em;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding-right: 1.75em;
 }
 div.semantic-meaning > .description {
-  text-align: center;
-  font-style: italic;
-  margin-bottom: 1ex;
-  max-width: 23em;
+	text-align: center;
+	font-style: italic;
+	margin-bottom: 1ex;
+	max-width: 23em;
 }
 div.semantic-meaning > .closer {
-  position: absolute;
-  top: 0.75em;
-  right: 0.25em;
-  margin-right: 0px;
+	position: absolute;
+	top: 0.75em;
+	right: 0.25em;
+	margin-right: 0;
 }
 div.semantic-meaning > .closer a {
-  padding: 0px 1ex;
+	padding: 0 1ex;
 }

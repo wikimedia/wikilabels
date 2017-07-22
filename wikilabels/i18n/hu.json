@@ -11,7 +11,7 @@
 	"Are you sure that you want to abandon this task?": "Biztosan ki akarod hagyni ezt a feladatot?",
 	"Campaigns": "Kampányok",
 	"Can't save label. No task is selected!": "Nem tudom elmenteni az osztályozást, egyik feladat sincs kiválasztva!",
-	"Could not get metadata for revision $1": "Nem sikerült lekérni a(z) $1 lapváltozat metaadatait",
+	"Could not get metadata for revision $1": "Nem sikerült lekérni a(z) $1 lapváltozat adatait. A folytatáshoz kattints a „Kihagyás” gombra.",
 	"Could not load form \"$1\": \n$2": "Nem sikerült betölteni a(z) „$1” űrlapot:\n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nem sikerült betölteni a(z) „$1” nézetet: $2\nAz egyszerű feladatnézőt használom helyette.",
 	"Could not load workset list: $1": "Nem sikerült betölteni a munkahalmaz-listát: $1",
@@ -27,8 +27,10 @@
 	"Workset complete!": "A munkaadag kész!",
 	"connect to server": "csatlakozás a szerverhez",
 	"date-format": "%Y.%m.%d.",
-	"fullscreen": "teljes képernyő",
+	"fullscreen": "Teljes képernyő",
+	"exit fullscreen": "Normál képernyő",
 	"open": "megnyitás",
 	"request workset": "munkaadag lekérése",
-	"review": "átnézés"
+	"review": "átnézés",
+	"maintenance notice": "Az osztályozó oldal (Wikilabels) $1 időpontban karbantartás miatt szünetel. További információ: $2"
 }

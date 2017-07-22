@@ -4,7 +4,7 @@ python:
   - "3.5"
 
 before_install:
-  - npm install -g eslint
+  - npm install -g eslint stylelint
 
 # command to install dependencies
 install: 
@@ -14,3 +14,4 @@ install:
 script: 
   - timeout --preserve-status 8s wikilabels dev_server
   - eslint .
+  - stylelint "wikilabels/wsgi/static/css/*.css"

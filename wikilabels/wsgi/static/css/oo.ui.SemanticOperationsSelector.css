@@ -1,93 +1,91 @@
 body {
-  min-height: 20em;
+	min-height: 20em;
 }
 
-div.semantic-operations-selector {
-}
 div.semantic-operations-selector span.oo-ui-dropdownWidget-handle {
-  background: #fff;
+	background: #fff;
 }
 
 div.semantic-meaning-selector {
-  white-space: nowrap;
-  text-align: center;
+	white-space: nowrap;
+	text-align: center;
 }
 div.semantic-meaning-selector > .meanings {
-  display: inline-block;
-  vertical-align: middle;
-  text-align: left;
-  width: 20em;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left;
+	width: 20em;
 }
 div.semantic-meaning-selector > .add {
-  display: inline-block;
-  vertical-align: middle;
-  text-align: left;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left;
 }
 
 div.syntactic-operations-selector {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  min-height: 10em;
-  border: 1px solid silver;
-  padding: 1em;
-  margin: 2ex 2ex 2ex;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	min-height: 10em;
+	border: 1px solid #c8ccd1;
+	padding: 1em;
+	margin: 2ex 2ex 2ex;
 }
 div.syntactic-operations-selector > .title {
-  text-align: center;
-  font-size: 1.2em;
-  font-weight: bold;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: bold;
 }
 div.syntactic-operations-selector > .description {
-  text-align: center;
-  font-style: italic;
-  margin-bottom: 1ex;
-  max-width: 23em;
+	text-align: center;
+	font-style: italic;
+	margin-bottom: 1ex;
+	max-width: 23em;
 }
 div.syntactic-operations-selector > .closer {
-  position: absolute;
-  top: 0.75em;
-  right: 1em;
-  margin-right: 0px;
+	position: absolute;
+	top: 0.75em;
+	right: 1em;
+	margin-right: 0;
 }
 div.syntactic-operations-selector > .closer a {
-  padding: 0px 1ex;
+	padding: 0 1ex;
 }
 
 div.object-action-selector {
-  position: relative;
-  white-space: nowrap;
+	position: relative;
+	white-space: nowrap;
 }
 div.object-action-selector > .objects,
 div.object-action-selector > .actions {
-  display: inline-block;
-  vertical-align: middle;
-  width: 10em;
+	display: inline-block;
+	vertical-align: middle;
+	width: 10em;
 }
 div.object-action-selector > .add {
-  margin: .25em 0px;
-  vertical-align: middle;
+	margin: 0.25em 0;
+	vertical-align: middle;
 }
 
 div.object-action {
-  position: relative;
-  background: #eee;
-  height: 2.5em;
-  vertical-align: middle;
+	position: relative;
+	background: #eee;
+	height: 2.5em;
+	vertical-align: middle;
 }
 div.object-action > .object,
 div.object-action > .action {
-  display: inline-block;
-  width: 9em;
-  padding: .75em 0em .75em 1em;
-  margin-right: 1ex;
-  border: 1px solid #eee;
+	display: inline-block;
+	width: 9em;
+	padding: 0.75em 0 0.75em 1em;
+	margin-right: 1ex;
+	border: 1px solid #eee;
 }
 div.object-action > .closer {
-  position: absolute;
-  right: .5ex;
-  top: .5ex;
+	position: absolute;
+	right: 0.5ex;
+	top: 0.5ex;
 }
 div.object-action > .closer a {
-  padding: 0px 1ex;
+	padding: 0 1ex;
 }

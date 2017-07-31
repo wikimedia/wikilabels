@@ -6,7 +6,7 @@
 	},
 	"'$1' not completed. Submit anyway?": "Polje \"$1\" nije popunjeno. Da ipak pošaljem?",
 	"Abandon": "Preskoči",
-	"Are you sure that you want to abandon this task?": "Jeste li sigurni da želite napustiti zadatak?",
+	"Are you sure that you want to abandon this task?": "Jeste li sigurni da želite preći na sljedeći zadatak?",
 	"Can't save label. No task is selected!": "Ne mogu sačuvati oznaku. Niste izabrali zadatak!",
 	"Could not load form \"$1\": \n$2": "Ne mogu učitati obrazac \"$1\": \n$2",
 	"Diff for revision $1": "Razl. za izmjenu $1",

@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Milicevic01",
+			"Obsuser",
+			"Милан Јелисавчић"
+		]
+	},
+	"Abandon": "Прескочи",
+	"Campaigns": "Кампање",
+	"Could not get metadata for revision $1": "Није било могуће доћи до метаподатака за измену $1. Кликом на дугме „Напусти”, прескочите овај задатак",
+	"No difference": "Нема разлике",
+	"Review": "Провера",
+	"connect to server": "повежи се са сервером",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "Цео екран",
+	"exit fullscreen": "Изађи из целог екрана",
+	"open": "отвори",
+	"review": "провера",
+	"maintenance notice": "Вики обавештава о гашењу због одржавања на датум $1.  Погледајте $2 за више информација."
+}

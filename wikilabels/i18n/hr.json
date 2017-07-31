@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ivi104",
+			"Srdjan m",
+			"Wumbolo"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Polje \"$1\" nije popunjeno. Svejedno nastaviti?",
+	"Abandon": "Preskoči",
+	"Are you sure that you want to abandon this task?": "Jeste li sigurni da želite prijeći na sljedeći zadatak?",
+	"Campaigns": "Kampanje",
+	"Can't save label. No task is selected!": "Nemoguće spremiti oznaku. Nije odabran zadatak!",
+	"No difference": "Nema razlike inačica",
+	"Review": "Pregled",
+	"Save": "Spremi i sljedeće",
+	"date-format": "%-d. %B %Y",
+	"fullscreen": "Puni zaslon",
+	"exit fullscreen": "Izađi iz prikaza punog zaslona",
+	"review": "Pregled"
+}

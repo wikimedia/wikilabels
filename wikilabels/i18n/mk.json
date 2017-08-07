@@ -6,7 +6,7 @@
 	},
 	"'$1' not completed. Submit anyway?": "Полето „$1“ не е пополнето. Сепак да поднесам?",
 	"Abandon": "Прескокни",
-	"Are you sure that you want to abandon this task?": "Дали сигурно сакате да ја напуштите задачава?",
+	"Are you sure that you want to abandon this task?": "Дали сигурно сакате да ја прејдете на следнава задача?",
 	"Campaigns": "Походи",
 	"Can't save label. No task is selected!": "Не можам да го зачувам натписот. Немате избрано задача!",
 	"Could not get metadata for revision $1": "Не можев да ги добијам метаподатоците за преработката $1. Можете да ја прескокнете задачава со копчето „Прескокни“",

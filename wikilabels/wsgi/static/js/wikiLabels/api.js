@@ -77,20 +77,35 @@
 		return deferred.promise();
 	};
 	API.prototype.diffTo = function ( revId, diffToId ) {
-		var tableRows, deferred = $.Deferred();
+		var deferred = $.Deferred(),
+			defaultParams = {
+				action: 'compare',
+				format: 'json',
+				fromrev: revId,
+				torev: diffToId
+			};
 
-		this.getRevision( diffToId, { rvdiffto: revId } )
-			.done( function ( doc ) {
-				if ( doc.diff ) {
-					tableRows = doc.diff[ '*' ];
-				} else {
-					tableRows = '';
+		$.ajax(
+			'//' + WL.mediawiki.host + '/w/api.php',
+			{
+				dataType: 'jsonp',
+				data: defaultParams
+			}
+		).done( function ( doc ) {
+			if ( !doc.error ) {
+				if ( doc.warnings ) {
+					console.warn( doc.warnings );
 				}
-				deferred.resolve( tableRows );
-			} )
-			.fail( function ( doc ) {
-				deferred.fail( doc );
-			} );
+				deferred.resolve( doc.compare[ '*' ] );
+			} else {
+				console.error( doc.error );
+				deferred.reject( doc.error );
+			}
+		} ).fail( function ( jqXHR, status, err ) {
+			var errorData = { code: status, message: err };
+			console.error( errorData );
+			deferred.reject( errorData );
+		} );
 
 		return deferred.promise();
 	};

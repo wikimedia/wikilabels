@@ -6,7 +6,8 @@
 			"4shadoww",
 			"Stryn",
 			"Olimar",
-			"Zache"
+			"Zache",
+			"Pahkiqaz"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Kenttä \"$1\" on tyhjä. Haluatko jatkaa silti?",
@@ -31,7 +32,7 @@
 	"connect to server": "yhdistä palvelimeen",
 	"date-format": "%d.%m.%Y",
 	"fullscreen": "Koko näyttö",
-	"exit fullscreen": "Poistu koko näytöstä",
+	"exit fullscreen": "Poistu koko näytön tilasta",
 	"open": "avoin",
 	"request workset": "pyydä tehtäväaineistoa",
 	"review": "Tarkasta",

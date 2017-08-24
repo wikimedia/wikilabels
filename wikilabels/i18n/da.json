@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joedalton"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Feltet »$1« var ikke udfyldt. Send alligevel?",
+	"Abandon": "Udelad",
+	"Are you sure that you want to abandon this task?": "Er du sikker på, at du ønsker at udelade den næste opgave?",
+	"Campaigns": "Kampagner",
+	"Can't save label. No task is selected!": "Kan ikke gemme etiket. Ingen opgave er valgt!",
+	"Could not get metadata for revision $1": "Kunne ikke hente metadata for revision $1. Ved at klikke på knappen »Udelad«, udelades denne opgave",
+	"Could not load form \"$1\": \n$2": "Kunne ikke indlæse formular »$1«:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Kunne ikke indlæse visningen »$1«: $2\nBruger simpel opgaveviser.",
+	"Workset": "Arbejdssæt",
+	"Workset complete!": "Arbejdssæt færdig!",
+	"connect to server": "forbind til server",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "Fuldskærm",
+	"exit fullscreen": "Afslut fuldskærm",
+	"open": "åbn"
+}

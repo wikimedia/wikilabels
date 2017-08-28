@@ -9,7 +9,7 @@
 	},
 	"'$1' not completed. Submit anyway?": "Поле \"$1\" не было заполнено. В любом случае отправить?",
 	"Abandon": "Пропустить",
-	"Are you sure that you want to abandon this task?": "Вы уверены, что хотите отказаться от этого?",
+	"Are you sure that you want to abandon this task?": "Вы уверены, что хотите пропустить и перейти к следующему?",
 	"Campaigns": "Кампании",
 	"Can't save label. No task is selected!": "Не удается сохранить тег. Не указывайте любую задачу!",
 	"Could not get metadata for revision $1": "Не удалось получить метаданные для версии $1. Вы можете пропустить эту задачу, нажав кнопку «Пропустить»",

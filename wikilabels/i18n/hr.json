@@ -3,7 +3,8 @@
 		"authors": [
 			"Ivi104",
 			"Srdjan m",
-			"Wumbolo"
+			"Wumbolo",
+			"Bugoslav"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Polje \"$1\" nije popunjeno. Svejedno nastaviti?",
@@ -11,11 +12,26 @@
 	"Are you sure that you want to abandon this task?": "Jeste li sigurni da želite prijeći na sljedeći zadatak?",
 	"Campaigns": "Kampanje",
 	"Can't save label. No task is selected!": "Nemoguće spremiti oznaku. Nije odabran zadatak!",
+	"Could not get metadata for revision $1": "Nemoguće učitati metapodatke za izmjenu $1. Preskočite zadatak",
+	"Could not load form \"$1\": \n$2": "Nemoguće učitati obrazac \"$1\": \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nemoguće učitati pregled \"$1\": $2\nPrebacivanje na jednostavni preglednik zadataka.",
+	"Could not load workset list: $1": "Nemoguće učitati popis zadataka: $1",
+	"Could not parse MediaWiki API's response": "Nemoguće prevesti odgovor MediaWiki API-ja",
+	"Diff for revision $1": "Razlika inačica unesena izmjenom $1",
 	"No difference": "Nema razlike inačica",
+	"Request new workset": "Zatraži novi popis zadataka",
 	"Review": "Pregled",
 	"Save": "Spremi i sljedeće",
+	"License": "Sve oznake se javno objavljuju i licenciraju pod CC0 - javno dobro",
+	"Submit label": "Objavi oznaku",
+	"Workset": "Zadaci",
+	"Workset complete!": "Zadaci dovršeni!",
+	"connect to server": "spoji se na server",
 	"date-format": "%-d. %B %Y",
 	"fullscreen": "Puni zaslon",
 	"exit fullscreen": "Izađi iz prikaza punog zaslona",
-	"review": "Pregled"
+	"open": "otvoreno",
+	"request workset": "zatraži zadatke",
+	"review": "Pregled",
+	"maintenance notice": "Wikioznake neće biti dostupne $1 zbog održavanja. Za više informacija pogledajte $2"
 }

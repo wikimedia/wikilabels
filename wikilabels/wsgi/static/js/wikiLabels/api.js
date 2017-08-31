@@ -81,8 +81,8 @@
 			defaultParams = {
 				action: 'compare',
 				format: 'json',
-				fromrev: revId,
-				torev: diffToId
+				fromrev: diffToId,
+				torev: revId
 			};
 
 		$.ajax(

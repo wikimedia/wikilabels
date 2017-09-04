@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mikel Ibaiba",
+			"Subi"
+		]
+	},
+	"Are you sure that you want to abandon this task?": "Ziur zaude hurrengo atazetik irten nahi duzula?",
+	"Campaigns": "Kanpainak",
+	"No difference": "Ez dago alderik",
+	"Save": "Gorde eta hurrengora",
+	"Submit label": "Bidali etiketa",
+	"connect to server": "konektatu zerbitzarira",
+	"date-format": "%Y-%m-%d",
+	"fullscreen": "Pantaila osoa",
+	"exit fullscreen": "Irten pantaila osotik",
+	"open": "ireki",
+	"review": "Berrikusi"
+}

@@ -3,7 +3,8 @@
 		"authors": [
 			"Aftabuzzaman",
 			"আজিজ",
-			"Mohammed Galib Hasan"
+			"Mohammed Galib Hasan",
+			"Bodhisattwa"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "'$1' সম্পূর্ণ করা হয়নি। যাইহোক জমা দিবেন?",
@@ -20,7 +21,8 @@
 	"Request new workset": "নতুন কাজের সেটের অনুরোধ করুন",
 	"Review": "পর্যালোচনা",
 	"Save": "সংরক্ষণ এবং অগ্রসর",
-	"Submit label": "লেভেল জমা দিন",
+	"License": "যে কোন প্রদত্ত লেবেল প্রকাশ্যে মুক্ত করা হবে এবং সিসি০ -- পাবলিক ডোমেইনে লাইসেন্সভুক্ত করা হবে।",
+	"Submit label": "লেবেল জমা দিন",
 	"Workset": "কাজের সেট",
 	"Workset complete!": "কাজের সেট সম্পূর্ণ!",
 	"connect to server": "সার্ভারের সাথে সংযোগ করুন",
@@ -29,5 +31,6 @@
 	"exit fullscreen": "পূর্ণ পর্দা থেকে প্রস্থান",
 	"open": "খুলুন",
 	"request workset": "কাজের সেটের অনুরোধ করুন",
-	"review": "পর্যালোচনা"
+	"review": "পর্যালোচনা",
+	"maintenance notice": "উইকি লেবেল $1 তারিখে রক্ষণাবেক্ষণের জন্য বন্ধ থাকবে। আরও তথ্যের জন্য $2 দেখুন।"
 }

@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Belkacem77",
+			"Sayem AtVkm"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Urti \"$1\" ur yeččur ara. Ad tazneḍ ɣas akka?",
+	"Abandon": "Zgel",
+	"Are you sure that you want to abandon this task?": "Tebɣiḍ ad tedduḍ srid ar twuri d-iteddun?",
+	"Campaigns": "Imzizzal",
+	"Can't save label. No task is selected!": "Ur izmir ara ad isekles tabzimt. Ulac tawuri yettwafernen!",
+	"Could not load form \"$1\": \n$2": "Ur izmir ara ad d-yali si \"$1\":\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Ur izmir ara d d-isali timeẓri \"$1\": $2\nAseqdec n uskan n twuri taḥerfit.",
+	"Could not load workset list: $1": "Ur izmir ara ad d-isali tabdart n umahil: $1",
+	"No difference": "Ulac amgired",
+	"Request new workset": "Suter tagrumma n yifecka imaynuten",
+	"Review": "Aceggir",
+	"Workset": "Tagrumma n yifecka",
+	"connect to server": "Qqen ar uqedac",
+	"fullscreen": "Agdil ačuran",
+	"exit fullscreen": "Ffeɣ seg ugdil ačuran",
+	"open": "Ldi",
+	"request workset": "Suter tagrumma n yifecka",
+	"review": "Aceggir"
+}

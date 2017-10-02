@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Woraponboonkerd"
+		]
+	},
+	"Abandon": "ข้าม",
+	"Are you sure that you want to abandon this task?": "คุณแน่ใจหรือไม่ที่จะข้ามไปยังงานถัดไป?",
+	"Campaigns": "การรณรงค์",
+	"Could not get metadata for revision $1": "ไม่สามารถรับ metadata จากรุ่น $1 ได้ กดปุ่ม \"ข้าม\" เพื่อข้ามงานนี้",
+	"Could not load form \"$1\": \n$2": "ไม่สามารถโหลดจาก \"$1\": \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "ไม่สามารถโหลดมุมมอง \"$1\": $2\nกำลังใช้ตัวแสดงมุมมองอย่างง่าย",
+	"Could not parse MediaWiki API's response": "ไม่สามารถส่งการตอบรับจาก API ของ MediaWiki ได้",
+	"Diff for revision $1": "ความแตกต่างของรุ่น $1",
+	"No difference": "ไม่แตกต่าง",
+	"Review": "ตรวจทาน",
+	"Save": "บันทึกแล้วไปยังงานถัดไป",
+	"connect to server": "เชื่อมต่อกับเซิร์ฟเวอร์",
+	"date-format": "%d/%m/%Y",
+	"fullscreen": "เต็มหน้าจอ",
+	"exit fullscreen": "ออกจากมุมมองเต็มหน้าจอ",
+	"open": "เปิด",
+	"review": "ตรวจสอบ"
+}

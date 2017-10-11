@@ -32,7 +32,8 @@
 	};
 	User.prototype.initiateOAuth = function () {
 		var oauthWindow = window.open(
-			WL.server.absPath( 'auth', 'initiate' ), 'OAuth',
+			WL.server.absPath( 'auth', 'initiate' ) + '?wiki=' + wikiLabels.mediawiki.dbname,
+			'OAuth',
 			'height=768,width=1024'
 		);
 		if ( window.focus ) {

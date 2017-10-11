@@ -1,7 +1,6 @@
 from flask import render_template, request
 
-from .. import assets, preprocessors, responses
-from ...util import wikimedia
+from .. import assets, responses
 from ..util import (build_maintenance_notice, build_script_tags,
                     build_style_tags)
 

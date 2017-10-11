@@ -30,7 +30,6 @@ def configure(bp, config):
                                url_root=request.url_root,
                                mw_host=wikimedia.host_from_dbname(wiki))
 
-
     @bp.route("/form_builder/themes/<path:path>")
     def form_builder_themes(path):
         return send_from_directory(static_file_path("lib/oojs-ui/themes"),

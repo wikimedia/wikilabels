@@ -96,7 +96,7 @@
 	CampaignList = function () {
 		this.$element = $( '<div>' ).addClass( 'campaign-list' );
 
-		this.$header = $( '<h2>' ).text( WL.i18n( 'Campaigns' ) );
+		this.$header = $( '<h2>' ).html( WL.i18n( 'Campaigns', [ '/stats/' + WL.mediawiki.dbname + '/' ] ) );
 		this.$element.append( this.$header );
 
 		this.$container = $( '<div>' ).addClass( 'container' );

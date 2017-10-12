@@ -39,7 +39,7 @@
 		From which wiki do you want to label edits?
                 <ul>
                {% for wiki in wikis %}
-                    <li><a href="/ui/{{ wiki }}">{{ wiki }}</a></li>
+                    <li><a href="/ui/{{ wiki }}">{{ wiki }}</a> <small>(<a href="/stats/{{ wiki }}">{{ wiki }} statistics</a>)</small></li>
                {% endfor %}
                 </ul>
           </div>

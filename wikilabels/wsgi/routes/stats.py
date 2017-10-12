@@ -35,12 +35,14 @@ def configure(bp, config, db):
                 break
         else:
             return responses.not_found()
+        user_stats = db.campaigns.users(campaign['id'])
         return render_template(
             "stats_wiki_campaign.html",
             wiki=wiki,
             script_tags=script_tags,
             style_tags=style_tags,
             campaign=campaign,
+            user_stats=user_stats,
             maintenance_notice=build_maintenance_notice(request, config))
 
     return bp

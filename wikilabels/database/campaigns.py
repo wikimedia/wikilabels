@@ -177,3 +177,18 @@ class Campaigns(Collection):
             """)
 
             return [row['wiki'] for row in cursor]
+
+    def users(self, campaign_id):
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("""
+                SELECT label.user_id AS user, COUNT(*) AS count
+                FROM label
+                JOIN workset_task ON label.task_id = workset_task.task_id
+                JOIN workset ON workset.id = workset_task.workset_id
+                WHERE workset.campaign_id = {0}
+                GROUP BY label.user_id
+                ORDER BY COUNT(*) DESC;
+            """.format(int(campaign_id)))
+
+            return list(cursor)

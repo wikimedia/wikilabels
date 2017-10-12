@@ -31,13 +31,8 @@
 		return deferred.promise();
 	};
 	User.prototype.initiateOAuth = function () {
-		var oauthWindow = window.open(
-			WL.server.absPath( 'auth', 'initiate' ), 'OAuth',
-			'height=768,width=1024'
-		);
-		if ( window.focus ) {
-			oauthWindow.focus();
-		}
+		var url = WL.server.absPath( 'auth', 'initiate' ) + '?wiki=' + wikiLabels.mediawiki.dbname;
+		window.location = url;
 	};
 	User.prototype.authenticated = function () {
 		return this.id !== null;

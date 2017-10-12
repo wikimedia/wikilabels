@@ -1,5 +1,6 @@
 from flask import redirect, request, session
 from flask.ext.jsonpify import jsonify
+from urllib.parse import quote
 
 from .. import preprocessors, responses
 
@@ -23,8 +24,13 @@ def configure(bp, config, oauth):
         # Doesn't work yet
         # oauth_callback = config['wsgi']['application_root'] + \
         #     "/auth/callback/"
+        wiki = None
+        if 'wiki' in request.args:
+            wiki = request.args['wiki']
+            wiki.strip()
         auth_url, rt = oauth.initiate()
         session['request_token'] = rt
+        session['callback_wiki'] = wiki
 
         # return HTML to redirect user to mediawiki-login
         return redirect(auth_url)
@@ -54,7 +60,13 @@ def configure(bp, config, oauth):
 
         # Store user info in session
         session['user'] = {'id': identity['sub']}
-        url = request.url_root + 'ui/'
+
+        if 'callback_wiki' not in session or not session['callback_wiki']:
+            url = request.url_root + 'ui/'
+        else:
+            url = request.url_root + 'ui/' + quote(session['callback_wiki']) \
+                + '/'
+
         content = '<meta http-equiv="refresh" content="0; url=' + url + '" />'
         # Return to ui page
         return content

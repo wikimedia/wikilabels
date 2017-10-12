@@ -1,10 +1,10 @@
 ( function ( $, WL ) {
 
 	var Home = function ( host ) {
-		WL.user = new WL.User();
-		WL.user.updateStatus()
+		WL.mediawiki.initialize( host )
 			.done( function () {
-				WL.mediawiki.initialize( host )
+				WL.user = new WL.User();
+				WL.user.updateStatus()
 					.done( function () {
 						$( 'html' ).attr( 'lang', wikiLabels.mediawiki.lang );
 						$( '#mw-content-text' ).attr( 'lang', wikiLabels.mediawiki.lang );
@@ -19,13 +19,14 @@
 						}
 						wikiLabels.labeler = new wikiLabels.Labeler( $( '#wikilabels-labeler' ) );
 					} )
-					.fail( function ( doc ) {
-						alert( JSON.stringify( doc ) );
+					.fail( function () {
+						WL.user.initiateOAuth();
 					} );
 			} )
-			.fail( function () {
-				window.location = WL.server.absPath( 'auth', 'initiate' );
+			.fail( function ( doc ) {
+				alert( JSON.stringify( doc ) );
 			} );
+
 	};
 
 	WL.Home = Home;

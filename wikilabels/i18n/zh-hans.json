@@ -9,7 +9,7 @@
 	"'$1' not completed. Submit anyway?": "字段“$1”未填。是否仍要提交？",
 	"Abandon": "跳过",
 	"Are you sure that you want to abandon this task?": "您确定要跳转至下一个任务么？",
-	"Campaigns": "活动",
+	"Campaigns": "活动（<a href=\"$1\">统计</a>）",
 	"Can't save label. No task is selected!": "不能保存标记。没有选择任务！",
 	"Could not get metadata for revision $1": "不能获取修订版本$1的元数据。可通过点击“跳过”按钮来跳过该任务",
 	"Could not load form \"$1\": \n$2": "不能从“$1”加载：\n$2",

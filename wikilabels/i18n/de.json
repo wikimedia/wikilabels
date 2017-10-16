@@ -7,7 +7,7 @@
 	"'$1' not completed. Submit anyway?": "Das Feld „$1“ wurde nicht ausgefüllt. Trotzdem übermitteln?",
 	"Abandon": "Überspringen",
 	"Are you sure that you want to abandon this task?": "Bist du sicher, dass du zur nächsten Aufgabe springen möchtest?",
-	"Campaigns": "Kampagnen",
+	"Campaigns": "Kampagnen (<a href=\"$1\">Statistiken</a>)",
 	"Can't save label. No task is selected!": "Bezeichnung konnte nicht gespeichert werden. Keine Aufgabe ausgewählt!",
 	"Could not get metadata for revision $1": "Die Metadaten für die Version $1 konnten nicht abgerufen werden. Durch das Klicken auf die Schaltfläche „Überspringen“ kann diese Aufgabe übersprungen werden.",
 	"Could not load form \"$1\": \n$2": "Formular „$1“ konnte nicht geladen werden:\n$2",

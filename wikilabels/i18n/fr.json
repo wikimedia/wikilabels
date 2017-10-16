@@ -8,7 +8,7 @@
 	"'$1' not completed. Submit anyway?": "Le champ « $1 » n’a pas été rempli. Soumettre quand même ?",
 	"Abandon": "Sauter",
 	"Are you sure that you want to abandon this task?": "Êtes-vous sûr de vouloir aller directement à la tâche suivante ?",
-	"Campaigns": "Campagnes",
+	"Campaigns": "Campagnes (<a href=\"$1\">stats</a>)",
 	"Can't save label. No task is selected!": "Impossible d’enregistrer le libellé. Aucune tâche n’est sélectionnée !",
 	"Could not get metadata for revision $1": "Impossible d’obtenir les métadonnées pour la révision $1. Cliquer sur le bouton « Sauter » pour sauter cette tâche",
 	"Could not load form \"$1\": \n$2": "Impossible de charger le formulaire « $1 » : \n$2",

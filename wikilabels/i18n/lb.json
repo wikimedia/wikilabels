@@ -7,7 +7,7 @@
 	"'$1' not completed. Submit anyway?": "D'Feld \"$1\" ass net ausgefëllt. Trotzdem späicheren?",
 	"Abandon": "Iwwersprangen",
 	"Are you sure that you want to abandon this task?": "Sidd Dir sécher datt Dir op déi nächst dës Aufgab wëllt iwwergoen?",
-	"Campaigns": "Campagnen",
+	"Campaigns": "Campagnen (<a href=\"$1\">stats</a>)",
 	"Can't save label. No task is selected!": "Etikett konnt net gespäichert ginn. Et ass keng Aufgab erausgesicht!",
 	"Could not get metadata for revision $1": "D'Metadate fir d'Versioun $1 goufen net fonnt Wann Dir op \"Iwwersprangen\" klickt da gëtt dës Aufgab iwwersprong",
 	"Could not load form \"$1\": \n$2": "De Formulaire \"$1\" konnt net geluede ginn:\n$2",

@@ -10,7 +10,7 @@
 	"'$1' not completed. Submit anyway?": "No se rellenó el campo «$1». ¿Enviar de todos modos?",
 	"Abandon": "Omitir",
 	"Are you sure that you want to abandon this task?": "¿Confirmas que quieres saltar a la próxima tarea?",
-	"Campaigns": "Campañas",
+	"Campaigns": "Campañas (<a href=\"$1\">estadísticas</a>)",
 	"Can't save label. No task is selected!": "No se puede guardar la etiqueta. No hay ninguna tarea seleccionada.",
 	"Could not get metadata for revision $1": "No se pudieron obtener los metadatos de la revisión $1. Para omitir este paso, pulsa en el botón «Omitir»",
 	"Could not load form \"$1\": \n$2": "No se pudo cargar el formulario «$1»: \n$2",

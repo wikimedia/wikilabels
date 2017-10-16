@@ -2,15 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Gerardduenas",
-			"Fitoschido"
+			"Fitoschido",
+			"Townie"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "El camp \"$1\" no és ple. Voleu enviar de totes maneres?",
-	"Abandon": "Abandona",
-	"Are you sure that you want to abandon this task?": "Esteu segur que voleu abandonar aquesta tasca?",
-	"Campaigns": "Campanyes",
+	"Abandon": "Salta",
+	"Are you sure that you want to abandon this task?": "Esteu segur que voleu saltar a la següent tasca?",
+	"Campaigns": "Campanyes (<a href=\"$1\">estadístiques</a>)",
 	"Can't save label. No task is selected!": "No es pot desar l'etiqueta. No s'ha seleccionat cap tasca",
-	"Could not get metadata for revision $1": "No s'ha pogut obtenir les metadades de la revisió $1",
+	"Could not get metadata for revision $1": "No s'ha pogut obtenir les metadades de la revisió $1. Salta aquesta tasca clicant el botó \"Salta\"",
 	"Could not load form \"$1\": \n$2": "No s’ha pogut carregar el formulari «$1»:\n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "No s’ha pogut carregar la visualització «$1»: $2\nS’utilitza el visor de tasques simple.",
 	"Could not load workset list: $1": "No s'ha pogut carregar la llista de lots de tasques: $1",
@@ -19,14 +20,17 @@
 	"No difference": "Sense diferències",
 	"Request new workset": "Demana un lot de tasques nou",
 	"Review": "Revisa",
-	"Save": "Desa",
+	"Save": "Desa i següent",
+	"License": "Qualsevol etiqueta que proveeixis s'alliberarà públicament sota la llicència CC0 -- Domini Públic",
 	"Submit label": "Envia l'etiqueta",
 	"Workset": "Lot de tasques",
-	"Workset complete!": "Tasca completada!",
-	"connect to server": "Connecta't al servidor",
+	"Workset complete!": "Lot de tasques completat!",
+	"connect to server": "connecta't al servidor",
 	"date-format": "%d-%m-%Y",
 	"fullscreen": "Pantalla completa",
+	"exit fullscreen": "Sortir del mode pantalla completa",
 	"open": "Obre",
 	"request workset": "Demana un lot de tasques",
-	"review": "revisa"
+	"review": "revisa",
+	"maintenance notice": "Viquietiquetes caurà per manteniment el $1. Vegeu $2 per a més informació."
 }

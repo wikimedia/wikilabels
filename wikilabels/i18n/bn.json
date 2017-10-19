@@ -10,7 +10,7 @@
 	"'$1' not completed. Submit anyway?": "'$1' সম্পূর্ণ করা হয়নি। যাইহোক জমা দিবেন?",
 	"Abandon": "বর্জন",
 	"Are you sure that you want to abandon this task?": "আপনি কী এই কৃত্য বর্জন করার ব্যপারে নিশ্চিত?",
-	"Campaigns": "প্রচারাভিযান",
+	"Campaigns": "প্রচারাভিযান (<a href=\"$1\">পরিসংখ্যান</a>)",
 	"Can't save label. No task is selected!": "লেবেল সংরক্ষণ করা যায়নি। কোনও কৃত্য নির্বাচন করা হয়নি!",
 	"Could not get metadata for revision $1": "$1 পুনর্বিবেচনার জন্য মেটাউপাত্ত পাওয়া যায়নি। \"এড়ান\" বোতাম ক্লিক করার দ্বারা, এই কার্যটি এড়িয়ে যান",
 	"Could not load form \"$1\": \n$2": "ফর্ম \"$1\" লোড করা যায়নি:\n$2",

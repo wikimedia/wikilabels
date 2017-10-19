@@ -7,7 +7,7 @@
 	"'$1' not completed. Submit anyway?": "Lauks \"$1\" nebija aizpildīts. Vienalga iesniegt?",
 	"Abandon": "Izlaist",
 	"Are you sure that you want to abandon this task?": "Vai tiešām vēlies pamest šo uzdevumu?",
-	"Campaigns": "Kampaņas",
+	"Campaigns": "Kampaņas (<a href=\"$1\">statistika</a>)",
 	"Can't save label. No task is selected!": "Nevar saglabāt iezīmi. Nav izvēlēts uzdevums!",
 	"Could not get metadata for revision $1": "Nevarēja iegūt metadatus versijai $1",
 	"Could not load form \"$1\": \n$2": "Nevarēja ielādēt formu \"$1\":\n$2",

@@ -3,14 +3,16 @@
 		"authors": [
 			"Milicevic01",
 			"Obsuser",
-			"Милан Јелисавчић"
+			"Милан Јелисавчић",
+			"Zoranzoki21"
 		]
 	},
 	"Abandon": "Прескочи",
-	"Campaigns": "Кампање",
-	"Could not get metadata for revision $1": "Није било могуће доћи до метаподатака за измену $1. Кликом на дугме „Напусти”, прескочите овај задатак",
+	"Campaigns": "Кампање (<a href=\"$1\">stats</a>)",
+	"Could not get metadata for revision $1": "Није било могуће доћи до метаподатака за измену $1. Кликом на дугме „Прескочи”, прескочите овај задатак",
 	"No difference": "Нема разлике",
 	"Review": "Провера",
+	"Save": "Сачувај и настави",
 	"connect to server": "повежи се са сервером",
 	"date-format": "%d-%m-%Y",
 	"fullscreen": "Цео екран",

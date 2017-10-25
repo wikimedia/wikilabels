@@ -11,9 +11,11 @@ install:
   - pip install -r requirements.txt
   - python setup.py install
   - pip install codecov
+  - pip install flake8
 
-script: 
-  - coverage run --source ores -m pytest -m "not nottravis"
+script:
+  - flake8 . --ignore=E722
+  - coverage run --source wikilabels -m pytest -m "not nottravis"
   - timeout --preserve-status 8s wikilabels dev_server
   - ./node_modules/.bin/eslint .
   - ./node_modules/.bin/stylelint "wikilabels/wsgi/static/css/*.css"

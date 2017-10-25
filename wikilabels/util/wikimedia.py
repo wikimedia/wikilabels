@@ -43,13 +43,13 @@ def host_from_dbname(dbname):
 def get_extra_modules(dbname):
     if dbname == 'wikidatawiki':
         modules = [
-           'ext.gadget.MainLangFirst',
-           'ext.wikidata-org.badges',
-           'ext.wikimediaBadges',
-           'jquery.wikibase.statementview.RankSelector.styles',
-           'jquery.wikibase.toolbar.styles',
-           'jquery.wikibase.toolbarbutton.styles',
-           'wikibase.common',
+            'ext.gadget.MainLangFirst',
+            'ext.wikidata-org.badges',
+            'ext.wikimediaBadges',
+            'jquery.wikibase.statementview.RankSelector.styles',
+            'jquery.wikibase.toolbar.styles',
+            'jquery.wikibase.toolbarbutton.styles',
+            'wikibase.common',
         ]
         return '%7C'.join(modules) + '%7C'
     return ''

@@ -26,5 +26,6 @@
 	"open": "open",
 	"request workset": "request workset",
 	"review": "review",
-	"maintenance notice": "Wiki labels is going down for maintenance on $1.  See $2 for more information."
+	"maintenance notice": "Wiki labels is going down for maintenance on $1.  See $2 for more information.",
+	"more-info": "(<a href=\"$1\">More info</a>)"
 }

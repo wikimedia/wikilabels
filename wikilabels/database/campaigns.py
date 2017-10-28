@@ -4,7 +4,7 @@ from .errors import NotFoundError
 
 class Campaigns(Collection):
     def create(self, wiki, name, form, view, labels_per_task,
-               tasks_per_assignment, active):
+               tasks_per_assignment, active, info_url):
         with self.db.transaction() as transactor:
             cursor = transactor.cursor()
             cursor.execute("""
@@ -18,6 +18,7 @@ class Campaigns(Collection):
                   'name': name,
                   'form': form,
                   'view': view,
+                  'info_url': info_url,
                   'labels_per_task': labels_per_task,
                   'tasks_per_assignment': tasks_per_assignment,
                   'active': active})
@@ -53,7 +54,8 @@ class Campaigns(Collection):
                     EXTRACT(EPOCH FROM campaign.created) AS created,
                     labels_per_task,
                     tasks_per_assignment,
-                    active
+                    active,
+                    campaign.info_url
                 FROM campaign
                 WHERE id = %(campaign_id)s;
             """, {'campaign_id': campaign_id})
@@ -123,7 +125,8 @@ class Campaigns(Collection):
                     EXTRACT(EPOCH FROM campaign.created) AS created,
                     labels_per_task,
                     tasks_per_assignment,
-                    active
+                    active,
+                    campaign.info_url
                 FROM campaign
                 WHERE
                     wiki = %(wiki)s AND
@@ -151,7 +154,8 @@ class Campaigns(Collection):
                     EXTRACT(EPOCH FROM campaign.created) AS created,
                     labels_per_task,
                     tasks_per_assignment,
-                    active
+                    active,
+                    campaign.info_url,
                 FROM workset
                 INNER JOIN campaign ON campaign_id = campaign.id
                 WHERE user_id = %(user_id)s

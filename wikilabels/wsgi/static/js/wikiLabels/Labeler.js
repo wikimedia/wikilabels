@@ -168,6 +168,9 @@
 
 		this.$name = $( '<div>' ).addClass( 'name' );
 		this.$element.append( this.$name );
+		if ( campaignData.info_url ) {
+			this.$element.append( ' ' + WL.i18n( 'more-info', [ campaignData.info_url ] ) );
+		}
 
 		this.worksetList = new WorksetList();
 		this.$element.append( this.worksetList.$element );

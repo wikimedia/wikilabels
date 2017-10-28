@@ -1,0 +1,1 @@
+ALTER TABLE campaign ADD COLUMN info_url VARCHAR(2000);

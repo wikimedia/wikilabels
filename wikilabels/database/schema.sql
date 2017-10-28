@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS campaign (
   wiki                 VARCHAR(255),
   form                 VARCHAR(255),
   view                 VARCHAR(255),
+  info_url             VARCHAR(2000),
   created              TIMESTAMP,
   labels_per_task      INT,
   tasks_per_assignment INT,

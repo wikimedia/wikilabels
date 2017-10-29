@@ -1,0 +1,15 @@
+{
+    "damaging-help": "Да ли бисте вратили ову измену?",
+    "damaging-label": "Оштећење?",
+    "damaging-no-label": "Не",
+    "damaging-no-tooltip": "Ова измена није штетна.",
+    "damaging-yes-label": "Да",
+    "damaging-yes-tooltip": "Ова измена је штетна и требала би бити враћена.",
+    "goodfaith-help": "Да ли је корисник желео допринети конструктивно",
+    "goodfaith-label": "Добра измена?",
+    "goodfaith-no-label": "Не",
+    "goodfaith-no-tooltip": "Ова измена је злонамерна.",
+    "goodfaith-yes-label": "Да",
+    "goodfaith-yes-tooltip": "Ова измена је добронамерна.",
+    "unsure-label": "Несигурно?"
+}

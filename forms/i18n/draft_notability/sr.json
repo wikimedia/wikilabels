@@ -1,0 +1,18 @@
+{
+    "book-choice-label": "Књиге",
+    "damaging-false-label": "Не",
+    "damaging-label": "Оштећења?",
+    "damaging-true-label": "Да",
+    "event-choice-label": "Догађаји",
+    "film-choice-label": "Филмови",
+    "form-title": "Значајност",
+    "guideline-choice-label": "Која од следећих смерница за значајност (ако постоји) подразумева ову тему чланка?",
+    "music-choice-label": "Музика",
+    "notable-no-label": "Не",
+    "notable-switch": "Да ли је тема подложна овој смерници?",
+    "notable-yes-label": "да",
+    "org-choice-label": "Организације и компаније",
+    "other-choice-label": "Остало",
+    "person-choice-label": "Људи",
+    "web-choice-label": "Веб садржај"
+}

@@ -4,7 +4,7 @@ python:
   - "3.5"
 
 before_install:
-  - npm install eslint stylelint@7.8.0 stylelint-config-wikimedia
+  - npm install eslint stylelint@8.2.0 stylelint-config-wikimedia
 
 # command to install dependencies
 install: 

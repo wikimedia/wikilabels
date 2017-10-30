@@ -32,5 +32,6 @@
 	"open": "打开",
 	"request workset": "请求工作集",
 	"review": "复查",
-	"maintenance notice": "Wiki labels将于$1因维护目的而下线。参见$2以获取更多信息。"
+	"maintenance notice": "Wiki labels将于$1因维护目的而下线。参见$2以获取更多信息。",
+	"more-info": "（<a href=\"$1\">更多信息</a>）"
 }

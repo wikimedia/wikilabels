@@ -6,7 +6,7 @@
 	},
 	"'$1' not completed. Submit anyway?": "Lauks \"$1\" nebija aizpildīts. Vienalga iesniegt?",
 	"Abandon": "Izlaist",
-	"Are you sure that you want to abandon this task?": "Vai tiešām vēlies pamest šo uzdevumu?",
+	"Are you sure that you want to abandon this task?": "Vai tiešām vēlies pāriet uz nākamo uzdevumu?",
 	"Campaigns": "Kampaņas (<a href=\"$1\">statistika</a>)",
 	"Can't save label. No task is selected!": "Nevar saglabāt iezīmi. Nav izvēlēts uzdevums!",
 	"Could not get metadata for revision $1": "Nevarēja iegūt metadatus versijai $1",
@@ -18,7 +18,7 @@
 	"No difference": "Nav atšķirību",
 	"Request new workset": "Pieprasīt jaunu uzdevumu komplektu",
 	"Review": "Pārskatīt",
-	"Save": "Saglabāt",
+	"Save": "Saglabāt un pāriet uz nākamo",
 	"License": "Visas iesniegtās atzīmes tiks publiskotas un licencētas saskaņā ar CC0 licenci (sabiedrības lietošanā)",
 	"Submit label": "Iesniegt iezīmi",
 	"Workset": "Uzdevumu komplekts",
@@ -26,7 +26,9 @@
 	"connect to server": "pievienoties serverim",
 	"date-format": "%d.%m.%Y.",
 	"fullscreen": "Pilnekrāna režīms",
+	"exit fullscreen": "Iziet no pilnekrāna režīma",
 	"open": "atvērt",
 	"request workset": "pieprasīt uzdevumu komplektu",
-	"review": "pārskatīt"
+	"review": "pārskatīt",
+	"more-info": "(<a href=\"$1\">Vairāk informācijas</a>)"
 }

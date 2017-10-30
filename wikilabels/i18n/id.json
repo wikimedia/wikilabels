@@ -4,13 +4,14 @@
 			"Rachmat.Wahidi",
 			"Arifin.wijaya",
 			"Hidayatsrf",
-			"Rachmat04"
+			"Rachmat04",
+			"Gombang"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Kolom '$1' belum diisi. Lanjut mengirimkan?",
 	"Abandon": "Abaikan",
 	"Are you sure that you want to abandon this task?": "Apakah Anda yakin ingin mengabaikan tugas ini?",
-	"Campaigns": "Kampanye",
+	"Campaigns": "(<a href=\"$1\">Statistik</a>) kampanye",
 	"Can't save label. No task is selected!": "Tidak dapat menyimpan label. Tidak ada tugas dipilih!",
 	"Could not get metadata for revision $1": "Tidak dapat menemukan metadata untuk revisi $1",
 	"Could not load form \"$1\": \n$2": "Tidak dapat memuat formulir \"$1\":\n$2",

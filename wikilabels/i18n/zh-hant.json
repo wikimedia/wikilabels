@@ -9,7 +9,7 @@
 	"'$1' not completed. Submit anyway?": "欄位「$1」未填入內容。確定送出？",
 	"Abandon": "略過",
 	"Are you sure that you want to abandon this task?": "您確定您要略過來跳到下一個任務？",
-	"Campaigns": "活動",
+	"Campaigns": "活動（<a href=\"$1\">統計</a>）",
 	"Can't save label. No task is selected!": "因沒有選擇任務而無法儲存標籤！",
 	"Could not get metadata for revision $1": "無法取得修訂版本$1的中繼資料。可透過點擊「略過」按鍵來略過此任務。",
 	"Could not load form \"$1\": \n$2": "無法從$1載入：$2",
@@ -32,5 +32,6 @@
 	"open": "開啟",
 	"request workset": "要求工作集",
 	"review": "檢閱",
-	"maintenance notice": "於$1 Wiki labels 將因維護緣故而停止。查看 $2 來獲得更多訊息。"
+	"maintenance notice": "於$1 Wiki labels 將因維護緣故而停止。查看 $2 來獲得更多訊息。",
+	"more-info": "（<a href=\"$1\">顯示訊息</a>）"
 }

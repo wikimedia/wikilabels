@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80"
+			"Amire80",
+			"YaronSh"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "השדה \"$1\" לא מולא. לשלוח בכל־זאת?",
@@ -30,5 +31,6 @@
 	"open": "פתיחה",
 	"request workset": "בקשת רשימת טיפול",
 	"review": "סקירה",
-	"maintenance notice": "מערכת Wiki labels תנותק לשם תחזוקה ב־$1. ר' $2 למידע נוסף."
+	"maintenance notice": "מערכת Wiki labels תנותק לשם תחזוקה ב־$1. ר' $2 למידע נוסף.",
+	"more-info": "(<a href=\"$1\">מידע נוסף</a>)"
 }

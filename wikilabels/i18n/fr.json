@@ -31,5 +31,6 @@
 	"open": "ouvrir",
 	"request workset": "Demander l'ensemble de données",
 	"review": "Relecture",
-	"maintenance notice": "Les libellés Wiki seront arrêtés pour maintenance le $1. Voyez $2 pour plus d’information."
+	"maintenance notice": "Les libellés Wiki seront arrêtés pour maintenance le $1. Voyez $2 pour plus d’information.",
+	"more-info": "(<a href=\"$1\">Plus d'informations</a>)"
 }

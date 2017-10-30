@@ -30,5 +30,6 @@
 	"open": "offen",
 	"request workset": "Arbeitssatz anfordern",
 	"review": "überprüfen",
-	"maintenance notice": "Wikilabels geht zur Wartung offline am $1. Siehe $2 für weitere Informationen."
+	"maintenance notice": "Wikilabels geht zur Wartung offline am $1. Siehe $2 für weitere Informationen.",
+	"more-info": "(<a href=\"$1\">Weitere Informationen</a>)"
 }

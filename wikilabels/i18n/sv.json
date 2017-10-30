@@ -34,5 +34,6 @@
 	"open": "öppna",
 	"request workset": "begär uppsättning",
 	"review": "granska",
-	"maintenance notice": "Wikietiketter är nere för underhåll den $1. Se $2 för mer information."
+	"maintenance notice": "Wikietiketter är nere för underhåll den $1. Se $2 för mer information.",
+	"more-info": "(<a href=\"$1\">Mer info</a>)"
 }

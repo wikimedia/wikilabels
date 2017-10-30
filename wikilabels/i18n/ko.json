@@ -32,5 +32,6 @@
 	"open": "열기",
 	"request workset": "작업셋 요청",
 	"review": "검토하기",
-	"maintenance notice": "위키레이블은 $1 에 점검을 위해 서비스를 중단합니다. $2 에서 자세한 내용을 확인하세요."
+	"maintenance notice": "위키레이블은 $1 에 점검을 위해 서비스를 중단합니다. $2 에서 자세한 내용을 확인하세요.",
+	"more-info": "(<a href=\"$1\">추가 정보</a>)"
 }

@@ -31,5 +31,6 @@
 	"open": "Apri",
 	"request workset": "Richiesta workset",
 	"review": "Valuta",
-	"maintenance notice": "Wiki labels non sarà disponibile per manutenzione il $1. Vedi $2 per ulteriori informazioni."
+	"maintenance notice": "Wiki labels non sarà disponibile per manutenzione il $1. Vedi $2 per ulteriori informazioni.",
+	"more-info": "(<a href=\"$1\">Ulteriori informazioni</a>)"
 }

@@ -33,5 +33,6 @@
 	"open": "abrir",
 	"request workset": "Solicitar grupo de tareas",
 	"review": "Revisar",
-	"maintenance notice": "Las etiquetas wiki se apagarán por mantenimiento el $1. Consulta $2 para más información."
+	"maintenance notice": "Las etiquetas wiki se apagarán por mantenimiento el $1. Consulta $2 para más información.",
+	"more-info": "(<a href=\"$1\">Más información</a>)"
 }

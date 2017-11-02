@@ -7,7 +7,7 @@
 	"'$1' not completed. Submit anyway?": "Feltet »$1« var ikke udfyldt. Send alligevel?",
 	"Abandon": "Udelad",
 	"Are you sure that you want to abandon this task?": "Er du sikker på, at du ønsker at udelade den næste opgave?",
-	"Campaigns": "Kampagner",
+	"Campaigns": "Kampagner (<a href=\"$1\">statistik</a>)",
 	"Can't save label. No task is selected!": "Kan ikke gemme etiket. Ingen opgave er valgt!",
 	"Could not get metadata for revision $1": "Kunne ikke hente metadata for revision $1. Ved at klikke på knappen »Udelad«, udelades denne opgave",
 	"Could not load form \"$1\": \n$2": "Kunne ikke indlæse formular »$1«:\n$2",
@@ -30,5 +30,6 @@
 	"open": "åbn",
 	"request workset": "anmod om nyt arbejdssæt",
 	"review": "læs korrektur",
-	"maintenance notice": "Wikietiketter svarer ikke på grund af vedligeholdelse på $1. Se $2 for yderligere information."
+	"maintenance notice": "Wikietiketter svarer ikke på grund af vedligeholdelse på $1. Se $2 for yderligere information.",
+	"more-info": "(<a href=\"$1\">Yderligere information</a>)"
 }

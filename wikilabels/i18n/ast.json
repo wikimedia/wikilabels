@@ -6,10 +6,10 @@
 	},
 	"'$1' not completed. Submit anyway?": "Nun se rellenó'l campu «$1». ¿Unviar de toles maneres?",
 	"Abandon": "Saltar",
-	"Are you sure that you want to abandon this task?": "¿Tas seguru de que quies abandonar esta xera?",
-	"Campaigns": "Campañes",
+	"Are you sure that you want to abandon this task?": "¿Tas seguru de que quies saltar a la siguiente xera?",
+	"Campaigns": "Campañes (<a href=\"$1\">estadístiques</a>)",
 	"Can't save label. No task is selected!": "Nun puede guardase la etiqueta. Nun hai nenguna xera seleicionada.",
-	"Could not get metadata for revision $1": "Nun pudieron llograse los metadatos pa la revisión $1. Si faes click nel botón «Abandonar», saltarás esti pasu",
+	"Could not get metadata for revision $1": "Nun pudieron llograse los metadatos pa la revisión $1. Si faes click nel botón «Saltar», saltarás esti pasu",
 	"Could not load form \"$1\": \n$2": "Nun pudo cargase'l formulariu \"$1\": \n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nun pudo cargase la vista «$1»: $2\nUtilízase'l visor de xeres simple.",
 	"Could not load workset list: $1": "Nun pudo cargase la llista de grupos de xeres: $1",
@@ -30,5 +30,6 @@
 	"open": "abrir",
 	"request workset": "solicitar grupu de xeres",
 	"review": "revisar",
-	"maintenance notice": "Les etiquetes wiki apagaránse por mantenimientu el $1. Visita $2 pa más información."
+	"maintenance notice": "Les etiquetes wiki apagaránse por mantenimientu el $1. Visita $2 pa más información.",
+	"more-info": "(<a href=\"$1\">Más información</a>)"
 }

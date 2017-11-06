@@ -8,7 +8,7 @@
 	"'$1' not completed. Submit anyway?": "O campo \"$1\" non se indicou. Enviar igualmente?",
 	"Abandon": "Omitir",
 	"Are you sure that you want to abandon this task?": "Está seguro de quere salta á seguinte tarefa?",
-	"Campaigns": "Campañas",
+	"Campaigns": "Campañas (<a href=\"$1\">estatísticas</a>)",
 	"Can't save label. No task is selected!": "Non se pode gardar a etiqueta. Non hai ningunha tarefa seleccionada.",
 	"Could not get metadata for revision $1": "Non se puideron obter os metadatos para a revisión $1. Premendo no botón \"Skip\" saltará este paso",
 	"Could not load form \"$1\": \n$2": "Non se puido cargar o formulario \"$1\": \n$2",
@@ -31,5 +31,6 @@
 	"open": "abrir",
 	"request workset": "Solicitar grupo de tarefas",
 	"review": "revisar",
-	"maintenance notice": "As etiquetas wiki apagaranse por mantenemento o $1. Consulte $2 para máis información."
+	"maintenance notice": "As etiquetas wiki apagaranse por mantenemento o $1. Consulte $2 para máis información.",
+	"more-info": "(<a href=\"$1\">Máis información</a>)"
 }

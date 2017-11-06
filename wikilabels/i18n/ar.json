@@ -7,15 +7,16 @@
 			"DRIHEM",
 			"Meno25",
 			"ديفيد",
-			"Mido"
+			"Mido",
+			"Antime"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "الخانة \"$1\" فارغة. أرسل على أي حال؟",
+	"'$1' not completed. Submit anyway?": "الخانة \"$1\" فارغة. تابع بأي حال؟",
 	"Abandon": "تجاوز",
-	"Are you sure that you want to abandon this task?": "هل أنت متأكد من تخليك عن هذه المهمة؟",
-	"Campaigns": "الحملات",
+	"Are you sure that you want to abandon this task?": "أمتأكد من التجاوز للمهمة اللاحقة؟",
+	"Campaigns": "(<a href=\"$1\">احصاءات</a>) الحملات",
 	"Can't save label. No task is selected!": "لا يمكن حفظ العلامة. لم تحدد أية مهمة بعد!",
-	"Could not get metadata for revision $1": "تعذر الحصول على البيانات الوصفية لمراجعة $1. بقيامك بالضغط على \"هجر\"، ستتخطى هذه المهمة",
+	"Could not get metadata for revision $1": "تعذر الحصول على البيانات الوصفية لمراجعة $1. بقيامك بالضغط على \"تخطي\"، ستتخطى هذه المهمة",
 	"Could not load form \"$1\": \n$2": "تعذر التحميل من \"$1\": $2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "تعذر تحميل عرض \"$1\": $2\nالانتقال إلى استخدام المشاهدة البسيطة للمهام.",
 	"Could not load workset list: $1": "تعذر تحميل قائمة مجموعة العمل:$1",
@@ -34,5 +35,6 @@
 	"exit fullscreen": "غادر وضع الشاشة الكاملة",
 	"open": "افتح",
 	"request workset": "اطلب شريحة من العينات",
-	"review": "راجع"
+	"review": "راجع",
+	"more-info": "(<a href=\"$1\">معلومات أوفر</a>)"
 }

@@ -147,3 +147,7 @@ def build_maintenance_notice(request, config):
         ahref = '<a href="{0}">{0}</a>'.format(notice['url'])
         return i18n("maintenance notice", accept_langs,
                     [notice['date'], ahref])
+
+@lru_cache(128)
+def get_user_name(user_id):
+    

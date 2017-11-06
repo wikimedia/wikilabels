@@ -4,11 +4,14 @@ import os
 from collections import OrderedDict
 from functools import lru_cache, wraps
 from itertools import chain
+from mwapi import Session
+from html import escape
 
 import uglipyjs
 from flask import current_app, request
 
 from ..i18n import i18n
+from ..util.wikimedia import host_from_dbname
 from .responses import bad_request
 
 
@@ -148,6 +151,32 @@ def build_maintenance_notice(request, config):
         return i18n("maintenance notice", accept_langs,
                     [notice['date'], ahref])
 
-@lru_cache(128)
-def get_user_name(user_id):
-    
+
+@lru_cache(500)
+def get_user_info(user_id, host):
+    params = {
+        'action': 'query',
+        'meta': 'globaluserinfo',
+        'guiid': user_id
+    }
+    session = Session(host)
+    res = session.get(**params)
+    if 'error' in res:
+        return {}
+    return res.get('query', {}).get('globaluserinfo', {})
+
+
+def parse_user_data(case, config):
+    # Batching is not possible, don't ask why
+    user_info = get_user_info(case['user'],
+                              config['wikilabels']['central_auth_host'])
+    case['user_name'] = escape(user_info.get('name', ''))
+    if 'home' in user_info and case['user_name'] != '':
+        home_wiki = host_from_dbname(user_info['home'])
+        case['user_name'] = (
+            '<a href="https://{host}/wiki/User:{user__name}">'
+            '{user_name}</a>'.format(
+                host=home_wiki,
+                user__name=case['user_name'].replace(' ', '_'),
+                user_name=case['user_name']))
+    return case

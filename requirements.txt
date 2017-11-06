@@ -7,6 +7,7 @@ Flask-Cors >= 2.1.2, < 2.1.999
 flask-oojsui >= 0.0.3, < 0.0.999
 mediawiki-utilities >= 0.4.18, < 0.4.999
 mwoauth >= 0.2.4, < 0.2.999
+mwapi >= 0.5.1, < 0.5.999
 pytest >= 3.2.2, < 3.2.999
 psycopg2 >= 2.6.1, < 2.6.999
 PyExecJS >= 1.1.0, < 1.1.999

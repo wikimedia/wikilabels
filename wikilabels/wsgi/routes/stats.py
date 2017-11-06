@@ -2,7 +2,7 @@ from flask import render_template, request
 
 from .. import assets, responses
 from ..util import (build_maintenance_notice, build_script_tags,
-                    build_style_tags)
+                    build_style_tags, parse_user_data)
 
 
 def configure(bp, config, db):
@@ -35,7 +35,9 @@ def configure(bp, config, db):
                 break
         else:
             return responses.not_found()
-        user_stats = db.campaigns.users(campaign['id'])
+        user_stats = []
+        for case in db.campaigns.users(campaign['id']):
+            user_stats.append(parse_user_data(case, config))
         return render_template(
             "stats_wiki_campaign.html",
             wiki=wiki,

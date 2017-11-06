@@ -1,6 +1,7 @@
 wikilabels:
   form_directory: forms/enabled
   form_i18n_directory: forms/i18n
+  central_auth_host: https://meta.wikimedia.org
   maintenance_notice:
     date: OMG DATE
     url: https://foo.bar

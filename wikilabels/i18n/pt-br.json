@@ -11,7 +11,7 @@
 	"'$1' not completed. Submit anyway?": "O campo \"$1\" não foi preenchido. Enviar mesmo assim?",
 	"Abandon": "Pular",
 	"Are you sure that you want to abandon this task?": "Tem certeza de que deseja pular para a próxima tarefa?",
-	"Campaigns": "Campanhas",
+	"Campaigns": "Campanhas (<a href=\"$1\">estatísticas</a>)",
 	"Can't save label. No task is selected!": "Não é possível salvar o rótulo. Não foi selecionada nenhuma tarefa!",
 	"Could not get metadata for revision $1": "Não foi possível obter metadados para a edição $1. Ao clicar em \"Pular\", pulará esta tarefa",
 	"Could not load form \"$1\": \n$2": "Não foi possível carregar o formulário \"$1\": \n$2",
@@ -34,5 +34,6 @@
 	"open": "abrir",
 	"request workset": "solicitar um grupo de tarefas",
 	"review": "revisar",
-	"maintenance notice": "O Wiki labels estará em manutenção em $1. Ver $2 para mais informações."
+	"maintenance notice": "O Wiki labels estará em manutenção em $1. Ver $2 para mais informações.",
+	"more-info": "(<a href=\"$1\">Mais informações</a>)"
 }

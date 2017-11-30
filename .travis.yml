@@ -2,15 +2,23 @@ language: python
 dist: trusty
 python:
   - "3.5"
+services:
+    - postgresql
 
 before_install:
   - npm install eslint stylelint@8.2.0 stylelint-config-wikimedia
 
 # command to install dependencies
-install: 
+install:
   - pip install -r requirements.txt
   - python setup.py install
   - pip install codecov pytest-cov flake8
+
+before_script:
+    - psql -c "CREATE USER wikilabels WITH PASSWORD 'wikilabels-admin';" -U postgres
+    - psql -c "CREATE DATABASE wikilabels;" -U postgres
+    - psql -c "GRANT ALL PRIVILEGES ON DATABASE wikilabels to wikilabels;" -U postgres
+    - psql wikilabels < wikilabels/database/schema.sql -U wikilabels
 
 script:
   - flake8 . --ignore=E722

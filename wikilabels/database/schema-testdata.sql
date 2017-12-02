@@ -1,17 +1,17 @@
 TRUNCATE campaign CASCADE;
 INSERT INTO campaign VALUES
   (1, 'Edit Quality -- 2014 10k sample', 'enwiki',
-   'damaging_and_goodfaith', 'DiffToPrevious', NOW(), 1, 10, True),
+   'damaging_and_goodfaith', 'DiffToPrevious', '', NOW(), 1, 10, True),
   (2, 'Edit Type -- 2015 january sample', 'enwiki',
-   'edit_type', 'DiffToPrevious', NOW(), 1, 10, True),
+   'edit_type', 'DiffToPrevious', '', NOW(), 1, 10, True),
   (3, 'Qualidade das edições -- Amostra de 10k revisões de 2014', 'ptwiki',
-   'damaging_and_goodfaith', 'DiffToPrevious', NOW(), 1, 10, True),
+   'damaging_and_goodfaith', 'DiffToPrevious', '', NOW(), 1, 10, True),
   (4, 'Draft notability', 'enwiki',
-   'draft_notability', 'PageAsOfRevision', NOW(), 1, 10, True),
+   'draft_notability', 'PageAsOfRevision', '', NOW(), 1, 10, True),
   (5, 'Draft notability (raw)', 'enwiki',
-   'draft_notability', 'ParsedWikitext', NOW(), 1, 10, True),
+   'draft_notability', 'ParsedWikitext', '', NOW(), 1, 10, True),
   (6, 'Edit Quality -- 2014 10k nlwiki', 'nlwiki',
-   'damaging_and_goodfaith', 'DiffToPrevious', NOW(), 1, 10, True);
+   'damaging_and_goodfaith', 'DiffToPrevious', '', NOW(), 1, 10, True);
 
 
 TRUNCATE task CASCADE;

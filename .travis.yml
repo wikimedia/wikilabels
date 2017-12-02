@@ -19,6 +19,7 @@ before_script:
     - psql -c "CREATE DATABASE wikilabels;" -U postgres
     - psql -c "GRANT ALL PRIVILEGES ON DATABASE wikilabels to wikilabels;" -U postgres
     - psql wikilabels < wikilabels/database/schema.sql -U wikilabels
+    - psql wikilabels < wikilabels/database/schema-testdata.sql -U wikilabels
 
 script:
   - flake8 . --ignore=E722

@@ -1,4 +1,4 @@
-from .routes_fixture import app  # noqa
+from .routes_test_fixture import app  # noqa
 
 
 def test_auth(client):

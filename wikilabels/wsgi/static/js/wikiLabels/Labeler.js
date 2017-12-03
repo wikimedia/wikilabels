@@ -207,7 +207,7 @@
 				this.worksetActivated.fire( this, workset );
 			}.bind( this ) )
 			.fail( function ( doc ) {
-				alert( doc.code + ': ' + doc.message );
+				alert( doc.message );
 			} );
 	};
 	Campaign.prototype.updateButtonState = function () {

@@ -155,7 +155,7 @@ class Campaigns(Collection):
                     labels_per_task,
                     tasks_per_assignment,
                     active,
-                    campaign.info_url,
+                    campaign.info_url
                 FROM workset
                 INNER JOIN campaign ON campaign_id = campaign.id
                 WHERE user_id = %(user_id)s

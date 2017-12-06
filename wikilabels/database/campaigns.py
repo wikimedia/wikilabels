@@ -112,10 +112,10 @@ class Campaigns(Collection):
             rows = cursor.fetchall()
             return len(rows) > 0
 
-    def for_wiki(self, wiki, stats=False):
+    def for_wiki(self, wiki, stats=False, all_=False):
         with self.db.transaction() as transactor:
             cursor = transactor.cursor()
-            cursor.execute("""
+            query = """
                 SELECT
                     campaign.id,
                     campaign.name,
@@ -129,10 +129,12 @@ class Campaigns(Collection):
                     campaign.info_url
                 FROM campaign
                 WHERE
-                    wiki = %(wiki)s AND
-                    active
-            """, {'wiki': wiki})
+                    wiki = %(wiki)s
+            """
+            if not all_:
+                query += "AND active"
 
+            cursor.execute(query, {'wiki': wiki})
             rows = []
             for row in cursor:
                 if stats:

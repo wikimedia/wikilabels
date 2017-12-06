@@ -24,26 +24,20 @@ def configure(bp, config, db):
 
     @bp.route("/campaigns/<wiki>/", methods=["GET"])
     def get_wiki(wiki):
-        """
-        Returns a list of campaigns available for this particular wiki.
-        """
-        if 'create' in request.args:
-            create_campaign(wiki, request.args['create'])
-        else:
-            stats = request.args.get('campaigns') == "stats"
-            return jsonify(
-                {
-                    "wiki": wiki,
-                    "campaigns": db.campaigns.for_wiki(wiki, stats)
-                }
-            )
+        """Return a list of campaigns available for this particular wiki."""
+        stats = request.args.get('campaigns') == "stats"
+        all_ = 'all' in request.args
+        return jsonify(
+            {
+                "wiki": wiki,
+                "campaigns": db.campaigns.for_wiki(wiki, stats, all_)
+            }
+        )
 
     @bp.route("/campaigns/<wiki>/", methods=["POST"])
     @preprocessors.authenticated
     def create_campaign(wiki, campaign=None):
-        """
-        Creates a new campaign
-        """
+        """Create a new campaign."""
         campaign = json.loads(campaign or request.form.get('campaign'))
 
         return responses.not_implemented("Create campaign")

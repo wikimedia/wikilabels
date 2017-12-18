@@ -4,13 +4,14 @@
 			"Vitorvicentevalente",
 			"Gato Preto",
 			"He7d3r",
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"MokaAkashiyaPT"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "O campo '$1' não foi preenchido. Enviar mesmo assim?",
-	"Abandon": "Pular",
-	"Are you sure that you want to abandon this task?": "Tem a certeza que deseja pular para a próxima tarefa?",
-	"Campaigns": "Campanhas",
+	"Abandon": "Saltar",
+	"Are you sure that you want to abandon this task?": "Tem a certeza que deseja saltar para a próxima tarefa?",
+	"Campaigns": "Campanhas (<a href=\"$1\">estatísticas</a>)",
 	"Can't save label. No task is selected!": "Não é possível gravar o rótulo. Não foi selecionada nenhuma tarefa!",
 	"Could not get metadata for revision $1": "Não foi possível obter metadados para a edição $1. Ao clicar em \"Pular\", pulará esta tarefa",
 	"Could not load form \"$1\": \n$2": "Não foi possível carregar o formulário \"$1\": \n$2",
@@ -22,13 +23,17 @@
 	"Request new workset": "Solicitar um novo grupo de tarefas",
 	"Review": "Rever",
 	"Save": "Gravar e continuar",
+	"License": "Quaisquer rótulos fornecidos serão lançados publicamente sob os termos da licença CC0 -- Domínio Público",
 	"Submit label": "Submeter o rótulo",
 	"Workset": "Grupo",
 	"Workset complete!": "Conjunto de trabalho concluí­do!",
 	"connect to server": "ligar ao servidor",
 	"date-format": "%d-%m-%Y",
 	"fullscreen": "Ecrã completo",
+	"exit fullscreen": "Sair do ecrã inteiro",
 	"open": "abrir",
 	"request workset": "solicitar um grupo de tarefas",
-	"review": "Rever"
+	"review": "Rever",
+	"maintenance notice": "Os rótulos wiki serão desativados para manutenção em $1. Consulte $2 para mais informações.",
+	"more-info": "(<a href=\"$1\">Mais informações</a>)"
 }

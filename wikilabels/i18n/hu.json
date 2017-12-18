@@ -10,7 +10,7 @@
 	"'$1' not completed. Submit anyway?": "A(z) „$1” mező még nincs kitöltve. Mégis elküldöd?",
 	"Abandon": "Kihagyás",
 	"Are you sure that you want to abandon this task?": "Biztosan ki akarod hagyni ezt a feladatot?",
-	"Campaigns": "Kampányok (<a href=\"%1\">statisztika</a>)",
+	"Campaigns": "Kampányok (<a href=\"$1\">statisztika</a>)",
 	"Can't save label. No task is selected!": "Nem tudom elmenteni az osztályozást, egyik feladat sincs kiválasztva!",
 	"Could not get metadata for revision $1": "Nem sikerült lekérni a(z) $1 lapváltozat adatait. A folytatáshoz kattints a „Kihagyás” gombra.",
 	"Could not load form \"$1\": \n$2": "Nem sikerült betölteni a(z) „$1” űrlapot:\n$2",

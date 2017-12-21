@@ -1,24 +1,35 @@
 {
 	"@metadata": {
 		"authors": [
-			"Thibaut120094"
+			"Thibaut120094",
+			"Yusuke1109"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "'$1'は完了してません。本当に送信しますか？",
-	"Abandon": "放棄",
-	"Campaigns": "作戦",
+	"'$1' not completed. Submit anyway?": "'$1'は完了していません。本当に送信しますか？",
+	"Abandon": "スキップ",
+	"Are you sure that you want to abandon this task?": "次のタスクにスキップしてもよろしいですか？",
+	"Campaigns": "キャンペーン(<a href=\"$1\">統計情報</a>)",
+	"Can't save label. No task is selected!": "ラベルを保存できません。タスクは選択されていません！",
+	"Could not get metadata for revision $1": "リビジョン$1のメタデータを取得できませんでした。「スキップ」ボタンをクリックすると、このタスクはスキップされます。",
+	"Could not load form \"$1\": \n$2": "フォーム \"$1\"を読み込めませんでした:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "ビュー \"$1\"を読み込めませんでした:$2\nシンプルタスクビューアを使用する。",
+	"Could not load workset list: $1": "ワークセットリストを読み込めませんでした:$1",
+	"Could not parse MediaWiki API's response": "MediaWiki APIの応答を解析できませんでした",
 	"Diff for revision $1": "版$1の差分",
 	"No difference": "差分なし",
 	"Request new workset": "新しい作業単位を要請する",
 	"Review": "レビュー",
-	"Save": "保存",
+	"Save": "保存して次へ",
 	"Submit label": "付箋を送信",
 	"Workset": "作業単位",
 	"Workset complete!": "作業単位は完了しました！",
 	"connect to server": "サーバーに接続",
 	"date-format": "%Y年%m月%d日",
 	"fullscreen": "全画面",
+	"exit fullscreen": "全画面表示を終了",
 	"open": "開く",
 	"request workset": "作業単位を要請",
-	"review": "レビュー"
+	"review": "レビュー",
+	"maintenance notice": "Wikiのラベルは、保守のため$1でダウンしています。詳細については、$2を参照してください。",
+	"more-info": "（<a href=\"$1\">詳細</a>）"
 }

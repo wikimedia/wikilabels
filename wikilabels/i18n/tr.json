@@ -1,25 +1,36 @@
 {
 	"@metadata": {
 		"authors": [
-			"Archaeodontosaurus"
+			"Archaeodontosaurus",
+			"Hedda"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "'$1' tamamlanmadı. Genede sunulsun mu?",
-	"Abandon": "Terket",
-	"Are you sure that you want to abandon this task?": "Bu görevi terk etmek istediğinizden emin misiniz?",
-	"Campaigns": "Girişimler",
+	"'$1' not completed. Submit anyway?": "'$1' tamamlanmadı. Yine de sunulsun mu?",
+	"Abandon": "Atla",
+	"Are you sure that you want to abandon this task?": "Sıradaki görevi terk etmek istediğinizden emin misiniz?",
+	"Campaigns": "Kampanyalar(<a href=\"$1\">istatistikler</a>)",
+	"Can't save label. No task is selected!": "Etiket kaydedilemiyor. Hiçbir görev seçilmedi!",
+	"Could not get metadata for revision $1": "$1 revizyonu için meta veriler alınamadı. \"Atla\" düğmesine basarak bu görevi atlayın",
+	"Could not load form \"$1\": \n$2": "\"$1\" formu yüklenemedi:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "\"$1\": $2 görüntüsü yüklenemedi\nBasit görev görüntüleyici kullanma",
+	"Could not load workset list: $1": "İş seti listesi yüklenemedi: $1",
+	"Could not parse MediaWiki API's response": "MediaWiki API'sının yanıtını çözümleyemedi",
 	"Diff for revision $1": "$1 değisikliği için diff",
 	"No difference": "Fark yoktur",
 	"Request new workset": "Yeni iş kümesi iste",
 	"Review": "İncele",
-	"Save": "Kaydet",
+	"Save": "Kaydet ve ilerle",
+	"License": "Sağlanan tüm etiketler CC0 -- Public Domain şartları altında kamuya açıklanacak ve lisanslanacaktır.",
 	"Submit label": "Etiketi sun",
 	"Workset": "İş kümesi",
 	"Workset complete!": "İş kümesi tamamlandı!",
 	"connect to server": "sunucuya bağlan",
 	"date-format": "%Y-%m-%d",
-	"fullscreen": "tam ekran",
+	"fullscreen": "Tam ekran",
+	"exit fullscreen": "Tam ekrandan çık",
 	"open": "açık",
 	"request workset": "iş kümesi iste",
-	"review": "incele"
+	"review": "incele",
+	"maintenance notice": "Viki etiketleri $1 tarihinde bakım için çalışmayacak. Daha fazla için $2 sayfasına bakınız.",
+	"more-info": "(<a href=\"$1\">Daha fazla bilgi</a>)"
 }

@@ -3,7 +3,7 @@ from .errors import NotFoundError
 
 
 class Campaigns(Collection):
-    def __init__():
+    def __init__(self):
         with self.db.transaction() as transactor:
             cursor = transactor.cursor()
             cursor.execute("""SELECT setval('campaign_id_seq'

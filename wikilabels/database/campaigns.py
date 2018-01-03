@@ -3,6 +3,12 @@ from .errors import NotFoundError
 
 
 class Campaigns(Collection):
+    def __init__(self):
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("""SELECT setval('campaign_id_seq'
+            ,(SELECT max(id) FROM campaign));
+            """)
     def create(self, wiki, name, form, view, labels_per_task,
                tasks_per_assignment, active, info_url):
         with self.db.transaction() as transactor:

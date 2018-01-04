@@ -44,7 +44,8 @@ class DB:
         try:
             yield conn
             conn.commit()
-        except:
+        except:  # noqa: E722
+            # We're fine with the bare except cos we raise in any case.
             conn.rollback()
             raise
         finally:

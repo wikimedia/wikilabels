@@ -72,7 +72,7 @@ def tests_worksets_foruser():
     if dbs.workset.for_user() is not None:
         assert True
 
-def test_worksets_openworksetsforuser()
+def test_worksets_openworksetsforuser():
     if dbs.worksets.open_workset_for_user(1, user) is not None:
         assert True
 

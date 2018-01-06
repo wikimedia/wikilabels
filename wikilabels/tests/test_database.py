@@ -66,7 +66,7 @@ def tests_worksets_forcampaign():
     assert dbs.worksets.for_campaign(1)
 
 def tests_worksets_foruser():
-    assert dbs.worksets.for_user()
+    assert dbs.worksets.for_user(user)
 
 def test_worksets_openworksetsforuser():
     assert dbs.worksets.open_workset_for_user(1, user)

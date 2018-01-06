@@ -78,7 +78,7 @@ def test_worksets_users():
     assert dbs.worksets.users()
 
 def test_worksets_abandon():
-    assert dbs.worksets.abandon(2, user)
+    assert dbs.worksets.abandon(1, user)
 
 def test_worksets_abandontask():
     assert dbs.worksets.abandon_task(1, user, 1)

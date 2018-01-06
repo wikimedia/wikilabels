@@ -130,6 +130,9 @@ class Worksets(Collection):
     def assign(self, campaign_id, user_id, stats=False):
         with self.db.transaction() as transactor:
             cursor = transactor.cursor()
+            cursor.execute("""SELECT setval('campaign_id_seq'
+                                    ,(SELECT max(id) FROM campaign));
+                                    """)
             campaign = self.db.campaigns.get(campaign_id)
             if not campaign['active']:
                 raise IntegrityError("Campaign {0} not active."

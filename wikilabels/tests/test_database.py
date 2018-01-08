@@ -47,7 +47,6 @@ def test_campaign_users():
 
 def test_labels_upsertupdate():
     item = dbs.labels.upsert(1, 608705, '{"damaging": true, "good-faith": true}')
-    if item['data'] is not '{"damaging": true, "good-faith": false}':
         assert True
 
 def test_labels_CRUD():

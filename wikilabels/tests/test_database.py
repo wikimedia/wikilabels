@@ -22,10 +22,7 @@ def test_campaign_checkwikiexists():
     assert dbs.campaigns.wiki_name_exists(item1.get('wiki'), item1.get('name'))
 
 def test_campaign_getitems():
-    if not dbs.campaigns.get(1):
-        print('Item id 1 for unknown reason is cannot be found')
-        assert False
-    assert True
+    assert dbs.campaigns.get(1)
 
 def test_campaign_statsfor():
     assert dbs.campaigns.stats_for(1)
@@ -46,8 +43,7 @@ def test_campaign_users():
     assert dbs.campaigns.users(1)
 
 def test_labels_upsertupdate():
-    item = dbs.labels.upsert(1, 608705, '{"damaging": true, "good-faith": true}')
-        assert True
+    assert dbs.labels.upsert(1, 608705, '{"damaging": true, "good-faith": true}')
 
 def test_labels_CRUD():
     if dbs.labels.insert(3, user, '{"damaging": true, "good-faith": true}') is not None:

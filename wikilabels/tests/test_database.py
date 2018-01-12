@@ -5,9 +5,9 @@ item1 = {'wiki': "cawiki", 'name': "ching", 'form': "chan",
          'task_per_task': 50, 'active': True,
          'info_url': "https://www.mediawiki.org/wiki/ORES#Edit_quality"}
 
-dbs = db.DB(1, 5, database="wikilabels", 
+dbs = db.DB(1, 5, database="wikilabels",
             user="wikilabels", password="wikilabels-admin")
-# args untuk minconn dan maxconn. 
+# args untuk minconn dan maxconn.
 # kwargs untuk beri nama user, dns, dll ada di laporan travis no 25
 
 user = 608705
@@ -16,7 +16,8 @@ user = 608705
 def test_campaign_create():
     assert dbs.campaigns.create(item1.get('wiki'), item1.get('name'),
                                 item1.get('form'), item1.get('view'),
-                                item1.get('labels_per_task'), item1.get('task_per_task'),
+                                item1.get('labels_per_task'),
+                                item1.get('task_per_task'),
                                 item1.get('active'), item1.get('info_url'))
 
 
@@ -53,7 +54,9 @@ def test_campaign_users():
 
 
 def test_labels_upsertupdate():
-    assert dbs.labels.upsert(1, 608705, '{"damaging": true, "good-faith": true}')
+    assert dbs.labels.upsert(1, 608705,
+                             '{"damaging": true,
+                             "good-faith": true}')
 
 
 def test_labels_CRUD():

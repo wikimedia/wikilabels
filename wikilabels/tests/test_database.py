@@ -61,7 +61,7 @@ def test_labels_upsertupdate():
 
 def test_labels_CRUD():
     assert dbs.labels.insert(3, user, '{"damaging": true, "good-faith": true}')
-    assert dbs.labels.update(3, user,
+    assert dbs.labels.update(3, user, 
                              '{"damaging": false, "good-faith": true}')
     assert dbs.labels.clear_data(3, user)
 

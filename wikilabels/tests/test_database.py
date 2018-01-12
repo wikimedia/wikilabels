@@ -1,6 +1,9 @@
 import pytest
+
 import os
+
 from wikilabels.database import db
+
 import yamlconf
 
 item1 = {'wiki' : "cawiki", 'name' : "ching", 'form' : "chan", 'view' : "bivicyt", 'labels_per_task' : 1,
@@ -46,10 +49,9 @@ def test_labels_upsertupdate():
     assert dbs.labels.upsert(1, 608705, '{"damaging": true, "good-faith": true}')
 
 def test_labels_CRUD():
-    if dbs.labels.insert(3, user, '{"damaging": true, "good-faith": true}') is not None:
-        if dbs.labels.update(3, user, '{"damaging": false, "good-faith": true}') is not None:
-            if dbs.labels.clear_data(3, user) is not None:
-                assert True
+    assert dbs.labels.insert(3, user, '{"damaging": true, "good-faith": true}')
+    assert dbs.labels.update(3, user, '{"damaging": false, "good-faith": true}')
+    assert dbs.labels.clear_data(3, user)
 
 def tests_worksets_get():
     assert dbs.worksets.get(1)

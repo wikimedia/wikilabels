@@ -22,6 +22,11 @@ class DB:
         self.tasks = Tasks(self)
         self.labels = Labels(self)
         self.logger = logging.getLogger(__name__)
+        with self.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("""
+            SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
+                        """)
 
     def _initialize_pool(self):
         if self.pool is None:
@@ -57,5 +62,4 @@ class DB:
         params = {k: v for k, v in config['database'].items()}
         params['minconn'] = params.get('minconn', 1)
         params['maxconn'] = params.get('maxconn', 5)
-
         return cls(**params)

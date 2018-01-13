@@ -25,7 +25,7 @@ class DB:
         with self.transaction() as transactor:
             cursor = transactor.cursor()
             cursor.execute("""
-                SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
+            SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
                         """)
 
     def _initialize_pool(self):

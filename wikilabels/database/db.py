@@ -24,8 +24,8 @@ class DB:
         self.logger = logging.getLogger(__name__)
         with self.transaction() as transactor:
             cursor = transactor.cursor()
-            cursor.execute("""SELECT setval('campaign_id_seq'
-                        ,(SELECT max(id) FROM campaign));
+            cursor.execute("""
+                SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
                         """)
 
     def _initialize_pool(self):

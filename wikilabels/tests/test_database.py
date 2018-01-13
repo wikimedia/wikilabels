@@ -7,8 +7,6 @@ item1 = {'wiki': "cawiki", 'name': "ching", 'form': "chan",
 
 dbs = db.DB(1, 5, database="wikilabels",
             user="wikilabels", password="wikilabels-admin")
-# args untuk minconn dan maxconn.
-# kwargs untuk beri nama user, dns, dll ada di laporan travis no 25
 
 user = 608705
 

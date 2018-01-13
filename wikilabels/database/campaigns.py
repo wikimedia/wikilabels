@@ -8,8 +8,8 @@ class Campaigns(Collection):
                tasks_per_assignment, active, info_url):
         with self.db.transaction() as transactor:
             cursor = transactor.cursor()
-            cursor.execute("""SELECT setval('campaign_id_seq'
-                        ,(SELECT max(id) FROM campaign));
+            cursor.execute("""
+                SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
                         """)
             cursor.execute("""
                 INSERT INTO campaign

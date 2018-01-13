@@ -9,7 +9,7 @@ class Campaigns(Collection):
         with self.db.transaction() as transactor:
             cursor = transactor.cursor()
             cursor.execute("""
-                SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
+            SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
                         """)
             cursor.execute("""
                 INSERT INTO campaign

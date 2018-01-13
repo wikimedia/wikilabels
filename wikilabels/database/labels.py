@@ -25,9 +25,6 @@ class Labels(Collection):
     def insert(self, task_id, user_id, data):
         with self.db.transaction() as transactor:
             cursor = transactor.cursor()
-            cursor.execute("""SELECT setval('campaign_id_seq'
-                                    ,(SELECT max(id) FROM campaign));
-                                    """)
             cursor.execute("""
             INSERT INTO label VALUES
               (%(task_id)s, %(user_id)s, NOW(), %(data)s)

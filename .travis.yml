@@ -23,6 +23,7 @@ before_script:
 
 script:
   - flake8 . --ignore=E722
+  - flake8 --doctest
   - timeout --preserve-status 8s wikilabels dev_server
   - ./node_modules/.bin/eslint .
   - ./node_modules/.bin/stylelint "wikilabels/wsgi/static/css/*.css"

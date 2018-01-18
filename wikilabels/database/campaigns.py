@@ -9,9 +9,6 @@ class Campaigns(Collection):
         with self.db.transaction() as transactor:
             cursor = transactor.cursor()
             cursor.execute("""
-            SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
-                        """)
-            cursor.execute("""
                 INSERT INTO campaign
                 (name, wiki, form, view, labels_per_task,
                  tasks_per_assignment, active, created)

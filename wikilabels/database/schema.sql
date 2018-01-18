@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS campaign (
   form                 VARCHAR(255),
   view                 VARCHAR(255),
   info_url             VARCHAR(2000),
-  created              TIMESTAMP,
+  created              TIMESTAMP DEFAULT NOW(),
   labels_per_task      INT,
   tasks_per_assignment INT,
   active               BOOLEAN,
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS task (
 CREATE TABLE IF NOT EXISTS label (
   task_id   INT,
   user_id   INT,
-  timestamp TIMESTAMP,
+  timestamp TIMESTAMP DEFAULT NOW(),
   data      JSON,
   PRIMARY KEY(task_id, user_id)
 );

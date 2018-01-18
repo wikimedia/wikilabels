@@ -12,10 +12,11 @@ user = 608705
 
 
 def test_campaign_create():
-    cursor.execute("""
-    SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
-    """)
-    assert dbs.campaigns.create(item1.get('wiki'), item1.get('name'),
+    with dns.db.transaction() as transactor:
+        cursor.execute("""
+        SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
+        """)
+        assert dbs.campaigns.create(item1.get('wiki'), item1.get('name'),
                                 item1.get('form'), item1.get('view'),
                                 item1.get('labels_per_task'),
                                 item1.get('task_per_task'),
@@ -87,9 +88,10 @@ def test_worksets_openworksetsforuser():
 
 
 def test_worksets_assign():
-    cursor.execute("""
-    SELECT setval('workset_id_seq',(SELECT max(id) FROM workset));
-    """)
+    with dbs.db.transaction() as transactor:
+        cursor.execute("""
+        SELECT setval('workset_id_seq',(SELECT max(id) FROM workset));
+        """)
     assert dbs.worksets.assign(2, user)
 
 

@@ -18,12 +18,17 @@ def test_campaign_create():
         SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
         """)
         assert dbs.campaigns.create(item1.get('wiki'), item1.get('name'),
+    assert dbs.campaigns.create(item1.get('wiki'), item1.get('name'),
                                 item1.get('form'), item1.get('view'),
                                 item1.get('labels_per_task'),
                                 item1.get('task_per_task'),
                                 item1.get('active'), item1.get('info_url'))
 
-         
+
+def test_campaign_checkwikiexists():
+    assert dbs.campaigns.wiki_name_exists(item1.get('wiki'), item1.get('name'))
+
+                                    
 def test_campaign_getitems():
     assert dbs.campaigns.get(1)
 

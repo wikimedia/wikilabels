@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "'U cambe \"$1\" non g'ha state anghiute. Conferme 'u stesse?",
+	"Abandon": "Zumbe",
+	"Are you sure that you want to abandon this task?": "Si secure ca vue ccu zumbe a 'a prossema attività?",
+	"Campaigns": "Cambagne (<a href=\"$1\">statisteche</a>)",
+	"Can't save label. No task is selected!": "Non ge se pò reggistrà l'etichette. Nisciune attività ha state scacchiate!",
+	"Review": "Revisite",
+	"Save": "Reggiste e vè nnande",
+	"open": "iapre",
+	"review": "revide"
+}

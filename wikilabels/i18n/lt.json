@@ -2,14 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Zygimantus",
-			"Eitvys200"
+			"Eitvys200",
+			"Manvydasz"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "Laukelis „$1“ nebuvo užpildytas.  Vistiek siųsti?",
+	"'$1' not completed. Submit anyway?": "Laukelis „$1“ nebuvo užpildytas. Pateikti vistiek?",
 	"Abandon": "Praleisti",
-	"Are you sure that you want to abandon this task?": "Ar tikrai norite apleisti šią užduotį?",
-	"Campaigns": "Kampanijos (<a href=\"$1\">statisyika</a>)",
+	"Are you sure that you want to abandon this task?": "Ar esate tikri, kad norite pereiti prie kitos užduoties?",
+	"Campaigns": "Kampanijos (<a href=\"$1\">statistika</a>)",
+	"Could not get metadata for revision $1": "Nepavyko gauti metaduomenų $1 versijos. Spustelėdami mygtuką „Praleisti“, praleisite šią užduotį",
 	"Could not load form \"$1\": \n$2": "Nepavyko įkelti iš „$1“:\n$2",
+	"Diff for revision $1": "$1 versijos skirtumai",
 	"No difference": "Jokio skirtumo",
 	"Review": "Apžvalga",
 	"Save": "Išsaugoti ir kitas",
@@ -19,5 +22,6 @@
 	"fullscreen": "Pilnas ekranas",
 	"exit fullscreen": "Išeiti iš viso ekrano režimo",
 	"open": "atvira",
-	"review": "Apžvalga"
+	"review": "Apžvalga",
+	"more-info": "(<a href=\"$1\">Daugiau informacijos</a>)"
 }

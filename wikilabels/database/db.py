@@ -22,6 +22,11 @@ class DB:
         self.tasks = Tasks(self)
         self.labels = Labels(self)
         self.logger = logging.getLogger(__name__)
+        with self.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("""
+            SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
+                        """)
 
     def _initialize_pool(self):
         if self.pool is None:
@@ -44,7 +49,8 @@ class DB:
         try:
             yield conn
             conn.commit()
-        except:
+        except:  # noqa: E722
+            # We're fine with the bare except cos we raise in any case.
             conn.rollback()
             raise
         finally:

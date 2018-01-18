@@ -6,7 +6,7 @@
 			"Townie"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "El camp \"$1\" no és ple. Voleu enviar de totes maneres?",
+	"'$1' not completed. Submit anyway?": "El camp «$1» no és ple. Voleu enviar-lo de totes maneres?",
 	"Abandon": "Salta",
 	"Are you sure that you want to abandon this task?": "Esteu segur que voleu saltar a la següent tasca?",
 	"Campaigns": "Campanyes (<a href=\"$1\">estadístiques</a>)",

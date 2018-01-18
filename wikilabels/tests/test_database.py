@@ -13,6 +13,7 @@ user = 608705
 
 def test_campaign_create():
     with dbs.transaction() as transactor:
+        cursor = transactor.cursor()
         cursor.execute("""
         SELECT setval('campaign_id_seq',(SELECT max(id) FROM campaign));
         """)
@@ -85,6 +86,7 @@ def test_worksets_openworksetsforuser():
 
 def test_worksets_assign():
     with dbs.transaction() as transactor:
+        cursor = transactor.cursor()
         cursor.execute("""
         SELECT setval('workset_id_seq',(SELECT max(id) FROM workset));
         """)

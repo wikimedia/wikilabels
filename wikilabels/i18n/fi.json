@@ -13,7 +13,7 @@
 	"'$1' not completed. Submit anyway?": "Kenttä \"$1\" on tyhjä. Haluatko jatkaa silti?",
 	"Abandon": "Jätä väliin",
 	"Are you sure that you want to abandon this task?": "Oletko varma, että haluat ohittaa tämän tehtävän?",
-	"Campaigns": "Kampanjat",
+	"Campaigns": "Campaigns (<a href=\"$1\">tilastot</a>)",
 	"Can't save label. No task is selected!": "Etikettiä ei voida tallentaa. Tehtävää ei ole valittu!",
 	"Could not get metadata for revision $1": "Ei saatu haettua metadataa muutokselle $1. Voit ohittaa tämän näytteen painamalla \"Jätä väliin\" nappia.",
 	"Could not load form \"$1\": \n$2": "Ei voitu ladata lomaketta \"$1\": \n$2",
@@ -36,5 +36,6 @@
 	"open": "avoin",
 	"request workset": "pyydä tehtäväaineistoa",
 	"review": "Tarkasta",
-	"maintenance notice": "Wiki labels on pois käytöstä $1 huoltotöiden takia. Katso sivulta $2 lisätietoja."
+	"maintenance notice": "Wiki labels on pois käytöstä $1 huoltotöiden takia. Katso sivulta $2 lisätietoja.",
+	"more-info": "(<a href=\"$1\">Lisätietoja</a>)"
 }

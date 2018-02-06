@@ -11,10 +11,10 @@ class Campaigns(Collection):
             cursor.execute("""
                 INSERT INTO campaign
                 (name, wiki, form, view, labels_per_task,
-                 tasks_per_assignment, active, created)
+                 tasks_per_assignment, active, info_url, created)
                 VALUES (%(name)s, %(wiki)s, %(form)s, %(view)s,
                         %(labels_per_task)s, %(tasks_per_assignment)s,
-                        %(active)s, NOW()) RETURNING *
+                        %(active)s, %(info_url)s, NOW()) RETURNING *
             """, {'wiki': wiki,
                   'name': name,
                   'form': form,

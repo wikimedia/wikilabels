@@ -4,7 +4,7 @@ Creates a new campaign
 Usage:
     new_campaign -h | --help
     new_campaign <wiki> <name> <form> <view> <labels-per-task>
-                 <tasks-per-assignment> [--config=<path>] [--force]
+                 <tasks-per-assignment> <info-url> [--config=<path>] [--force]
 
 Arguments:
     <wiki>                  Wiki database id, for example fawiki, dewiki, etc.
@@ -15,6 +15,8 @@ Arguments:
     <labels-per-task>       The number times a task can be assigned to
                             different labelers
     <tasks-per-assignment>  The number of tasks assigned per workset
+    <info-url>              HTTP address to a more detailed information about 
+                            the Campaign
 
 Options:
     -h --help               Prints this documentation
@@ -43,17 +45,18 @@ def main(argv=None):
     view = args['<view>']
     labels_per_task = args['<labels-per-task>']
     tasks_per_assignment = args['<tasks-per-assignment>']
+    info_url = args['<info-url>']
     config_paths = os.path.join(args['--config'], "*.yaml")
     config = yamlconf.load(*(open(p) for p in
                              sorted(glob.glob(config_paths))))
     db = DB.from_config(config)
     force = args['--force']
     run(db, wiki, name, form, view, labels_per_task, tasks_per_assignment,
-        force)
+        force, info_url)
 
 
 def run(db, wiki, name, form, view, labels_per_task, tasks_per_assignment,
-        force):
+        force, info_url):
 
     if not force and db.campaigns.wiki_name_exists(wiki, name):
         logger.error("Duplicate campaign: {1} already exists for {2}.  "
@@ -64,7 +67,7 @@ def run(db, wiki, name, form, view, labels_per_task, tasks_per_assignment,
     logger.info('Inserting a new campaign {name} in {wiki}'
                 .format(name=name, wiki=wiki))
     row = db.campaigns.create(wiki, name, form, view, labels_per_task,
-                              tasks_per_assignment, True)
+                              tasks_per_assignment, True, info_url)
     if not row:
         logger.error("Could not make the campaign, please check "
                      "database logs")

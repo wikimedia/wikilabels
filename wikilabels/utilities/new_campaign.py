@@ -15,7 +15,7 @@ Arguments:
     <labels-per-task>       The number times a task can be assigned to
                             different labelers
     <tasks-per-assignment>  The number of tasks assigned per workset
-    <info-url>              HTTP address to a more detailed information about 
+    <info-url>              HTTP address to a more detailed information about
                             the Campaign
 
 Options:

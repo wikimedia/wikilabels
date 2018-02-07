@@ -4,13 +4,16 @@ import pytest
 item = {'wiki': "cawiki", 'name': "newiki", 'form': "chan",
         'view': "bivicyt", 'labels_per_task': "1",
         'task_per_task': "50", 'active': True,
-        'info_url': "https://www.mediawiki.org/wiki/ORES#Edit_quality"}
+        'info_url': "--info-url=https://www.mediawiki.org/wiki/ORES#Edit_quality"}
 
 repeated = {'wiki': "cawiki", 'name': "repeated", 'form': "chan",
             'view': "bivicyt", 'labels_per_task': "1",
             'task_per_task': "50", 'active': True,
-            'info_url': "https://www.mediawiki.org/wiki/ORES#Edit_quality"}
+            'info_url': "--info-url=https://www.mediawiki.org/wiki/ORES#Edit_quality"}
 
+optional = {'wiki': "cawiki", 'name': "optional", 'form': "chan",
+        'view': "bivicyt", 'labels_per_task': "1",
+        'task_per_task': "50", 'active': True}
 
 def test_create_campaign():
     main([item["wiki"], item['name'],
@@ -32,3 +35,9 @@ def test_create_campaign_fail():
     insert_repeated()
     with pytest.raises(Exception):
         insert_repeated()
+
+def test_create_campaign_optional_infourl():
+    main([optional["wiki"], optional['name'],
+          optional['form'], optional['view'],
+          optional['labels_per_task'],
+          optional['task_per_task']])

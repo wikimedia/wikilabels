@@ -4,7 +4,7 @@ Creates a new campaign
 Usage:
     new_campaign -h | --help
     new_campaign <wiki> <name> <form> <view> <labels-per-task>
-                 <tasks-per-assignment> <info-url> [--config=<path>] [--force]
+                 <tasks-per-assignment> [--info-url=<info-url>] [--config=<path>] [--force]
 
 Arguments:
     <wiki>                  Wiki database id, for example fawiki, dewiki, etc.
@@ -15,11 +15,11 @@ Arguments:
     <labels-per-task>       The number times a task can be assigned to
                             different labelers
     <tasks-per-assignment>  The number of tasks assigned per workset
-    <info-url>              HTTP address to a more detailed information about
-                            the Campaign
 
 Options:
     -h --help               Prints this documentation
+    --info-url=<info-url>   HTTP address to a more detailed information about
+                            the Campaign
     --config=<path>         Path to a config directory to use when connecting
                             to the database [default: config/]
     --force                 Ignore name clashes when creating the campaign
@@ -45,7 +45,7 @@ def main(argv=None):
     view = args['<view>']
     labels_per_task = args['<labels-per-task>']
     tasks_per_assignment = args['<tasks-per-assignment>']
-    info_url = args['<info-url>']
+    info_url = args['--info-url']
     config_paths = os.path.join(args['--config'], "*.yaml")
     config = yamlconf.load(*(open(p) for p in
                              sorted(glob.glob(config_paths))))

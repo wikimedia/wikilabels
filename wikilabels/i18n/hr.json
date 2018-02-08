@@ -4,13 +4,14 @@
 			"Ivi104",
 			"Srdjan m",
 			"Wumbolo",
-			"Bugoslav"
+			"Bugoslav",
+			"Zoranzoki21"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Polje \"$1\" nije popunjeno. Svejedno nastaviti?",
 	"Abandon": "Preskoči",
 	"Are you sure that you want to abandon this task?": "Jeste li sigurni da želite prijeći na sljedeći zadatak?",
-	"Campaigns": "Kampanje",
+	"Campaigns": "Kampanje (<a href=\"$1\">statistike</a>)",
 	"Can't save label. No task is selected!": "Nemoguće spremiti oznaku. Nije odabran zadatak!",
 	"Could not get metadata for revision $1": "Nemoguće učitati metapodatke za izmjenu $1. Preskočite zadatak",
 	"Could not load form \"$1\": \n$2": "Nemoguće učitati obrazac \"$1\": \n$2",
@@ -33,5 +34,6 @@
 	"open": "otvoreno",
 	"request workset": "zatraži zadatke",
 	"review": "Pregled",
-	"maintenance notice": "Wikioznake neće biti dostupne $1 zbog održavanja. Za više informacija pogledajte $2"
+	"maintenance notice": "Wikioznake neće biti dostupne $1 zbog održavanja. Za više informacija pogledajte $2",
+	"more-info": "(<a href=\"$1\">Više informacija</a>)"
 }

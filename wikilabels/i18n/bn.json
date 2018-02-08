@@ -8,13 +8,14 @@
 			"Rasal Lia"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "'$1' সম্পূর্ণ করা হয়নি। যাইহোক জমা দিবেন?",
+	"'$1' not completed. Submit anyway?": "'$1' সম্পূর্ণ করা হয়নি। যাইহোক জমা দেবেন?",
 	"Abandon": "বর্জন",
 	"Are you sure that you want to abandon this task?": "অাপনি কি নিশ্চিত যে অাপনি এটি বাদ দিয়ে পরের কাজে যাবেন?",
 	"Campaigns": "প্রচারাভিযান (<a href=\"$1\">পরিসংখ্যান</a>)",
 	"Can't save label. No task is selected!": "লেবেল সংরক্ষণ করা যায়নি। কোনও কৃত্য নির্বাচন করা হয়নি!",
 	"Could not get metadata for revision $1": "$1 পুনর্বিবেচনার জন্য মেটাউপাত্ত পাওয়া যায়নি। \"এড়ান\" বোতাম ক্লিক করার দ্বারা, এই কার্যটি এড়িয়ে যান",
 	"Could not load form \"$1\": \n$2": "ফর্ম \"$1\" লোড করা যায়নি:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "\"$1\": $2 প্রদর্শন লোড হয়নি\nসরল প্রদর্শক ব্যবহৃত হচ্ছে",
 	"Could not load workset list: $1": "কর্মধার্যের তালিকা লোড করা যায়নি:$1",
 	"Could not parse MediaWiki API's response": "মিডিয়াউইকি এপিআই প্রতিক্রিয়া পদান্বয় করা যায়নি",
 	"Diff for revision $1": "$1 সংস্করণের জন্য পার্থক্য",
@@ -33,5 +34,6 @@
 	"open": "খুলুন",
 	"request workset": "কাজের সেটের অনুরোধ করুন",
 	"review": "পর্যালোচনা",
-	"maintenance notice": "উইকি লেবেল $1 তারিখে রক্ষণাবেক্ষণের জন্য বন্ধ থাকবে। আরও তথ্যের জন্য $2 দেখুন।"
+	"maintenance notice": "উইকি লেবেল $1 তারিখে রক্ষণাবেক্ষণের জন্য বন্ধ থাকবে। আরও তথ্যের জন্য $2 দেখুন।",
+	"more-info": "(<a href=\"$1\">আরও তথ্য</a>)"
 }

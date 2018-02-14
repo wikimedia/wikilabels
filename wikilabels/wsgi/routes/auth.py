@@ -1,6 +1,5 @@
-from flask import redirect, request, session
+from flask import redirect, request, session, url_for
 from flask.ext.jsonpify import jsonify
-from urllib.parse import quote
 
 from .. import preprocessors, responses
 
@@ -62,14 +61,11 @@ def configure(bp, config, oauth):
         session['user'] = {'id': identity['sub']}
 
         if 'callback_wiki' not in session or not session['callback_wiki']:
-            url = request.url_root + 'ui/'
+            url = url_for('.ui')
         else:
-            url = request.url_root + 'ui/' + quote(session['callback_wiki']) \
-                + '/'
+            url = url_for('.ui_wiki', wiki=session['callback_wiki'])
 
-        content = '<meta http-equiv="refresh" content="0; url=' + url + '" />'
-        # Return to ui page
-        return content
+        return redirect(url)
 
     @bp.route("/auth/logout/")
     @preprocessors.authenticated

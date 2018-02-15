@@ -26,7 +26,9 @@ HOST_RULES = (
     (re.compile(r'(.*)wikiversity$'),
      lambda match: match.group(1) + ".wikiversity.org"),
     (re.compile(r'(.*)wikivoyage$'),
-     lambda match: match.group(1) + ".wikivoyage.org")
+     lambda match: match.group(1) + ".wikivoyage.org"),
+    (re.compile(r'(.*)wikisource$'),
+     lambda match: match.group(1) + ".wikisource.org")
 )
 
 

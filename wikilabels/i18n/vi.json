@@ -7,7 +7,7 @@
 	"'$1' not completed. Submit anyway?": "Trường “$1” chưa hoàn tất. Bạn vẫn muốn gửi đi?",
 	"Abandon": "Bỏ rơi",
 	"Are you sure that you want to abandon this task?": "Bạn có chắc chắn muốn bỏ qua đến việc làm sau?",
-	"Campaigns": "Chiến dịch",
+	"Campaigns": "Chiến dịch (<a href=\"$1\">thống kê</a>)",
 	"Can't save label. No task is selected!": "Không thể lưu nhãn vì chưa chọn việc làm.",
 	"Could not get metadata for revision $1": "Không thể lấy siêu dữ liệu của phiên bản $1. Bấm nút “Bỏ rơi” để bỏ qua việc làm này.",
 	"Could not load form \"$1\": \n$2": "Không thể tải biểu mẫu “$1”: \n$2",
@@ -30,5 +30,6 @@
 	"open": "mở",
 	"request workset": "yêu cầu gói công việc",
 	"review": "kiểm tra lại",
-	"maintenance notice": "Nhãn wiki cần tạm ngừng để quản lý máy móc vào $1. Xem thêm thông tin tại $2."
+	"maintenance notice": "Nhãn wiki cần tạm ngừng để quản lý máy móc vào $1. Xem thêm thông tin tại $2.",
+	"more-info": "(<a href=\"$1\">Thêm thông tin</a>)"
 }

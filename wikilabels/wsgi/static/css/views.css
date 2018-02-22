@@ -78,3 +78,6 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 .wikilabels-printable-page-as-of-revision iframe .wikibase-statementgrouplistview{
 	display: none;
 }
+.unsourced-statement {
+	background-color: #FFFF00;
+}

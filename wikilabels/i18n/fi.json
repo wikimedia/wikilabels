@@ -10,7 +10,7 @@
 			"Pahkiqaz"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "Kenttä \"$1\" on tyhjä. Haluatko jatkaa silti?",
+	"'$1' not completed. Submit anyway?": "Kenttää \"$1\" ei täytetty. Haluatko jatkaa silti?",
 	"Abandon": "Jätä väliin",
 	"Are you sure that you want to abandon this task?": "Oletko varma, että haluat ohittaa tämän tehtävän?",
 	"Campaigns": "Campaigns (<a href=\"$1\">tilastot</a>)",

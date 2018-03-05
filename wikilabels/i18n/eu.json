@@ -2,18 +2,36 @@
 	"@metadata": {
 		"authors": [
 			"Mikel Ibaiba",
-			"Subi"
+			"Subi",
+			"EukeneFL"
 		]
 	},
+	"'$1' not completed. Submit anyway?": "\"$1\" eremua ez da bete. Hala ere amaitutzat eman nahi duzu?",
+	"Abandon": "Jauzi",
 	"Are you sure that you want to abandon this task?": "Ziur zaude hurrengo atazetik irten nahi duzula?",
-	"Campaigns": "Kanpainak",
+	"Campaigns": "Kanpainak (<a href=\"$1\">stats</a>)",
+	"Can't save label. No task is selected!": "Ezin da marka gorde. Ez da eginbeharrik hautatu!",
+	"Could not get metadata for revision $1": "$1 berrikusteko metadata ezin izan da lortu. \"Salto egin\" klikatuz, eginbeharra saltatuko da.",
+	"Could not load form \"$1\": \n$2": "Ezin izan da inprimakia karga \"$1\":\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Ezin izan da \"$1 ikuspegia kargatu: $2\nZereginen ikuskatzaile sinplea erabiliz.",
+	"Could not load workset list: $1": "Workset zerrenda ezin izan da kargatu: $1",
+	"Could not parse MediaWiki API's response": "MediaWiki APIren erantzuna ezin izan da analizatu",
+	"Diff for revision $1": "Berrikuspenerako diff-a $1",
 	"No difference": "Ez dago alderik",
+	"Request new workset": "Eskatu lan-orri berria",
+	"Review": "Berrikusi",
 	"Save": "Gorde eta hurrengora",
+	"License": "Emandako etiketa guztiak argitaratuko dira publikoki eta CC0 lizentziaren terminoen arabera -- Domeinu Publikoa",
 	"Submit label": "Bidali etiketa",
+	"Workset": "Workset-a",
+	"Workset complete!": "Workset-a bete da!",
 	"connect to server": "konektatu zerbitzarira",
 	"date-format": "%Y-%m-%d",
 	"fullscreen": "Pantaila osoa",
 	"exit fullscreen": "Irten pantaila osotik",
 	"open": "ireki",
-	"review": "Berrikusi"
+	"request workset": "Workset eskaera",
+	"review": "Berrikusi",
+	"maintenance notice": "Wiki etiketek $1-ren mantenimenduaren ondorioz beheraka egin dute. Ikus $2 informazio gehiago eskuratzeko.",
+	"more-info": "(<a href=\"$1\">Informazio gehiago</a>)"
 }

@@ -60,7 +60,7 @@ def run(db, wiki, name, form, view, labels_per_task, tasks_per_assignment,
         force, info_url):
 
     if not force and db.campaigns.wiki_name_exists(wiki, name):
-        logger.error("Duplicate campaign: {1} already exists for {2}.  "
+        logger.error("Duplicate campaign: {0} already exists for {1}.  "
                      .format(name, wiki) +
                      "Use --force if this is expected.")
         return

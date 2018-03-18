@@ -1,5 +1,4 @@
 from wikilabels.utilities.new_campaign import main
-import pytest
 
 item = {'wiki': "cawiki", 'name': "newiki", 'form': "chan",
         'view': "bivicyt", 'labels_per_task': "1",
@@ -34,10 +33,12 @@ def insert_repeated():
           repeated['info_url']])
 
 
-def test_create_campaign_fail():
+def test_create_campaign_fail(capsys):
     insert_repeated()
-    with pytest.raises(Exception):
-        insert_repeated()
+    insert_repeated()
+    out, err = capsys.readouterr()
+    assert (err == "Duplicate campaign: repeated already exists for cawiki.  "
+            "Use --force if this is expected.\n")
 
 
 def test_create_campaign_optional_infourl():

@@ -4,15 +4,16 @@
 			"Mateon1",
 			"Chrumps",
 			"The Polish",
-			"Woytecr"
+			"Woytecr",
+			"DeRudySoulStorm"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Pole „$1” nie zostało wypełnione. Przesłać mimo to?",
 	"Abandon": "Pomiń",
-	"Are you sure that you want to abandon this task?": "Czy na pewno chcesz zrezygnować z tego zadania?",
+	"Are you sure that you want to abandon this task?": "Czy na pewno chcesz przejść do następnego zadania?",
 	"Campaigns": "Osiągnięcia",
 	"Can't save label. No task is selected!": "Nie można zapisać etykiety. Nie wybrano żadnego zadania!",
-	"Could not get metadata for revision $1": "Nie można uzyskać metadanych dla wersji $1. Pomiń to zadanie, klikając przycisk „Porzuć”",
+	"Could not get metadata for revision $1": "Nie można uzyskać metadanych dla wersji $1. Pomiń to zadanie, klikając przycisk „Pomiń”",
 	"Could not load form \"$1\": \n$2": "Nie można pobrać formularza „$1”:\n$2",
 	"Could not parse MediaWiki API's response": "Nie można było przetworzyć odpowiedzi API MediaWiki",
 	"Diff for revision $1": "Diff dla edycji $1",

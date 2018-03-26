@@ -199,3 +199,21 @@ class Campaigns(Collection):
             """.format(int(campaign_id)))
 
             return list(cursor)
+
+    def days(self, campaign_id):
+        with self.db.transaction() as transactor:
+            cursor = transactor.cursor()
+            cursor.execute("""
+                SELECT
+                to_char(date_trunc('day', label.timestamp), 'YYYY-MM-DD')
+                AS day,
+                COUNT(*) AS count
+                FROM label
+                JOIN workset_task ON label.task_id = workset_task.task_id
+                JOIN workset ON workset_task.workset_id = workset.id
+                WHERE campaign_id = {0}
+                GROUP BY day
+                ORDER BY day;
+            """.format(int(campaign_id)))
+
+            return list(cursor)

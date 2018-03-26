@@ -58,15 +58,22 @@ $( this ).append( fieldset.$element ) }) });
           <div class="lead">
                 <h2>Campaign "{{ campaign['name'] }}" in {{ wiki }}</h2>
                 <span class="campaign"><ul><li>Labels done: {{ campaign["stats"]["labels"] }}</li><li>Labels needed: {{ campaign["stats"]["tasks"] * campaign["labels_per_task"] }}</li><li>Unique labelers: {{ campaign["stats"]["coders"] }}</li></ul></span>
-                {% if user_stats is not none %}
+                {% if user_stats %}
                 <h3>Users contributing in this campaign</h3>
                 <table class="wikitable" style="margin: 1em;"><thead><tr><th>User id</th><th>User name</th><th>Labels added</th></tr></thead><tbody>
                 {% for row in user_stats %}
                 <tr><td>{{ row["user"] }}</td><td>{{ row["user_name"] | safe }}</td><td>{{ row["count"] }}</td><tr>
                 {% endfor %}
                 </tbody></table>
-                {% else %}
-                {%endif %}
+                {% endif %}
+                {% if timeline_stats %}
+                <h3>Labels added per day</h3>
+                <table class="wikitable" style="margin: 1em;"><thead><tr><th>Date</th><th>Labels added</th></tr></thead><tbody>
+                {% for row in timeline_stats %}
+                <tr><td>{{ row["day"] }}</td><td>{{ row["count"] }}</td><tr>
+                {% endfor %}
+                </tbody></table>
+                {% endif %}
           </div>
         </div>
       </div>

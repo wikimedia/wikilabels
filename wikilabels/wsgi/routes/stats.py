@@ -38,6 +38,7 @@ def configure(bp, config, db):
         user_stats = []
         for case in db.campaigns.users(campaign['id']):
             user_stats.append(parse_user_data(case, config))
+        timeline_stats = db.campaigns.days(campaign['id'])
         return render_template(
             "stats_wiki_campaign.html",
             wiki=wiki,
@@ -45,6 +46,7 @@ def configure(bp, config, db):
             style_tags=style_tags,
             campaign=campaign,
             user_stats=user_stats,
+            timeline_stats=timeline_stats,
             maintenance_notice=build_maintenance_notice(request, config))
 
     return bp

@@ -213,7 +213,7 @@ class Campaigns(Collection):
                 JOIN workset ON workset_task.workset_id = workset.id
                 WHERE campaign_id = {0}
                 GROUP BY day
-                ORDER BY day;
+                ORDER BY day DESC;
             """.format(int(campaign_id)))
 
             return list(cursor)

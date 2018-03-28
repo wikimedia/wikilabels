@@ -1,0 +1,10 @@
+{
+    "form-title": "Title of the form",
+    "notes-label": "Label for the free text input",
+    "citation-label": "Question about the citation",
+    "citation-true-label": "Positive answer to the question about citation",
+    "citation-false-label": "Negative answer to the question about citation",
+    "unsure-label": "Whether the user is not sure about their answer",
+    "citation-help": "Additional information about the question",
+    "reason-help": "Additional instructions about free text input"
+}

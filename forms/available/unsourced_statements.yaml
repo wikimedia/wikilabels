@@ -1,0 +1,35 @@
+name: missing_citations
+title: "<form-title>"
+
+fields:
+  - class: "FieldLayout"
+    label: "<citation-label>"
+    align: left
+    help: "<citation-help>"
+    classes: ['inline-field']
+    fieldWidget:
+      name: "citation_needed"
+      class: "ButtonSelectWidget"
+      items:
+        - class: "ButtonOptionWidget"
+          data: true
+          label: "<citation-true-label>"
+        - class: "ButtonOptionWidget"
+          data: false
+          label: "<citation-false-label>"
+  - class: FieldLayout
+    label: "<unsure-label>"
+    align: right
+    classes: ['inline-field']
+    fieldWidget:
+      name: "unsure"
+      class: CheckboxInputWidget
+  - class: "FieldLayout"
+    label: "<notes-label>"
+    align: top
+    help: "<reason-help>"
+    fieldWidget:
+      name: "notes"
+      class: "TextInputWidget"
+      multiline: false
+      required: false

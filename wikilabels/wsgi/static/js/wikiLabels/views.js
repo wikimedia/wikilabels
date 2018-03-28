@@ -1,7 +1,7 @@
-( function ( $, WL ) {
+( function ( $, WL, w ) {
 	var View, DiffToPrevious, PageAsOfRevision,
 		PrintablePageAsOfRevision, ParsedWikitext,
-		WorksetCompleted;
+		WorksetCompleted, RenderedHTML;
 
 	View = function ( taskListData ) {
 		this.$element = $( '<div>' ).addClass( WL.config.prefix + 'view' );
@@ -226,6 +226,20 @@
 		this.$element.html( html );
 	};
 
+	RenderedHTML = function ( taskListData ) {
+		RenderedHTML.super.call( this, taskListData );
+		this.$element.addClass( WL.config.prefix + 'highlighted-citation' )
+			.addClass( 'display-page-html' );
+	};
+	OO.inheritClass( RenderedHTML, View );
+
+	RenderedHTML.prototype.present = function ( taskInfo ) {
+		this.$element.html( taskInfo.data.data.html );
+		w.setTimeout( function () {
+			$( '.unsourced-statement' ).get( 0 ).scrollIntoView();
+		}, 2000 );
+	};
+
 	WorksetCompleted = function () {
 		this.$element = $( '<div>' ).addClass( 'completed' );
 
@@ -251,6 +265,7 @@
 		DiffToPrevious: DiffToPrevious,
 		PageAsOfRevision: PageAsOfRevision,
 		PrintablePageAsOfRevision: PrintablePageAsOfRevision,
-		ParsedWikitext: ParsedWikitext
+		ParsedWikitext: ParsedWikitext,
+		RenderedHTML: RenderedHTML
 	};
-}( jQuery, wikiLabels ) );
+}( jQuery, wikiLabels, window ) );

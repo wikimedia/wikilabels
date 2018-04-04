@@ -1,10 +1,10 @@
 {
-    "form-title": "Labeling Unsourced Statements",
-    "notes-label": "Why?",
-    "citation-label": "Should this statement have a citation?",
-    "citation-true-label": "yes",
-    "citation-false-label": "no",
-    "unsure-label": "unsure",
-    "citation-help": "If you were reading this sentence in a Wikipedia article, would you add a {{Citation needed}} tag?",
-    "reason-help": "Please give us the reason for your decision in a sentence or to."
+    "form-title":"Labeling Unsourced Statements",
+    "notes-label":"Why?",
+    "citation-label":"Should this statement have an inline citation?",
+    "citation-true-label":"Yes",
+    "citation-false-label":"No",
+    "unsure-label":"Unsure",
+    "citation-help":"If you were reading this sentence in a Wikipedia article, would you add a {{Citation needed}} tag?",
+    "reason-help":"Please give us the reason for your decision in a sentence or two."
 }

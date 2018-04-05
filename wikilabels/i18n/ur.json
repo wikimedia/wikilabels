@@ -1,6 +1,15 @@
 {
-	"@metadata": [],
-	"Campaigns": "مہمات",
+	"@metadata": {
+		"authors": [
+			"Abdulq",
+			"BukhariSaeed"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "یہ جگہ1$مکمل نہیں ہوئی تھی۔بہرصورت جمع کروائیں؟",
+	"Abandon": "چھوڑیں",
+	"Are you sure that you want to abandon this task?": "کیا آپ اگلے ٹاسک کو چھوڑنے کے پر یقیں ہیں؟",
+	"Campaigns": "مہمات (<a href=\"$1\">stats</a>)",
+	"Can't save label. No task is selected!": "لیبل محفوظ نہیں ہوا۔ کوئی ٹاسک منتخب نہیں ہے!",
 	"Diff for revision $1": "تبدیلیاں برائے اعادہ $1",
 	"No difference": "کوئی تبدیلی نہیں",
 	"Request new workset": "درخواست جدید مجموعہ کار",

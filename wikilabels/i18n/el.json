@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"KATRINE1992",
+			"Nikosgranturismogt"
+		]
+	},
+	"Abandon": "Παράβλεψη",
+	"Diff for revision $1": "Διαφορά για την αναθεώρηση $1",
+	"No difference": "Καμία διαφορά",
+	"Review": "Θεώρηση",
+	"Save": "Αποθήκευση και επόμενο",
+	"Submit label": "Υποβολή ετικέτας",
+	"connect to server": "σύνδεση στο διακομιστή",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "Πλήρης οθόνη",
+	"exit fullscreen": "Έξοδος από πλήρη οθόνη",
+	"open": "Άνοιγμα",
+	"review": "Θεώρηση",
+	"more-info": "(<a href=\"$1\">Mas info</a>)"
+}

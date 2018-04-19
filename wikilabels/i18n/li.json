@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ooswesthoesbes"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "'t Veldj \"$1\" is neet ingevöld. Toch opslaon?",
+	"Abandon": "Slaon euver",
+	"Are you sure that you want to abandon this task?": "Wèts se zeker det se wils aafzeen van dees taak?",
+	"Campaigns": "Campagnes (<a href=\"$1\">statistieke</a>)",
+	"Can't save label. No task is selected!": "Kan label neet opslaon. Gein taak geselecteerd!",
+	"Could not get metadata for revision $1": "De metadata veur versie $1 kós neet waere opgehaold. Door te klikke op de knoep \"Slaon euver\" kins se dees taak euverslaon.",
+	"Could not load form \"$1\": \n$2": "Kós formeleer \"$1\" neet laje: \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Kós waergaaf \"$1\" neet laje: $2\nGebroek 't sumpel taakeuverzich.",
+	"Could not load workset list: $1": "Kós de werksetlies neet laje: $1",
+	"Could not parse MediaWiki API's response": "Kós 't antjwaord van de MediaWiki-API neet verwirke",
+	"Diff for revision $1": "Versjil veur bewirking $1",
+	"No difference": "Gei versjil",
+	"Request new workset": "Vraog nuje werkset op",
+	"Review": "Beoeardeil",
+	"Save": "Slaon op en volgende",
+	"License": "Alle opgegaove labeles waere aopenbaar oetgebrach en gelicenseerd ónger de veurwaerd van CC0 -- Publiek domien",
+	"Submit label": "Slaon label op",
+	"Workset": "Werkset",
+	"Workset complete!": "Werkset klaor!",
+	"connect to server": "'nt verbinje mitte server",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "Volstenjig sjerm",
+	"exit fullscreen": "Sloet volstenjig sjerm aaf",
+	"open": "äöpen",
+	"request workset": "vraog werkset op",
+	"review": "beoeardeil",
+	"maintenance notice": "Wikilabels is neet besjikbaar door óngerhawd op $1. Zuuch $2 veur mier informatie.",
+	"more-info": "(<a href=\"$1\">Mier info</a>)"
+}

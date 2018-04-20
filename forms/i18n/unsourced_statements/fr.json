@@ -1,0 +1,10 @@
+{
+    "form-title":"Etiquetage de phrases sans sources",
+    "notes-label":"Pourquoi?",
+    "citation-label":"Ce texte a-t-il besoin d'une référence?",
+    "citation-true-label":"Oui",
+    "citation-false-label":"Non",
+    "unsure-label":"Pas sûr?",
+    "citation-help":"Si vous lisiez cette phrase dans un article de Wikipedia, la marqueriez-vous avec {{référence nécessaire}}?",
+    "reason-help":"Veuillez expliquer brièvement la raison de votre choix."
+}

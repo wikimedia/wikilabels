@@ -1,0 +1,10 @@
+{
+    "form-title":"Annotazione di frasi senza fonti",
+    "notes-label":"Perché?",
+    "citation-label":"Pensi che questa affermazione debba essere supportata da una fonte?",
+    "citation-true-label":"Sì",
+    "citation-false-label":"No",
+    "unsure-label":"Incerto/a",
+    "citation-help":"Se leggessi questa frase in una voce di Wikipedia, la segnaleresti come {{Senza fonte}}?",
+    "reason-help":"Puoi indicare brevemente la ragione della tua risposta?"
+}

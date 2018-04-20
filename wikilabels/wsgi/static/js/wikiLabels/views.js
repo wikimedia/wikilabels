@@ -1,7 +1,7 @@
-( function ( $, WL, w ) {
+( function ( $, WL ) {
 	var View, DiffToPrevious, PageAsOfRevision,
 		PrintablePageAsOfRevision, ParsedWikitext,
-		WorksetCompleted, RenderedHTML;
+		WorksetCompleted, RenderedHTML, UnsourcedStatement;
 
 	View = function ( taskListData ) {
 		this.$element = $( '<div>' ).addClass( WL.config.prefix + 'view' );
@@ -228,16 +228,80 @@
 
 	RenderedHTML = function ( taskListData ) {
 		RenderedHTML.super.call( this, taskListData );
-		this.$element.addClass( WL.config.prefix + 'highlighted-citation' )
+		this.$element.addClass( WL.config.prefix + 'rendered-html' )
 			.addClass( 'display-page-html' );
 	};
 	OO.inheritClass( RenderedHTML, View );
 
 	RenderedHTML.prototype.present = function ( taskInfo ) {
-		this.$element.html( taskInfo.data.data.html );
-		w.setTimeout( function () {
-			$( '.unsourced-statement' ).get( 0 ).scrollIntoView();
-		}, 2000 );
+		var iframe = document.createElement( 'iframe' );
+		iframe.srcdoc = taskInfo.data.data.html;
+		this.$element.html( iframe );
+	};
+
+	UnsourcedStatement = function ( taskListData ) {
+		UnsourcedStatement.super.call( this, taskListData );
+		this.$element.addClass( WL.config.prefix + 'unsourced-statement' );
+	};
+	OO.inheritClass( UnsourcedStatement, RenderedHTML );
+
+	UnsourcedStatement.prototype.getHTML = function ( taskData ) {
+		var url;
+		if ( taskData.html ) {
+			return $.Deferred.resolve();
+		}
+
+		url = 'https://' + taskData.lang +
+			'.wikipedia.org/api/rest_v1/page/html/' +
+			taskData.title + '/' + taskData.revision + '/' + taskData.tid;
+
+		return $.get( url, function ( response ) {
+			taskData.html = response;
+		} );
+	};
+
+	UnsourcedStatement.prototype.present = function ( taskInfo ) {
+		var $iframe,
+			that = this;
+
+		this.getHTML( taskInfo.data.data ).done( function () {
+			var taskData = taskInfo.data.data;
+			console.log( 'taskData', taskData );
+			UnsourcedStatement.super.prototype.present.call( that, taskInfo );
+			$iframe = $( 'iframe', that.$element );
+			$iframe.on( 'load', function () {
+				var contents = $iframe.contents(),
+					$section = $( 'section[data-mw-section-id="' +
+						taskData.section_index + '"]', contents ),
+					$p, text, sentences, $el;
+
+				$( '.mw-ref', contents ).remove();
+
+				$p = $( 'p', $section ).eq( taskData.paragraph_index );
+				text = $p.text();
+				sentences = text.split( /\.\s+/ );
+
+				// highlight the whole paragraph
+				if ( taskData.sentence_index === -1 ) {
+					$el = $p;
+				} else {
+					sentences[ taskData.sentence_index ] =
+						'<span>' +
+						sentences[ taskData.sentence_index ] +
+						'</span>';
+					$p.html( sentences.join( '. ' ) );
+					$el = $( 'span', $p );
+				}
+
+				console.log( $el );
+				if ( $el.length ) {
+					$el.css( 'background-color', '#ff0' );
+					contents.children().animate( {
+						scrollTop: $el.offset().top
+					}, 1000 );
+				}
+			} );
+		} );
 	};
 
 	WorksetCompleted = function () {
@@ -266,6 +330,7 @@
 		PageAsOfRevision: PageAsOfRevision,
 		PrintablePageAsOfRevision: PrintablePageAsOfRevision,
 		ParsedWikitext: ParsedWikitext,
-		RenderedHTML: RenderedHTML
+		RenderedHTML: RenderedHTML,
+		UnsourcedStatement: UnsourcedStatement
 	};
-}( jQuery, wikiLabels, window ) );
+}( jQuery, wikiLabels ) );

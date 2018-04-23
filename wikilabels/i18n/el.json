@@ -5,7 +5,12 @@
 			"Nikosgranturismogt"
 		]
 	},
+	"'$1' not completed. Submit anyway?": "Το πεδίο \"$1\" δεν συμπληρώθηκε. Υποβολή ούτως ή άλλως;",
 	"Abandon": "Παράβλεψη",
+	"Are you sure that you want to abandon this task?": "Είστε σίγουροι ότι θέλετε να το παραβλέψετε για την επόμενη εργασία;",
+	"Campaigns": "Εκστρατείες (<a href=\"$1\">στατιστικά</a>)",
+	"Can't save label. No task is selected!": "Αποτυχία αποθήκευσης ετικέτας. Δεν ορίστηκε εργασία!",
+	"Could not load form \"$1\": \n$2": "Αποτυχία της φόρτωσης της φόρμας \"$1\": \n$2",
 	"Diff for revision $1": "Διαφορά για την αναθεώρηση $1",
 	"No difference": "Καμία διαφορά",
 	"Review": "Θεώρηση",

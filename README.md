@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/wiki-ai/wikilabels.svg?branch=master)](https://travis-ci.org/wiki-ai/wikilabels)
+[![codecov](https://codecov.io/gh/wiki-ai/wikilabels/branch/master/graph/badge.svg)](https://codecov.io/gh/wiki-ai/wikilabels)
+
 # Wiki Labels
 This package provides the components of a generalized labeling service for
 MediaWiki.  There are two primary components, a user script to be used on

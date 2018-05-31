@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Thibaut120094",
-			"Yusuke1109"
+			"Yusuke1109",
+			"Omotecho"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "'$1'は完了していません。本当に送信しますか？",
+	"'$1' not completed. Submit anyway?": "'$1'が未記入です。本当に送信しますか？",
 	"Abandon": "スキップ",
 	"Are you sure that you want to abandon this task?": "次のタスクにスキップしてもよろしいですか？",
 	"Campaigns": "キャンペーン(<a href=\"$1\">統計情報</a>)",
@@ -18,9 +19,10 @@
 	"Diff for revision $1": "版$1の差分",
 	"No difference": "差分なし",
 	"Request new workset": "新しい作業単位を要請する",
-	"Review": "レビュー",
+	"Review": "査読",
 	"Save": "保存して次へ",
-	"Submit label": "付箋を送信",
+	"License": "投稿したラベルは CC0のもと公開されます。  -- パブリック・ドメイン",
+	"Submit label": "ラベルを送信",
 	"Workset": "作業単位",
 	"Workset complete!": "作業単位は完了しました！",
 	"connect to server": "サーバーに接続",

@@ -1,50 +1,36 @@
 <html lang="en" dir="ltr" class="client-js ve-not-available">
-  <head>
-    <title>Labels home gadget</title>
-    <link rel="stylesheet" type="text/css" href="/oojs-ui-static/oojs-ui-mediawiki.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/home.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/common.css" />
-    <link rel="stylesheet" type="text/css" href="https://en.wikipedia.org/w/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&only=styles&skin=vector" />
-    <style>
-      body {
-        background: #fff;
-        margin: 0px 2em;
-      }
-    </style>
-    <meta name="description" content="Wikilabels is a human computation service for Wikipedia"/>
-  </head>
-  <body class="mediawiki ltr sitedir-ltr ns-4 ns-subject page-Wikipedia_Labels
-               skin-vector action-view webfonts-changed">
-    <style type="text/css">
-    html {
-      background: #eaecf0;
-    }
-    body {
-      max-width: 50em;
-      margin: 0px auto;
-      padding: 1em 2em;
-      background: #fff;
-    }
-    </style>
-    {% if maintenance_notice is not none %}
-      <div class="maintenance_notice">
-        {{maintenance_notice|safe}}
-      </div>
-    {% else %}
-    {%endif %}
-    <div id="bodyContent" class="mw-body-content">
-      <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
-        <div id="wikilabels-home">
-          <div class="lead">
-            <p>
-                <strong class="selflink">Wiki-Labels</strong> is a
+<head>
+	<title>Wikilabels home gadget</title>
+	<link rel="stylesheet" href="/static/lib/wmui-style-guide.min.css">
+	<link rel="stylesheet" type="text/css" href="/oojs-ui-static/oojs-ui-mediawiki.css" />
+	<link rel="stylesheet" href="/static/css/wikilabels-site-specific.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/home.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="https://en.wikipedia.org/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&amp;only=styles&amp;skin=vector" />
+	<meta name="description" content="Wikilabels is a human computation service for Wikipedia"/>
+	<style type="text/css">
+		.notice {
+			border: 1px solid #b32424;
+			margin: 4px 2em;
+			background: #fee7e6;
+			padding: 0.25em 0.9em;
+			margin: 1em;
+		}
+	</style>
+</head>
+<body class="page--home">
+	<div class="page">
+		<div class="content-box">
+			<main id="content" class="content__introduction" role="main" style="font-size: 1rem;"><p style="margin-top: 12.5px;">
+			{% if maintenance_notice is not none %}<div class="maintenance_notice">{{maintenance_notice|safe}}</div>{%endif %}
+                <strong class="selflink">Wikilabels</strong> is a
                 <a href="https://en.wikipedia.org/wiki/Human_computation"
                    title="Human computation"
                    class="mw-redirect">human computation</a>
                 service for Wikipedia. In order perform difficult analyses and
                 train intelligent wiki-tools (e.g. for
-                <a href="https://meta.wikimedia.org/wiki/Objective_Revision_Evaluation_Service#Edit_quality_models">detecting vandalism</a> and
-                <a href="https://meta.wikimedia.org/wiki/Objective_Revision_Evaluation_Service#Article_quality_models">
+                <a href="https://www.mediawiki.org/wiki/Objective_Revision_Evaluation_Service#Edit_quality_models">detecting vandalism</a> and
+                <a href="https://www.mediawiki.org/wiki/Objective_Revision_Evaluation_Service#Article_quality_models">
                   assessing the quality of articles
                 </a>), we need
                 <a href="https://en.wikipedia.org/wiki/Coding_(social_sciences)"
@@ -52,34 +38,32 @@
                 and lots of it. Wiki-Labels is a tool that makes it easy to
                 collaboratively label wiki artifacts (like revisions) quickly
                 and easily.
-            </p>
-              You can start labeling edits in <a href="/ui/">here</a>.
-              <p>
-              <p>
-              Other top-level paths: <a href="/auth/">auth</a>, <a href="/campaigns/">campaigns</a>, <a href="/users/">users</a>, <a href="/forms/">forms</a> and <a href="/form_builder/">form_builder</a>
-          </p>
-            <ul>
-              <li>
-                <a href="https://en.wikipedia.org/wiki/Wikipedia:Labels/About"
-                   title="Wikipedia:Labels/About">
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a rel="nofollow" class="external text"
-                   href="https://github.com/wiki-ai/wikilabels">
-                  github repo
-                </a>
-              </li>
-              <li>
-                <a href="/versions/">Versions</a>
-              </li>
-            </ul>
-            <br><br>
-<span class='oo-ui-fieldLayout-field'><span aria-disabled='false' class='oo-ui-widget oo-ui-widget-enabled oo-ui-flaggedElement-primary oo-ui-flaggedElement-progressive oo-ui-inputWidget oo-ui-buttonElement oo-ui-buttonElement-framed oo-ui-labelElement oo-ui-buttonInputWidget'><a href="/ui/" class='oo-ui-inputWidget-input oo-ui-buttonElement-button'><span class='oo-ui-iconElement-icon oo-ui-image-invert'></span><span class='oo-ui-labelElement-label'>Start labeling</span><span class='oo-ui-indicatorElement-indicator oo-ui-image-invert'></span></button></span></span>
-          </div>
-        </div>
-      </div>
-    </div>
+		</p>
+		Available paths:
+		<ul>
+			<li><a href="/ui/">/ui/</a>: User interface for labeling</li>
+			<li><a href="/auth/">/auth/</a>: API path for OAuth integration</li>
+			<li><a href="/campaigns/">/campaigns/</a>: API for campaigns</li>
+			<li><a href="/users/">/users/</a>: API for users</li>
+			<li><a href="/forms/">/forms/</a>: API for forms</li>
+			<li><a href="/form_builder/">/form_builder/</a>: Form builder user interface</li>
+			<li><a href="/versions/">/versions/</a>: versions informaion</li>
+		</ul>
+		<p>For further information, please see <a href="https://en.wikipedia.org/wiki/Wikipedia:Labels/About"
+                   title="Wikipedia:Labels/About"> our documentation</a>
+		</p>
+		<br>
+<span class='oo-ui-fieldLayout-field'><span aria-disabled='false' class='oo-ui-widget oo-ui-widget-enabled oo-ui-flaggedElement-primary oo-ui-flaggedElement-progressive oo-ui-inputWidget oo-ui-buttonElement oo-ui-buttonElement-framed oo-ui-labelElement oo-ui-buttonInputWidget' style="margin-bottom: 12.5px;"><a href="/ui/" class='oo-ui-inputWidget-input oo-ui-buttonElement-button'><span class='oo-ui-iconElement-icon oo-ui-image-invert'></span><span class='oo-ui-labelElement-label'>Start labeling</span><span class='oo-ui-indicatorElement-indicator oo-ui-image-invert'></span></button></span></span>
+          </div></div></main>
+	<footer id="footer" class="footer">
+		<div class="content-box">
+			<ul class="footer__list">
+				<li><a href="https://github.com/wiki-ai/wikilabels">Contribute on GitHub</a></li>
+				<li><a href="https://lists.wikimedia.org/mailman/listinfo/ai" title="Join Wikimedia AI mailing list">Join mailing list</a></li>
+			</ul>
+			<p>For the privacy policy, see the Wikimedia policy here: <a href="https://wikimediafoundation.org/wiki/Privacy_policy">https://wikimediafoundation.org/wiki/Privacy_policy</a>.</p>
+			<p>{{footer|default('Written in <a href="https://python.org">Python 3</a>')|safe}}</p>
+		</div>
+	</footer>
   </body>
 </html>

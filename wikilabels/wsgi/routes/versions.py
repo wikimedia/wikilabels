@@ -1,7 +1,9 @@
 import importlib
 from collections import OrderedDict
 
-from flask import render_template
+from flask import render_template, request
+
+from ..util import build_maintenance_notice
 
 
 def configure(bp, config):
@@ -16,6 +18,8 @@ def configure(bp, config):
             except ImportError:
                 pass
 
-        return render_template("versions.html", versions=versions)
+        return render_template(
+            "versions.html", versions=versions,
+            maintenance_notice=build_maintenance_notice(request, config))
 
     return bp

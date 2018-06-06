@@ -1,66 +1,45 @@
-<html>
+<html lang="en" dir="ltr" class="client-js ve-not-available">
 <head>
-  <title>Labels versions</title>
-  <link rel="stylesheet" type="text/css" href="/oojs-ui-static/oojs-ui-mediawiki.css" />
-  <link rel="stylesheet" type="text/css" href="https://en.wikipedia.org/w/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&only=styles&skin=vector" />
-  <style type="text/css">
-    html {
-      background: #eaecf0;
-    }
-    body {
-      max-width: 50em;
-      margin: 0px auto;
-      padding: 1em 2em;
-      background: #fff;
-    }
-    /**
-     * wikitable class for skinning normal tables
-     * keep in sync with commonPrint.css
-     */
-    table.wikitable {
-      margin: 1em 0;
-      background-color: #f8f9fa;
-      border: 1px solid #a2a9b1;
-      border-collapse: collapse;
-      color: #000;
-    }
-
-    table.wikitable > tr > th,
-    table.wikitable > tr > td,
-    table.wikitable > * > tr > th,
-    table.wikitable > * > tr > td {
-      border: 1px solid #a2a9b1;
-      padding: 0.2em 0.4em;
-    }
-
-    table.wikitable > tr > th,
-    table.wikitable > * > tr > th {
-      background-color: #eaecf0;
-      text-align: center;
-    }
-
-    table.wikitable > caption {
-      font-weight: bold;
-    }
-
-    td.component {
-      font-weight: bold;
-    }
-  </style>
+	<title>Available wikis</title>
+	<link rel="stylesheet" href="/static/lib/wmui-style-guide.min.css">
+	<link rel="stylesheet" type="text/css" href="/oojs-ui-static/oojs-ui-mediawiki.css" />
+	<link rel="stylesheet" href="/static/css/wikilabels-site-specific.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/home.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="https://en.wikipedia.org/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&amp;only=styles&amp;skin=vector" />
+	<meta name="description" content="Wikilabels is a human computation service for Wikipedia"/>
+	<style type="text/css">
+		.notice {
+			border: 1px solid #b32424;
+			margin: 4px 2em;
+			background: #fee7e6;
+			padding: 0.25em 0.9em;
+			margin: 1em;
+		}
+	</style>
 </head>
-  <h1>Versions</h1>
-  <table class="wikitable">
-    <tr>
-      <th class="component">component</th>
-      <th class="version">version</th>
-    </tr>
-    {% for component, version in versions.items() %}
-    <tr>
-      <td class="component">{{ component }}</td>
-      <td class="version">{{ version }}</td>
-    </tr>
-    {% endfor %}
-  </table>
-<body>
-</body>
+<body class="page--home">
+	<div class="page">
+		<div class="content-box">
+			<main id="content" class="content__introduction" role="main" style="font-size: 1rem;"><p style="margin-top: 12.5px;">
+			{% if maintenance_notice is not none %}<div class="maintenance_notice">{{maintenance_notice|safe}}</div>{%endif %}
+			<h2>Versions</h2>
+			<table class="wikitable">
+				<tr><th class="component">component</th><th class="version">version</th></tr>
+				{% for component, version in versions.items() %}
+					<tr><td class="component">{{ component }}</td><td class="version">{{ version }}</td></tr>
+				{% endfor %}
+			</table>
+	</div></div></main>
+	<footer id="footer" class="footer">
+		<div class="content-box">
+			<ul class="footer__list">
+				<li><a href="https://github.com/wiki-ai/wikilabels">Contribute on GitHub</a></li>
+				<li><a href="https://lists.wikimedia.org/mailman/listinfo/ai" title="Join Wikimedia AI mailing list">Join mailing list</a></li>
+			</ul>
+			<p>For the privacy policy, see the Wikimedia policy here: <a href="https://wikimediafoundation.org/wiki/Privacy_policy">https://wikimediafoundation.org/wiki/Privacy_policy</a>.</p>
+			<p>{{footer|default('Written in <a href="https://python.org">Python 3</a>')|safe}}</p>
+		</div>
+	</footer>
+  </body>
 </html>

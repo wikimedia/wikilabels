@@ -1,72 +1,70 @@
 <html lang="en" dir="ltr" class="client-js ve-not-available">
-  <head>
-    <title>Wikilabels user interface index</title>
-    {{ script_tags|safe }}
-    {% assets "js_all" %}
-        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-    {% endassets %}
-    {{ style_tags|safe }}
-    {% assets "css_all" %}
-        <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
-    {% endassets %}
-    <link rel="stylesheet" type="text/css" href="https://en.wikipedia.org/w/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&only=styles&skin=vector" />
-    <script type="text/javascript">
-$(document).ready( function() {
-    var data = {{ campaigns | tojson }};
-    for (i = 0; i < data.length; i++) {
-        var element = $( ".campaign[data-id='" + data[i].id + "']" );
-        var done = data[i].stats.labels;
-        var neededs = data[i].stats.tasks * data[i].labels_per_task;
-        var percent = Math.round( parseInt( done * 100) / neededs );
-        var progressBar = new OO.ui.ProgressBarWidget( {
-            progress: percent
-        } );
-        var fieldset = new OO.ui.FieldLayout( progressBar, {label: 'Progress (' + percent +'% done, ' + ( neededs - done ) + ' labels left):', align: 'top'});
-        element.css('padding-bottom', '2.25em');
-        element.append( fieldset.$element );
-    }
-} );
+<head>
+	<title>Wikilabels user interface index</title>
+	<link rel="stylesheet" href="/static/lib/wmui-style-guide.min.css">
+	<link rel="stylesheet" type="text/css" href="/oojs-ui-static/oojs-ui-mediawiki.css" />
+	<link rel="stylesheet" href="/static/css/wikilabels-site-specific.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/home.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="https://en.wikipedia.org/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles&amp;only=styles&amp;skin=vector" />
+	<meta name="description" content="Wikilabels is a human computation service for Wikipedia"/>
+	<style type="text/css">
+		.notice {
+			border: 1px solid #b32424;
+			margin: 4px 2em;
+			background: #fee7e6;
+			padding: 0.25em 0.9em;
+			margin: 1em;
+		}
+	</style>
+	{{ script_tags|safe }}
+	{% assets "js_all" %}
+		<script type="text/javascript" src="{{ ASSET_URL }}"></script>
+	{% endassets %}
+	{{ style_tags|safe }}
+	{% assets "css_all" %}
+		<link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
+	{% endassets %}
+	<script type="text/javascript">
+	$(document).ready( function() {
+		var data = {{ campaigns | tojson }};
+		for (i = 0; i < data.length; i++) {
+			var element = $( ".campaign[data-id='" + data[i].id + "']" );
+			var done = data[i].stats.labels;
+			var neededs = data[i].stats.tasks * data[i].labels_per_task;
+			var percent = Math.round( parseInt( done * 100) / neededs );
+			var progressBar = new OO.ui.ProgressBarWidget( {
+				progress: percent
+			} );
+			var fieldset = new OO.ui.FieldLayout( progressBar, {label: 'Progress (' + percent +'% done, ' + ( neededs - done ) + ' labels left):', align: 'top'});
+ 			element.css('padding-bottom', '2.25em');
+			element.append( fieldset.$element );
+		}
+	} );
 </script>
-    <style>
-      body {
-        background: #fff;
-        margin: 0px 2em;
-      }
-    </style>
-    <meta name="description" content="List of available campaigns for labeling in {{wiki|safe}}"/>
-  </head>
-  <body class="mediawiki ltr sitedir-ltr ns-4 ns-subject page-Wikipedia_Labels
-               skin-vector action-view webfonts-changed">
-    <style type="text/css">
-    html {
-      background: #eaecf0;
-    }
-    body {
-      max-width: 50em;
-      margin: 0px auto;
-      padding: 1em 2em;
-      background: #fff;
-    }
-    </style>
-    {% if maintenance_notice is not none %}
-      <div class="maintenance_notice">
-        {{maintenance_notice|safe}}
-      </div>
-    {% else %}
-    {%endif %}
-    <div id="bodyContent" class="mw-body-content">
-      <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
-        <div id="wikilabels-home">
-          <div class="lead">
-                <h2>Available campaigns</h2>
-                <ul>
-               {% for campaign in campaigns %}
-                    <li class="campaign" data-id="{{ campaign["id"] }}"><a href="/stats/{{ wiki }}/{{campaign['id']}}">{{ campaign["name"] }}</a><ul class="stats"><li>Labels done: <span class="labels">{{ campaign["stats"]["labels"] }}</span></li><li>Labels needed: <span class="neededs">{{ campaign["stats"]["tasks"] * campaign["labels_per_task"] }}</span></li><li>Unique labelers: <span class="labelers">{{ campaign["stats"]["coders"] }}</span></li></ul></li>
-               {% endfor %}
-                </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+</head>
+<body class="page--home">
+	<div class="page">
+		<div class="content-box">
+			<main id="content" class="content__introduction" role="main" style="font-size: 1rem;"><p style="margin-top: 12.5px;">
+			{% if maintenance_notice is not none %}<div class="maintenance_notice">{{maintenance_notice|safe}}</div>{%endif %}
+			<h2>Available campaigns</h2>
+                	<ul>
+			{% for campaign in campaigns %}
+				<li class="campaign" data-id="{{ campaign["id"] }}"><a href="/stats/{{ wiki }}/{{campaign['id']}}">{{ campaign["name"] }}</a><ul class="stats"><li>Labels done: <span class="labels">{{ campaign["stats"]["labels"] }}</span></li><li>Labels needed: <span class="neededs">{{ campaign["stats"]["tasks"] * campaign["labels_per_task"] }}</span></li><li>Unique labelers: <span class="labelers">{{ campaign["stats"]["coders"] }}</span></li></ul></li>
+			{% endfor %}
+			</ul>
+			<br>
+	</div></div></main>
+	<footer id="footer" class="footer">
+		<div class="content-box">
+			<ul class="footer__list">
+				<li><a href="https://github.com/wiki-ai/wikilabels">Contribute on GitHub</a></li>
+				<li><a href="https://lists.wikimedia.org/mailman/listinfo/ai" title="Join Wikimedia AI mailing list">Join mailing list</a></li>
+			</ul>
+			<p>For the privacy policy, see the Wikimedia policy here: <a href="https://wikimediafoundation.org/wiki/Privacy_policy">https://wikimediafoundation.org/wiki/Privacy_policy</a>.</p>
+			<p>{{footer|default('Written in <a href="https://python.org">Python 3</a>')|safe}}</p>
+		</div>
+	</footer>
+</body>
 </html>

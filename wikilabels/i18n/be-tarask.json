@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kareyac",
+			"Red Winged Duck"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Поле «$1» не запоўненае. Даслаць усё адно?",
+	"Abandon": "Прапусьціць",
+	"Are you sure that you want to abandon this task?": "Вы ўпэўненыя, што хочаце перайсьці да наступнага заданьня?",
+	"Campaigns": "Кампаніі (<a href=\"$1\">статыстыка</a>)",
+	"Can't save label. No task is selected!": "Немагчыма захаваць метку. Заданьне не абранае!",
+	"Save": "Захаваць і перайсьці далей",
+	"open": "адкрыць"
+}

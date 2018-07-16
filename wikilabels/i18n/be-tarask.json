@@ -10,6 +10,14 @@
 	"Are you sure that you want to abandon this task?": "Вы ўпэўненыя, што хочаце перайсьці да наступнага заданьня?",
 	"Campaigns": "Кампаніі (<a href=\"$1\">статыстыка</a>)",
 	"Can't save label. No task is selected!": "Немагчыма захаваць метку. Заданьне не абранае!",
+	"Could not get metadata for revision $1": "Немагчыма атрымаць мэтазьвесткі для вэрсіі $1. Націсьніце кнопку «Прапусьціць», каб прапусьціць гэтае заданьне",
+	"Could not load form \"$1\": \n$2": "Немагчыма загрузіць форму «$1»:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Немагчыма загрузіць выгляд «$1»: $2\nУжываем просты праглядальнік заданьняў.",
+	"Could not load workset list: $1": "Немагчыма загрузіць сьпіс працоўных набораў: $1",
+	"Could not parse MediaWiki API's response": "Немагчыма апрацаваць адказ MediaWiki API",
+	"Diff for revision $1": "Розьніца для вэрсіі $1",
+	"No difference": "Няма розьніцы",
+	"Request new workset": "Запытаць новы працоўны набор",
 	"Save": "Захаваць і перайсьці далей",
 	"open": "адкрыць"
 }

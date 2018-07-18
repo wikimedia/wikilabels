@@ -17,17 +17,57 @@ fields:
         - class: "ButtonOptionWidget"
           data: false
           label: "<citation-false-label>"
-  - class: FieldLayout
-    label: "<unsure-label>"
-    align: right
-    classes: ['inline-field']
+        - class: "ButtonOptionWidget"
+          data: "none"
+          label: "<unsure-label>"
+  - class: "FieldLayout"
+    label: "<notes-true-label>"
+    align: top
+    help: "<reason-true-help>"
     fieldWidget:
-      name: "unsure"
-      class: CheckboxInputWidget
+      name: "notes"
+      class: "DropdownInputWidget"
+      options:
+          - data:  "true-empty"
+            label: ""
+          - data:  "true-1"
+            label: "<citation-true-1-label>"
+          - data:  "true-2"
+            label: "<citation-true-2-label>"
+          - data:  "true-3"
+            label: "<citation-true-3-label>"
+          - data:  "true-4"
+            label: "<citation-true-4-label>"
+          - data:  "true-5"
+            label: "<citation-true-5-label>"
+          - data:  "true-6"
+            label: "<citation-true-6-label>"
+          - data:  "true-7"
+            label: "<citation-true-7-label>"
+          - data:  "true-8"
+            label: "<citation-true-8-label>"
+  - class: "FieldLayout"
+    label: "<notes-false-label>"
+    align: top
+    help: "<reason-false-help>"
+    fieldWidget:
+      name: "notes"
+      class: "DropdownInputWidget"
+      options:
+          - data:  "false-empty"
+            label: ""
+          - data:  "false-1"
+            label: "<citation-false-1-label>"
+          - data:  "false-2"
+            label: "<citation-false-2-label>"
+          - data:  "false-3"
+            label: "<citation-false-3-label>"
+          - data:  "false-4"
+            label: "<citation-false-4-label>"
   - class: "FieldLayout"
     label: "<notes-label>"
     align: top
-    help: "<reason-help>"
+    help: "<notes-help>"
     fieldWidget:
       name: "notes"
       class: "TextInputWidget"

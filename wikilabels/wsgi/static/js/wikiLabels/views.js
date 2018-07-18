@@ -275,9 +275,8 @@
 						taskData.section_index + '"]', contents ),
 					$p, text, sentences, $el;
 
-				$( '.mw-ref', contents ).remove();
-
 				$p = $( 'p', $section ).eq( taskData.paragraph_index );
+				$( '.mw-ref', $p ).remove();
 				text = $p.text();
 				sentences = text.split( /\.\s+/ );
 

@@ -26,10 +26,19 @@
       background: #eaecf0;
     }
     body {
-      max-width: 55em;
       margin: 0px auto;
       padding: 1em 2em;
       background: #fff;
+    }
+    @media ( min-width: 992px ) {
+        .content-box {
+            max-width: 960px;
+        }
+    }
+    @media ( min-width: 1200px ) {
+        body {
+            width: 1140px;
+        }
     }
     </style>
     {% if maintenance_notice is not none %}

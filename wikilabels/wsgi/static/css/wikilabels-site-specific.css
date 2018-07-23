@@ -14,3 +14,9 @@ body,
 	font-family: -apple-system, BlinkMacSystemFont, 'Seogoe UI', 'Roboto', 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
+.notice {
+	border: 1px solid #b32424;
+	background: #fee7e6;
+	padding: 0.25em 0.9em;
+	margin: 1em;
+}

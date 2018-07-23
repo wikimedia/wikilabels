@@ -21,7 +21,7 @@
 				$( 'body' ).append( wikiLabels.formBuilder.$element );
 			} )
 			.fail( function ( doc ) {
-				alert( JSON.stringify( doc ) );
+				OO.ui.alert( JSON.stringify( doc ) );
 			} );
 	};
 

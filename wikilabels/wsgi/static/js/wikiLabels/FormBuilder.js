@@ -20,11 +20,11 @@
 			this.formPreview.load( config );
 		} catch ( err ) {
 			console.error( err );
-			alert( err );
+			OO.ui.alert( err );
 		}
 	};
 	FormBuilder.prototype.handleFormPreviewSubmit = function () {
-		alert( 'Label data: ' + JSON.stringify( this.formPreview.getLabelData() ) );
+		OO.ui.alert( 'Label data: ' + JSON.stringify( this.formPreview.getLabelData() ) );
 	};
 
 	ConfigEditor = function () {

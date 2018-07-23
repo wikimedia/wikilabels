@@ -207,7 +207,7 @@
 				this.worksetActivated.fire( this, workset );
 			}.bind( this ) )
 			.fail( function ( doc ) {
-				alert( doc.message );
+				OO.ui.alert( doc.message );
 			} );
 	};
 	Campaign.prototype.updateButtonState = function () {
@@ -234,7 +234,7 @@
 				this.updateButtonState();
 			}.bind( this ) )
 			.fail( function ( doc ) {
-				alert( WL.i18n( 'Could not load workset list: $1', [ JSON.stringify( doc ) ] ) );
+				OO.ui.alert( WL.i18n( 'Could not load workset list: $1', [ JSON.stringify( doc ) ] ) );
 			} );
 	};
 	Campaign.prototype.expand = function ( expanded ) {

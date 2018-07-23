@@ -66,7 +66,7 @@
 				view = new WL.views[ doc.campaign.view ]( doc.tasks );
 			} catch ( err ) {
 				console.error( err.stack );
-				alert( WL.i18n( 'Could not load view "$1": ' +
+				OO.ui.alert( WL.i18n( 'Could not load view "$1": ' +
 					'$2\nUsing simple task viewer.', [ doc.campaign.view, err ] ) );
 				view = new WL.views.View( doc.tasks );
 			}
@@ -80,13 +80,13 @@
 					this.load( campaignId, worksetId, taskList, form, view );
 				} catch ( err ) {
 					console.error( err.stack );
-					alert( WL.i18n(
+					OO.ui.alert( WL.i18n(
 						'Could not load form "$1": \n$2', [ doc.campaign.form, err ]
 					) );
 				}
 			}.bind( this ) );
 			formQuery.fail( function ( errorDoc ) {
-				alert( WL.i18n(
+				OO.ui.alert( WL.i18n(
 					'Could not load form "$1": \n$2',
 					[ doc.campaign.form, JSON.stringify( errorDoc, null, 2 ) ]
 				) );
@@ -122,7 +122,7 @@
 		var task = this.taskList.selectedTask;
 
 		if ( !task ) {
-			alert( WL.i18n( 'Can\'t save label. No task is selected!' ) );
+			OO.ui.alert( WL.i18n( 'Can\'t save label. No task is selected!' ) );
 		}
 
 		WL.server.saveLabel( this.campaignId, this.worksetId, task.id, labelData )
@@ -151,7 +151,7 @@
 		var task = this.taskList.selectedTask;
 
 		if ( !task ) {
-			alert( 'Can\'t abandon task.  No task is selected!' );
+			OO.ui.alert( 'Can\'t abandon task.  No task is selected!' );
 		}
 
 		WL.server.abandonLabel( this.campaignId, this.worksetId, task.id )

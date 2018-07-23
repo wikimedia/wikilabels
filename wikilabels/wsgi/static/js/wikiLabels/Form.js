@@ -40,12 +40,14 @@
 		this.submit();
 	};
 	Form.prototype.handleAbandonClick = function ( button ) {
-		var confirmed = confirm( WL.i18n( 'Are you sure that you want to abandon this task?' ) );
-		if ( !confirmed ) {
-			return;
-		}
-		$( button ).injectSpinner( WL.config.prefix + 'abandon-spinner' );
-		this.abandon();
+		var self = this;
+
+		OO.ui.confirm( WL.i18n( 'Are you sure that you want to abandon this task?' ) ).done( function ( confirmed ) {
+			if ( confirmed ) {
+				$( button ).injectSpinner( WL.config.prefix + 'abandon-spinner' );
+				self.abandon();
+			}
+		} );
 	};
 	Form.prototype.getValues = function () {
 		var name, valueMap = {};
@@ -76,18 +78,19 @@
 		this.$element.show();
 	};
 	Form.prototype.submit = function () {
-		var fieldName, labelData = this.getValues();
+		var fieldName, labelData = this.getValues(),
+			self = this;
 
 		// TODO: This is hacky.  Constraints should be specified in the form config
 		for ( fieldName in labelData ) {
 			if ( labelData.hasOwnProperty( fieldName ) && labelData[ fieldName ] === null ) {
-				if ( !confirm( WL.i18n( '\'$1\' not completed. Submit anyway?', [ fieldName ] ) ) ) {
-					return;
-				}
+				OO.ui.confirm( WL.i18n( '\'$1\' not completed. Submit anyway?', [ fieldName ] ) ).done( function ( confirmed ) {
+					if ( confirmed ) {
+						self.submitted.fire( labelData );
+					}
+				} );
 			}
 		}
-
-		this.submitted.fire( labelData );
 	};
 	Form.prototype.abandon = function () {
 		this.abandoned.fire();

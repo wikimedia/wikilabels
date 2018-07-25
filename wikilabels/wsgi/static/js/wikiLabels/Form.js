@@ -89,8 +89,10 @@
 						self.submitted.fire( labelData );
 					}
 				} );
+				return;
 			}
 		}
+		this.submitted.fire( labelData );
 	};
 	Form.prototype.abandon = function () {
 		this.abandoned.fire();

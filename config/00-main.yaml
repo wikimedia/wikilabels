@@ -9,6 +9,7 @@ wikilabels:
 wsgi:
   application_root: ""
   url_prefix: ""
+  scheme: 'http'
 
 database:
   host: localhost

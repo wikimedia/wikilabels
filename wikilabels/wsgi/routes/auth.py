@@ -61,9 +61,11 @@ def configure(bp, config, oauth):
         session['user'] = {'id': identity['sub']}
 
         if 'callback_wiki' not in session or not session['callback_wiki']:
-            url = url_for('.ui')
+            url = url_for('.ui', _scheme=config['wsgi']['scheme'],
+                          _external=True)
         else:
-            url = url_for('.ui_wiki', wiki=session['callback_wiki'])
+            url = url_for('.ui_wiki', wiki=session['callback_wiki'],
+                          _scheme=config['wsgi']['scheme'], _external=True)
 
         return redirect(url)
 

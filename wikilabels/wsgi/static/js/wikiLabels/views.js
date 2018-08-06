@@ -1,5 +1,5 @@
 ( function ( $, WL ) {
-	var View, DiffToPrevious, PageAsOfRevision,
+	var View, DiffToPrevious, MultiDiffToPrevious, PageAsOfRevision,
 		PrintablePageAsOfRevision, ParsedWikitext,
 		WorksetCompleted, RenderedHTML, UnsourcedStatement;
 
@@ -140,6 +140,133 @@
 					.text( WL.i18n( 'No difference' ) )
 			);
 		}
+	};
+
+	MultiDiffToPrevious = function ( taskListData ) {
+		MultiDiffToPrevious.super.call( this, taskListData );
+		this.$element.addClass( WL.config.prefix + 'multi-diff-to-previous' );
+		console.log('initially this $element', this)
+	};
+	OO.inheritClass( MultiDiffToPrevious, View );
+	MultiDiffToPrevious.prototype.load = function ( taskListData ) {
+		MultiDiffToPrevious.super.prototype.load.call( this, taskListData );
+		this.preCacheDiffs();
+	};
+	MultiDiffToPrevious.prototype.preCacheRevList = function (index, jindex, revIdList, finishedCallback) {
+			var query, revId;
+			jindex = jindex || 0;
+			console.log('jindex is:', jindex);
+			console.log('revIdList is:', revIdList);
+			if ( jindex >= revIdList.length ) {
+				// We're done here
+				this.tasks[index].diffListComplete = true
+				console.log("Finished callback is:", finishedCallback)
+				if (finishedCallback == 'preCache'){
+					this.preCacheDiffs(index+1)
+				}
+				else if (finishedCallback == 'present'){
+					this.present(this.tasks[index])
+				}
+				else {console.error('no finished callback instructions given')}
+			} else if ( this.tasks[index].diffList[jindex] !== undefined ) {
+				console.log('were in jindex recurse statement');
+				// Already cached this diff.  Recurse!
+				getRevId( jindex + 1 );
+			} else {
+				revId = revIdList[jindex].rev_id;
+				console.log('revId is : ', revId);
+				query = WL.api.diffToPrevious(revId);
+				console.log('asked for query');
+				query.done(function (diff) {
+					// Recurse!
+					console.log('pre-caching diff for ', diff.title);
+					this.tasks[index].diffList[jindex] = diff;
+					this.preCacheRevList(index, jindex + 1, revIdList, finishedCallback);
+				}.bind(this));
+				query.fail(function () {
+					// Recurse!
+					console.log('Failed to get diff for revId: ', revId);
+					this.tasks[index].diffList.push('Fail');
+					this.preCacheRevList(index, jindex + 1, revIdList, finishedCallback);
+				}.bind(this));
+			};
+		};
+
+	MultiDiffToPrevious.prototype.preCacheDiffs = function ( index ) {
+		index = index || 0;
+		console.log('In precache diffs with index:', index);
+		console.log('Tasks are,:', this.tasks);
+		if ( index >= this.tasks.length ) {
+			// We're done here
+			return null;
+		} else if ( this.tasks[ index ].diffList !== undefined ) {
+			console.log('were in recurse statement');
+			// Already cached this diffList.  Recurse!
+			this.preCacheDiffs( index + 1 );
+		} else {
+			// We don't have the diffList.  Go get it.
+			this.tasks[index].diffList = [];
+			this.tasks[index].diffListComplete = false;
+			console.log('initialized difflist');
+			this.preCacheRevList(index, 0, this.tasks[index].data.data, 'preCache');
+		};
+	};
+
+	MultiDiffToPrevious.prototype.present = function ( taskInfo ) {
+		console.log('Present called with taskInfo', taskInfo)
+		if ( taskInfo.diffListComplete ) {
+			this.presentDiff( taskInfo.diffList );
+		} else {
+			console.log("Entering Non-cached branch of present:", taskInfo);
+			this.preCacheRevList(taskInfo.i, 0, taskInfo.data.data, 'present');
+			}
+	};
+
+	MultiDiffToPrevious.prototype.presentDiff = function ( diffList ) {
+		console.log('DiffList is:', diffList);
+		this.$element.empty();
+
+		for (d=0; d<diffList.length; d++) {
+            //loop over diffs
+            var diffLink, diff;
+            diff = diffList[d]
+
+            // console.log("now appending for:", diff);
+			sectionHeader = $('<h3>').text('Revision number'+d).addClass('section-header'),
+            title = WL.util.linkToTitle(diff.title).addClass('title'),
+                description = $('<div>').addClass('description'),
+                comment = $('<div>').addClass('comment'),
+                direction = $('#mw-content-text').attr('dir'),
+                diffTable = (direction === 'rtl' ?
+                    $('<table>').addClass('diff diff-contentalign-right') :
+                    $('<table>').addClass('diff diff-contentalign-left'));
+
+            this.$element.append(sectionHeader);
+            this.$element.append(title);
+
+            diffLink = WL.util.linkToDiff(diff.revId).prop('outerHTML');
+            description.html(WL.i18n('Diff for revision $1', [diffLink]));
+            this.$element.append(description);
+
+            this.$element.append(comment.html(diff.comment));
+
+            if (diff.tableRows) {
+                diffTable.append(
+                    '<col class=\'diff-marker\' />' +
+                    '<col class=\'diff-content\' />' +
+                    '<col class=\'diff-marker\' />' +
+                    '<col class=\'diff-content\' />'
+                );
+                diffTable.append(diff.tableRows);
+                this.$element.append(diffTable);
+            } else {
+                this.$element.append(
+                    $('<div>').addClass('no-difference')
+                        .text(WL.i18n('No difference'))
+                );
+            }
+            ;
+        };
 	};
 
 	PageAsOfRevision = function ( taskListData ) {
@@ -327,6 +454,7 @@
 	WL.views = {
 		View: View,
 		DiffToPrevious: DiffToPrevious,
+		MultiDiffToPrevious: MultiDiffToPrevious,
 		PageAsOfRevision: PageAsOfRevision,
 		PrintablePageAsOfRevision: PrintablePageAsOfRevision,
 		ParsedWikitext: ParsedWikitext,

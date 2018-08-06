@@ -2,4 +2,4 @@
 # database used during development.
 database:
   user: wikilabels
-  password: wikilabels-admin
+  password: wikilabels

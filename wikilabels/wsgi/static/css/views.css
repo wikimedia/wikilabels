@@ -26,6 +26,12 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 .mw-content-rtl .wikilabels-diff-to-previous > .error {
 	text-align: right;
 }
+
+.wikilabels-diff-to-previous > .section-header {
+	font-size: 150%;
+	margin-top: 0.5em;
+}
+
 .wikilabels-diff-to-previous > .title {
 	font-size: 150%;
 	margin-top: 1em;
@@ -33,6 +39,7 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 .wikilabels-diff-to-previous > .description {
 	margin-top: 0.5em;
 }
+
 .wikilabels-diff-to-previous > .comment {
 	margin-top: 0.5em;
 	font-style: italic;

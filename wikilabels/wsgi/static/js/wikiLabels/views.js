@@ -144,7 +144,7 @@
 
 	MultiDiffToPrevious = function ( taskListData ) {
 		MultiDiffToPrevious.super.call( this, taskListData );
-		this.$element.addClass( WL.config.prefix + 'multi-diff-to-previous' );
+		this.$element.addClass( WL.config.prefix + 'diff-to-previous' );
 		console.log('initially this $element', this)
 	};
 	OO.inheritClass( MultiDiffToPrevious, View );
@@ -155,12 +155,12 @@
 	MultiDiffToPrevious.prototype.preCacheRevList = function (index, jindex, revIdList, finishedCallback) {
 			var query, revId;
 			jindex = jindex || 0;
-			console.log('jindex is:', jindex);
-			console.log('revIdList is:', revIdList);
+			// console.log('jindex is:', jindex);
+			// console.log('revIdList is:', revIdList);
 			if ( jindex >= revIdList.length ) {
 				// We're done here
 				this.tasks[index].diffListComplete = true
-				console.log("Finished callback is:", finishedCallback)
+				// console.log("Finished callback is:", finishedCallback)
 				if (finishedCallback == 'preCache'){
 					this.preCacheDiffs(index+1)
 				}
@@ -171,15 +171,15 @@
 			} else if ( this.tasks[index].diffList[jindex] !== undefined ) {
 				console.log('were in jindex recurse statement');
 				// Already cached this diff.  Recurse!
-				getRevId( jindex + 1 );
+                this.preCacheRevList(index, jindex + 1, revIdList, finishedCallback);
 			} else {
 				revId = revIdList[jindex].rev_id;
-				console.log('revId is : ', revId);
+				// console.log('revId is : ', revId);
 				query = WL.api.diffToPrevious(revId);
-				console.log('asked for query');
+				// console.log('asked for query');
 				query.done(function (diff) {
 					// Recurse!
-					console.log('pre-caching diff for ', diff.title);
+					// console.log('pre-caching diff for ', diff.title);
 					this.tasks[index].diffList[jindex] = diff;
 					this.preCacheRevList(index, jindex + 1, revIdList, finishedCallback);
 				}.bind(this));
@@ -194,20 +194,20 @@
 
 	MultiDiffToPrevious.prototype.preCacheDiffs = function ( index ) {
 		index = index || 0;
-		console.log('In precache diffs with index:', index);
-		console.log('Tasks are,:', this.tasks);
+		// console.log('In precache diffs with index:', index);
+		// console.log('Tasks are,:', this.tasks);
 		if ( index >= this.tasks.length ) {
 			// We're done here
 			return null;
 		} else if ( this.tasks[ index ].diffList !== undefined ) {
-			console.log('were in recurse statement');
+			// console.log('were in recurse statement');
 			// Already cached this diffList.  Recurse!
 			this.preCacheDiffs( index + 1 );
 		} else {
 			// We don't have the diffList.  Go get it.
 			this.tasks[index].diffList = [];
 			this.tasks[index].diffListComplete = false;
-			console.log('initialized difflist');
+			// console.log('initialized difflist');
 			this.preCacheRevList(index, 0, this.tasks[index].data.data, 'preCache');
 		};
 	};
@@ -223,7 +223,7 @@
 	};
 
 	MultiDiffToPrevious.prototype.presentDiff = function ( diffList ) {
-		console.log('DiffList is:', diffList);
+		// console.log('DiffList is:', diffList);
 		this.$element.empty();
 
 		for (d=0; d<diffList.length; d++) {
@@ -232,7 +232,7 @@
             diff = diffList[d]
 
             // console.log("now appending for:", diff);
-			sectionHeader = $('<h3>').text('Revision number'+d).addClass('section-header'),
+			revisionHeader = $('<h3>').text('Revision number '+(d+1)).addClass('revision-header'),
             title = WL.util.linkToTitle(diff.title).addClass('title'),
                 description = $('<div>').addClass('description'),
                 comment = $('<div>').addClass('comment'),
@@ -241,7 +241,7 @@
                     $('<table>').addClass('diff diff-contentalign-right') :
                     $('<table>').addClass('diff diff-contentalign-left'));
 
-            this.$element.append(sectionHeader);
+            this.$element.append(revisionHeader);
             this.$element.append(title);
 
             diffLink = WL.util.linkToDiff(diff.revId).prop('outerHTML');

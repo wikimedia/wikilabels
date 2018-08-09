@@ -153,42 +153,43 @@
 		this.preCacheDiffs();
 	};
 
-	MultiDiffToPrevious.prototype.preCacheRevList = function (index, jindex, revIdList, finishedCallback) {
-	    // index of the workset we are working on
-        // jindex is the revision of the multidiff session we are working on
-        // revIdList are the revisions in the multidiff session
-        // finished callback is what to do after all the diff's have been retreived
-        var query, revId;
-        jindex = jindex || 0;
-        if ( jindex >= revIdList.length ) {
-            // We're done here
-            this.tasks[index].diffListComplete = true;
-            // This is a flag that we set to indicate that we're all done.
-            // In diffToPrevious we can just check if the diff is there, but because our output
-            // is a list it's not sufficient
-            finishedCallback(index);
-            return finishedCallback;
-        } else if ( this.tasks[index].diffList[jindex] !== undefined ) {
-            // Already cached this diff.  Recurse!
-            this.preCacheRevList(index, jindex + 1, revIdList, finishedCallback);
-        } else {
-            // We need to get this diff
-            revId = revIdList[jindex].rev_id;
-            query = WL.api.diffToPrevious(revId);
-            query.done(function (diff) {
-                // Recurse!
-                this.tasks[index].diffList[jindex] = diff;
-                this.preCacheRevList(index, jindex + 1, revIdList, finishedCallback);
-            }.bind(this));
-            query.fail(function () {
-                // Recurse!
-                console.error('Fialed to get', revId);
-                this.preCacheRevList(index, jindex + 1, revIdList, finishedCallback);
-            }.bind(this));
-        };
-    };
+	MultiDiffToPrevious.prototype.preCacheRevList = function ( index, jindex, revIdList, finishedCallback ) {
+		// index of the workset we are working on
+		// jindex is the revision of the multidiff session we are working on
+		// revIdList are the revisions in the multidiff session
+		// finished callback is what to do after all the diff's have been retreived
+		var query, revId;
+		jindex = jindex || 0;
+		if ( jindex >= revIdList.length ) {
+			// We're done here
+			this.tasks[ index ].diffListComplete = true;
+			// This is a flag that we set to indicate that we're all done.
+			// In diffToPrevious we can just check if the diff is there, but because our output
+			// is a list it's not sufficient
+			finishedCallback( index );
+			return finishedCallback;
+		} else if ( this.tasks[ index ].diffList[ jindex ] !== undefined ) {
+			// Already cached this diff.  Recurse!
+			this.preCacheRevList( index, jindex + 1, revIdList, finishedCallback );
+		} else {
+			// We need to get this diff
+			revId = revIdList[ jindex ].rev_id;
+			query = WL.api.diffToPrevious( revId );
+			query.done( function ( diff ) {
+				// Recurse!
+				this.tasks[ index ].diffList[ jindex ] = diff;
+				this.preCacheRevList( index, jindex + 1, revIdList, finishedCallback );
+			}.bind( this ) );
+			query.fail( function () {
+				// Recurse!
+				console.error( 'Fialed to get', revId );
+				this.preCacheRevList( index, jindex + 1, revIdList, finishedCallback );
+			}.bind( this ) );
+		}
+	};
 
 	MultiDiffToPrevious.prototype.preCacheDiffs = function ( index ) {
+		var finishedCallback;
 		index = index || 0;
 		if ( index >= this.tasks.length ) {
 			// We're done here
@@ -197,74 +198,75 @@
 			// Already cached this diffList.  Recurse!
 			this.preCacheDiffs( index + 1 );
 		} else {
-		    // diffList is a list of diffs
-			this.tasks[index].diffList = [];
+			// diffList is a list of diffs
+			this.tasks[ index ].diffList = [];
 			// diffList complete is a flag that turns true when we're finished precaching
-			this.tasks[index].diffListComplete = false;
+			this.tasks[ index ].diffListComplete = false;
 			// when the task is done, execute the next one
-            var finishedCallback = function (index){this.preCacheDiffs(index+1)}.bind(this);
-            // set things in motion
-			this.preCacheRevList(index, 0, this.tasks[index].data.data, finishedCallback);
-		};
+			finishedCallback = function ( index ) { this.preCacheDiffs( index + 1 ); }.bind( this );
+			// set things in motion
+			this.preCacheRevList( index, 0, this.tasks[ index ].data.data, finishedCallback );
+		}
 	};
 
 	MultiDiffToPrevious.prototype.present = function ( taskInfo ) {
-	    // check if we set the list completed flag to true
+		var finishedCallback;
+		// check if we set the list completed flag to true
 		if ( taskInfo.diffListComplete ) {
 			this.presentDiff( taskInfo.diffList );
-        // otherwise we have to go and get the diff
+			// otherwise we have to go and get the diff
 		} else {
-		    // when finished we want to present this item
-			var finishedCallback = function (index) {this.present(this.tasks[index])}.bind(this);
-			this.preCacheRevList(taskInfo.i, 0, taskInfo.data.data, finishedCallback);
-			};
+			// when finished we want to present this item
+			finishedCallback = function ( index ) { this.present( this.tasks[ index ] ); }.bind( this );
+			this.preCacheRevList( taskInfo.i, 0, taskInfo.data.data, finishedCallback );
+		}
 	};
 
 	MultiDiffToPrevious.prototype.presentDiff = function ( diffList ) {
+		var diffLink, diff, d, sessionHeader, revisionHeader, title, description,
+			comment, direction, diffTable;
 		this.$element.empty();
-		//display header telling the user how many diffs are in here
-		sessionHeader =  $('<h2>').text('This session had '+ diffList.length +' revisions.').addClass('session-header'),
-        this.$element.append(sessionHeader);
+		// display header telling the user how many diffs are in here
+		sessionHeader = $( '<h2>' ).text( 'This session had ' + diffList.length + ' revisions.' ).addClass( 'session-header' );
+		this.$element.append( sessionHeader );
 
-		for (d=0; d<diffList.length; d++) {
-            //loop over diffs
-            var diffLink, diff;
-            diff = diffList[d];
+		for ( d = 0; d < diffList.length; d++ ) {
+			// loop over diffs
+			diff = diffList[ d ];
+			revisionHeader = $( '<h3>' ).text( 'Revision number ' + ( d + 1 ) ).addClass( 'revision-header' );
+			title = WL.util.linkToTitle( diff.title ).addClass( 'title' );
+			description = $( '<div>' ).addClass( 'description' );
+			comment = $( '<div>' ).addClass( 'comment' );
+			direction = $( '#mw-content-text' ).attr( 'dir' );
+			diffTable = ( direction === 'rtl' ?
+				$( '<table>' ).addClass( 'diff diff-contentalign-right' ) :
+				$( '<table>' ).addClass( 'diff diff-contentalign-left' ) );
 
-			revisionHeader = $('<h3>').text('Revision number '+(d+1)).addClass('revision-header'),
-            title = WL.util.linkToTitle(diff.title).addClass('title'),
-                description = $('<div>').addClass('description'),
-                comment = $('<div>').addClass('comment'),
-                direction = $('#mw-content-text').attr('dir'),
-                diffTable = (direction === 'rtl' ?
-                    $('<table>').addClass('diff diff-contentalign-right') :
-                    $('<table>').addClass('diff diff-contentalign-left'));
+			this.$element.append( revisionHeader );
+			this.$element.append( title );
 
-            this.$element.append(revisionHeader);
-            this.$element.append(title);
+			diffLink = WL.util.linkToDiff( diff.revId ).prop( 'outerHTML' );
+			description.html( WL.i18n( 'Diff for revision $1', [ diffLink ] ) );
+			this.$element.append( description );
 
-            diffLink = WL.util.linkToDiff(diff.revId).prop('outerHTML');
-            description.html(WL.i18n('Diff for revision $1', [diffLink]));
-            this.$element.append(description);
+			this.$element.append( comment.html( diff.comment ) );
 
-            this.$element.append(comment.html(diff.comment));
-
-            if (diff.tableRows) {
-                diffTable.append(
-                    '<col class=\'diff-marker\' />' +
+			if ( diff.tableRows ) {
+				diffTable.append(
+					'<col class=\'diff-marker\' />' +
                     '<col class=\'diff-content\' />' +
                     '<col class=\'diff-marker\' />' +
                     '<col class=\'diff-content\' />'
-                );
-                diffTable.append(diff.tableRows);
-                this.$element.append(diffTable);
-            } else {
-                this.$element.append(
-                    $('<div>').addClass('no-difference')
-                        .text(WL.i18n('No difference'))
-                );
-            };
-        };
+				);
+				diffTable.append( diff.tableRows );
+				this.$element.append( diffTable );
+			} else {
+				this.$element.append(
+					$( '<div>' ).addClass( 'no-difference' )
+						.text( WL.i18n( 'No difference' ) )
+				);
+			}
+		}
 	};
 
 	PageAsOfRevision = function ( taskListData ) {

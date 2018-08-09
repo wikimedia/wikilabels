@@ -159,7 +159,7 @@
 			// console.log('revIdList is:', revIdList);
 			if ( jindex >= revIdList.length ) {
 				// We're done here
-				this.tasks[index].diffListComplete = true
+				this.tasks[index].diffListComplete = true;
 				// console.log("Finished callback is:", finishedCallback)
 				if (finishedCallback == 'preCache'){
 					this.preCacheDiffs(index+1)
@@ -213,7 +213,7 @@
 	};
 
 	MultiDiffToPrevious.prototype.present = function ( taskInfo ) {
-		console.log('Present called with taskInfo', taskInfo)
+		console.log('Present called with taskInfo', taskInfo);
 		if ( taskInfo.diffListComplete ) {
 			this.presentDiff( taskInfo.diffList );
 		} else {
@@ -226,10 +226,13 @@
 		// console.log('DiffList is:', diffList);
 		this.$element.empty();
 
+		sessionHeader =  $('<h2>').text('This session had '+ diffList.length +' revisions.').addClass('session-header'),
+        this.$element.append(sessionHeader);
+
 		for (d=0; d<diffList.length; d++) {
             //loop over diffs
             var diffLink, diff;
-            diff = diffList[d]
+            diff = diffList[d];
 
             // console.log("now appending for:", diff);
 			revisionHeader = $('<h3>').text('Revision number '+(d+1)).addClass('revision-header'),

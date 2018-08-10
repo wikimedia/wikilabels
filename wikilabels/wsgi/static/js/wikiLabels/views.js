@@ -182,7 +182,8 @@
 			}.bind( this ) );
 			query.fail( function () {
 				// Recurse!
-				console.error( 'Failed to get', revId );
+				// console.error( 'Failed to get', revId );
+				this.tasks[ index ].diffList[ jindex ] = {tableRows: '<tr><td colspan="2" class="diff-lineno">This revision, ' + revId + ', has been deleted from the database. Please label as damaging/badfaith.</td></tr>'};
 				this.preCacheRevList( index, jindex + 1, revIdList, finishedCallback );
 			}.bind( this ) );
 		}
@@ -223,17 +224,11 @@
 
 	MultiDiffToPrevious.prototype.presentDiff = function ( taskInfo ) {
 		var diffLink, diffList, diff, d, sessionHeader, revisionHeader, title, description,
-			comment, direction, diffTable, firstDate, lastDate, sessionMinutes, sessionHeaderText;
+			comment, direction, diffTable, sessionHeaderText;
 		diffList = taskInfo.diffList;
 		this.$element.empty();
 		// display header telling the user how many diffs are in here
-		if ( taskInfo.data.data.timestamps.length <= 1 ) { sessionMinutes = -1; } else {
-			firstDate = taskInfo.data.data.timestamps[ 0 ];
-			lastDate = taskInfo.data.data.timestamps[ taskInfo.data.data.timestamps.length - 1 ];
-			sessionMinutes = Math.ceil( ( lastDate - firstDate ) / ( 1000 * 60 ) );
-		}
-		sessionHeaderText = sessionMinutes < 0 ? 'This session had just 1 revision' :
-			'This session had ' + diffList.length + ' revisions over ' + sessionMinutes + ' minutes.';
+		sessionHeaderText = 'This session had ' + diffList.length + ' revision';
 		sessionHeader = $( '<h2>' ).text( sessionHeaderText ).addClass( 'session-header' );
 		this.$element.append( sessionHeader );
 

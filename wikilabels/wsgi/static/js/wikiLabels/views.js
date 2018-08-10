@@ -183,7 +183,7 @@
 			query.fail( function () {
 				// Recurse!
 				// console.error( 'Failed to get', revId );
-				this.tasks[ index ].diffList[ jindex ] = { tableRows: '<tr><td colspan="2" class="diff-lineno">This revision, ' + revId + ', has been deleted from the database. Please label as damaging/badfaith.</td></tr>' };
+				this.tasks[ index ].diffList[ jindex ] = { tableRows: '<tr><td colspan="2" class="diff-lineno">This revision, ' + revId + ', has been deleted from the database. Please skip this task.</td></tr>' };
 				this.preCacheRevList( index, jindex + 1, revIdList, finishedCallback );
 			}.bind( this ) );
 		}

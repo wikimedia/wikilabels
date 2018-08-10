@@ -173,7 +173,7 @@
 			this.preCacheRevList( index, jindex + 1, revIdList, finishedCallback );
 		} else {
 			// We need to get this diff
-			revId = revIdList[ jindex ].rev_id;
+			revId = revIdList[ jindex ];
 			query = WL.api.diffToPrevious( revId );
 			query.done( function ( diff ) {
 				// Recurse!
@@ -182,7 +182,7 @@
 			}.bind( this ) );
 			query.fail( function () {
 				// Recurse!
-				console.error( 'Fialed to get', revId );
+				console.error( 'Failed to get', revId );
 				this.preCacheRevList( index, jindex + 1, revIdList, finishedCallback );
 			}.bind( this ) );
 		}
@@ -193,7 +193,6 @@
 		index = index || 0;
 		if ( index >= this.tasks.length ) {
 			// We're done here
-			return null;
 		} else if ( this.tasks[ index ].diffList !== undefined ) {
 			// Already cached this diffList.  Recurse!
 			this.preCacheDiffs( index + 1 );
@@ -205,7 +204,7 @@
 			// when the task is done, execute the next one
 			finishedCallback = function ( index ) { this.preCacheDiffs( index + 1 ); }.bind( this );
 			// set things in motion
-			this.preCacheRevList( index, 0, this.tasks[ index ].data.data, finishedCallback );
+			this.preCacheRevList( index, 0, this.tasks[ index ].data.data.rev_ids, finishedCallback );
 		}
 	};
 
@@ -213,21 +212,29 @@
 		var finishedCallback;
 		// check if we set the list completed flag to true
 		if ( taskInfo.diffListComplete ) {
-			this.presentDiff( taskInfo.diffList );
+			this.presentDiff( taskInfo );
 			// otherwise we have to go and get the diff
 		} else {
 			// when finished we want to present this item
 			finishedCallback = function ( index ) { this.present( this.tasks[ index ] ); }.bind( this );
-			this.preCacheRevList( taskInfo.i, 0, taskInfo.data.data, finishedCallback );
+			this.preCacheRevList( taskInfo.i, 0, taskInfo.data.data.rev_ids, finishedCallback );
 		}
 	};
 
-	MultiDiffToPrevious.prototype.presentDiff = function ( diffList ) {
-		var diffLink, diff, d, sessionHeader, revisionHeader, title, description,
-			comment, direction, diffTable;
+	MultiDiffToPrevious.prototype.presentDiff = function ( taskInfo ) {
+		var diffLink, diffList, diff, d, sessionHeader, revisionHeader, title, description,
+			comment, direction, diffTable, firstDate, lastDate, sessionMinutes, sessionHeaderText;
+		diffList = taskInfo.diffList;
 		this.$element.empty();
 		// display header telling the user how many diffs are in here
-		sessionHeader = $( '<h2>' ).text( 'This session had ' + diffList.length + ' revisions.' ).addClass( 'session-header' );
+		if ( taskInfo.data.data.timestamps.length <= 1 ) { sessionMinutes = -1; } else {
+			firstDate = taskInfo.data.data.timestamps[ 0 ];
+			lastDate = taskInfo.data.data.timestamps[ taskInfo.data.data.timestamps.length - 1 ];
+			sessionMinutes = Math.ceil( ( lastDate - firstDate ) / ( 1000 * 60 ) );
+		}
+		sessionHeaderText = sessionMinutes < 0 ? 'This session had just 1 revision' :
+			'This session had ' + diffList.length + ' revisions over ' + sessionMinutes + ' minutes.';
+		sessionHeader = $( '<h2>' ).text( sessionHeaderText ).addClass( 'session-header' );
 		this.$element.append( sessionHeader );
 
 		for ( d = 0; d < diffList.length; d++ ) {

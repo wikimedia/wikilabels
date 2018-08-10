@@ -183,7 +183,7 @@
 			query.fail( function () {
 				// Recurse!
 				// console.error( 'Failed to get', revId );
-				this.tasks[ index ].diffList[ jindex ] = {tableRows: '<tr><td colspan="2" class="diff-lineno">This revision, ' + revId + ', has been deleted from the database. Please label as damaging/badfaith.</td></tr>'};
+				this.tasks[ index ].diffList[ jindex ] = { tableRows: '<tr><td colspan="2" class="diff-lineno">This revision, ' + revId + ', has been deleted from the database. Please label as damaging/badfaith.</td></tr>' };
 				this.preCacheRevList( index, jindex + 1, revIdList, finishedCallback );
 			}.bind( this ) );
 		}
@@ -224,11 +224,19 @@
 
 	MultiDiffToPrevious.prototype.presentDiff = function ( taskInfo ) {
 		var diffLink, diffList, diff, d, sessionHeader, revisionHeader, title, description,
-			comment, direction, diffTable, sessionHeaderText;
+			comment, direction, diffTable, sessionHeaderText, note, plural;
 		diffList = taskInfo.diffList;
 		this.$element.empty();
+		// display note from taskInfo if there is one
+		if ( taskInfo.data.data.note !== '' && !taskInfo.data.data.note !== undefined ) {
+			note = $( '<div>' ).addClass( 'note' );
+			// we expect note to be HTML
+			note.html( taskInfo.data.data.note );
+			this.$element.append( note );
+		}
 		// display header telling the user how many diffs are in here
-		sessionHeaderText = 'This session had ' + diffList.length + ' revision';
+		plural = diffList.length === 1 ? '' : 's';
+		sessionHeaderText = 'This session had ' + diffList.length + ' revision' + plural + '.';
 		sessionHeader = $( '<h2>' ).text( sessionHeaderText ).addClass( 'session-header' );
 		this.$element.append( sessionHeader );
 

@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joao Xavier"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Nulo skribesis en l'informobuxo \"$1\". Sendez irgamaniere?",
+	"Abandon": "Saltar",
+	"Are you sure that you want to abandon this task?": "Ka vu fakte deziras saltar a la nexta tasko?",
+	"Campaigns": "Kampanii (<a href=\"$1\">statistiki</a>)",
+	"Can't save label. No task is selected!": "Ne povas sparar la notico. Nula tasko selektesis!",
+	"Review": "Revizar",
+	"Save": "Sparar ed irar a la sequanta",
+	"review": "revizar"
+}

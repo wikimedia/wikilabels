@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/wikimedia/wikilabels.svg?branch=master)](https://travis-ci.org/wiki-ai/wikilabels)
-[![codecov](https://codecov.io/gh/wikimedia/wikilabels/branch/master/graph/badge.svg)](https://codecov.io/gh/wiki-ai/wikilabels)
+[![Build Status](https://travis-ci.org/wikimedia/wikilabels.svg?branch=master)](https://travis-ci.org/wikimedia/wikilabels)
+[![codecov](https://codecov.io/gh/wikimedia/wikilabels/branch/master/graph/badge.svg)](https://codecov.io/gh/wikimedia/wikilabels)
 
 # Wiki Labels
 This package provides the components of a generalized labeling service for

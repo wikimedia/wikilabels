@@ -20,7 +20,7 @@ setup(
     description="A generalized data labeling system for use in MediaWiki " + \
                 "wikis",
     license="MIT",
-    url="https://github.com/halfak/Wiki-Labels",
+    url="https://github.com/wikimedia/wikilabels",
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,

@@ -25,7 +25,7 @@ fields:
     align: top
     help: "<reason-true-help>"
     fieldWidget:
-      name: "notes"
+      name: "notes-true"
       class: "DropdownInputWidget"
       options:
           - data:  "true-empty"
@@ -51,7 +51,7 @@ fields:
     align: top
     help: "<reason-false-help>"
     fieldWidget:
-      name: "notes"
+      name: "notes-false"
       class: "DropdownInputWidget"
       options:
           - data:  "false-empty"

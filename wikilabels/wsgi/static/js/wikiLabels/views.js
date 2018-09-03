@@ -224,7 +224,7 @@
 
 	MultiDiffToPrevious.prototype.presentDiff = function ( taskInfo ) {
 		var diffLink, diffList, diff, d, sessionHeader, revisionHeader, title, description,
-			comment, direction, diffTable, sessionHeaderText, note, plural;
+			comment, direction, diffTable, sessionHeaderText, note;
 		diffList = taskInfo.diffList;
 		this.$element.empty();
 		// display note from taskInfo if there is one
@@ -235,15 +235,14 @@
 			this.$element.append( note );
 		}
 		// display header telling the user how many diffs are in here
-		plural = diffList.length === 1 ? '' : 's';
-		sessionHeaderText = 'This session had ' + diffList.length + ' revision' + plural + '.';
+		sessionHeaderText = WL.i18n( 'session header', [ diffList.length ] );
 		sessionHeader = $( '<h2>' ).text( sessionHeaderText ).addClass( 'session-header' );
 		this.$element.append( sessionHeader );
 
 		for ( d = 0; d < diffList.length; d++ ) {
 			// loop over diffs
 			diff = diffList[ d ];
-			revisionHeader = $( '<h3>' ).text( 'Revision number ' + ( d + 1 ) ).addClass( 'revision-header' );
+			revisionHeader = $( '<h3>' ).text( WL.i18n( 'Revision number', [ d + 1 ] ) ).addClass( 'revision-header' );
 			title = WL.util.linkToTitle( diff.title ).addClass( 'title' );
 			description = $( '<div>' ).addClass( 'description' );
 			comment = $( '<div>' ).addClass( 'comment' );

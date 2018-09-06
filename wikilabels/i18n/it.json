@@ -32,5 +32,7 @@
 	"request workset": "Richiesta workset",
 	"review": "Valuta",
 	"maintenance notice": "Wiki labels non sarà disponibile per manutenzione il $1. Vedi $2 per ulteriori informazioni.",
-	"more-info": "(<a href=\"$1\">Ulteriori informazioni</a>)"
+	"more-info": "(<a href=\"$1\">Ulteriori informazioni</a>)",
+	"session header": "Questa sessione ha $1 versione/i",
+	"Revision number": "Versione numero $1"
 }

@@ -16,7 +16,7 @@
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "無法載入視圖「$1」：$2\n正使用簡易的任務瀏覽器",
 	"Could not load workset list: $1": "無法載入工作集合清單：$1",
 	"Could not parse MediaWiki API's response": "無法解析維基媒體API的回應內容",
-	"Diff for revision $1": "版本$1的差異",
+	"Diff for revision $1": "修訂$1的差異",
 	"No difference": "无差異",
 	"Request new workset": "要求新工作集",
 	"Review": "檢閱",
@@ -33,5 +33,7 @@
 	"request workset": "要求工作集",
 	"review": "檢閱",
 	"maintenance notice": "於$1 Wiki labels 將因維護緣故而停止。查看 $2 來獲得更多訊息。",
-	"more-info": "（<a href=\"$1\">顯示訊息</a>）"
+	"more-info": "（<a href=\"$1\">顯示訊息</a>）",
+	"session header": "此 session 有 $1 個修訂。",
+	"Revision number": "修訂號碼 $1"
 }

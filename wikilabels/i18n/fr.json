@@ -32,5 +32,7 @@
 	"request workset": "Demander l'ensemble de données",
 	"review": "Relecture",
 	"maintenance notice": "Les libellés Wiki seront arrêtés pour maintenance le $1. Voyez $2 pour plus d’information.",
-	"more-info": "(<a href=\"$1\">Plus d'informations</a>)"
+	"more-info": "(<a href=\"$1\">Plus d'informations</a>)",
+	"session header": "Cette session comporte $1 relecture(s).",
+	"Revision number": "Revue numéro $1"
 }

@@ -35,5 +35,7 @@
 	"request workset": "solicitar um grupo de tarefas",
 	"review": "revisar",
 	"maintenance notice": "O Wiki labels estará em manutenção em $1. Ver $2 para mais informações.",
-	"more-info": "(<a href=\"$1\">Mais informações</a>)"
+	"more-info": "(<a href=\"$1\">Mais informações</a>)",
+	"session header": "Esta sessão teve $1 revisões.",
+	"Revision number": "Revisão número $1"
 }

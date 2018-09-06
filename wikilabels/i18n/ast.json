@@ -31,5 +31,7 @@
 	"request workset": "solicitar grupu de xeres",
 	"review": "revisar",
 	"maintenance notice": "Les etiquetes wiki apagaránse por mantenimientu el $1. Visita $2 pa más información.",
-	"more-info": "(<a href=\"$1\">Más información</a>)"
+	"more-info": "(<a href=\"$1\">Más información</a>)",
+	"session header": "Esta sesión tien $1 revisión(es).",
+	"Revision number": "Númberu de revisión $1"
 }

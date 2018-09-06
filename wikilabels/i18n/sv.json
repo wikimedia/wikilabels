@@ -35,5 +35,7 @@
 	"request workset": "begär uppsättning",
 	"review": "granska",
 	"maintenance notice": "Wikietiketter är nere för underhåll den $1. Se $2 för mer information.",
-	"more-info": "(<a href=\"$1\">Mer info</a>)"
+	"more-info": "(<a href=\"$1\">Mer info</a>)",
+	"session header": "Denna session hade $1 sidversion(er).",
+	"Revision number": "Sidversionsnummer $1"
 }

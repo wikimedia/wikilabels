@@ -31,5 +31,7 @@
 	"request workset": "Arbeitssatz anfordern",
 	"review": "überprüfen",
 	"maintenance notice": "Wikilabels geht zur Wartung offline am $1. Siehe $2 für weitere Informationen.",
-	"more-info": "(<a href=\"$1\">Weitere Informationen</a>)"
+	"more-info": "(<a href=\"$1\">Weitere Informationen</a>)",
+	"session header": "Diese Sitzung hatte $1 Version(en).",
+	"Revision number": "Versionsnummer $1"
 }

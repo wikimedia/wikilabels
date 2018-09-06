@@ -5,7 +5,8 @@
 			"Obsuser",
 			"Милан Јелисавчић",
 			"Zoranzoki21",
-			"Acamicamacaraca"
+			"Acamicamacaraca",
+			"BadDog"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Поље „$1” није попуњено.  Свеједно пошаљи?",
@@ -35,5 +36,6 @@
 	"request workset": "захтевај радни списак",
 	"review": "Преглед",
 	"maintenance notice": "Вики обавештава о гашењу због одржавања на датум $1.  Погледајте $2 за више информација.",
-	"more-info": "(<a href=\"$1\">Више информација</a>)"
+	"more-info": "(<a href=\"$1\">Више информација</a>)",
+	"Revision number": "Број измене $1"
 }

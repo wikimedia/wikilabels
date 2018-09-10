@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Archaeodontosaurus",
-			"Hedda"
+			"Hedda",
+			"By erdo can"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "'$1' tamamlanmadı. Yine de sunulsun mu?",
@@ -32,5 +33,7 @@
 	"request workset": "iş kümesi iste",
 	"review": "incele",
 	"maintenance notice": "Viki etiketleri $1 tarihinde bakım için çalışmayacak. Daha fazla için $2 sayfasına bakınız.",
-	"more-info": "(<a href=\"$1\">Daha fazla bilgi</a>)"
+	"more-info": "(<a href=\"$1\">Daha fazla bilgi</a>)",
+	"session header": "Bu oturumda $1 revizyon yapıldı.",
+	"Revision number": "Revizyon sayısı $1"
 }

@@ -32,5 +32,7 @@
 	"request workset": "Solicitar grupo de tarefas",
 	"review": "revisar",
 	"maintenance notice": "As etiquetas wiki apagaranse por mantenemento o $1. Consulte $2 para máis información.",
-	"more-info": "(<a href=\"$1\">Máis información</a>)"
+	"more-info": "(<a href=\"$1\">Máis información</a>)",
+	"session header": "Esta sesión tivo $1 revisión(s).",
+	"Revision number": "Revisión número $1"
 }

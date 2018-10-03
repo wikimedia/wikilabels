@@ -3,7 +3,8 @@
 		"authors": [
 			"Liuxinyu970226",
 			"Arthur2e5",
-			"Shizhao"
+			"Shizhao",
+			"Phenolla"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "字段“$1”未填。是否仍要提交？",
@@ -19,7 +20,7 @@
 	"Diff for revision $1": "版本$1的差异",
 	"No difference": "无差异",
 	"Request new workset": "请求新工作集",
-	"Review": "复查",
+	"Review": "复核",
 	"Save": "保存并打开下一个",
 	"License": "任何提供的标签将依据CC0（公有领域）的条款公开发布并授权",
 	"Submit label": "提交标记",
@@ -31,7 +32,9 @@
 	"exit fullscreen": "退出全屏",
 	"open": "打开",
 	"request workset": "请求工作集",
-	"review": "复查",
+	"review": "复核",
 	"maintenance notice": "Wiki labels将于$1因维护目的而下线。参见$2以获取更多信息。",
-	"more-info": "（<a href=\"$1\">更多信息</a>）"
+	"more-info": "（<a href=\"$1\">更多信息</a>）",
+	"session header": "此回话有$1个修订版本。",
+	"Revision number": "修订版本数量$1"
 }

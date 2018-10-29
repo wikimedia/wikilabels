@@ -27,4 +27,4 @@ def _format_str(message, arguments):
             return arguments[i]
         else:
             return match.group(0)
-    return re.sub("\$([0-9]+)", _format_args, message)
+    return re.sub(r'\$([0-9]+)', _format_args, message)

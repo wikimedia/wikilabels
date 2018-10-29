@@ -7,7 +7,7 @@
 	},
 	"'$1' not completed. Submit anyway?": "O campo \"$1\" non se indicou. Enviar igualmente?",
 	"Abandon": "Omitir",
-	"Are you sure that you want to abandon this task?": "Está seguro de quere salta á seguinte tarefa?",
+	"Are you sure that you want to abandon this task?": "Está seguro de quere saltar á seguinte tarefa?",
 	"Campaigns": "Campañas (<a href=\"$1\">estatísticas</a>)",
 	"Can't save label. No task is selected!": "Non se pode gardar a etiqueta. Non hai ningunha tarefa seleccionada.",
 	"Could not get metadata for revision $1": "Non se puideron obter os metadatos para a revisión $1. Premendo no botón \"Skip\" saltará este paso",

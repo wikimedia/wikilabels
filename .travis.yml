@@ -22,7 +22,7 @@ before_script:
     - psql wikilabels < wikilabels/database/schema-testdata.sql -U wikilabels
 
 script:
-  - flake8 . --ignore=E722
+  - flake8 . --ignore=E722,W504
   - timeout --preserve-status 8s wikilabels dev_server
   - ./node_modules/.bin/eslint "wikilabels/wsgi/static/js/**/*.js"
   - ./node_modules/.bin/stylelint "wikilabels/wsgi/static/css/*.css"

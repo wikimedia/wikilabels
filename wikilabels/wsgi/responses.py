@@ -1,5 +1,5 @@
 from flask import request
-from flask.ext.jsonpify import jsonify
+from flask_jsonpify import jsonify
 
 
 def error(status, code, message):

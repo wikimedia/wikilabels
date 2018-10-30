@@ -5,7 +5,7 @@ import flask_oojsui
 import mwoauth
 import yaml
 from flask import Blueprint, Flask
-from flask.ext.cors import CORS
+from flask_cors import CORS
 
 from . import assets, routes, sessions
 from ..database import DB

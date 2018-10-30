@@ -1,5 +1,5 @@
 from flask import redirect, request, session, url_for
-from flask.ext.jsonpify import jsonify
+from flask_jsonpify import jsonify
 
 from .. import preprocessors, responses
 

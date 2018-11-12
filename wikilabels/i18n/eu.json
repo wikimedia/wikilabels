@@ -3,7 +3,8 @@
 		"authors": [
 			"Mikel Ibaiba",
 			"Subi",
-			"EukeneFL"
+			"EukeneFL",
+			"Theklan"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "\"$1\" eremua ez da bete. Hala ere amaitutzat eman nahi duzu?",
@@ -33,5 +34,7 @@
 	"request workset": "Workset eskaera",
 	"review": "Berrikusi",
 	"maintenance notice": "Wiki etiketek $1-ren mantenimenduaren ondorioz beheraka egin dute. Ikus $2 informazio gehiago eskuratzeko.",
-	"more-info": "(<a href=\"$1\">Informazio gehiago</a>)"
+	"more-info": "(<a href=\"$1\">Informazio gehiago</a>)",
+	"session header": "Saio honek $1 berrikuspen ditu",
+	"Revision number": "$1 errebisio zenbakia"
 }

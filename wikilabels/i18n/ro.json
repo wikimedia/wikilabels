@@ -1,15 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Andrei Stroe"
+			"Andrei Stroe",
+			"Strainu"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Câmpul \"$1\" nu a fost completat. Trimiteți oricum?",
-	"Abandon": "Renunță",
-	"Are you sure that you want to abandon this task?": "Sunteți sigur că doriți să renunțați la acest task?",
-	"Campaigns": "Campanii",
+	"Abandon": "Omite",
+	"Are you sure that you want to abandon this task?": "Sunteți sigur că doriți să omiteți acest task?",
+	"Campaigns": "Campanii (<a href=\"$1\">statistici</a>)",
 	"Can't save label. No task is selected!": "Eticheta nu se poate salva. Nu s-a selectat niciun task!",
-	"Could not get metadata for revision $1": "Nu s-au putut obține metadatele pentru revizia $1",
+	"Could not get metadata for revision $1": "Nu s-au putut obține metadatele pentru revizia $1. Îl puteti omite apăsând pe butonul \"Omite\".",
 	"Could not load form \"$1\": \n$2": "Nu s-a putut încărca formularul \"$1\":\n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nu s-a putut încărca vizualizarea \"$1\": $2.\nRecurg la vizualizatorul simplu de taskuri.",
 	"Could not load workset list: $1": "Nu am putut încărca obiectul de lucru: $1",
@@ -18,15 +19,19 @@
 	"No difference": "Nicio diferență",
 	"Request new workset": "Cereți un obiect de lucru nou",
 	"Review": "Revizuire",
-	"Save": "Salvează",
+	"Save": "Salvează și mai departe",
 	"License": "Orice etichete furnizate vor fi publicate sub licența CC0 -- domeniu public",
 	"Submit label": "Trimite eticheta",
 	"Workset": "Obiect de lucru",
 	"Workset complete!": "Obiect de lucru terminat!",
 	"connect to server": "conectare la server",
 	"date-format": "%d.%m.%Y",
-	"fullscreen": "fullscreen",
+	"fullscreen": "Ecran complet",
+	"exit fullscreen": "Ieșire din ecran complet",
 	"open": "deschide",
 	"request workset": "cere obiect de lucru",
-	"review": "revizuire"
+	"review": "revizuire",
+	"more-info": "(<a href=\"$1\">Mai multe informații</a>)",
+	"session header": "Această sesiune a avut $1 versiuni.",
+	"Revision number": "Versiunea numărul $1"
 }

@@ -5,7 +5,8 @@
 			"Chrumps",
 			"The Polish",
 			"Woytecr",
-			"DeRudySoulStorm"
+			"DeRudySoulStorm",
+			"Warchlak"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Pole „$1” nie zostało wypełnione. Przesłać mimo to?",
@@ -20,7 +21,7 @@
 	"No difference": "Brak różnic",
 	"Request new workset": "Pobierz nowy zestaw danych",
 	"Review": "Przejrzyj",
-	"Save": "Zapisz",
+	"Save": "Zapisz i dalej",
 	"Submit label": "Prześlij metkę",
 	"Workset": "Zestaw danych",
 	"Workset complete!": "Ukończono prace nad zestawem danych!",

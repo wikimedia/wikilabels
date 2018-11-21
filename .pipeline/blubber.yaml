@@ -1,0 +1,40 @@
+version: v3
+base: docker-registry.wikimedia.org/wikimedia-stretch:latest
+apt:
+  packages: [postgresql-server-dev-all, postgresql, libffi-dev, g++, python3-dev, libmemcached-dev, python3-setuptools, ca-certificates, libz-dev]
+python:
+  version: python3.5
+lives:
+  in: /srv/service
+runs:
+  environment:
+    FOO: bar
+    BAR: baz
+
+variants:
+  build:
+    python:
+      requirements: [requirements.txt]
+
+  development:
+    includes: [build]
+
+  test:
+    includes: [build]
+    python:
+      requirements: [requirements.txt, requirements-test.txt]
+    runs:
+      insecurely: true
+    entrypoint: ["pytest", "--cov=wikilabels", "-m 'not nottravis'"]
+
+  prep:
+    includes: [build]
+    node:
+      env: production
+
+  production:
+    base: debian:stretch-slim
+    node:
+      env: production
+    copies: prep
+    entrypoint: [node, server.js]

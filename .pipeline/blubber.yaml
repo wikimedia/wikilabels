@@ -8,16 +8,15 @@ lives:
   in: /srv/service
 runs:
   environment:
-    FOO: bar
-    BAR: baz
-
+    PYTHONUTF8: 1
+    PYTHONIOENCODING: utf-8
 variants:
   build:
     python:
       requirements: [requirements.txt]
-
   development:
     includes: [build]
+    entrypoint: [./utility, dev_server]
 
   test:
     includes: [build]
@@ -25,7 +24,7 @@ variants:
       requirements: [requirements.txt, requirements-test.txt]
     runs:
       insecurely: true
-    entrypoint: ["pytest", "--cov=wikilabels", "-m 'not nottravis'"]
+    entrypoint: ["pytest", "-vvv", "--cov=wikilabels", "-m 'not nottravis'"]
 
   prep:
     includes: [build]

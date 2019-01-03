@@ -4,7 +4,8 @@
 			"Macofe",
 			"Fitoschido",
 			"Zpizza",
-			"Luzcaru"
+			"Luzcaru",
+			"Laura Ospina"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "No se rellenó el campo «$1». ¿Enviar de todos modos?",
@@ -34,5 +35,7 @@
 	"request workset": "Solicitar grupo de tareas",
 	"review": "Revisar",
 	"maintenance notice": "Las etiquetas wiki se apagarán por mantenimiento el $1. Consulta $2 para más información.",
-	"more-info": "(<a href=\"$1\">Más información</a>)"
+	"more-info": "(<a href=\"$1\">Más información</a>)",
+	"session header": "Esta sesión tuvo $1 revisión(es).",
+	"Revision number": "Número de revisión $1"
 }

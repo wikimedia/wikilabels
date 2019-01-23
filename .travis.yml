@@ -11,8 +11,8 @@ before_install:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+  - pip install -r requirements-test.txt
   - python setup.py install
-  - pip install codecov pytest-cov flake8
 
 before_script:
     - psql -c "CREATE USER wikilabels WITH PASSWORD 'wikilabels-admin';" -U postgres

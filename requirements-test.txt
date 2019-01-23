@@ -1,0 +1,5 @@
+pytest >= 3.2.2, < 3.2.999
+pytest-flask >= 0.10.0, < 0.10.999
+codecov
+pytest-cov
+flake8

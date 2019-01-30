@@ -32,5 +32,7 @@
 	"request workset": "בקשת רשימת טיפול",
 	"review": "סקירה",
 	"maintenance notice": "מערכת Wiki labels תנותק לשם תחזוקה ב־$1. ר' $2 למידע נוסף.",
-	"more-info": "(<a href=\"$1\">מידע נוסף</a>)"
+	"more-info": "(<a href=\"$1\">מידע נוסף</a>)",
+	"session header": "בהתחברות הזאת היו $1 גרסאות.",
+	"Revision number": "גרסה מספר $1"
 }

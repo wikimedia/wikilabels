@@ -11,6 +11,8 @@
 	"Can't save label. No task is selected!": "Non ge se pò reggistrà l'etichette. Nisciune attività ha state scacchiate!",
 	"Could not get metadata for revision $1": "'Mbossibbile pigghià le metadate pa versione $1. Cazzanne sus a 'u buttone \"Zumbe\", passe nnande a sta attivitate.",
 	"Could not load form \"$1\": \n$2": "'Mbossibbile carecà 'u module \"$1\":\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "'Mbossibbele carecà 'a viste \"$1\": $2\nAuse 'u 'ndrucatore semblice de l'attivitate.",
+	"Could not load workset list: $1": "'Mbossibbele carecà l'elenghe workset: $1",
 	"Diff for revision $1": "Diff pa revisione $1",
 	"No difference": "Nisciuna differenze",
 	"Review": "Revisite",

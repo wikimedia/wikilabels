@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Zoranzoki21"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Polje „$1” nije popunjeno.  Svejedno pošalji?",
+	"Abandon": "Preskoči",
+	"Are you sure that you want to abandon this task?": "Želite li zaista preći na sledeći zadatak?",
+	"Campaigns": "Kampanje (<a href=\"$1\">statistike</a>)",
+	"Can't save label. No task is selected!": "Nije moguće sačuvati oznaku. Nije izabran zadatak.",
+	"Could not get metadata for revision $1": "Nije moguće dobiti metapodataka za izmenu $1. Preskočite ovaj zadatak klikom na dugme „Preskoči”",
+	"Could not load form \"$1\": \n$2": "Nije moguće učitati obrazac „$1”:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nije moguće učitati prikaz „$1”: $2\nKorišćenje jednostavnijeg prikazivača zadatka.",
+	"Could not load workset list: $1": "Nije moguće učitati radnu listu zadataka: $1",
+	"Could not parse MediaWiki API's response": "Nije moguće raščlaniti odgovor API-ja Medijavikija",
+	"Diff for revision $1": "Razl. za izmenu $1",
+	"No difference": "Nema razlike",
+	"Request new workset": "Zatraži novu radnu listu",
+	"Review": "Pregledaj",
+	"Save": "Sačuvaj i nastavi",
+	"License": "Sve oznake koje su date biće javno objavljene i licencirane pod uslovima CC0 -- javno vlasništvo",
+	"Submit label": "Pošalji oznaku",
+	"Workset": "Radna lista",
+	"Workset complete!": "Radna lista je završena.",
+	"connect to server": "poveži se sa serverom",
+	"date-format": "%d. %m. %Y",
+	"fullscreen": "Ceo ekran",
+	"exit fullscreen": "Izađi iz celog ekrana",
+	"open": "otvori",
+	"request workset": "zatraži radnu listu",
+	"review": "pregledaj",
+	"maintenance notice": "Viki oznake neće biti dostupne na datum $1 zbog održavanja.  Pogledajte $2 za više informacija.",
+	"more-info": "(<a href=\"$1\">Više informacija</a>)",
+	"session header": "Ova sesija ima izmene ($1).",
+	"Revision number": "Broj izmene $1"
+}

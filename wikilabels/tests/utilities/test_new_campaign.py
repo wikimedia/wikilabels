@@ -37,7 +37,7 @@ def test_create_campaign_fail(capsys):
     insert_repeated()
     insert_repeated()
     out, err = capsys.readouterr()
-    assert (err == "Duplicate campaign: repeated already exists for cawiki.  "
+    assert (out == "Duplicate campaign: repeated already exists for cawiki.  "
             "Use --force if this is expected.\n")
 
 

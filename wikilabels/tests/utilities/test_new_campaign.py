@@ -35,10 +35,14 @@ def insert_repeated():
 
 def test_create_campaign_fail(capsys):
     insert_repeated()
+    out, err = capsys.readouterr()
+    assert 'cawiki' in out
+    assert err == ''
+
     insert_repeated()
     out, err = capsys.readouterr()
-    assert (err == "Duplicate campaign: repeated already exists for cawiki.  "
-            "Use --force if this is expected.\n")
+    assert out == ''
+    assert err == ''
 
 
 def test_create_campaign_optional_infourl():

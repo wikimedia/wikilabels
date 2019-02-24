@@ -24,7 +24,6 @@ JS = ("lib/date-format/date-format.js",
 
 CSS = ("css/oo.ui.SemanticOperationsSelector.css",
        "css/oo.ui.SemanticsSelector.css",
-       "css/wikiLabels.css",
        "css/form.css",
        "css/workspace.css",
        "css/common.css",

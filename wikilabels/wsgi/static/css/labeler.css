@@ -2,6 +2,7 @@
 #wikilabels-labeler {
 	min-width: 50em;
 }
+
 #wikilabels-labeler > .lead {
 	width: 25em;
 	padding: 1ex 1em 1ex 0;
@@ -9,6 +10,7 @@
 	vertical-align: middle;
 	float: left;
 }
+
 html[dir='rtl'] #wikilabels-labeler > .lead {
 	text-align: right;
 	float: right;
@@ -22,21 +24,25 @@ html[dir='rtl'] #wikilabels-labeler > .lead {
 	border-left: 1px solid #c8ccd1;
 	border-right: 1px solid #c8ccd1;
 }
+
 #wikilabels-labeler > .menu > .connector,
 #wikilabels-labeler > .wikilabels-menu > .connector {
 	font-size: 200%;
 	padding-top: 2em;
 }
+
 #wikilabels-labeler > .menu > .campaign-list,
 #wikilabels-labeler > .wikilabels-menu > .campaign-list {
 	height: 100%;
 	overflow: auto;
 	line-height: 1;
 }
+
 #wikilabels-labeler > .menu > .campaign-list .container,
 #wikilabels-labeler > .wikilabels-menu > .campaign-list .container {
 	padding: 0.5ex;
 }
+
 #wikilabels-labeler .campaign-list > .container > .campaign {
 	background: #f8f9fa;
 	margin-bottom: 0.5ex;
@@ -44,29 +50,36 @@ html[dir='rtl'] #wikilabels-labeler > .lead {
 	padding: 0.5ex;
 	border-radius: 2px;
 }
+
 html[dir='rtl'] #wikilabels-labeler .campaign-list > .container > .campaign {
 	text-align: right;
 }
+
 #wikilabels-labeler .campaign-list .campaign > .expander {
 	display: inline-block;
 	vertical-align: middle;
 }
+
 #wikilabels-labeler .campaign-list .campaign > .expander > a {
 	padding: 0.5ex;
 	width: 1.5em;
 	height: 1.5em;
 	min-height: 1.5em;
 }
+
 #wikilabels-labeler .campaign-list .campaign > .expander .oo-ui-labelElement-label {
 	line-height: 0.9em;
 }
+
 #wikilabels-labeler .campaign-list .campaign > .name {
 	display: inline-block;
 }
+
 #wikilabels-labeler .campaign-list .campaign.expanded > .controls,
 #wikilabels-labeler .campaign-list .campaign.expanded > .workset-list {
 	display: block;
 }
+
 #wikilabels-labeler .campaign-list .campaign > .controls {
 	text-align: center;
 	font-size: 90%;
@@ -82,10 +95,10 @@ html[dir='rtl'] #wikilabels-labeler .campaign-list > .container > .campaign {
 	padding-right: 1ex;
 	cursor: pointer;
 }
+
 html[dir='rtl'] #wikilabels-labeler .workset-list .workset {
 	padding-right: 0;
 	padding-left: 1ex;
-
 }
 
 #wikilabels-labeler .workset-list .workset:hover {
@@ -93,6 +106,7 @@ html[dir='rtl'] #wikilabels-labeler .workset-list .workset {
 	padding-right: 0.5ex;
 	border-right: 0.5ex solid #a2a9b1;
 }
+
 html[dir='rtl'] #wikilabels-labeler .workset-list .workset:hover {
 	padding-right: 0;
 	border-right: 0;
@@ -105,6 +119,7 @@ html[dir='rtl'] #wikilabels-labeler .workset-list .workset:hover {
 	padding-right: 0.5ex;
 	border-right: 0.5ex solid #000;
 }
+
 html[dir='rtl'] #wikilabels-labeler .workset-list .workset.selected {
 	padding-right: 0;
 	border-right: 0;
@@ -121,6 +136,7 @@ html[dir='rtl'] #wikilabels-labeler .workset-list .workset.selected {
 	background: #fff;
 	font-size: 0.9em;
 }
+
 html[dir='rtl'] #wikilabels-labeler .workset-list .workset > .progress {
 	margin-right: 0;
 	margin-left: 6em;
@@ -139,6 +155,7 @@ html[dir='rtl'] #wikilabels-labeler .workset-list .workset > .progress {
 	letter-spacing: 0.1em;
 	font-style: italic;
 }
+
 #wikilabels-labeler .workset-list .workset > .progress > div {
 	height: 100%;
 }
@@ -148,24 +165,28 @@ html[dir='rtl'] #wikilabels-labeler .workset-list .workset > .progress {
 	width: 5em;
 	text-align: center;
 }
-html[dir='rtl'] #wikilabels-labeler .workset-list .workset > .controls{
+
+html[dir='rtl'] #wikilabels-labeler .workset-list .workset > .controls {
 	float: left;
 }
+
 #wikilabels-labeler .workset-list .workset .button > a {
 	display: inline-block;
 	margin-top: 0;
 	min-height: 1em;
 	padding: 0.25em 1em;
 }
+
 #wikilabels-labeler .workset-list .workset .button .oo-ui-labelElement-label {
 	font-size: 90%;
 	line-height: 1em;
 }
+
 #wikilabels-labeler .workset-list .workset .button.review > a {
 	padding: 0.2em 0.8em;
 }
 
-#wikilabels-labeler .workset-list .workset .progress	{
+#wikilabels-labeler .workset-list .workset .progress {
 	background: #eaecf0;
 }
 

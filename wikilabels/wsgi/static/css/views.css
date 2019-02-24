@@ -3,10 +3,12 @@
 	border-top: 0;
 	padding-top: 1em;
 }
+
 .wikilabels-view > .completed {
 	margin-top: 1em;
 	text-align: center;
 }
+
 .wikilabels-view > .completed > .message {
 	font-size: 150%;
 	margin-bottom: 1em;
@@ -16,9 +18,11 @@
 	background: #fff;
 	text-align: center;
 }
+
 .wikilabels-diff-to-previous > .error {
 	text-align: left;
 }
+
 /*
 Fix for RTL sites.
 This can be removed if this file is loaded using ResourceLoader and CSSJanus.
@@ -36,6 +40,7 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 	font-size: 150%;
 	margin-top: 1em;
 }
+
 .wikilabels-diff-to-previous > .description {
 	margin-top: 0.5em;
 }
@@ -44,15 +49,18 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 	margin-top: 0.5em;
 	font-style: italic;
 }
+
 .wikilabels-diff-to-previous > .comment:before,
 .wikilabels-diff-to-previous > .comment:after {
 	content: '"';
 	color: #222;
 }
+
 .wikilabels-diff-to-previous > .diff {
 	text-align: left;
 	margin-top: 1em;
 }
+
 /*
 Fix for RTL sites.
 This can be removed if this file is loaded using ResourceLoader and CSSJanus.
@@ -60,6 +68,7 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 .mw-content-rtl .wikilabels-diff-to-previous > .diff {
 	text-align: right;
 }
+
 .wikilabels-diff-to-previous > .no-difference {
 	font-size: 200%;
 	text-align: center;
@@ -67,8 +76,8 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 	font-weight: bold;
 	font-style: italic;
 	color: #72777d;
-
 }
+
 .display-page-html {
 	background: #fff;
 	padding: 1em;
@@ -79,12 +88,15 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 	width: 100%;
 	height: 120%;
 }
+
 .wikilabels-printable-page-as-of-revision iframe #contentSub {
 	display: none;
 }
-.wikilabels-printable-page-as-of-revision iframe .wikibase-statementgrouplistview{
+
+.wikilabels-printable-page-as-of-revision iframe .wikibase-statementgrouplistview {
 	display: none;
 }
+
 .wikilabels-rendered-html iframe {
 	border-width: 0;
 	min-width: 600px;

@@ -3,7 +3,8 @@
 		"authors": [
 			"Kly",
 			"Arthur2e5",
-			"LNDDYL"
+			"LNDDYL",
+			"Assh1857"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "欄位「$1」未填入內容。確定送出？",
@@ -17,7 +18,7 @@
 	"Could not load workset list: $1": "無法載入工作集合清單：$1",
 	"Could not parse MediaWiki API's response": "無法解析維基媒體API的回應內容",
 	"Diff for revision $1": "修訂$1的差異",
-	"No difference": "无差異",
+	"No difference": "無差異",
 	"Request new workset": "要求新工作集",
 	"Review": "檢閱",
 	"Save": "儲存並至下一個",

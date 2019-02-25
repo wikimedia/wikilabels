@@ -32,5 +32,6 @@
 	"request workset": "Goulenn ur strobad trevelloù",
 	"review": "adwelet",
 	"maintenance notice": "D'an $1 e vo klozet tikedennoù ar wiki, amzer d'ober un taol kempenn. Gwelet $2 evit gouzout hiroc'h.",
-	"more-info": "(<a href=\"$1\">Gouzout hiroc'h</a>)"
+	"more-info": "(<a href=\"$1\">Gouzout hiroc'h</a>)",
+	"session header": "An dalc'had-mañ zo $1 adelennadur ennañ."
 }

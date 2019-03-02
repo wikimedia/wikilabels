@@ -31,10 +31,10 @@ class DB:
             self.pool = ThreadedConnectionPool(
                 *args, cursor_factory=RealDictCursor, **kwargs)
 
-    def execute(self, sql):
+    def execute(self, sql, *args, **kwargs):
         with self.transaction() as transactor:
             cursor = transactor.cursor()
-            cursor.execute(sql)
+            cursor.execute(sql, *args, **kwargs)
             return cursor
 
     @contextmanager

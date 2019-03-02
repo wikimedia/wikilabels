@@ -8,124 +8,111 @@ logger = logging.getLogger(__name__)
 
 class Worksets(Collection):
     def get(self, workset_id, stats=False):
-        with self.db.transaction() as transactor:
-            cursor = transactor.cursor()
-            cursor.execute("""
-                SELECT
-                    id, user_id,
-                    campaign_id,
-                    EXTRACT(EPOCH FROM created) AS created,
-                    EXTRACT(EPOCH FROM expires) AS expires
-                FROM workset
-                WHERE id = %(workset_id)s
-                ORDER BY id
-            """, {'workset_id': workset_id})
+        cursor = self.db.execute("""
+            SELECT
+                id, user_id,
+                campaign_id,
+                EXTRACT(EPOCH FROM created) AS created,
+                EXTRACT(EPOCH FROM expires) AS expires
+            FROM workset
+            WHERE id = %(workset_id)s
+            ORDER BY id
+        """, {'workset_id': workset_id})
 
-            try:
-                doc = next(cursor)
-                if stats:
-                    doc['stats'] = self.stats_for(workset_id)
-                return doc
-            except StopIteration:
-                raise NotFoundError("workset_id={0}".format(workset_id))
+        try:
+            doc = next(cursor)
+            if stats:
+                doc['stats'] = self.stats_for(workset_id)
+            return doc
+        except StopIteration:
+            raise NotFoundError("workset_id={0}".format(workset_id))
 
     def stats_for(self, workset_id):
-        with self.db.transaction() as transactor:
-            cursor = transactor.cursor()
-            cursor.execute("""
-                SELECT
-                    COUNT(workset_task.task_id) AS tasks,
-                    COALESCE(SUM(label.task_id IS NOT NULL::int), 0) AS labeled
-                FROM workset
-                INNER JOIN workset_task ON workset_task.workset_id = workset.id
-                LEFT JOIN label ON
-                    label.task_id = workset_task.task_id AND
-                    label.user_id = workset.user_id
-                WHERE workset.id = %(workset_id)s
-            """, {'workset_id': workset_id})
+        cursor = self.db.execute("""
+            SELECT
+                COUNT(workset_task.task_id) AS tasks,
+                COALESCE(SUM(label.task_id IS NOT NULL::int), 0) AS labeled
+            FROM workset
+            INNER JOIN workset_task ON workset_task.workset_id = workset.id
+            LEFT JOIN label ON
+                label.task_id = workset_task.task_id AND
+                label.user_id = workset.user_id
+            WHERE workset.id = %(workset_id)s
+        """, {'workset_id': workset_id})
 
-            try:
-                return next(cursor)
-            except StopIteration:
-                raise NotFoundError("workset_id={0}".format(workset_id))
+        try:
+            return next(cursor)
+        except StopIteration:
+            raise NotFoundError("workset_id={0}".format(workset_id))
 
     def for_campaign(self, campaign_id, stats=False):
-        with self.db.transaction() as transactor:
-            cursor = transactor.cursor()
-            cursor.execute("""
-                SELECT
-                    id, user_id,
-                    campaign_id,
-                    EXTRACT(EPOCH FROM created) AS created,
-                    EXTRACT(EPOCH FROM expires) AS expires
-                FROM workset
-                WHERE campaign_id = %(campaign_id)s
-                ORDER BY id
-            """, {'campaign_id': campaign_id})
+        cursor = self.db.execute("""
+            SELECT
+                id, user_id,
+                campaign_id,
+                EXTRACT(EPOCH FROM created) AS created,
+                EXTRACT(EPOCH FROM expires) AS expires
+            FROM workset
+            WHERE campaign_id = %(campaign_id)s
+            ORDER BY id
+        """, {'campaign_id': campaign_id})
 
-            rows = []
-            for row in cursor:
-                if stats:
-                    row['stats'] = self.stats_for(row['id'])
-                rows.append(row)
+        rows = []
+        for row in cursor:
+            if stats:
+                row['stats'] = self.stats_for(row['id'])
+            rows.append(row)
 
-            return rows
+        return rows
 
     def for_user(self, user_id, campaign_id=None, stats=False):
-        with self.db.transaction() as transactor:
-            cursor = transactor.cursor()
+        conditions = ["workset.user_id = %(user_id)s"]
+        if campaign_id is not None:
+            conditions.append("workset.campaign_id = %(campaign_id)s")
 
-            conditions = ["workset.user_id = %(user_id)s"]
-            if campaign_id is not None:
-                conditions.append("workset.campaign_id = %(campaign_id)s")
+        where = "\nWHERE " + " AND ".join(conditions) + "\n"
+        cursor = self.db.execute("""
+            SELECT
+                id, user_id,
+                campaign_id,
+                EXTRACT(EPOCH FROM created) AS created,
+                EXTRACT(EPOCH FROM expires) AS expires
+            FROM workset
+            """ + where + """
+            ORDER BY id
+        """, {'user_id': user_id,
+              'campaign_id': campaign_id})
 
-            where = "\nWHERE " + " AND ".join(conditions) + "\n"
+        rows = []
+        for row in cursor:
+            if stats:
+                row['stats'] = self.stats_for(row['id'])
+            rows.append(row)
 
-            cursor.execute("""
-                SELECT
-                    id, user_id,
-                    campaign_id,
-                    EXTRACT(EPOCH FROM created) AS created,
-                    EXTRACT(EPOCH FROM expires) AS expires
-                FROM workset
-                """ + where + """
-                ORDER BY id
-            """, {'user_id': user_id,
-                  'campaign_id': campaign_id})
-
-            rows = []
-            for row in cursor:
-                if stats:
-                    row['stats'] = self.stats_for(row['id'])
-                rows.append(row)
-
-            return rows
+        return rows
 
     def open_workset_for_user(self, campaign_id, user_id):
-        with self.db.transaction() as transactor:
-            cursor = transactor.cursor()
-            # Check if this user already has an open workset
-            cursor.execute("""
-                SELECT
-                    workset.id
-                FROM workset
-                INNER JOIN workset_task ON workset.id = workset_task.workset_id
-                INNER JOIN task ON workset_task.task_id = task.id
-                LEFT JOIN label ON
-                    task.id = label.task_id AND
-                    workset.user_id = label.user_id
-                WHERE workset.user_id = %(user_id)s AND
-                      workset.campaign_id = %(campaign_id)s AND
-                      label.task_id IS NULL
-                LIMIT 1;
-            """, {'user_id': user_id,
-                  'campaign_id': campaign_id})
+        cursor = self.db.execute("""
+            SELECT
+                workset.id
+            FROM workset
+            INNER JOIN workset_task ON workset.id = workset_task.workset_id
+            INNER JOIN task ON workset_task.task_id = task.id
+            LEFT JOIN label ON
+                task.id = label.task_id AND
+                workset.user_id = label.user_id
+            WHERE workset.user_id = %(user_id)s AND
+                  workset.campaign_id = %(campaign_id)s AND
+                  label.task_id IS NULL
+            LIMIT 1;
+        """, {'user_id': user_id,
+              'campaign_id': campaign_id})
 
-            rows = cursor.fetchall()
-            if len(rows) > 0:
-                return rows[0]['id']
-            else:
-                return None
+        rows = cursor.fetchall()
+        if len(rows) > 0:
+            return rows[0]['id']
+        else:
+            return None
 
     def assign(self, campaign_id, user_id, stats=False):
         with self.db.transaction() as transactor:

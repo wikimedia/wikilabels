@@ -23,25 +23,21 @@ class Labels(Collection):
             return result
 
     def insert(self, task_id, user_id, data):
-        with self.db.transaction() as transactor:
-            cursor = transactor.cursor()
-            cursor.execute("""
+        cursor = self.db.execute("""
             INSERT INTO label VALUES
               (%(task_id)s, %(user_id)s, NOW(), %(data)s)
             RETURNING *
             """, {'task_id': task_id, 'user_id': user_id, 'data': Json(data)})
-            logger.info(
-                'Insert {data} for {task} by {user}'.format(
-                    data=data,
-                    task=task_id,
-                    user=user_id))
-            for row in cursor:
-                return row
+        logger.info(
+            'Insert {data} for {task} by {user}'.format(
+                data=data,
+                task=task_id,
+                user=user_id))
+        for row in cursor:
+            return row
 
     def update(self, task_id, user_id, data):
-        with self.db.transaction() as transactor:
-            cursor = transactor.cursor()
-            cursor.execute("""
+        cursor = self.db.execute("""
             UPDATE label
             SET
                 data = %(data)s,
@@ -51,28 +47,26 @@ class Labels(Collection):
                 user_id = %(user_id)s
             RETURNING *
             """, {'task_id': task_id, 'user_id': user_id, 'data': Json(data)})
-            logger.info(
-                'Update {data} for {task} by {user}'.format(
-                    data=data,
-                    task=task_id,
-                    user=user_id))
-            for row in cursor:
-                return row
+        logger.info(
+            'Update {data} for {task} by {user}'.format(
+                data=data,
+                task=task_id,
+                user=user_id))
+        for row in cursor:
+            return row
 
     def clear_data(self, task_id, user_id):
-        with self.db.transaction() as transactor:
-            cursor = transactor.cursor()
-            cursor.execute("""
+        cursor = self.db.execute("""
             DELETE FROM label
             WHERE
                 task_id = %(task_id)s AND
                 user_id = %(user_id)s
             RETURNING *
             """, {'task_id': task_id, 'user_id': user_id})
-            for row in cursor:
-                logger.info('{user_id} clearing label data {label_data}'
-                            'for task {task_id}.'.format(
-                                label_data=row['data'],
-                                task_id=task_id,
-                                user_id=user_id))
-                return row
+        for row in cursor:
+            logger.info('{user_id} clearing label data {label_data}'
+                        'for task {task_id}.'.format(
+                            label_data=row['data'],
+                            task_id=task_id,
+                            user_id=user_id))
+            return row

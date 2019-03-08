@@ -1,32 +1,21 @@
-language: python
-dist: trusty
-python:
-  - "3.5"
+dist: xenial
 services:
-    - postgresql
+  - docker
 
 before_install:
-  - npm install eslint stylelint@8.2.0 stylelint-config-wikimedia
-
-# command to install dependencies
-install:
-  - pip install -r requirements.txt
-  - python setup.py install
-  - pip install codecov pytest-cov flake8
+    - docker-compose up -d --build
+    - npm install eslint stylelint stylelint-config-wikimedia
 
 before_script:
-    - psql -c "CREATE USER wikilabels WITH PASSWORD 'wikilabels-admin';" -U postgres
-    - psql -c "CREATE DATABASE wikilabels;" -U postgres
-    - psql -c "GRANT ALL PRIVILEGES ON DATABASE wikilabels to wikilabels;" -U postgres
-    - psql wikilabels < wikilabels/database/schema.sql -U wikilabels
-    - psql wikilabels < wikilabels/database/schema-testdata.sql -U wikilabels
+    - docker-compose exec postgres psql wikilabels -U wikilabels -f /wikilabels/wikilabels/database/schema.sql
+    - docker-compose exec postgres psql wikilabels -U wikilabels -f /wikilabels/wikilabels/database/schema-testdata.sql
 
 script:
-  - flake8 . --ignore=E722,W504
-  - timeout --preserve-status 8s wikilabels dev_server
+  - docker-compose exec wikilabels flake8 /wikilabels --ignore=E722,W504
+    #  - timeout --preserve-status 8s wikilabels dev_server
   - ./node_modules/.bin/eslint "wikilabels/wsgi/static/js/**/*.js"
   - ./node_modules/.bin/stylelint "wikilabels/wsgi/static/css/*.css"
-  - pytest --cov=wikilabels -m "not nottravis"
+  - docker-compose exec wikilabels py.test --cov=wikilabels -m "not nottravis"
 
 after_success:
   - codecov

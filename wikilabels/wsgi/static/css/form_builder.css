@@ -1,6 +1,7 @@
 .wikilabels-form-builder {
 	margin-bottom: 20em;
 }
+
 .wikilabels-form-builder .info {
 	padding: 1ex 1em;
 }
@@ -10,6 +11,7 @@
 	min-height: 5em;
 	height: auto;
 }
+
 .wikilabels-form-builder .CodeMirror-scroll {
 	height: auto;
 }
@@ -17,6 +19,7 @@
 .wikilabels-form-builder .config-editor .controls {
 	text-align: right;
 }
+
 .wikilabels-form-builder .form-preview .controls {
 	text-align: right;
 }

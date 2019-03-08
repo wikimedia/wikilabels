@@ -1,12 +1,16 @@
 from wikilabels.database import db
+import os
 
 item1 = {'wiki': "cawiki", 'name': "ching", 'form': "chan",
          'view': "bivicyt", 'labels_per_task': 1,
          'task_per_task': 50, 'active': True,
          'info_url': "https://www.mediawiki.org/wiki/ORES#Edit_quality"}
 
-dbs = db.DB(1, 5, database="wikilabels",
-            user="wikilabels", password="wikilabels-admin")
+dbs = db.DB(
+    1, 5, database=os.getenv('WIKILABELS_DATABASE', "wikilabels"),
+    host=os.getenv('WIKILABELS_DATABASE_HOST', "localhost"),
+    user=os.getenv('WIKILABELS_DATABASE_USER', "wikilabels"),
+    password=os.getenv('WIKILABELS_DATABASE_PASSWORD', "wikilabels-admin"))
 
 user = 608705
 

@@ -1,4 +1,5 @@
 import logging
+import os
 from contextlib import contextmanager
 
 from psycopg2.extras import RealDictCursor
@@ -57,4 +58,14 @@ class DB:
         params = {k: v for k, v in config['database'].items()}
         params['minconn'] = params.get('minconn', 1)
         params['maxconn'] = params.get('maxconn', 5)
+
+        # Override configs with env variables
+        if os.environ.get('WIKILABELS_DATABASE'):
+            params['dbname'] = os.environ.get('WIKILABELS_DATABASE')
+        if os.environ.get('WIKILABELS_DATABASE_HOST'):
+            params['host'] = os.environ.get('WIKILABELS_DATABASE_HOST')
+        if os.environ.get('WIKILABELS_DATABASE_USER'):
+            params['user'] = os.environ.get('WIKILABELS_DATABASE_USER')
+        if os.environ.get('WIKILABELS_DATABASE_PASSWORD'):
+            params['password'] = os.environ.get('WIKILABELS_DATABASE_PASSWORD')
         return cls(**params)

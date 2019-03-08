@@ -1,0 +1,28 @@
+version: '2.1'
+services:
+    wikilabels:
+        build: '.'
+        volumes:
+            - .:/wikilabels
+        environment:
+            - WIKILABELS_DATABASE_HOST=postgres
+            - WIKILABELS_DATABASE=wikilabels
+            - WIKILABELS_DATABASE_USER=wikilabels
+            - WIKILABELS_DATABASE_PASSWORD=wikilabels-admin-docker
+        depends_on:
+            - postgres
+        ports:
+            - "8080:8080"
+
+    postgres:
+        image: postgres:alpine
+        volumes:
+            - .:/wikilabels
+        environment:
+            - POSTGRES_DB=wikilabels
+            - POSTGRES_USER=wikilabels
+            - POSTGRES_PASSWORD=wikilabels-admin-docker
+        expose:
+            - "5432"
+volumes:
+    wikilabels:

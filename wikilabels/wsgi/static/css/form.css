@@ -9,6 +9,7 @@
 .wikilabels-form .fieldset > .oo-ui-fieldsetLayout > div {
 	text-align: center;
 }
+
 .wikilabels-form .fieldset > .oo-ui-fieldsetLayout > div > * {
 	text-align: left;
 }
@@ -27,35 +28,43 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 	margin: 0 1em;
 	white-space: nowrap;
 }
+
 .wikilabels-form .inline-field .oo-ui-fieldLayout-help {
 	display: inline-block;
 	float: none;
 	white-space: normal;
 	margin-left: 0 !important;
 }
+
 .mw-content-rtl .wikilabels-form .inline-field .oo-ui-fieldLayout-help {
 	margin-right: 0 !important;
 }
+
 .mw-content-rtl .wikilabels-form .inline-field .oo-ui-checkboxInputWidget [type='checkbox'] + span {
 	right: 0;
 }
+
 .mw-content-rtl .wikilabels-form .oo-ui-buttonSelectWidget .oo-ui-buttonOptionWidget:first-child .oo-ui-buttonElement-button {
 	border-bottom-right-radius: 2px;
 	border-top-right-radius: 2px;
 	margin-right: 0;
 }
+
 .mw-content-rtl .wikilabels-form .oo-ui-buttonSelectWidget .oo-ui-buttonOptionWidget:last-child .oo-ui-buttonElement-button {
 	border-bottom-left-radius: 2px;
 	border-top-left-radius: 2px;
 }
+
 .wikilabels-form .inline-field > .oo-ui-fieldLayout-body {
 	display: inline-block;
 	white-space: nowrap;
 }
+
 .wikilabels-form .inline-field > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
 	width: auto !important;
 	max-width: auto;
 }
+
 .wikilabels-form .inline-field > .oo-ui-fieldLayout-body > .oo-ui-labelElement-label {
 	display: inline-block;
 	float: none;
@@ -64,6 +73,7 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 	padding-top: 0 !important;
 	white-space: normal;
 }
+
 .wikilabels-form .inline-field > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-field {
 	display: inline-block;
 	float: none;
@@ -73,7 +83,7 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 	white-space: normal;
 }
 
-.wikilabels-form > .controls{
+.wikilabels-form > .controls {
 	margin-top: 1em;
 }
 
@@ -86,17 +96,17 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 	height: 0;
 }
 
-.wikilabels-form > .controls > .abandon{
+.wikilabels-form > .controls > .abandon {
 	display: block;
 	float: left;
 }
 
-.wikilabels-form > .controls > .save{
+.wikilabels-form > .controls > .save {
 	display: block;
 	float: right;
 }
 
-.wikilabels-form > #license{
+.wikilabels-form > #license {
 	text-align: center;
 	font-style: italic;
 	margin: 1rem;

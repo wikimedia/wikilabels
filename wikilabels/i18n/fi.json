@@ -37,5 +37,6 @@
 	"request workset": "pyydä tehtäväaineistoa",
 	"review": "Tarkasta",
 	"maintenance notice": "Wiki labels on pois käytöstä $1 huoltotöiden takia. Katso sivulta $2 lisätietoja.",
-	"more-info": "(<a href=\"$1\">Lisätietoja</a>)"
+	"more-info": "(<a href=\"$1\">Lisätietoja</a>)",
+	"Revision number": "Versionumero $1"
 }

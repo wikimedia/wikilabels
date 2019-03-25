@@ -1,4 +1,4 @@
-from .. import wikimedia
+from wikilabels.util import wikimedia
 
 
 def test_host_from_dbname():

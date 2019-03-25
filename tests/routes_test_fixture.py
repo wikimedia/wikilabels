@@ -3,7 +3,7 @@ import os
 import yamlconf
 import glob
 
-from ..wsgi import server
+from wikilabels.wsgi import server
 
 
 REPLACED_DATE_TEXT = 'REPLACED_DATE_TEXT'

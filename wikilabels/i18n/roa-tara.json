@@ -13,10 +13,14 @@
 	"Could not load form \"$1\": \n$2": "'Mbossibbile carecà 'u module \"$1\":\n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "'Mbossibbele carecà 'a viste \"$1\": $2\nAuse 'u 'ndrucatore semblice de l'attivitate.",
 	"Could not load workset list: $1": "'Mbossibbele carecà l'elenghe workset: $1",
+	"Could not parse MediaWiki API's response": "Non ge pozze analizzà 'a resposte de MediaUicchi API",
 	"Diff for revision $1": "Diff pa revisione $1",
 	"No difference": "Nisciuna differenze",
+	"Request new workset": "Cirche 'nu 'nziem de fatìe nuève",
 	"Review": "Revisite",
 	"Save": "Reggiste e vè nnande",
+	"License": "Ogne etichette date avène destrebbuite pubblecamende e licenziate sotte a le termine de CC0 -- Dominie Pubbleche",
+	"Submit label": "Manne l'etichette",
 	"Workset": "'Nzieme de fatìe",
 	"Workset complete!": "'Nzieme de fatìe comblete!",
 	"connect to server": "connessione a 'u server",
@@ -24,5 +28,10 @@
 	"fullscreen": "Scherme indere",
 	"exit fullscreen": "Isse da 'u scherme indere",
 	"open": "iapre",
-	"review": "revide"
+	"request workset": "Richiede 'u 'nzieme de fatìe",
+	"review": "revide",
+	"maintenance notice": "Uicchi labels non ge pò essere disponibbele pe manutenzione 'u $1. 'Ndruche $2 pe chciù 'mbormaziune.",
+	"more-info": "(<a href=\"$1\">Cchiù 'mbormaziune</a>)",
+	"session header": "Sta sessione tène $1 revisiune.",
+	"Revision number": "Numere d'a revisione $1"
 }

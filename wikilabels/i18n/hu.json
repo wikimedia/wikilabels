@@ -4,7 +4,8 @@
 			"Tgr",
 			"Wolf Rex",
 			"Tacsipacsi",
-			"MeskoBalazs"
+			"MeskoBalazs",
+			"R-Joe"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "A(z) „$1” mező még nincs kitöltve. Mégis elküldöd?",
@@ -34,5 +35,7 @@
 	"request workset": "munkaadag lekérése",
 	"review": "átnézés",
 	"maintenance notice": "Az osztályozó oldal (Wikilabels) $1 időpontban karbantartás miatt szünetel. További információ: $2",
-	"more-info": "(<a href=\"$1\">További információ</a>)"
+	"more-info": "(<a href=\"$1\">További információ</a>)",
+	"session header": "Ez a munkamenet $1 módosítást tartalmazott.",
+	"Revision number": "Módosítások száma $1"
 }

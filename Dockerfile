@@ -13,7 +13,7 @@ WORKDIR /wikilabels
 RUN pip install pip --upgrade
 RUN pip install wheel
 RUN pip install -r /wikilabels/requirements.txt
-RUN pip install flake8 codecov pytest-cov
+RUN pip install flake8 codecov pytest-cov pytest-flask
 
 ENTRYPOINT ./utility dev_server
 EXPOSE 8080

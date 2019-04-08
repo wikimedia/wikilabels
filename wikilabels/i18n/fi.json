@@ -19,7 +19,7 @@
 	"Could not load form \"$1\": \n$2": "Ei voitu ladata lomaketta \"$1\": \n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Ei voitu tarkastella \"$1\": $2\nYksinkertaisella tehtävien tarkastelijalla.",
 	"Could not load workset list: $1": "Ei voitu ladata tehtäväaineistolistaa: $1",
-	"Could not parse MediaWiki API's response": "Ei voitu jäsentää MediaWiki APIn vastausta",
+	"Could not parse MediaWiki API's response": "Ei voitu jäsentää MediaWiki API:n vastausta",
 	"Diff for revision $1": "Ero versioon $1",
 	"No difference": "Ei eroavaisuutta",
 	"Request new workset": "Pyydä uutta tehtäväaineistoa",

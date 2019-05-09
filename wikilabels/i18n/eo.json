@@ -1,9 +1,27 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Mirin"
 		]
 	},
-	"Save": "Konservi",
-	"date-format": "%Y-%m-%d"
+	"'$1' not completed. Submit anyway?": "Kampo \"$1\" estas malplena. Ĉu malgraŭ sendi?",
+	"Abandon": "Preterpasi",
+	"Are you sure that you want to abandon this task?": "Ĉu vi certas ke vi volas preterpasi al la sekva tasko?",
+	"Campaigns": "Kampanjoj (<a href=\"$1\">statistiko</a>)",
+	"Can't save label. No task is selected!": "Ne povis konservi etikedon. Neniu tasko estis elektita!",
+	"Diff for revision $1": "Diferenco pri revizio $1",
+	"No difference": "Neniu diferenco",
+	"Review": "Revizio",
+	"Save": "Konservi kaj iri sekven",
+	"Submit label": "Sendi etikedon",
+	"connect to server": "konekti al servilo",
+	"date-format": "%Y-%m-%d",
+	"fullscreen": "Plenekrane",
+	"exit fullscreen": "Eliri plenekranan reĝimon",
+	"open": "malfermi",
+	"review": "revizii",
+	"more-info": "(<a href=\"$1\">Plia informo</a>)",
+	"session header": "Tiu sesio havis $1 revizio(j)n.",
+	"Revision number": "Versio numero $1"
 }

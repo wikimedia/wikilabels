@@ -5,6 +5,7 @@ COPY campaign (id, name, wiki, form, view, info_url, labels_per_task, tasks_per_
 4	Draft notability	enwiki	draft_notability	PageAsOfRevision		1	10	t
 5	Draft notability (raw)	enwiki	draft_notability	ParsedWikitext		1	10	t
 6	Edit Quality -- 2014 10k nlwiki	nlwiki	damaging_and_goodfaith	DiffToPrevious		1	10	t
+7	Edit Quality -- 2015 10k sample	enwiki	damaging_and_goodfaith	DiffToPrevious		1	10	f
 \.
 SELECT setval('campaign_id_seq', (SELECT max(id) FROM campaign));
 

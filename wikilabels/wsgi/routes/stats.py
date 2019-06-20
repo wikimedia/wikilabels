@@ -29,7 +29,7 @@ def configure(bp, config, db):
     def stats_wiki_campaign(wiki, id):
         script_tags = build_script_tags(assets.LIB_JS, config)
         style_tags = build_style_tags(assets.LIB_CSS, config)
-        campaigns = db.campaigns.for_wiki(wiki, True)
+        campaigns = db.campaigns.for_wiki(wiki, stats=True, all_=True)
         for campaign in campaigns:
             if campaign['id'] == id:
                 break

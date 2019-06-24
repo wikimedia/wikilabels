@@ -33,5 +33,7 @@
 	"request workset": "作業単位を要請",
 	"review": "レビュー",
 	"maintenance notice": "Wikiのラベルは、保守のため$1でダウンしています。詳細については、$2を参照してください。",
-	"more-info": "（<a href=\"$1\">詳細</a>）"
+	"more-info": "（<a href=\"$1\">詳細</a>）",
+	"session header": "このセッションには改訂が$1件あります。",
+	"Revision number": "改訂番号$1"
 }

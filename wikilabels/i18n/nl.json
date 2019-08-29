@@ -27,8 +27,12 @@
 	"connect to server": "verbinden met server",
 	"date-format": "%d-%m-%Y",
 	"fullscreen": "Volledig scherm",
+	"exit fullscreen": "Volledig schermmodus verlaten",
 	"open": "openen",
 	"request workset": "werkset opvragen",
 	"review": "beoordelen",
-	"maintenance notice": "Wikilabels is niet beschikbaar vanwege onderhoud op $1. Zie $2 voor meer informatie."
+	"maintenance notice": "Wikilabels is niet beschikbaar vanwege onderhoud op $1. Zie $2 voor meer informatie.",
+	"more-info": "(<a href=\"$1\">Meer info</a>)",
+	"session header": "Deze sessie had $1 versie(s).",
+	"Revision number": "Versienummer $1"
 }

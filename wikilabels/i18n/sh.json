@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Polje \"$1\" nije popunjeno. Ipak da pošaljem?",
+	"Abandon": "Preskoči",
+	"Are you sure that you want to abandon this task?": "Jeste li sigurni da želite preći na sljedeći zadatak?",
+	"Can't save label. No task is selected!": "Nije moguće sačuvati natpis. Niste izabrali zadatak!",
+	"Could not get metadata for revision $1": "Nisam mogao dobiti metapodatke za izmjenu $1. Možete preskočiti ovaj zadatak sa dugmom \"Preskoči\"",
+	"Could not load form \"$1\": \n$2": "Nisam mogao učitati obrazac \"$1\": \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nisam mogao učitati pregled \"$1\": $2\nKoristim jednostavni preglednik zadataka.",
+	"Could not load workset list: $1": "Nisam mogao učitati skup zadaci: $1",
+	"Could not parse MediaWiki API's response": "Nisam mogao raščlaniti odgovor приложникот-ja MediaWikija",
+	"Diff for revision $1": "Razlika za izm. $1",
+	"No difference": "Nema razlike",
+	"Request new workset": "Zatraži novi skup zadataka",
+	"Review": "Provjeri",
+	"Save": "Sačuvaj i sljedeće",
+	"License": "Svi natpisi bit će javno objavljeni, i to pod uslovima licence CC0 -- Javno vlasništvo",
+	"Submit label": "Pošalji natpis",
+	"connect to server": "poveži se sa serverom",
+	"fullscreen": "Cijeli ekran",
+	"exit fullscreen": "Izađi iz cijelog ekrana",
+	"open": "otvori",
+	"review": "provjeri",
+	"maintenance notice": "Wikioznake će biti isključene za održavanje u $1. Više informacija ćete naći na $2.",
+	"more-info": "(<a href=\"$1\">Više info</a>)",
+	"session header": "Ova sesija imala je izmjene ($1).",
+	"Revision number": "Broj izmjene $1"
+}

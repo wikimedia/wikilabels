@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vodnokon4e"
+			"Vodnokon4e",
+			"StanProg"
 		]
 	},
-	"Campaigns": "Кампании",
+	"Campaigns": "Кампании (<a href=\"$1\">статистика</a>)",
 	"No difference": "Няма разлика",
 	"Review": "Преглеждане",
 	"Save": "Съхраняване и следващо",

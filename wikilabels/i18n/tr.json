@@ -3,7 +3,8 @@
 		"authors": [
 			"Archaeodontosaurus",
 			"Hedda",
-			"By erdo can"
+			"By erdo can",
+			"BaRaN6161 TURK"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "'$1' tamamlanmadı. Yine de sunulsun mu?",
@@ -29,7 +30,7 @@
 	"date-format": "%Y-%m-%d",
 	"fullscreen": "Tam ekran",
 	"exit fullscreen": "Tam ekrandan çık",
-	"open": "açık",
+	"open": "aç",
 	"request workset": "iş kümesi iste",
 	"review": "incele",
 	"maintenance notice": "Viki etiketleri $1 tarihinde bakım için çalışmayacak. Daha fazla için $2 sayfasına bakınız.",

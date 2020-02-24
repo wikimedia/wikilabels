@@ -1,12 +1,12 @@
 :root {
 	--width-site: 700px;
 	--width-site-desktop-wide: 700px;
-	--site__logo-width-large: 17.9rem;
-	--site__logo-height-large: 19.7rem;
-	--site__logo-width-small: 15.4rem;
-	--site__logo-height-small: 16.9rem;
-	--project--icon-width: 6rem;
-	--project--icon-height: 5.9rem;
+	--site__logo-width-large: 17.9 em;
+	--site__logo-height-large: 19.7 em;
+	--site__logo-width-small: 15.4 em;
+	--site__logo-height-small: 16.9 em;
+	--project--icon-width: 6 em;
+	--project--icon-height: 5.9 em;
 }
 
 body,

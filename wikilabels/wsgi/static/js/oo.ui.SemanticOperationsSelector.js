@@ -31,7 +31,7 @@
 	OO.ui.SemanticOperationsSelector.prototype.getValue = function () {
 		var valueMap = {}, sos, meaning;
 		for ( meaning in this.semanticMap ) {
-			if ( this.semanticMap.hasOwnProperty( meaning ) ) {
+			if ( Object.prototype.hasOwnProperty.call( this.semanticMap, meaning ) ) {
 				sos = this.semanticMap[ meaning ];
 				valueMap[ meaning ] = sos.getValue();
 			}
@@ -42,7 +42,7 @@
 		var meaningValue, meaning;
 		this.clear();
 		for ( meaningValue in meanings ) {
-			if ( meanings.hasOwnProperty( meaningValue ) ) {
+			if ( Object.prototype.hasOwnProperty.call( meanings, meaningValue ) ) {
 				meaning = this.meaningSelector.getDataFor( meaningValue );
 				this.addMeaning( meaning, meanings[ meaningValue ] );
 			}
@@ -86,7 +86,7 @@
 	OO.ui.SemanticOperationsSelector.prototype.clear = function () {
 		var meaningValue;
 		for ( meaningValue in this.semanticMap ) {
-			if ( this.semanticMap.hasOwnProperty( meaningValue ) ) {
+			if ( Object.prototype.hasOwnProperty.call( this.semanticMap, meaningValue ) ) {
 				this.removeMeaning( this.semanticMap[ meaningValue ] );
 			}
 		}
@@ -206,7 +206,7 @@
 	OO.ui.SyntacticOperationsSelector.prototype.getValue = function () {
 		var key, sop, values = [];
 		for ( key in this.operationMap ) {
-			if ( this.operationMap.hasOwnProperty( key ) ) {
+			if ( Object.prototype.hasOwnProperty.call( this.operationMap, key ) ) {
 				sop = this.operationMap[ key ];
 				values.push( {
 					object: sop.object.value,
@@ -219,7 +219,7 @@
 	OO.ui.SyntacticOperationsSelector.prototype.clear = function () {
 		var key, sop;
 		for ( key in this.operationMap ) {
-			if ( this.operationMap.hasOwnProperty( key ) ) {
+			if ( Object.prototype.hasOwnProperty.call( this.operationMap, key ) ) {
 				sop = this.operationMap[ key ];
 				sop.close();
 			}

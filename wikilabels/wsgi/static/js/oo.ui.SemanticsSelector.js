@@ -71,7 +71,7 @@
 	OO.ui.SemanticsSelector.prototype.getValue = function () {
 		var valueList = [], meaning;
 		for ( meaning in this.semanticMap ) {
-			if ( this.semanticMap.hasOwnProperty( meaning ) ) {
+			if ( Object.prototype.hasOwnProperty.call( this.semanticMap, meaning ) ) {
 				valueList.push( meaning );
 			}
 		}
@@ -122,7 +122,7 @@
 	OO.ui.SemanticsSelector.prototype.clear = function () {
 		var meaningValue;
 		for ( meaningValue in this.semanticMap ) {
-			if ( this.semanticMap.hasOwnProperty( meaningValue ) ) {
+			if ( Object.prototype.hasOwnProperty.call( this.semanticMap, meaningValue ) ) {
 				this.removeMeaning( this.semanticMap[ meaningValue ] );
 			}
 		}

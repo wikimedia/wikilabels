@@ -16,7 +16,7 @@ The flask server is intended to be hosted by a web server, but if you wish you c
 #### Dependencies
 Installation will require some additional packages to be available.
 
-  `sudo apt-get install postgresql-server-dev-all postgresql libffi-dev npm g++ python3-dev libmemcached-dev`
+  `sudo apt-get install postgresql-server-dev-all postgresql libffi-dev npm g++ python3-dev libmemcached-dev memcached`
 
 #### Database setup
 You'll need to create a `wikilabels` user and database. Here's a sequence of

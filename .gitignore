@@ -14,6 +14,7 @@ __pycache__/
 *.webassets-cache
 packed.js
 packed.css
+package-lock.json
 
 # C extensions
 *.so

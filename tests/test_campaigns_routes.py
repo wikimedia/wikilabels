@@ -8,6 +8,16 @@ from .routes_test_fixture import app, REPLACED_DATE_TEXT  # noqa
 expected_enwiki_resp = {
     'campaigns': [{'active': True,
                    'created': REPLACED_DATE_TEXT,
+                   'form': 'damaging_and_goodfaith',
+                   'id': 7,
+                   'info_url': '',
+                   'labels_per_task': 1,
+                   'name': 'Edit Quality -- 2015 10k sample',
+                   'tasks_per_assignment': 10,
+                   'view': 'DiffToPrevious',
+                   'wiki': 'enwiki'},
+                  {'active': True,
+                   'created': REPLACED_DATE_TEXT,
                    'form': 'draft_notability',
                    'id': 5,
                    'info_url': '',
@@ -407,7 +417,15 @@ def test_get_wiki(client):
 
     enwiki_resp_json = enwiki_response.json
     replace_date_in_resp_json(enwiki_resp_json)
-    assert enwiki_resp_json == expected_enwiki_resp
+    sorted_campaigns = list(sorted(
+        expected_enwiki_resp['campaigns'],
+        key=lambda c: c['id']))
+    expected_campaigns = list(sorted(
+        expected_enwiki_resp['campaigns'],
+        key=lambda c: c['id']))
+    assert len(sorted_campaigns) == len(expected_campaigns)
+    for actual, expected in zip(sorted_campaigns, expected_campaigns):
+        assert actual == expected
 
     nlwiki_resp_json = nlwiki_response.json
     replace_date_in_resp_json(nlwiki_resp_json)

@@ -285,7 +285,7 @@
 	WorksetList.prototype.complete = function () {
 		var key, workset;
 		for ( key in this.worksets ) {
-			if ( this.worksets.hasOwnProperty( key ) ) {
+			if ( Object.prototype.hasOwnProperty.call( this.worksets, key ) ) {
 				workset = this.worksets[ key ];
 
 				if ( !workset.completed ) {

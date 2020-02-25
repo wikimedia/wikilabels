@@ -109,5 +109,5 @@ This can be removed if this file is loaded using ResourceLoader and CSSJanus.
 .wikilabels-form > #license {
 	text-align: center;
 	font-style: italic;
-	margin: 1rem;
+	margin: 1 em;
 }

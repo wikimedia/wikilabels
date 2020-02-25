@@ -17,7 +17,7 @@
 				arr = value;
 				transArray = [];
 				for ( i in arr ) {
-					if ( arr.hasOwnProperty( i ) ) {
+					if ( Object.prototype.hasOwnProperty.call( arr, i ) ) {
 						transArray.push( WL.util.applyTranslation( arr[ i ], lookup ) );
 					}
 				}
@@ -27,7 +27,7 @@
 				obj = value;
 				transObj = {};
 				for ( key in obj ) {
-					if ( obj.hasOwnProperty( key ) ) {
+					if ( Object.prototype.hasOwnProperty.call( obj, key ) ) {
 						transObj[ key ] = WL.util.applyTranslation( obj[ key ], lookup );
 					}
 				}

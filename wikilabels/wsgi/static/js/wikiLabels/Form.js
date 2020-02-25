@@ -52,7 +52,7 @@
 	Form.prototype.getValues = function () {
 		var name, valueMap = {};
 		for ( name in this.fieldMap ) {
-			if ( this.fieldMap.hasOwnProperty( name ) ) {
+			if ( Object.prototype.hasOwnProperty.call( this.fieldMap, name ) ) {
 				valueMap[ name ] = OO.ui.getWidgetValue( this.fieldMap[ name ] );
 			}
 		}
@@ -62,7 +62,7 @@
 		var name;
 		valueMap = valueMap || {};
 		for ( name in this.fieldMap ) {
-			if ( this.fieldMap.hasOwnProperty( name ) ) {
+			if ( Object.prototype.hasOwnProperty.call( this.fieldMap, name ) ) {
 				OO.ui.setWidgetValue( this.fieldMap[ name ], valueMap[ name ] );
 			}
 		}
@@ -83,7 +83,7 @@
 
 		// TODO: This is hacky.  Constraints should be specified in the form config
 		for ( fieldName in labelData ) {
-			if ( labelData.hasOwnProperty( fieldName ) && labelData[ fieldName ] === null ) {
+			if ( Object.prototype.hasOwnProperty.call( labelData, fieldName ) && labelData[ fieldName ] === null ) {
 				OO.ui.confirm( WL.i18n( '\'$1\' not completed. Submit anyway?', [ fieldName ] ) ).done( function ( confirmed ) {
 					if ( confirmed ) {
 						self.submitted.fire( labelData );
@@ -107,7 +107,7 @@
 		} );
 		fieldMap = {};
 		for ( i in config.fields ) {
-			if ( config.fields.hasOwnProperty( i ) ) {
+			if ( Object.prototype.hasOwnProperty.call( config.fields, i ) ) {
 				fieldDoc = WL.util.applyTranslation(
 					config.fields[ i ], i18n.get.bind( i18n ) );
 				field = OO.ui.instantiateFromParameters( fieldDoc, fieldMap );

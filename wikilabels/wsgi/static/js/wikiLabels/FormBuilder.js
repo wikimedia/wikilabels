@@ -123,7 +123,7 @@
 		this.config = config;
 		// Load languages into language selector
 		for ( lang in config.i18n ) {
-			if ( config.i18n.hasOwnProperty( lang ) ) {
+			if ( Object.prototype.hasOwnProperty.call( config.i18n, lang ) ) {
 				langs.push( lang );
 			}
 		}
@@ -164,7 +164,7 @@
 		this.dropdown.getMenu().clearItems();
 
 		for ( i in langs ) {
-			if ( langs.hasOwnProperty( i ) ) {
+			if ( Object.prototype.hasOwnProperty.call( langs, i ) ) {
 				lang = langs[ i ];
 				items.push( new OO.ui.MenuOptionWidget( { label: lang, data: lang } ) );
 			}

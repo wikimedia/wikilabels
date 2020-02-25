@@ -51,7 +51,7 @@
 						return;
 					}
 					for ( id in doc.query.pages ) {
-						if ( doc.query.pages.hasOwnProperty( id ) ) {
+						if ( Object.prototype.hasOwnProperty.call( doc.query.pages, id ) ) {
 							page = doc.query.pages[ id ];
 						}
 					}

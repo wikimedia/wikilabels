@@ -417,7 +417,15 @@ def test_get_wiki(client):
 
     enwiki_resp_json = enwiki_response.json
     replace_date_in_resp_json(enwiki_resp_json)
-    assert enwiki_resp_json == expected_enwiki_resp
+    sorted_campaigns = list(sorted(
+        expected_enwiki_resp['campaigns'],
+        key=lambda c: c['id']))
+    expected_campaigns = list(sorted(
+        expected_enwiki_resp['campaigns'],
+        key=lambda c: c['id']))
+    assert len(sorted_campaigns) == len(expected_campaigns)
+    for actual, expected in zip(sorted_campaigns, expected_campaigns):
+        assert actual == expected
 
     nlwiki_resp_json = nlwiki_response.json
     replace_date_in_resp_json(nlwiki_resp_json)

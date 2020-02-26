@@ -54,8 +54,8 @@ def run(db, reload_test_data):
         if prompt("This will clear the database and reload it with test " +
                   "data. Continue?", default=False):
             path = "../database/schema-testdata.sql"
-            test_data_sql = open(os.path.join(directory, path)).read()
-            db.execute(test_data_sql)
+            test_data_dump = open(os.path.join(directory, path)).read()
+            db.execute(test_data_dump)
         else:
             logger.info("Skipped loading test data.")
 

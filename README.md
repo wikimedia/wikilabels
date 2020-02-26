@@ -16,7 +16,7 @@ The flask server is intended to be hosted by a web server, but if you wish you c
 #### Dependencies
 Installation will require some additional packages to be available.
 
-  `sudo apt-get install postgresql-server-dev-all postgresql libffi-dev npm g++ python3-dev libmemcached-dev`
+  `sudo apt-get install postgresql-server-dev-all postgresql libffi-dev npm g++ python3-dev libmemcached-dev memcached`
 
 #### Database setup
 You'll need to create a `wikilabels` user and database. Here's a sequence of
@@ -37,20 +37,17 @@ Switch to `postgres` user to run commands
     postgres=# \q
     $ exit
 
-Switch to `wikilabels` user to load schema
+Load the database schema.  If you'd like to experiment with Wikilabels, consider using the `--reload-test-data` argument to add some test campaigns to the Wikilabels database.
 
-    $ sudo su wikilabels
-    $ psql
-
-Copy-paste `wikilabels/database/schema.sql` into the command prompt.
-
-Optionally, you can also load sample data into the database by copy-pasting `wikilabels/database/schema-testdata.sql` into the command prompt
+    $ ./utility load_schema --reload-test-data
 
 ### Starting the dev server
 Run the following command in the base repository (e.g. wikilabels-master).
 
     $ wikilabels dev_server
-    
+
+## Contributing
+
 ### Creating a new view 
 The following example shows the steps that are needed to create a new view, e.g. `MultiDiffToPrevious`
 + Create a campaign using `$ wikilabels new_campaign {campaignName} {labelForm} {youNewViewName} {labelsPerTask} {tasksPerWorkSet}`

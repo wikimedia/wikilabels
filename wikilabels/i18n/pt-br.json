@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Luk3",
 			"Dianakc",
 			"Eduardo Addad de Oliveira",
 			"Felipe L. Ewald",
-			"He7d3r"
+			"He7d3r",
+			"Luk3"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "O campo \"$1\" não foi preenchido. Enviar mesmo assim?",

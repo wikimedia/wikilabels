@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liuxinyu970226",
+			"Amire80",
 			"EpochFail",
 			"Ladsgroup",
-			"Tgr",
+			"Liuxinyu970226",
 			"Purodha",
-			"Amire80"
+			"Tgr"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "When the user tries to send an assessment of a diff in which not all form fields were filled. $1 is the name of the field, such as \"Damaging\" or \"Good faith\".",

@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand",
-			"Mar(c)"
+			"Mar(c)",
+			"Siebrand"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Het veld \"$1\" is niet ingevuld. Toch opslaan?",

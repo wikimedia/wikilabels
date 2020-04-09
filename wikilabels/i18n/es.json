@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe",
 			"Fitoschido",
-			"Zpizza",
+			"Laura Ospina",
 			"Luzcaru",
-			"Laura Ospina"
+			"Macofe",
+			"Zpizza"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "No se rellenó el campo «$1». ¿Enviar de todos modos?",

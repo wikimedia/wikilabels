@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly",
 			"Arthur2e5",
-			"LNDDYL",
-			"Assh1857"
+			"Assh1857",
+			"Kly",
+			"LNDDYL"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "欄位「$1」未填入內容。確定送出？",

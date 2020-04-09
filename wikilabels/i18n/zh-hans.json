@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liuxinyu970226",
 			"Arthur2e5",
-			"Shizhao",
-			"Phenolla"
+			"Liuxinyu970226",
+			"Phenolla",
+			"Shizhao"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "字段“$1”未填。是否仍要提交？",

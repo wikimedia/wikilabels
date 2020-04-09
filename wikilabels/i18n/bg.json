@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vodnokon4e",
-			"StanProg"
+			"StanProg",
+			"Vodnokon4e"
 		]
 	},
 	"Campaigns": "Кампании (<a href=\"$1\">статистика</a>)",

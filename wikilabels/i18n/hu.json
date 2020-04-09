@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tgr",
-			"Wolf Rex",
-			"Tacsipacsi",
 			"MeskoBalazs",
-			"R-Joe"
+			"R-Joe",
+			"Tacsipacsi",
+			"Tgr",
+			"Wolf Rex"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "A(z) „$1” mező még nincs kitöltve. Mégis elküldöd?",

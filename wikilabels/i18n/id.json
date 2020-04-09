@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rachmat.Wahidi",
 			"Arifin.wijaya",
-			"Hidayatsrf",
-			"Rachmat04",
 			"Gombang",
-			"Ilham151096"
+			"Hidayatsrf",
+			"Ilham151096",
+			"Rachmat.Wahidi",
+			"Rachmat04"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Kolom '$1' belum diisi. Lanjut mengirimkan?",

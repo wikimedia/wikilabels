@@ -1,29 +1,29 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gwenn-Ael",
-			"Fulup"
+			"Fulup",
+			"Gwenn-Ael"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "N'eo ket bet leuniet ar vaezienn \"$1\". Kas memes tra ?",
 	"Abandon": "Lezel a-gostez",
 	"Are you sure that you want to abandon this task?": "Ha sur oc'h e fell deoc'h mont war-eeun d'an trevell war-lerc'h ?",
 	"Campaigns": "Koulzadoù (<a href=\"$1\">stats</a>)",
-	"Can't save label. No task is selected!": "Ne c'haller ket enrollañ ar  skridennad  ! N'eus bet dibabet trevell ebet !",
+	"Can't save label. No task is selected!": "Ne c'haller ket enrollañ ar skridennad ! N'eus bet dibabet trevell ebet !",
 	"Could not get metadata for revision $1": "N'haller ket kaout ar metaroadennoù evit an adweladenn $1. En ur glikañ war ar bouton \"lammat\" e vo lammet an trevell-mañ.",
-	"Could not load form \"$1\": \n$2": "Ne c'haller ket kargañ ar furmskrid « $1 » : $2",
-	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Ne c'haller ket kargañ ar gwel « $1 » : $2.\nImplijout diskwel an trevell eeun.",
-	"Could not load workset list: $1": "Ne c'haller ket kargañ roll al labourioù : $1",
+	"Could not load form \"$1\": \n$2": "Ne c'haller ket kargañ ar furmskrid \"$1\" : \n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Ne c'haller ket kargañ ar gwel \"$1\" : $2\nOc'h implijout an diskwel trevelloù eeun.",
+	"Could not load workset list: $1": "N'eus ket bet gallet kargañ roll al labourioù : $1",
 	"Could not parse MediaWiki API's response": "Ne c'haller ket dielfennañ respont API MediaWiki",
-	"Diff for revision $1": "Diforc'h evit an adwelet : $1",
-	"No difference": "Disheñvelder ebet",
-	"Request new workset": "Goulenn un hollad roadennoù nevez",
+	"Diff for revision $1": "Diforc'h evit an adwel $1",
+	"No difference": "Diforc'h ebet",
+	"Request new workset": "Goulenn un strobad roadennoù nevez",
 	"Review": "Adwelet",
 	"Save": "Enrollañ ha mont d'an hini war-lerc'h",
 	"License": "Embannet frank e vo kement skridennad pourchaset dindan rediennoù an aotre implijout CCO -- Domani foran",
-	"Submit label": "Kas an tikedenn",
-	"Workset": "Hollad roadennoù",
-	"Workset complete!": "Hollad roadennoù echu !",
+	"Submit label": "Kas ar skridennad",
+	"Workset": "Strobad roadennoù",
+	"Workset complete!": "Strobad roadennoù echu !",
 	"connect to server": "Kevreañ ouzh ar servijer",
 	"date-format": "%d-%m-%Y",
 	"fullscreen": "Skramm leun",
@@ -33,5 +33,6 @@
 	"review": "adwelet",
 	"maintenance notice": "D'an $1 e vo klozet tikedennoù ar wiki, amzer d'ober un taol kempenn. Gwelet $2 evit gouzout hiroc'h.",
 	"more-info": "(<a href=\"$1\">Gouzout hiroc'h</a>)",
-	"session header": "An dalc'had-mañ zo $1 adelennadur ennañ."
+	"session header": "An dalc'had-mañ zo $1 adlenn dezhañ.",
+	"Revision number": "Niverenn ar stumm $1"
 }

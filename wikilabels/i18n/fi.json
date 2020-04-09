@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mikahama",
-			"Pyscowicz",
 			"4shadoww",
-			"Stryn",
+			"Mikahama",
 			"Olimar",
-			"Zache",
-			"Pahkiqaz"
+			"Pahkiqaz",
+			"Pyscowicz",
+			"Stryn",
+			"Zache"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Kenttää \"$1\" ei täytetty. Haluatko jatkaa silti?",

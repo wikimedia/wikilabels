@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mateon1",
 			"Chrumps",
-			"The Polish",
-			"Woytecr",
 			"DeRudySoulStorm",
-			"Warchlak"
+			"Mateon1",
+			"The Polish",
+			"Warchlak",
+			"Woytecr"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Pole „$1” nie zostało wypełnione. Przesłać mimo to?",

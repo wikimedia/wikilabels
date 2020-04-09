@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Irus",
-			"MaxBioHazard",
-			"Nitch",
 			"Facenapalm",
+			"Irus",
 			"Kareyac",
+			"MaxBioHazard",
+			"Movses",
+			"Nitch",
 			"Okras",
-			"Vlad5250",
-			"Movses"
+			"Vlad5250"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Поле \"$1\" не было заполнено. В любом случае отправить?",

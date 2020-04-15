@@ -12,7 +12,7 @@ INSERT INTO campaign VALUES
    'draft_notability', 'ParsedWikitext', '', NOW(), 1, 10, True),
   (6, 'Edit Quality -- 2014 10k nlwiki', 'nlwiki',
    'damaging_and_goodfaith', 'DiffToPrevious', '', NOW(), 1, 10, True),
-  (7, 'Edit Quality -- 2015 10k sample', 'enwiki', 
+  (7, 'Edit Quality -- 2015 10k sample', 'enwiki',
    'damaging_and_goodfaith', 'DiffToPrevious', '', NOW(), 1, 10, False);
 SELECT setval('campaign_id_seq', (SELECT max(id) FROM campaign));
 
@@ -68,7 +68,7 @@ INSERT INTO task VALUES
   (47, 2, '{"rev_id": 645942299}'),
   (49, 2, '{"rev_id": 646854333}'),
   (50, 2, '{"rev_id": 645262718}'),
-  (51, 3, '{"rev_id": 41283390}'),
+  (51, 3, '{"rev_id": 45776266}'),
   (52, 3, '{"rev_id": 41321279}'),
   (53, 3, '{"rev_id": 41270845}'),
   (54, 3, '{"rev_id": 41359588}'),

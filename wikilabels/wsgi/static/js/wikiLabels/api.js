@@ -155,7 +155,8 @@
 			'<tr>\n' +
 				'<td colspan="2" class="diff-empty">&#160;</td>\n' +
 				'<td class="diff-marker">+</td>\n' +
-				'<td class="diff-addedline"><div>' + content + '</div></td>' +
+				'<td class="diff-addedline"><div>' + $( '<div>' ).text( content ).html() +
+				'</div></td>' +
 			'</tr>';
 	};
 	API.prototype.wikitext2HTML = function ( wikitext, title ) {

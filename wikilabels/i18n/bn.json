@@ -5,6 +5,7 @@
 			"Bodhisattwa",
 			"Mohammed Galib Hasan",
 			"Rasal Lia",
+			"Ата",
 			"আজিজ",
 			"আফতাবুজ্জামান"
 		]
@@ -36,5 +37,7 @@
 	"request workset": "কাজের সেটের অনুরোধ করুন",
 	"review": "পর্যালোচনা",
 	"maintenance notice": "উইকি লেবেল $1 তারিখে রক্ষণাবেক্ষণের জন্য বন্ধ থাকবে। আরও তথ্যের জন্য $2 দেখুন।",
-	"more-info": "(<a href=\"$1\">আরও তথ্য</a>)"
+	"more-info": "(<a href=\"$1\">আরও তথ্য</a>)",
+	"session header": "Цей сеанс мав {{PLURAL:$1|$1 версію|$1 версії|$1 версій}}.",
+	"Revision number": "Версія номер $1"
 }

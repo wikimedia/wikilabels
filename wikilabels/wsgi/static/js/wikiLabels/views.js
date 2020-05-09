@@ -282,6 +282,8 @@
 		PageAsOfRevision.super.call( this, taskListData );
 		this.$element.addClass( WL.config.prefix + 'page-as-of-revision' )
 			.addClass( 'display-page-html' );
+		this.$base = WL.mediawiki.baseTag();
+		this.$element.append(this.$base);
 	};
 	OO.inheritClass( PageAsOfRevision, View );
 	PageAsOfRevision.prototype.present = function ( taskInfo ) {
@@ -302,18 +304,18 @@
 				}.bind( this ) )
 				.fail( function ( doc ) {
 					var error = $( '<pre>' ).addClass( 'error' );
-					this.$element.html( error.text( JSON.stringify( doc, null, 2 ) ) );
+					this.$base.html( error.text( JSON.stringify( doc, null, 2 ) ) );
 				}.bind( this ) );
 		}
 	};
 	PageAsOfRevision.prototype.presentPage = function ( title, html ) {
-		this.$element.html( '' );
-		this.$element.append(
+		this.$base.html( '' );
+		this.$base.append(
 			$( '<h1>' ).text( title )
 				.attr( 'id', 'firstHeading' )
 				.addClass( 'firstHeading' )
 		);
-		this.$element.append(
+		this.$base.append(
 			$( '<div>' ).html( html )
 				.addClass( 'mw-body-content' )
 				.attr( 'id', 'bodyContent' )

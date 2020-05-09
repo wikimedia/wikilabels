@@ -20,7 +20,6 @@ html[dir='rtl'] #wikilabels-labeler > .lead {
 #wikilabels-labeler > .wikilabels-menu {
 	text-align: center;
 	width: auto;
-	height: 20em;
 	border-left: 1px solid #c8ccd1;
 	border-right: 1px solid #c8ccd1;
 }
@@ -33,7 +32,6 @@ html[dir='rtl'] #wikilabels-labeler > .lead {
 
 #wikilabels-labeler > .menu > .campaign-list,
 #wikilabels-labeler > .wikilabels-menu > .campaign-list {
-	height: 100%;
 	overflow: auto;
 	line-height: 1;
 }

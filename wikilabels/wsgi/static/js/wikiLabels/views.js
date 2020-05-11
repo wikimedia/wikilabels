@@ -283,7 +283,7 @@
 		this.$element.addClass( WL.config.prefix + 'page-as-of-revision' )
 			.addClass( 'display-page-html' );
 		this.$base = WL.mediawiki.baseTag();
-		this.$element.append(this.$base);
+		this.$element.append( this.$base );
 	};
 	OO.inheritClass( PageAsOfRevision, View );
 	PageAsOfRevision.prototype.present = function ( taskInfo ) {

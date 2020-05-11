@@ -16,7 +16,7 @@
 		this.$menu = $( '<div>' ).addClass( 'wikilabels-menu' );
 		this.$element.append( this.$menu );
 		this.closeButton = new OO.ui.ButtonWidget( {
-			label: "X",
+			label: 'X',
 			classes: [ 'close' ]
 		} );
 		this.$menu.append( this.closeButton.$element );
@@ -50,13 +50,13 @@
 	};
 	Workspace.prototype.close = function () {
 		this.clear();
-		this.visible(false)
+		this.visible( false );
 	};
 	Workspace.prototype.loadWorkset = function ( campaignId, worksetId ) {
 		var taskList, form, view,
 			query = WL.server.getWorkset( campaignId, worksetId );
 		this.clear();
-		this.visible(true)
+		this.visible( true );
 		query.done( function ( doc ) {
 			var formQuery;
 
@@ -195,14 +195,14 @@
 	};
 	Workspace.prototype.visible = function ( visible ) {
 		if ( visible === undefined ) {
-			return self.$element.visible()
+			return self.$element.visible();
 		} else if ( visible ) {
 			$( 'body' ).append( this.$element );
-			this.$element.show()
+			this.$element.show();
 		} else {
-			this.$element.hide()
+			this.$element.hide();
 		}
-	}
+	};
 
 	TaskList = function ( taskListData ) {
 		this.$element = $( '<div>' ).addClass( 'task-list' );

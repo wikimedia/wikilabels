@@ -1,10 +1,12 @@
 dist: xenial
+node:
+  - 10
 services:
   - docker
 
 before_install:
     - docker-compose up -d --build
-    - npm install eslint stylelint stylelint-config-wikimedia
+    - npm install eslint@v6.1.0 stylelint stylelint-config-wikimedia
 
 before_script:
     - docker-compose exec postgres psql wikilabels -U wikilabels -f /wikilabels/wikilabels/database/schema.sql
@@ -13,6 +15,7 @@ before_script:
 script:
   - docker-compose exec wikilabels flake8 /wikilabels --ignore=E722,W504
     #  - timeout --preserve-status 8s wikilabels dev_server
+  - node --version
   - ./node_modules/.bin/eslint "wikilabels/wsgi/static/js/**/*.js"
   - ./node_modules/.bin/stylelint "wikilabels/wsgi/static/css/*.css"
   - docker-compose exec wikilabels py.test --cov=wikilabels -m "not nottravis"

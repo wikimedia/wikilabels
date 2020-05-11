@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y \
     g++ \
     python3-dev \
     libmemcached-dev \
-    libz-dev
+    libz-dev \
+    memcached
 
 COPY . /wikilabels
 WORKDIR /wikilabels

@@ -17,7 +17,7 @@ def configure(app):
 
     app.wsgi_app = SessionMiddleware(app.wsgi_app,
                                      {'session.type': 'ext:memcached',
-                                      'session.url': '127.0.0.1:11211',
+                                      'session.url': 'memcached:11211',
                                       'session.data_dir': './cache'})
     app.session_interface = BeakerSessionInterface()
 

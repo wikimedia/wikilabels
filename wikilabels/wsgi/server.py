@@ -37,7 +37,7 @@ def configure(config):
             {lang[:-5]: json.load(open(os.path.join(i18n_dir, lang)))
                 for lang in os.listdir(i18n_dir)}
         )
-    app = sessions.configure(app)
+    app = sessions.configure(app, config)
 
     # Set up oauth
     consumer_token = mwoauth.ConsumerToken(config['oauth']['key'],

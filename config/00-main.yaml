@@ -17,3 +17,8 @@ database:
 
 oauth:
   mw_uri: https://www.mediawiki.org/w/index.php
+
+session:
+    type: 'ext:memcached'
+    url: 'memcached:11211'
+    data_dir: './cache'

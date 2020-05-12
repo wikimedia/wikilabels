@@ -1,8 +1,7 @@
 ( function ( $, WL ) {
 	var View, DiffToPrevious, MultiDiffToPrevious, PageAsOfRevision,
 		PrintablePageAsOfRevision, ParsedWikitext,
-		WorksetCompleted, RenderedHTML, UnsourcedStatement,
-		ABS_URL_PREFIX = /^(?:https?:)?\/\//i;
+		WorksetCompleted, RenderedHTML, UnsourcedStatement;
 
 	View = function ( taskListData ) {
 		this.$element = $( '<div>' ).addClass( WL.config.prefix + 'view' );
@@ -125,6 +124,7 @@
 		this.$element.append( description );
 
 		this.$element.append( comment.html( diff.comment ) );
+		comment.find( 'a' ).each( WL.mediawiki.reBaseRelativeAnchors );
 
 		if ( diff.tableRows ) {
 			diffTable.append(
@@ -260,6 +260,7 @@
 			this.$element.append( description );
 
 			this.$element.append( comment.html( diff.comment ) );
+			comment.find( 'a' ).each( WL.mediawiki.reBaseRelativeAnchors );
 
 			if ( diff.tableRows ) {
 				diffTable.append(
@@ -320,14 +321,7 @@
 			$( '<div>' ).html( html )
 				.addClass( 'mw-body-content' )
 				.attr( 'id', 'bodyContent' )
-		).find( 'a' ).each(
-			function ( i, node ) {
-				var href = node.getAttribute( 'href' );
-				if ( !ABS_URL_PREFIX.test( href ) ) {
-					node.setAttribute( 'href', WL.mediawiki.reBaseUrl( href ) );
-				}
-			}
-		);
+		).find( 'a' ).each( WL.mediawiki.reBaseRelativeAnchors );
 	};
 
 	PrintablePageAsOfRevision = function ( taskListData ) {
@@ -370,6 +364,8 @@
 	};
 	ParsedWikitext.prototype.presentHTML = function ( html ) {
 		this.$element.html( html );
+		this.$element.find( 'a' ).each( WL.mediawiki.reBaseRelativeAnchors );
+
 	};
 
 	RenderedHTML = function ( taskListData ) {

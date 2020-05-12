@@ -13,7 +13,8 @@ services:
             - postgres
         ports:
             - "8080:8080"
-
+        links:
+            - memcached
     postgres:
         image: postgres:alpine
         volumes:
@@ -24,5 +25,9 @@ services:
             - POSTGRES_PASSWORD=wikilabels-admin-docker
         expose:
             - "5432"
+    memcached:
+        image: memcached:alpine
+        expose:
+            - "11211"
 volumes:
     wikilabels:

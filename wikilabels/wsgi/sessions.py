@@ -13,12 +13,12 @@ class BeakerSessionInterface(SessionInterface):
         session.save()
 
 
-def configure(app):
+def configure(app, config):
 
     app.wsgi_app = SessionMiddleware(app.wsgi_app,
-                                     {'session.type': 'ext:memcached',
-                                      'session.url': '127.0.0.1:11211',
-                                      'session.data_dir': './cache'})
+                                     {'session.type': config['session']['type'],
+                                      'session.url': config['session']['url'],
+                                      'session.data_dir': config['session']['data_dir']})
     app.session_interface = BeakerSessionInterface()
 
     return app

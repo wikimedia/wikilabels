@@ -1,7 +1,8 @@
 ( function ( $, WL ) {
 	var View, DiffToPrevious, MultiDiffToPrevious, PageAsOfRevision,
 		PrintablePageAsOfRevision, ParsedWikitext,
-		WorksetCompleted, RenderedHTML, UnsourcedStatement;
+		WorksetCompleted, RenderedHTML, UnsourcedStatement,
+		ABS_URL_PREFIX = /^(?:https?:)?\/\//i;
 
 	View = function ( taskListData ) {
 		this.$element = $( '<div>' ).addClass( WL.config.prefix + 'view' );
@@ -282,8 +283,8 @@
 		PageAsOfRevision.super.call( this, taskListData );
 		this.$element.addClass( WL.config.prefix + 'page-as-of-revision' )
 			.addClass( 'display-page-html' );
-		this.$base = WL.mediawiki.baseTag();
-		this.$element.append( this.$base );
+		this.$article = $( '<div>' ).addClass( 'article' );
+		this.$element.append( this.$article );
 	};
 	OO.inheritClass( PageAsOfRevision, View );
 	PageAsOfRevision.prototype.present = function ( taskInfo ) {
@@ -304,21 +305,28 @@
 				}.bind( this ) )
 				.fail( function ( doc ) {
 					var error = $( '<pre>' ).addClass( 'error' );
-					this.$base.html( error.text( JSON.stringify( doc, null, 2 ) ) );
+					this.$article.html( error.text( JSON.stringify( doc, null, 2 ) ) );
 				}.bind( this ) );
 		}
 	};
 	PageAsOfRevision.prototype.presentPage = function ( title, html ) {
-		this.$base.html( '' );
-		this.$base.append(
+		this.$article.html( '' );
+		this.$article.append(
 			$( '<h1>' ).text( title )
 				.attr( 'id', 'firstHeading' )
 				.addClass( 'firstHeading' )
 		);
-		this.$base.append(
+		this.$article.append(
 			$( '<div>' ).html( html )
 				.addClass( 'mw-body-content' )
 				.attr( 'id', 'bodyContent' )
+		).find( 'a' ).each(
+			function ( i, node ) {
+				var href = node.getAttribute( 'href' );
+				if ( !ABS_URL_PREFIX.test( href ) ) {
+					node.setAttribute( 'href', WL.mediawiki.reBaseUrl( href ) );
+				}
+			}
 		);
 	};
 

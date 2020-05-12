@@ -36,8 +36,8 @@
 	MediaWiki.prototype.urlToDiff = function ( revId ) {
 		return '//' + this.host + this.script + '?diff=' + revId;
 	};
-	MediaWiki.prototype.baseTag = function () {
-		return $( '<base>' ).attr( 'href', '//' + this.host );
+	MediaWiki.prototype.reBaseUrl = function ( relativeUrl ) {
+		return String( new URL( relativeUrl, 'https://' + this.host ) );
 	};
 
 	WL.mediawiki = new MediaWiki();

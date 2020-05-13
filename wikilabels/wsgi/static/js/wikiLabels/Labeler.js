@@ -158,14 +158,6 @@
 	Campaign = function ( campaignData ) {
 		this.$element = $( '<div>' ).addClass( 'campaign' );
 
-		this.expander = new OO.ui.ToggleButtonWidget( {
-			label: '+',
-			value: false,
-			classes: [ 'expander' ]
-		} );
-		this.$element.append( this.expander.$element );
-		this.expander.on( 'change', this.handleExpanderChange.bind( this ) );
-
 		this.$name = $( '<div>' ).addClass( 'name' );
 		this.$element.append( this.$name );
 		if ( campaignData.info_url ) {
@@ -189,9 +181,6 @@
 		this.worksetActivated = $.Callbacks();
 
 		this.load( campaignData );
-	};
-	Campaign.prototype.handleExpanderChange = function ( expanded ) {
-		this.expand( expanded );
 	};
 	Campaign.prototype.handleNewButtonClick = function () {
 		this.assignNewWorkset();
@@ -236,20 +225,6 @@
 			.fail( function ( doc ) {
 				OO.ui.alert( WL.i18n( 'Could not load workset list: $1', [ JSON.stringify( doc ) ] ) );
 			} );
-	};
-	Campaign.prototype.expand = function ( expanded ) {
-		if ( expanded === undefined ) {
-			return this.$element.hasClass( 'expanded' );
-		} else if ( expanded ) {
-			this.$element.addClass( 'expanded' );
-			this.expander.setLabel( '-' );
-			this.expanded.fire( expanded );
-			return this;
-		} else {
-			this.$element.removeClass( 'expanded' );
-			this.expander.setLabel( '+' );
-			return this;
-		}
 	};
 
 	/**

@@ -15,10 +15,11 @@ class BeakerSessionInterface(SessionInterface):
 
 def configure(app, config):
 
-    app.wsgi_app = SessionMiddleware(app.wsgi_app,
-                                     {'session.type': config['session']['type'],
-                                      'session.url': config['session']['url'],
-                                      'session.data_dir': config['session']['data_dir']})
+    app.wsgi_app = SessionMiddleware(
+        app.wsgi_app,
+        {'session.type': config['session']['type'],
+         'session.url': config['session']['url'],
+         'session.data_dir': config['session']['data_dir']})
     app.session_interface = BeakerSessionInterface()
 
     return app

@@ -1,5 +1,4 @@
 ( function ( $, WL ) {
-
 	var MediaWiki = function () {};
 	MediaWiki.prototype.initialize = function ( host ) {
 		var deferred = $.Deferred();
@@ -35,6 +34,15 @@
 	};
 	MediaWiki.prototype.urlToDiff = function ( revId ) {
 		return '//' + this.host + this.script + '?diff=' + revId;
+	};
+	MediaWiki.prototype.reBaseUrl = function ( relativeUrl ) {
+		return String( new URL( relativeUrl, 'https://' + this.host ) );
+	};
+	MediaWiki.prototype.reBaseRelativeAnchors = function ( i, node ) {
+		var href = node.getAttribute( 'href' );
+		if ( !WL.ABS_URL_PREFIX.test( href ) ) {
+			node.setAttribute( 'href', WL.mediawiki.reBaseUrl( href ) );
+		}
 	};
 
 	WL.mediawiki = new MediaWiki();

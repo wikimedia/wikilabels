@@ -124,6 +124,7 @@
 		this.$element.append( description );
 
 		this.$element.append( comment.html( diff.comment ) );
+		comment.find( 'a' ).each( WL.mediawiki.reBaseRelativeAnchors );
 
 		if ( diff.tableRows ) {
 			diffTable.append(
@@ -259,6 +260,7 @@
 			this.$element.append( description );
 
 			this.$element.append( comment.html( diff.comment ) );
+			comment.find( 'a' ).each( WL.mediawiki.reBaseRelativeAnchors );
 
 			if ( diff.tableRows ) {
 				diffTable.append(
@@ -282,6 +284,8 @@
 		PageAsOfRevision.super.call( this, taskListData );
 		this.$element.addClass( WL.config.prefix + 'page-as-of-revision' )
 			.addClass( 'display-page-html' );
+		this.$article = $( '<div>' ).addClass( 'article' );
+		this.$element.append( this.$article );
 	};
 	OO.inheritClass( PageAsOfRevision, View );
 	PageAsOfRevision.prototype.present = function ( taskInfo ) {
@@ -302,22 +306,22 @@
 				}.bind( this ) )
 				.fail( function ( doc ) {
 					var error = $( '<pre>' ).addClass( 'error' );
-					this.$element.html( error.text( JSON.stringify( doc, null, 2 ) ) );
+					this.$article.html( error.text( JSON.stringify( doc, null, 2 ) ) );
 				}.bind( this ) );
 		}
 	};
 	PageAsOfRevision.prototype.presentPage = function ( title, html ) {
-		this.$element.html( '' );
-		this.$element.append(
+		this.$article.html( '' );
+		this.$article.append(
 			$( '<h1>' ).text( title )
 				.attr( 'id', 'firstHeading' )
 				.addClass( 'firstHeading' )
 		);
-		this.$element.append(
+		this.$article.append(
 			$( '<div>' ).html( html )
 				.addClass( 'mw-body-content' )
 				.attr( 'id', 'bodyContent' )
-		);
+		).find( 'a' ).each( WL.mediawiki.reBaseRelativeAnchors );
 	};
 
 	PrintablePageAsOfRevision = function ( taskListData ) {
@@ -360,6 +364,8 @@
 	};
 	ParsedWikitext.prototype.presentHTML = function ( html ) {
 		this.$element.html( html );
+		this.$element.find( 'a' ).each( WL.mediawiki.reBaseRelativeAnchors );
+
 	};
 
 	RenderedHTML = function ( taskListData ) {

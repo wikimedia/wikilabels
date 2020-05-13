@@ -6,6 +6,7 @@
 		config: {
 			serverRoot: '',
 			prefix: 'wikilabels-'
-		}
+		},
+		ABS_URL_PREFIX: /^(?:https?:)?\/\//i
 	};
 }() );

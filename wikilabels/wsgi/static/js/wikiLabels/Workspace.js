@@ -13,16 +13,14 @@
 		this.form = null;
 		this.view = null;
 
-		this.$parent = $element.parent();
-
 		this.$menu = $( '<div>' ).addClass( 'wikilabels-menu' );
 		this.$element.append( this.$menu );
-		this.fullscreenToggle = new OO.ui.ToggleButtonWidget( {
-			label: WL.i18n( 'fullscreen' ),
-			classes: [ 'fullscreen' ]
+		this.closeButton = new OO.ui.ButtonWidget( {
+			label: 'X',
+			classes: [ 'close' ]
 		} );
-		this.$menu.append( this.fullscreenToggle.$element );
-		this.fullscreenToggle.on( 'change', this.handleFullscreenChange.bind( this ) );
+		this.$menu.append( this.closeButton.$element );
+		this.closeButton.on( 'click', this.handleClose.bind( this ) );
 
 		this.$container = $( '<div>' ).addClass( 'container' );
 		this.$element.append( this.$container );
@@ -44,18 +42,21 @@
 			this.form.show();
 		}
 	};
-	Workspace.prototype.handleFullscreenChange = function () {
-		this.fullscreenToggle.setLabel( this.fullscreenToggle.getValue() ? WL.i18n( 'exit fullscreen' ) : WL.i18n( 'fullscreen' ) );
-		this.fullscreen( this.fullscreenToggle.getValue() );
+	Workspace.prototype.handleClose = function () {
+		this.close();
 	};
 	Workspace.prototype.handleNewWorksetRequested = function () {
 		this.newWorksetRequested.fire();
+	};
+	Workspace.prototype.close = function () {
+		this.clear();
+		this.visible( false );
 	};
 	Workspace.prototype.loadWorkset = function ( campaignId, worksetId ) {
 		var taskList, form, view,
 			query = WL.server.getWorkset( campaignId, worksetId );
 		this.clear();
-		this.$element.show();
+		this.visible( true );
 		query.done( function ( doc ) {
 			var formQuery;
 
@@ -112,8 +113,6 @@
 		this.view = view;
 		this.$container.append( view.$element );
 		this.view.newWorksetRequested.add( this.handleNewWorksetRequested.bind( this ) );
-
-		this.fullscreenToggle.setDisabled( false );
 
 		firstTask = this.taskList.selectByIndex( 0 );
 		this.view.show( firstTask.id );
@@ -193,7 +192,16 @@
 	};
 	Workspace.prototype.clear = function () {
 		this.$container.empty();
-		this.fullscreenToggle.setDisabled( true );
+	};
+	Workspace.prototype.visible = function ( visible ) {
+		if ( visible === undefined ) {
+			return self.$element.visible();
+		} else if ( visible ) {
+			$( 'body' ).append( this.$element );
+			this.$element.show();
+		} else {
+			this.$element.hide();
+		}
 	};
 
 	TaskList = function ( taskListData ) {

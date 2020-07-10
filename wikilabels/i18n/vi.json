@@ -31,5 +31,7 @@
 	"request workset": "yêu cầu gói công việc",
 	"review": "kiểm tra lại",
 	"maintenance notice": "Nhãn wiki cần tạm ngừng để quản lý máy móc vào $1. Xem thêm thông tin tại $2.",
-	"more-info": "(<a href=\"$1\">Thêm thông tin</a>)"
+	"more-info": "(<a href=\"$1\">Thêm thông tin</a>)",
+	"session header": "Phiên bản này có $1 phiên bản.",
+	"Revision number": "Số phiên bản $1"
 }

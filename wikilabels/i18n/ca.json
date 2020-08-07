@@ -3,6 +3,7 @@
 		"authors": [
 			"Fitoschido",
 			"Gerardduenas",
+			"Mguix",
 			"Townie"
 		]
 	},
@@ -33,5 +34,7 @@
 	"request workset": "Demana un lot de tasques",
 	"review": "revisa",
 	"maintenance notice": "Viquietiquetes caurà per manteniment el $1. Vegeu $2 per a més informació.",
-	"more-info": "(<a href=\"$1\">Més informació</a>)"
+	"more-info": "(<a href=\"$1\">Més informació</a>)",
+	"session header": "Aquesta sessió va tenir $1 revisió(ns).",
+	"Revision number": "Número de revisió $1"
 }

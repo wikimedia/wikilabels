@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"AYZ04",
 			"Arthur2e5",
 			"Liuxinyu970226",
 			"Phenolla",
@@ -20,7 +21,7 @@
 	"Diff for revision $1": "版本$1的差异",
 	"No difference": "无差异",
 	"Request new workset": "请求新工作集",
-	"Review": "复核",
+	"Review": "审查",
 	"Save": "保存并打开下一个",
 	"License": "任何提供的标签将依据CC0（公有领域）的条款公开发布并授权",
 	"Submit label": "提交标记",

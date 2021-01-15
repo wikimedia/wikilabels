@@ -84,19 +84,19 @@
 		}
 	};
 
-	function acceleratorKeys(e) {
+	function acceleratorKeys( e ) {
 
-		//Alt+Q
-		if (e.altKey && e.keyCode == 81) {
-			document.getElementById(00.ui.TextInputWidget).select()
+		// Alt+Q
+		if ( e.altKey && e.keyCode === 81 ) {
+			document.getElementById( OO.ui.TextInputWidget ).select();
 		}
-		//Alt+A
-		if (e.altKey && e.keyCode == 65) {
-			document.getElementById(OO.ui.RadioOptionWidget).select()
+		// Alt+A
+		if ( e.altKey && e.keyCode === 65 ) {
+			document.getElementById( OO.ui.RadioOptionWidget ).select();
 		}
-		//Alt+S
-		if (e.altKey && e.keyCode == 83) {
-			document.getElementById(OO.ui.RadioInputWidget).select();
+		// Alt+S
+		if ( e.altKey && e.keyCode === 83 ) {
+			document.getElementById( OO.ui.RadioInputWidget ).select();
 		}
 	}
 	// register the handler 

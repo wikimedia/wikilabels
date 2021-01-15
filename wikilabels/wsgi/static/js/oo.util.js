@@ -99,8 +99,8 @@
 			document.getElementById( OO.ui.RadioInputWidget ).select();
 		}
 	}
-	// register the handler 
-	document.addEventListener('keyup', acceleratorKeys, false);
+	// register the handler
+	document.addEventListener( 'keyup', acceleratorKeys, false );
 
 	OO.ui.getWidgetValue = function ( widget ) {
 		switch ( widget.constructor ) {

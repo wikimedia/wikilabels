@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Minh Nguyen"
+			"Minh Nguyen",
+			"P.T.Đ"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Trường “$1” chưa hoàn tất. Bạn vẫn muốn gửi đi?",
-	"Abandon": "Bỏ rơi",
+	"Abandon": "Bỏ qua",
 	"Are you sure that you want to abandon this task?": "Bạn có chắc chắn muốn bỏ qua đến việc làm sau?",
 	"Campaigns": "Chiến dịch (<a href=\"$1\">thống kê</a>)",
 	"Can't save label. No task is selected!": "Không thể lưu nhãn vì chưa chọn việc làm.",

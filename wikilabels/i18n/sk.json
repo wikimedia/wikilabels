@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yardom78"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Políčko $1 nebolo vyplnené. Odoslať aj tak?",
+	"Abandon": "Vynechať",
+	"Are you sure that you want to abandon this task?": "Naozaj chcete vynechať a prejsť k ďalšej úlohe?",
+	"Campaigns": "Kampane (<a href=\"$1\">štatistiky</a>)",
+	"Can't save label. No task is selected!": "Štítok nemožno uložiť. Nebola vybraná úloha!",
+	"Could not get metadata for revision $1": "Nemožno načítať meta údaje pre revíziu $1. Kliknutím na tlačítko \"Vynechať\", vynechajte túto úlohu",
+	"Could not load form \"$1\": \n$2": "Nemožno načítať z \"$1\":\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nemožno načítať zobrazenie \"$1\":$2\nJe použité jednoduché zobrazenie úlohy.",
+	"Could not load workset list: $1": "Nepodarilo sa načítať zoznam pracovnej sady: $1",
+	"Could not parse MediaWiki API's response": "Nepodarilo sa analyzovať odpoveď API z MédiaWiki",
+	"Diff for revision $1": "Rozdiely pre revíziu $1",
+	"No difference": "Žiadne rozdiely",
+	"Request new workset": "Vyžiadať novú pracovnú sadu",
+	"Review": "Skontrolovať",
+	"Save": "Uložiť a ďalej",
+	"License": "Akýkoľvek poskytnutý štítok bude verejný a pod licenciou CC0 -- Verejná doména",
+	"Submit label": "Odoslať štítok",
+	"Workset": "Pracovná sada",
+	"Workset complete!": "Pracovná sada dokončená!",
+	"connect to server": "pripojiť k serveru",
+	"date-format": "%d.%m.%Y",
+	"fullscreen": "Na celú obrazovku",
+	"exit fullscreen": "Ukončiť režim celej obrazovky",
+	"open": "otvoriť",
+	"request workset": "vyžiadať pracovnú sadu",
+	"review": "skontrolovať",
+	"maintenance notice": "Wiki štítky budú dňa $1 vypnuté kvôli údržbe. Pre viac informácií navštívte $2.",
+	"more-info": "(<a href=\"$1\">Viac informácií</a>)",
+	"session header": "Počet revízií tejto relácie: $1",
+	"Revision number": "Číslo revízie $1"
+}

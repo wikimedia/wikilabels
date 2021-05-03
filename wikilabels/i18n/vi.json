@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Minh Nguyen",
+			"Nghiemtrongdai VN",
 			"P.T.Đ"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Trường “$1” chưa hoàn tất. Bạn vẫn muốn gửi đi?",
 	"Abandon": "Bỏ qua",
 	"Are you sure that you want to abandon this task?": "Bạn có chắc chắn muốn bỏ qua đến việc làm sau?",
-	"Campaigns": "Chiến dịch (<a href=\"$1\">thống kê</a>)",
+	"Campaigns": "Công việc (<a href=\"$1\">thống kê</a>)",
 	"Can't save label. No task is selected!": "Không thể lưu nhãn vì chưa chọn việc làm.",
 	"Could not get metadata for revision $1": "Không thể lấy siêu dữ liệu của phiên bản $1. Bấm nút “Bỏ rơi” để bỏ qua việc làm này.",
 	"Could not load form \"$1\": \n$2": "Không thể tải biểu mẫu “$1”: \n$2",
@@ -19,7 +20,7 @@
 	"No difference": "Không có sự khác biệt",
 	"Request new workset": "Yêu cầu gói công việc mới",
 	"Review": "Kiểm tra lại",
-	"Save": "Lưu và sau",
+	"Save": "Lưu và tiếp",
 	"License": "Nhãn nào được cung cấp sẽ được phát hành công khai theo giấy phép CC0 – phạm vi công cộng",
 	"Submit label": "Gửi nhãn",
 	"Workset": "Gói công việc",

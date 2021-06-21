@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Le campo \"$1\" non ha essite completate. Submitter totevia?",
+	"Abandon": "Saltar",
+	"Are you sure that you want to abandon this task?": "Es tu secur de voler saltar al proxime carga?",
+	"Campaigns": "Campanias (<a href=\"$1\">statisticas</a>)",
+	"Can't save label. No task is selected!": "Impossibile salveguardar le etiquetta. Nulle travalio es seligite.",
+	"Could not get metadata for revision $1": "Impossibile obtener le metadatos pro le version $1. Clicca sur le button \"Saltar\" pro saltar iste travalio.",
+	"Could not load form \"$1\": \n$2": "Non poteva cargar le formulario \"$1\":\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Non poteva cargar le vista \"$1\": $2\nEs usate le visor simple de travalios.",
+	"Could not load workset list: $1": "Non poteva cargar le lista de travalios: $1",
+	"Could not parse MediaWiki API's response": "Impossibile analysar le syntaxe del responsa del API de MediaWiki",
+	"Diff for revision $1": "Diff pro version $1",
+	"No difference": "Nulle differentia",
+	"Request new workset": "Requestar nove gruppo de travalios",
+	"Review": "Revider",
+	"Save": "Salveguardar e continuar",
+	"License": "Omne etiquettas fornite esserea rendite disponibile publicamente sub le terminos del licentia CC0 – Dominio Public",
+	"Submit label": "Submitter etiquetta",
+	"Workset": "Gruppo de travalios",
+	"Workset complete!": "Gruppo de travalios concludite!",
+	"connect to server": "connecter al servitor",
+	"date-format": "%Y-%m-%d",
+	"fullscreen": "Schermo complete",
+	"exit fullscreen": "Exir del schermo complete",
+	"open": "aperir",
+	"request workset": "requestar gruppo de travalios",
+	"review": "revider",
+	"maintenance notice": "\"Wiki labels\" essera disactivate pro mantenentia le $1. Vide $2 pro plus information.",
+	"more-info": "(<a href=\"$1\">Plus info</a>)",
+	"session header": "Iste session habeva $1 version(es).",
+	"Revision number": "Version numero $1"
+}

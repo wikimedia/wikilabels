@@ -11,7 +11,7 @@
 	"Are you sure that you want to abandon this task?": "Bạn có chắc chắn muốn bỏ qua đến việc làm sau?",
 	"Campaigns": "Công việc (<a href=\"$1\">thống kê</a>)",
 	"Can't save label. No task is selected!": "Không thể lưu nhãn vì chưa chọn việc làm.",
-	"Could not get metadata for revision $1": "Không thể lấy siêu dữ liệu của phiên bản $1. Bấm nút “Bỏ rơi” để bỏ qua việc làm này.",
+	"Could not get metadata for revision $1": "Không thể lấy siêu dữ liệu của phiên bản $1. Nhấn “Bỏ qua” để bỏ qua việc làm này.",
 	"Could not load form \"$1\": \n$2": "Không thể tải biểu mẫu “$1”: \n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Không thể tải khung nhìn “$1”: $2\nSẽ sử dụng trình xem việc làm đơn giản.",
 	"Could not load workset list: $1": "Không thể tải danh sách bộ việc làm: $1",

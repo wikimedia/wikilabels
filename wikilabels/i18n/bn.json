@@ -22,7 +22,7 @@
 	"Could not load workset list: $1": "কর্মধার্যের তালিকা লোড করা যায়নি:$1",
 	"Could not parse MediaWiki API's response": "মিডিয়াউইকি এপিআই প্রতিক্রিয়া পদান্বয় করা যায়নি",
 	"Diff for revision $1": "$1 সংস্করণের পার্থক্য",
-	"No difference": "কোন পার্থক্য নেই",
+	"No difference": "কোনও পার্থক্য নেই",
 	"Request new workset": "নতুন কাজের সেটের অনুরোধ করুন",
 	"Review": "পর্যালোচনা",
 	"Save": "সংরক্ষণ এবং অগ্রসর",

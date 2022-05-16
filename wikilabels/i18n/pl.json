@@ -4,6 +4,7 @@
 			"Chrumps",
 			"DeRudySoulStorm",
 			"Mateon1",
+			"Strebski",
 			"The Polish",
 			"Warchlak",
 			"Woytecr"
@@ -12,10 +13,11 @@
 	"'$1' not completed. Submit anyway?": "Pole „$1” nie zostało wypełnione. Przesłać mimo to?",
 	"Abandon": "Pomiń",
 	"Are you sure that you want to abandon this task?": "Czy na pewno chcesz przejść do następnego zadania?",
-	"Campaigns": "Osiągnięcia",
+	"Campaigns": "(<a href=\"$1\">Statystyki</a>) kampanii",
 	"Can't save label. No task is selected!": "Nie można zapisać etykiety. Nie wybrano żadnego zadania!",
 	"Could not get metadata for revision $1": "Nie można uzyskać metadanych dla wersji $1. Pomiń to zadanie, klikając przycisk „Pomiń”",
 	"Could not load form \"$1\": \n$2": "Nie można pobrać formularza „$1”:\n$2",
+	"Could not load workset list: $1": "Nie można wczytać listy zadań: $1",
 	"Could not parse MediaWiki API's response": "Nie można było przetworzyć odpowiedzi API MediaWiki",
 	"Diff for revision $1": "Diff dla edycji $1",
 	"No difference": "Brak różnic",
@@ -31,5 +33,7 @@
 	"exit fullscreen": "Wyjdź z trybu pełnoekranowego",
 	"open": "otwórz",
 	"request workset": "Pobierz zestaw danych",
-	"review": "Przejrzyj"
+	"review": "Przejrzyj",
+	"more-info": "(<a href=\"$1\">Więcej informacji</a>)",
+	"Revision number": "Numer wersji $1"
 }

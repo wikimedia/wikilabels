@@ -13,7 +13,7 @@
 	"Could not load form \"$1\": \n$2": "Nemožno načítať z \"$1\":\n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Nemožno načítať zobrazenie \"$1\":$2\nJe použité jednoduché zobrazenie úlohy.",
 	"Could not load workset list: $1": "Nepodarilo sa načítať zoznam pracovnej sady: $1",
-	"Could not parse MediaWiki API's response": "Nepodarilo sa analyzovať odpoveď API z MédiaWiki",
+	"Could not parse MediaWiki API's response": "Nepodarilo sa analyzovať odpoveď API z MediaWiki",
 	"Diff for revision $1": "Rozdiely pre revíziu $1",
 	"No difference": "Žiadne rozdiely",
 	"Request new workset": "Vyžiadať novú pracovnú sadu",

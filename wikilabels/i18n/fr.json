@@ -33,7 +33,7 @@
 	"request workset": "demander un jeu de données",
 	"review": "relire",
 	"maintenance notice": "Les libellés Wiki seront arrêtés pour maintenance le $1. Voir $2 pour plus d’informations.",
-	"more-info": "(<a href=\"$1\">Plus d’informations</a>)",
+	"more-info": "(<a href=\"$1\">Davantage d’informations</a>)",
 	"session header": "Cette session a compris $1 relecture{{PLURAL:$1||s}}.",
 	"Revision number": "Version numéro $1"
 }

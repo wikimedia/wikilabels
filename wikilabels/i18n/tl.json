@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"GinawaSaHapon"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Hindi nalagyan ang field na \"$1\". Ipasa pa rin?",
+	"Abandon": "Laktawan",
+	"Are you sure that you want to abandon this task?": "Sigurado ka bang lalaktaw ka papunta sa susunod na gawain?",
+	"Campaigns": "Mga kampanya (<a href=\"$1\">stats</a>)",
+	"Can't save label. No task is selected!": "Hindi ma-save ang label. Walang piniling gawain!",
+	"Could not get metadata for revision $1": "Hindi makuha ang metadata para sa pagbabagong $1. Lalaktawan ang gawain na ito kung pipindutin mo ang button na \"Laktawan\"",
+	"Could not load form \"$1\": \n$2": "Hindi ma-load ang form na \"$1\":\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Hindi ma-load ang view na \"$1\": $2\nGagamitin ang simpleng viewer ng mga gawain.",
+	"Could not load workset list: $1": "Hindi ma-load ang listahan ng workset: $1",
+	"Could not parse MediaWiki API's response": "Hindi ma-parse ang tugon ng MediaWiki API",
+	"Diff for revision $1": "Iba sa pagbabagong $1",
+	"No difference": "Walang pinagkaiba",
+	"Request new workset": "Humiling ng bagong workset",
+	"Review": "Magrebyu",
+	"Save": "I-save at sunod",
+	"License": "Ilalabas sa publiko ang kahit anong mga binigay na label at lisensiyahan sa ilalim ng kasunduan ng CC0 -- Pampublikong Domain",
+	"Submit label": "Ipasa ang label",
+	"Workset": "Workset",
+	"Workset complete!": "Tapos na ang workset!",
+	"connect to server": "kumonekta sa server",
+	"date-format": "%d-$m-$Y",
+	"fullscreen": "Fullscreen",
+	"exit fullscreen": "Umalis sa fullscreen",
+	"open": "bukas",
+	"request workset": "humiling ng workset",
+	"review": "rebyu",
+	"maintenance notice": "Kasalukuyang bagsak ang Wiki labels para sa maintenance sa $1. Tingnan ang $2 sa karagdagang impormasyon.",
+	"more-info": "(<a href=\"$1\">Karagdagang info</a>)",
+	"session header": "May $1 (na) pagbabago ang session na ito.",
+	"Revision number": "Bilang ng pagbabago $1"
+}

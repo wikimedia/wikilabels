@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar",
+			"HairyFotr"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Polje »$1« ni bilo izpolnjeno. Ga vseeno pošljem?",
+	"Abandon": "Preskoči",
+	"Are you sure that you want to abandon this task?": "Ali res želite preskočiti na naslednjo nalogo?",
+	"Campaigns": "Kampanje (<a href=\"$1\">statistika</a>)",
+	"Can't save label. No task is selected!": "Oznake ni mogoče shraniti. Izbrana ni nobena naloga!",
+	"Could not get metadata for revision $1": "Ni bilo mogoče pridobiti metapodatkov za redakcijo $1. To nalogo preskočite s klikom gumba »Skip«.",
+	"Could not load form \"$1\": \n$2": "Ni bilo mogoče naložiti obrazca »$1«;\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Ni bilo mogoče naložiti pogleda »$1«: $2\nUporabljen bo prepresti pregledovalnik nalog.",
+	"Could not load workset list: $1": "Ni bilo mogoče naložiti seznama nalog: $1",
+	"Could not parse MediaWiki API's response": "Ni bilo mogoče razčleniti odziva API MediaWiki-ja",
+	"Diff for revision $1": "Različica za redakcijo $1",
+	"No difference": "Ni razlike",
+	"Request new workset": "Prikaži nov seznam nalog",
+	"Review": "Preglej",
+	"Save": "Shrani in naprej",
+	"License": "Vse navedene oznake bodo javno objavljene in licencirane pod pogoji CC0 – javna last",
+	"Submit label": "Pošlji oznako",
+	"Workset": "Seznam nalog",
+	"Workset complete!": "Seznam nalog je končan!",
+	"connect to server": "poveži se s strežnikom",
+	"date-format": "%Y-%m-%d",
+	"fullscreen": "Celozaslonsko",
+	"exit fullscreen": "Izhod iz celozaslonskega načina",
+	"open": "odpri",
+	"request workset": "zahtevaj seznam nalog",
+	"review": "preglej",
+	"maintenance notice": "Vikioynake se dne $1 zaradi vzdrževanja ukinjajo. Za več informacij glejte $2.",
+	"more-info": "(<a href=\"$1\">Več informacij</a>)",
+	"session header": "Ta seja je imela $1 redakcijo(i/e).",
+	"Revision number": "Številka redakcije $1"
+}

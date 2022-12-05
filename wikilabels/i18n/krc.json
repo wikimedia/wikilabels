@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Къарачайлы"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "\"$1\" тамамланмады. Алай болса да джиберилсинми?",
+	"Abandon": "Атлат",
+	"Are you sure that you want to abandon this task?": "Эндиги нюзюрге атларгъа излегенигизден ишексизмисиз?",
+	"Campaigns": "Компанияла (<a href=\"$1\">статистика</a>)",
+	"Can't save label. No task is selected!": "Белги сакъланалмайды. Нюзюр сайланмады!",
+	"Could not get metadata for revision $1": "$1 версия юсюн метабилгиле алынамады. \"Атлат\" тиекге басыб бу нюзюрню атлатыгъыз",
+	"Could not load form \"$1\": \n$2": "\"$1\" форма джюкленалмады:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "\"$1\": $2 кёрюнюм джюкленалмады\nБош нюзюр кёргюзтюучю хайырланады.",
+	"Could not load workset list: $1": "Иш тоблмам тизмени джюклеялмайды: $1",
+	"Could not parse MediaWiki API's response": "MediaWiki API-ни джууабын джарашдыралмадыкъ",
+	"Diff for revision $1": "$1 версия ючюн башхалыкъ",
+	"No difference": "Башхалыкъ джокъду",
+	"Request new workset": "Джангы иш тобламаны изле",
+	"Review": "Тинт",
+	"Save": "Сакъла эмда эндиге кёч",
+	"License": "Бютеу берилген белгиле CC0 -- Public Domain шартлары бла басмаланныкъдыла эмда лицензияланныкъдыла.",
+	"Submit label": "Белгини джибер",
+	"Workset": "Иш тоблама",
+	"Workset complete!": "Иш тоблама тамамланды!",
+	"connect to server": "серверге байлан",
+	"date-format": "%Y-%m-%d",
+	"fullscreen": "Толу экран",
+	"exit fullscreen": "Толу экрандан чыкъ",
+	"open": "ач",
+	"request workset": "иш тобламаны изле",
+	"review": "тинт",
+	"maintenance notice": "Вики белгиле $1 датада къуллукъ ишле ючюн ишлерик тюлдюле. Андан аслам ючюн $2 бетге къарагъыз.",
+	"more-info": "(<a href=\"$1\">Аслам информация</a>)",
+	"session header": "Бу сессияда $1 версия бар эди.",
+	"Revision number": "Версияны номери $1"
+}

@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Zakaria Tunsung"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "A Zigbangbale \"$1\" da ba pa. Daa ko lɛ",
+	"Abandon": "gaŋ bare",
+	"Are you sure that you want to abandon this task?": "Fo sagɛɛ ka fo boɔra ka fo gaŋ gaa yɛlzaara be?",
+	"Campaigns": "ŋme gyɛgyɛ ko (<a href=\"$1\"></a>)",
+	"Can't save label. No task is selected!": "kombaŋ \"siebe liebele\". Yɛlzaa ba iri.",
+	"Could not get metadata for revision $1": "Kombaŋ nyɛ \"metadata\" a $1 leɛ kaabo poɔ. Ka foo tɔ a \"skip\" zuŋ, lɛ wulo ka fo \"skip\" a yɛlɛ ŋa.",
+	"Could not load form \"$1\": \n$2": "Fo kombaŋ \"loodi a fɔm\" \"$1\":$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Kombaŋ \"loodi\" aŋa \"$1\":$2 ka fooŋ gban de yɛlmɔlɔ lɛ.",
+	"Could not load workset list: $1": "Kombaŋ \"loodi\" a \"Wɛgesiiti\" yɛlbie:$1",
+	"Could not parse MediaWiki API's response": "Kombaŋ \"parse\" a MedeɛWiki API’s sagoo",
+	"Diff for revision $1": "A leɛmaaloo tɛɛtɛɛ ŋa $1",
+	"No difference": "Tɛɛtɛɛ zaa kabe",
+	"Request new workset": "Soore deɛ wɛkesiiti paalaa",
+	"Review": "Leɛkaa",
+	"Save": "\"Siebi\" kyɛ gaa a nimmitɔɔre bone",
+	"License": "Sɛgre la sɛgre zaa naŋ na yi gbangbale, sie ka \"CC0--public Domain tɔ o \"Setampo\".",
+	"Submit label": "Tere fo sɛgre",
+	"Workset": "\"wɛgesiti\"",
+	"Workset complete!": "\"Wɛgesiti\" baarɛŋ",
+	"connect to server": "\"kɔnɛte ko a sɛɛba\""
+}

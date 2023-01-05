@@ -1,15 +1,32 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ерней"
+			"Ерней",
+			"Ильгиз"
 		]
 	},
+	"'$1' not completed. Submit anyway?": "\"$1\" кыры тутырылмыйча калды. Барыбер җибәрергәме?",
 	"Abandon": "Калдыру",
+	"Are you sure that you want to abandon this task?": "Сез чынлап та моңа тимичә киләсенә күчәргә телисезме?",
+	"Campaigns": "Кампанияләр (<a href=\"$1\">stats</a>)",
+	"Can't save label. No task is selected!": "Билгене саклап булмый. Бернинди эш тә сайланмаган!",
+	"Could not load form \"$1\": \n$2": "\"$1\" формасын төяп булмый:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "\"$1\" күренешен төяп булмый: $2\nГади мәсәлә күрсәткечен куллану.",
+	"Could not load workset list: $1": "Эш җыелмасы исемлеген төяп булмый: $1",
+	"Could not parse MediaWiki API's response": "MediaWiki API's җавабын парслап булмый",
+	"Diff for revision $1": "$1 ревизиясе өчен diff",
 	"No difference": "Аермасы юк",
+	"Request new workset": "Яңа эшләү җыелмасын сорарга",
 	"Review": "Тикшерү",
+	"Save": "Сакларга һәм киләсенә күчәргә",
+	"Submit label": "Искәрмәне җибәрергә",
+	"Workset": "Эшләү җыелмасы",
+	"Workset complete!": "Эшләү җыелмасы әзер!",
+	"connect to server": "Серверга тоташырга",
 	"date-format": "%d.%m.%Y",
 	"fullscreen": "Тулы экран режимы",
 	"exit fullscreen": "Тулы экран режимыннан чыгу",
 	"open": "ачу",
+	"request workset": "Эшләү җыелмасын сорарга",
 	"review": "тикшерү"
 }

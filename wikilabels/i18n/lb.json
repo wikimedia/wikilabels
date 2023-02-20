@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "D'Feld \"$1\" ass net ausgefëllt. Trotzdem späicheren?",
@@ -31,5 +32,6 @@
 	"request workset": "Aarbechtsaz ufroen",
 	"review": "Nokucken",
 	"maintenance notice": "Wiki labels ass wéinst Maintenance den $1 net disponibel. Kuckt $2 fir méi Informatiounen.",
-	"more-info": "(<a href=\"$1\">Méi Informatiounen</a>)"
+	"more-info": "(<a href=\"$1\">Méi Informatiounen</a>)",
+	"Revision number": "Versiounsnummer $1"
 }

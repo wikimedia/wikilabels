@@ -9,6 +9,7 @@
 	"Are you sure that you want to abandon this task?": "Ka vu fakte deziras saltar a la nexta tasko?",
 	"Campaigns": "Kampanii (<a href=\"$1\">statistiki</a>)",
 	"Can't save label. No task is selected!": "Ne povas sparar la notico. Nula tasko selektesis!",
+	"Could not parse MediaWiki API's response": "Ne povis analizar la respondo dil API de MediaWiki",
 	"Review": "Revizar",
 	"Save": "Sparar ed irar a la sequanta",
 	"review": "revizar",

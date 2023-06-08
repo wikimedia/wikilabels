@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Rooiratel"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Die veld \"$1\" is nie gevul nie. Dien in elk geval in?",
+	"Abandon": "Slaan oor",
+	"Are you sure that you want to abandon this task?": "Is jy seker jy wil oorslaan na die volgende taak?",
+	"Campaigns": "Veldtogte (<a href=\"$1\">stats</a>)",
+	"Can't save label. No task is selected!": "Kan nie etiket stoor nie. Geen taak is gekies nie!",
+	"Diff for revision $1": "Verskil vir hersiening $1",
+	"No difference": "Geen verskil",
+	"Review": "Hersien",
+	"Save": "Stoor en volgende",
+	"Workset": "Werkstel",
+	"Workset complete!": "Werkstel voltooi!",
+	"connect to server": "koppel aan bediener",
+	"date-format": "%Y-%m-%d",
+	"fullscreen": "Volskerm",
+	"exit fullscreen": "Verlaat volskerm",
+	"open": "oop",
+	"review": "hersien",
+	"maintenance notice": "Wiki-etikette gaan af vir onderhoud op $1. Sien $2 vir meer inligting.",
+	"more-info": "(<a href=\"$1\">Meer inligting</a>)",
+	"session header": "Hierdie sessie het $1 hersiening(s) gehad.",
+	"Revision number": "Hersiening nommer $1"
+}

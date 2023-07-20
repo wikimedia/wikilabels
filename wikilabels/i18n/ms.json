@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hakimi97"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Medan \"$1\" tidak diisi. Masih terus hantarkan?",
+	"Abandon": "Langkau",
+	"Are you sure that you want to abandon this task?": "Adakah anda pasti ingin melangkau ke tugasan seterusnya?",
+	"Campaigns": "Kempen (<a href=\"$1\">stats</a>)",
+	"Can't save label. No task is selected!": "Tidak dapat menyimpan label. Tiada tugasan dipilih!",
+	"Could not get metadata for revision $1": "Tidak boleh dapat metadata untuk semakan $1 . Dengan mengklik pada butang \"Langkau\", langkau tugas ini",
+	"Could not load form \"$1\": \n$2": "Tidak dapat memuatkan borang \"$1\": \n $2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Tidak dapat memuat paparan \" $1 \": $2 \nMenggunakan pemapar tugasan mudah.",
+	"Could not load workset list: $1": "Tidak dapat memuat senarai set tugasan: $1",
+	"Could not parse MediaWiki API's response": "Tidak dapat menghurai respons API MediaWiki",
+	"Diff for revision $1": "Perbezaan untuk semakan $1",
+	"No difference": "Tiada perbezaan",
+	"Request new workset": "Meminta set tugasan baharu",
+	"Review": "Semak semula",
+	"Save": "Simpan dan seterusnya",
+	"License": "Sebarang label yang disediakan akan dilepaskan secara terbuka dan dilesenkan di bawah syarat CC0 -- Domain Awam",
+	"Submit label": "Hantar label",
+	"Workset": "Set tugasan",
+	"Workset complete!": "Set tugasan selesai!",
+	"connect to server": "sambung ke pelayan",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "Paparan penuh",
+	"exit fullscreen": "Keluar dari paparan penuh",
+	"open": "buka",
+	"request workset": "meminta set tugasan",
+	"review": "semak semula",
+	"maintenance notice": "Label Wiki akan dihentikan untuk tujuan penyelenggaraan pada $1. Sila lihat $2 untuk maklumat lanjut.",
+	"more-info": "(<a href=\"$1\">Info selanjutnya</a>)",
+	"session header": "Sesi ini mempunyai $1 semakan.",
+	"Revision number": "Nombor semakan $1"
+}

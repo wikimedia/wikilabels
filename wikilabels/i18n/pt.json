@@ -6,10 +6,11 @@
 			"Hamilton Abreu",
 			"He7d3r",
 			"MokaAkashiyaPT",
+			"RogueScholar",
 			"Vitorvicentevalente"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "O campo '$1' não foi preenchido. Enviar mesmo assim?",
+	"'$1' not completed. Submit anyway?": "O campo \"$1\" não foi preenchido. Enviar mesmo assim?",
 	"Abandon": "Saltar",
 	"Are you sure that you want to abandon this task?": "Tem a certeza que deseja saltar para a próxima tarefa?",
 	"Campaigns": "Campanhas (<a href=\"$1\">estatísticas</a>)",

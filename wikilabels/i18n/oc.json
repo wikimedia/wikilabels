@@ -1,21 +1,38 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cedric31"
+			"Cedric31",
+			"Lhanars"
 		]
 	},
+	"'$1' not completed. Submit anyway?": "Lo camp «$1» es pas plen. Volètz l'enviar de tot biais?",
 	"Abandon": "Sautar",
-	"Campaigns": "Campanhas",
+	"Are you sure that you want to abandon this task?": "Sètz segur de passar lo pretzfait seguent?",
+	"Campaigns": "Campanhas (<a href=\"$1\">estatisticas</a>)",
+	"Can't save label. No task is selected!": "No se pòt salvar l'etiqueta. Cap de pretzfait seleccionat!",
+	"Could not get metadata for revision $1": "No s'es pogut obtener las metadonadas de la revision $1. Passètz aquela tasca cliclant sul boton \"Sautar\".",
+	"Could not load form \"$1\": \n$2": "Non s'a pogut cargar lo ormulari «$1»:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Non s'a pogut cargar la visualizacion «$1»: $2 Utilizacion de l'afichatge de tasca simpla",
+	"Could not load workset list: $1": "Non s'a pogut carga la lista de tascas: $1",
+	"Could not parse MediaWiki API's response": "Impossible d'analisar la responsa de l'API MediaWiki",
+	"Diff for revision $1": "Diferéncia de la revision $1",
 	"No difference": "Pas cap de diferéncia",
+	"Request new workset": "Demanda de trascas novèla",
 	"Review": "Relectura",
 	"Save": "Salvar e seguent",
+	"License": "Totas las etiquetas fornidas seràn publicas sota la licéncia CC0 -- Domeni Public",
 	"Submit label": "Sometre l'etiqueta",
 	"Workset": "Grop",
 	"Workset complete!": "Ensemble de donadas acabat !",
 	"connect to server": "Connectar al servidor",
 	"date-format": "%d-%m-%Y",
 	"fullscreen": "Ecran complet",
+	"exit fullscreen": "Quitar l'escran complèt",
 	"open": "dobrir",
 	"request workset": "Demandar l'ensemble de donadas",
-	"review": "Relectura"
+	"review": "Relectura",
+	"maintenance notice": "Las etiquetas Wiki baissan per la mantenença lo $1. Vejatz $2 per mai d'informacions.",
+	"more-info": "(<a href=\"$1\">Mai d'informacions</a>)",
+	"session header": "Aquela session compren $1 revision(s)",
+	"Revision number": "Revision numèro $1"
 }

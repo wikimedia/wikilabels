@@ -5,6 +5,7 @@
 			"Assh1857",
 			"Kly",
 			"LNDDYL",
+			"Winston Sung",
 			"捍粵者"
 		]
 	},
@@ -37,5 +38,5 @@
 	"maintenance notice": "於$1 Wiki labels 將因維護緣故而停止。查看 $2 來取得更多資訊。",
 	"more-info": "（<a href=\"$1\">顯示訊息</a>）",
 	"session header": "此 session 有 $1 個修訂。",
-	"Revision number": "修訂號碼 $1"
+	"Revision number": "修訂號 $1"
 }

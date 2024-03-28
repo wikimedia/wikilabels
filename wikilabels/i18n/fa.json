@@ -1,15 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ebraminio",
 			"Ladsgroup",
 			"Reza1615"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "«$1» پرنشده‌است. ارسال شود؟",
+	"'$1' not completed. Submit anyway?": "«$1» پرنشده است. ارسال شود؟",
 	"Abandon": "رها کردن",
 	"Are you sure that you want to abandon this task?": "آیا مطمئن هستید که می‌خواهید به وظیفهٔ بعدی بروید؟",
 	"Campaigns": "کمپین‌ها (<a href=\"$1\">stats</a>)",
-	"Can't save label. No task is selected!": "امکان ذخیره وجود ندارد. تسکی انتخاب نشده‌است.",
+	"Can't save label. No task is selected!": "امکان ذخیره وجود ندارد. تسکی انتخاب نشده است.",
 	"Could not get metadata for revision $1": "امکان گرفتن اطلاعات ویرایش $1 وجود ندارد. با کلیک کردن بر روی دکمهٔ «پرش به بعدی» فعالیت را رها کنید",
 	"Could not load form \"$1\": \n$2": "امکان بارگذاری فرم 《$1》 نیست:\n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "امکان دیدن $1 نیست: $2\nاستفاده از نمایشگر وظیفه ساده.",
@@ -31,7 +32,7 @@
 	"open": "باز",
 	"request workset": "درخواست یک مجموعه",
 	"review": "بازبینی",
-	"maintenance notice": "ویکی‌برچسب برای تعمیرات در $1 غیرفعال شده‌است. برای اطلاعات بیشتر $2 را مشاهده کنید.",
+	"maintenance notice": "ویکی‌برچسب برای تعمیرات در $1 غیرفعال شده است. برای اطلاعات بیشتر $2 را مشاهده کنید.",
 	"more-info": "(<a href=\"$1\">اطلاعات بیشتر</a>)",
 	"session header": "این بخش $1 نسخه داشت.",
 	"Revision number": "نسخهٔ شمارهٔ $1"

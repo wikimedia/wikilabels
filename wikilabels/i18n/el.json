@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jimkats",
 			"KATRINE1992",
 			"McDutchie",
 			"NikosLikomitros",
@@ -24,5 +25,5 @@
 	"exit fullscreen": "Έξοδος από πλήρη οθόνη",
 	"open": "Άνοιγμα",
 	"review": "Θεώρηση",
-	"more-info": "(<a href=\"$1\">Mas info</a>)"
+	"more-info": "(<a href=\"$1\">Περισσότερες πληροφορίες</a>)"
 }

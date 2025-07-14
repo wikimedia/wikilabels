@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
 	"Request new workset": "نوې کارټولگه غوښتل",
@@ -13,6 +14,6 @@
 	"connect to server": "پالنگر سره اړيکمنېدل",
 	"date-format": "%Y-%m-%d",
 	"fullscreen": "ډکه پرده",
-	"open": "پرانيستل",
+	"open": "پرانېستل",
 	"review": "بياکتنه"
 }

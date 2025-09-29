@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"ANTHONY DERY",
 			"Zakaria Tunsung"
 		]
 	},
@@ -23,5 +24,15 @@
 	"Submit label": "Tere fo sɛgre",
 	"Workset": "\"wɛgesiti\"",
 	"Workset complete!": "\"Wɛgesiti\" baarɛŋ",
-	"connect to server": "\"kɔnɛte ko a sɛɛba\""
+	"connect to server": "\"kɔnɛte ko a sɛɛba\"",
+	"date-format": "%Y-%m-%d",
+	"fullscreen": "Sikireen gbuli zaa",
+	"exit fullscreen": "Leɛ yi a sikireen zaa",
+	"open": "Yuo",
+	"request workset": "Sor-de sɛgebo gampɛlle",
+	"review": "Leɛ kaa",
+	"maintenance notice": "Wiki label sere boɔrɔ la leɛ-kaabo ne $1. Kaa nyɛ $2 kyaare ne duoruu yaga",
+	"more-info": "(<a href=\"$1\">Duoruu yaga</a>)",
+	"session header": "A vuo nang taa la $1 leɛkaabo",
+	"Revision number": "Leɛkaabo noɔre la $1"
 }

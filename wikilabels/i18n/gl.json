@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Banjo",
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "O campo \"$1\" non se indicou. Enviar igualmente?",
@@ -27,7 +28,7 @@
 	"connect to server": "Conectar ó servidor",
 	"date-format": "%d-%m-%Y",
 	"fullscreen": "Pantalla completa",
-	"exit fullscreen": "Saír de pantalla completa",
+	"exit fullscreen": "Saír da pantalla completa",
 	"open": "abrir",
 	"request workset": "Solicitar grupo de tarefas",
 	"review": "revisar",

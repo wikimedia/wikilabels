@@ -5,6 +5,7 @@
 			"Gombang",
 			"Hidayatsrf",
 			"Ilham151096",
+			"Penyuwangi",
 			"Rachmat.Wahidi",
 			"Rachmat04"
 		]
@@ -18,7 +19,7 @@
 	"Could not load form \"$1\": \n$2": "Tidak dapat memuat formulir \"$1\":\n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Tidak dapat memuat tampilan \"$1\": $2.\nMenggunakan penampil tugas sederhana.",
 	"Could not load workset list: $1": "Tidak dapat memuat daftar rangkaian tugas: $1",
-	"Could not parse MediaWiki API's response": "Tidak dapat memilah respons API MediaWiki",
+	"Could not parse MediaWiki API's response": "Tidak dapat mengurai tanggapan API MediaWiki",
 	"Diff for revision $1": "Beda untuk revisi $1",
 	"No difference": "Tidak ada perbedaan",
 	"Request new workset": "Minta pekerjaan baru",
@@ -28,7 +29,7 @@
 	"Submit label": "Kirim label",
 	"Workset": "Pekerjaan",
 	"Workset complete!": "Pekerjaan selesai!",
-	"connect to server": "sambung ke server",
+	"connect to server": "sambung ke peladen",
 	"date-format": "%d-%m-%Y",
 	"fullscreen": "Layar penuh",
 	"exit fullscreen": "Keluar layar penuh",

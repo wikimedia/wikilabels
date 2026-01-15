@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Andrei Stroe",
+			"SZ475",
 			"Strainu"
 		]
 	},
@@ -31,6 +32,7 @@
 	"open": "deschide",
 	"request workset": "cere obiect de lucru",
 	"review": "revizuire",
+	"maintenance notice": "Etichetele Wiki nu vor fi disponibile pentru întreținere pe $1. Vedeți $2 pentru mai multe informații.",
 	"more-info": "(<a href=\"$1\">Mai multe informații</a>)",
 	"session header": "Această sesiune a avut $1 versiuni.",
 	"Revision number": "Versiunea numărul $1"

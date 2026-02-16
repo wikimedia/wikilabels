@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aindriu80"
+		]
+	},
+	"'$1' not completed. Submit anyway?": "Níor líonadh an réimse \"$1\". An bhfuil tú ag iarraidh é a chur isteach ar aon nós?",
+	"Abandon": "Scipeáil",
+	"Are you sure that you want to abandon this task?": "An bhfuil tú cinnte gur mhaith leat léim go dtí an chéad tasc eile?",
+	"Campaigns": "Feachtais (<a href=\"$1\">staitisticí</a>)",
+	"Can't save label. No task is selected!": "Ní féidir an lipéad a shábháil. Níl aon tasc roghnaithe!",
+	"Could not get metadata for revision $1": "Níorbh fhéidir meiteashonraí a fháil don athbhreithniú $1. Trí chliceáil ar an gcnaipe \"Scipeáil\", scipeáil an tasc seo.",
+	"Could not load form \"$1\": \n$2": "Níorbh fhéidir an fhoirm \"$1\" a luchtú:\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Níorbh fhéidir an radharc \"$1\" a luchtú: $2\nAg baint úsáide as breathnóir tascanna simplí.",
+	"Could not load workset list: $1": "Níorbh fhéidir liosta tacair oibre a luchtú: $1",
+	"Could not parse MediaWiki API's response": "Níorbh fhéidir freagra API MediaWiki a pharsáil",
+	"Diff for revision $1": "Difríocht le haghaidh athbhreithniú $1",
+	"No difference": "Gan aon difríocht",
+	"Request new workset": "Iarr tacar oibre nua",
+	"Review": "Athbhreithniú",
+	"Save": "Sábháil agus ar aghaidh",
+	"License": "Scaoilfear aon lipéid a sholáthraítear go poiblí agus beidh siad ceadúnaithe faoi théarmaí CC0 -- Fearann ​​Poiblí",
+	"Submit label": "Cuir lipéad isteach",
+	"Workset": "Tacar oibre",
+	"Workset complete!": "Tacar oibre críochnaithe!",
+	"connect to server": "ceangal leis an bhfreastalaí",
+	"date-format": "%Y-%m-%d",
+	"fullscreen": "Lánscáileán",
+	"exit fullscreen": "Scoir lánscáileáin",
+	"open": "oscailte",
+	"request workset": "tacar oibre iarrata",
+	"review": "athbhreithniú",
+	"maintenance notice": "Tá lipéid Vicí á gcur síos le haghaidh cothabhála ar $1. Féach $2 le haghaidh tuilleadh eolais.",
+	"more-info": "(<a href=\"$1\">Tuilleadh eolais</a>)",
+	"session header": "Bhí $1 athbhreithniú ag an seisiún seo.",
+	"Revision number": "Uimhir athbhreithnithe $1"
+}

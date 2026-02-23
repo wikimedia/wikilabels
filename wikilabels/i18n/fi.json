@@ -7,11 +7,12 @@
 			"Pahkiqaz",
 			"Pyscowicz",
 			"Stryn",
+			"Yupik",
 			"Zache"
 		]
 	},
 	"'$1' not completed. Submit anyway?": "Kenttää \"$1\" ei täytetty. Haluatko jatkaa silti?",
-	"Abandon": "Jätä väliin",
+	"Abandon": "Ohita",
 	"Are you sure that you want to abandon this task?": "Oletko varma, että haluat ohittaa tämän tehtävän?",
 	"Campaigns": "Campaigns (<a href=\"$1\">tilastot</a>)",
 	"Can't save label. No task is selected!": "Etikettiä ei voida tallentaa. Tehtävää ei ole valittu!",

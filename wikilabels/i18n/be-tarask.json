@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Kareyac",
-			"Red Winged Duck"
+			"Red Winged Duck",
+			"Ucukor"
 		]
 	},
-	"'$1' not completed. Submit anyway?": "Поле «$1» не запоўненае. Даслаць усё адно?",
+	"'$1' not completed. Submit anyway?": "Поле «$1» не запоўненае. Даслаць так ці інакш?",
 	"Abandon": "Прапусьціць",
 	"Are you sure that you want to abandon this task?": "Вы ўпэўненыя, што хочаце перайсьці да наступнага заданьня?",
 	"Campaigns": "Кампаніі (<a href=\"$1\">статыстыка</a>)",

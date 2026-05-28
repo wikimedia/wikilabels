@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Belkacem77",
+			"ButterflyOfFire",
 			"Sayem AtVkm"
 		]
 	},
@@ -16,11 +17,15 @@
 	"No difference": "Ulac amgired",
 	"Request new workset": "Suter tagrumma n yifecka imaynuten",
 	"Review": "Aceggir",
+	"Save": "Sekles sakin uḍfir",
+	"Submit label": "Azen tabzimt",
 	"Workset": "Tagrumma n yifecka",
 	"connect to server": "Qqen ar uqedac",
+	"date-format": "%d-%m-%Y",
 	"fullscreen": "Agdil ačuran",
 	"exit fullscreen": "Ffeɣ seg ugdil ačuran",
 	"open": "Ldi",
 	"request workset": "Suter tagrumma n yifecka",
-	"review": "Aceggir"
+	"review": "Aceggir",
+	"more-info": "(<a href=\"$1\">Ugar n telɣut</a>)"
 }

@@ -10,7 +10,7 @@
 	"Are you sure that you want to abandon this task?": "Bent u zeker dat u wilt afzien van deze taak?",
 	"Campaigns": "Campagnes (<a href=\"$1\">statistieken</a>)",
 	"Can't save label. No task is selected!": "Het label kan niet opgeslagen worden. Er is geen taak geselecteerd.",
-	"Could not get metadata for revision $1": "De metadata voor versie $1 kon niet opgehaald worden. Door te klikken op de knop \"Overslaan\" kunt u deze taak overslaan.",
+	"Could not get metadata for revision $1": "De metagegevens voor versie $1 konden niet opgehaald worden. Door te klikken op de knop \"Overslaan\" kunt u deze taak overslaan.",
 	"Could not load form \"$1\": \n$2": "Het formulier \"$1\" kon niet geladen worden:\n$2",
 	"Could not load view \"$1\": $2\nUsing simple task viewer.": "De weergave \"$1\" kon niet geladen worden: $2\nHet eenvoudige taakoverzicht wordt gebruikt.",
 	"Could not load workset list: $1": "Het was niet mogelijk de werksetlijst te laden: $1",

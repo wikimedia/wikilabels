@@ -5,15 +5,25 @@
 			"شاه زمان پټان"
 		]
 	},
+	"'$1' not completed. Submit anyway?": "\"$1\" ډگر ډک نشو. خامخا يې وسپاري؟",
+	"Abandon": "له پامه غورځول",
+	"Are you sure that you want to abandon this task?": "ايا تاسو ډاډه یاست چې راتلونکې چارې ته ورتېرېدل غواړئ؟",
+	"Campaigns": "ټاکنيزو سياليو ي<a href=\"$1\">شمارنې</a>",
+	"Can't save label. No task is selected!": "نښکه نشي خوندي کېدای. هېڅ چاره ټاکل شوې نه ده!",
+	"Diff for revision $1": "د $1 بياليدنې توپير",
+	"No difference": "هېڅ توپير نشته",
 	"Request new workset": "نوې کارټولگه غوښتل",
 	"Review": "بياکتنه",
 	"Save": "خوندي‌کول او بل",
-	"Submit label": "لېبل سپارل",
+	"Submit label": "نښکه سپارل",
 	"Workset": "کارټولگه",
 	"Workset complete!": "کارټولگه بشپړ شوه!",
 	"connect to server": "پالنگر سره اړيکمنېدل",
 	"date-format": "%Y-%m-%d",
 	"fullscreen": "ډکه‌پرده",
+	"exit fullscreen": "بشپړې پردې څخه وتل",
 	"open": "پرانېستل",
-	"review": "بياکتنه"
+	"request workset": "کارټولگې غوښتنه",
+	"review": "بياکتنه",
+	"Revision number": "بياليدنې شمېره $1"
 }

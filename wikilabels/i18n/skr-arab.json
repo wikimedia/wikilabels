@@ -1,15 +1,26 @@
 {
 	"@metadata": {
 		"authors": [
-			"Saraiki"
+			"Saraiki",
+			"Tauqeerkhansurani"
 		]
 	},
+	"'$1' not completed. Submit anyway?": "\"$1\" خانہ نئیں بھریا ڳیا۔ این٘ویں جمع کرا ݙیو؟",
 	"Abandon": "چھوڑو",
+	"Are you sure that you want to abandon this task?": "آیا تساں اڳلے کم تے ونڄݨ چاہندے ہِوے؟",
+	"Campaigns": "مہمّاں (<a href=\"$1\">شماریات</a>)",
+	"Can't save label. No task is selected!": "لیبل محفوظ نئیں تھی سڳیا۔ کوئی کم منتخب نئیں تھیا!",
+	"Could not get metadata for revision $1": "نظرثانی $1 دا میٹا ڈیٹا نئیں حاصل تھی سڳیا۔ \"Skip\" بٹݨ تے کلک کر کے ایں کم کوں چھوڑ ݙیو",
+	"Could not load form \"$1\": \n$2": "فارم \"$1\" نئیں لوڈ تھی سڳیا:$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "منظر \"$1\" نئیں لوڈ تھی سڳیا: $2سادہ کم ویکھن آلا ورتیا ویندا پئے۔",
+	"Could not load workset list: $1": "کم دے سیٹ دی فہرست نئیں لوڈ تھی سڳی: $1",
+	"Could not parse MediaWiki API's response": "میڈیا ویکی اے پی آئی دا جواب نئیں سمجھیا ڳیا",
 	"Diff for revision $1": "فرق اعادہ $1 کیتے",
 	"No difference": "کوئی فرق کائنی",
 	"Request new workset": "نویں مڄموعہ کار کیتے ارداس",
 	"Review": "ولدا ݙیکھو",
 	"Save": "بچاؤ تے اڳوں تے",
+	"License": "ݙتے ڳئے سارے لیبل عوامی طور تے جاری کیتے ویسن تے CC0 — عوامی ڈومین دی شرائط دے تحت لائسنس ݙتے ویسن",
 	"Submit label": "لیبل روانہ کرو",
 	"Workset": "مجموعہ کار",
 	"Workset complete!": "مجموعہ کار مکمل!",
@@ -19,5 +30,9 @@
 	"exit fullscreen": "پوری سکرین توں نکلو",
 	"open": "کھولو",
 	"request workset": "ارداس مجموعہ کار",
-	"review": "ولدا ݙیکھو"
+	"review": "ولدا ݙیکھو",
+	"maintenance notice": "ویکی لیبل $1 کوں مرمت کیتے بند تھی ویسن۔ ودھیک معلومات کیتے $2 ݙیکھو۔",
+	"more-info": "(<a href=\"$1\">ودھیک معلومات</a>)",
+	"session header": "ایں سیشن اچ $1 نظرثانی(اں) ہَن۔",
+	"Revision number": "نظرثانی نمبر $1"
 }

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Panasko",
 			"Srdjan m",
 			"Srđan"
 		]
@@ -32,5 +33,7 @@
 	"request workset": "zatraži radni spisak",
 	"review": "pregledaj",
 	"maintenance notice": "Wikioznake neće biti dostupne $1 zbog održavanja.  Više informacija možete pronaći na $2.",
-	"more-info": "(<a href=\"$1\">Detaljnije</a>)"
+	"more-info": "(<a href=\"$1\">Detaljnije</a>)",
+	"session header": "Ova sesija je imala $1 reviziju(e).",
+	"Revision number": "Revizija broj $1"
 }
